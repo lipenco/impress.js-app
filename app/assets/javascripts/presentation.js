@@ -13,10 +13,12 @@ var getLayout = function() {
     layoutType = document.getElementById("linear").value;
   }
   else if (document.querySelector('#circle.active')) {
-    this.addEventListener('click', updatePreview, false);
+    layoutType = document.getElementById("circle").value;
   }
   return layoutType;
 };
 
 document.addEventListener('click', updatePreview, false);
+// document.getElementById('preview').focus();
+
 
