@@ -9,4 +9,13 @@
 <%= javascript_include_tag "impress" %>
 <%= javascript_include_tag "impress-layouts" %>
 
-<script> layoutVertical(); impress().init();</script>
+<script>
+  <% if @layout == "vertical" %>
+    layoutVertical();
+  <% elsif @layout == "linear" %>
+    layoutLinear();
+  <% elsif @layout == "circle" %>
+    layoutCircleV2();
+  <% end %>
+  impress().init();
+</script>

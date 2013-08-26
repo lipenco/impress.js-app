@@ -1,4 +1,20 @@
-<form>
-  <input type="text" id="num_slides"/>
-</form>
-<iframe src="/presentation?num_slides=" id="preview" />
+<div class="container">
+  <form>
+    <fieldset>
+      <legend>Set Your Presentation Up</legend>
+      <label>Label name</label>
+      <input type="text" id="num_slides" placeholder="Number of slides">
+      <label class="checkbox">
+        <input type="checkbox"> Circle slides
+      </label>
+      <label>What kind of layout do you want?</label>
+      <div class="btn-group" data-toggle="buttons-radio">
+        <button type="button" id="vertical" class="btn btn-primary" value="vertical">Vertical</button>
+        <button type="button" id="linear"  class="btn btn-primary" value="linear">Linear</button>
+        <button type="button" id="circle"  class="btn btn-primary" value="circle">Circle</button>
+      </div>
+    </fieldset>
+  </form>
+ 
+</div>
+<iframe src="/presentation" id="preview" />
