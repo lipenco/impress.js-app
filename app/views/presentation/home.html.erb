@@ -3,9 +3,15 @@
     <fieldset>
       <legend>Set Your Presentation Up</legend>
       <input type="text" id="num_slides" placeholder="Number of slides">
-      <label class="checkbox">
-        <input type="checkbox"> Circle slides
-      </label>
+      <label>Choose the slides shape?</label>
+        <div class="btn-group" data-toggle="buttons-radio">
+          <button type="button" id="circle" class="layout-button btn btn-primary" 
+          value="circle">Circle</button>
+          <button type="button" id="rectangle"  class="layout-button btn btn-primary" 
+          value="rectangle">Rectangle</button>
+       </div>
+
+
       <label>What kind of layout do you want?</label>
       <div class="btn-group" data-toggle="buttons-radio">
         <button type="button" id="vertical" class="layout-button btn btn-primary" 

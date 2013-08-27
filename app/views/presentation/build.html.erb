@@ -2,7 +2,13 @@
 
 <div id="impress">
     <% @num_slides.times do |n| %>
-        <div class="step slide">
+<div class="step 
+        <% if @shape == "rectangle" %>
+           slide                       
+        <% elsif @shape == "circle" %>
+           slide-circle
+        <% end %>
+        ">
             <h2>slide <%= n+1 %></h2>
         </div>
     <% end %>

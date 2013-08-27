@@ -1,7 +1,8 @@
 var updatePreview = function() {
   var layout = getLayout();
+  var shape = getShape();
   var num_slides = document.getElementById("num_slides").value;
-  document.getElementById("preview").src = "presentation?layout=" + layout + "&num_slides=" + num_slides;
+  document.getElementById("preview").src = "presentation?layout=" + layout + "&num_slides=" + num_slides + "&shape=" + shape;
 };
 
 var getLayout = function() {
@@ -18,3 +19,13 @@ var getLayout = function() {
   return layoutType;
 };
 
+var getShape = function() {
+  var shape = "rectangle";
+  if (document.querySelector('#circle.active')) {
+    shape = document.getElementById("circle").value;
+  }
+  else if (document.querySelector('#rectangle.active')) {
+    shape = document.getElementById("rectangle").value;
+  }
+  return shape;
+};
