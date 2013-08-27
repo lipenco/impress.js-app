@@ -21,19 +21,17 @@
     </div>
   </div>
 
-<div class="container">
-  <form>
-    <div class="row">
-      <div class="span3">
-        <legend>
-          Set Your Presentation Up
-        </legend>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+ 
+         <p> Set Your Presentation Up </p>
+   
         <input type="text" id="num_slides" placeholder="Number of slides">
-      </div>
-      <div class="span3">
-        <label>
-          Choose the slides shape?
-        </label>
+    
+       <p>Choose the slides shape </p>
+
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" id="circle" class="layout-button btn btn-primary" 
           value="circle">
@@ -44,11 +42,9 @@
             Rectangle
           </button>
         </div>
-      </div>
-      <div class="span4">
-        <label>
-          What kind of layout do you want?
-        </label>
+  
+         <p> What kind of layout do you want? </p>
+
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" id="vertical" class="layout-button btn btn-primary" 
           value="vertical">
@@ -63,8 +59,7 @@
             Circle
           </button>
         </div>
-      </div>
-      <div class="span4">
+  
         <label>
           What kind of theme do you want?
         </label>
@@ -78,8 +73,7 @@
             Textured
           </button>
         </div>
-      </div>
-      <div class="span3">
+ 
         <label>
           Do you want automatated presentation
         </label>
@@ -91,25 +85,33 @@
             No
           </button>
         </div>
-      </div>
-    </div>
-    
-    <div class="span6">
+
       <button id="generator" type="button" class="btn btn-large">
         Generate Presentation
       </button>
       <button id="download" type="button" class="btn btn-large">
         Download Zip
       </button>
-    </div>
-  </form>
-  
-  <script>
+
+   <script>
     var generator = document.getElementById('generator');
     generator.addEventListener('click', updatePreview, false);    
   </script>
+      </div>
+
+
+    <div class="span10">
+      <iframe src="/presentation" id="preview" />
+    </div>
+  </div>
+</div>
+
+
+ 
+  
+ 
   
 
-<iframe src="/presentation" id="preview" />
-</div>
+
+
 </body>
