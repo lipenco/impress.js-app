@@ -1,4 +1,11 @@
-
+<head>
+  <title>ImpressTitle</title>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Droid+Sans|Lato:400,900' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag "impress-theme2.css", :media => "all" %>
+</head>
+<body class="impress-supported">
 
 <div id="impress">
     <% @num_slides.times do |n| %>
@@ -44,3 +51,5 @@
   impress().init();
 </script>
 <script> var api = impress();</script>
+
+</body>
