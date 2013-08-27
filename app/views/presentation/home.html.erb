@@ -24,11 +24,13 @@
 
   <div class="container-fluid">
     <div class="row-fluid">
-      <div class="span2">
-         <p> Set Your Presentation Up </p>
+      <div class="span2 ">
+         <p class="controller">Number of slides </p>
         <input type="text" id="num_slides" placeholder="Number of slides">
-    
-       <p>Choose the slides shape </p>
+
+      <div class="separator"></div>
+
+       <p  class="controller">Choose the slides shape </p>
 
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" id="circle" class="layout-button btn btn-primary" 
@@ -40,8 +42,10 @@
             Rectangle
           </button>
         </div>
-  
-         <p> What kind of layout do you want? </p>
+
+       <div class="separator"></div>
+
+         <p  class="controller"> What kind of layout do you want? </p>
 
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" id="vertical" class="layout-button btn btn-primary" 
@@ -57,10 +61,11 @@
             Circle
           </button>
         </div>
+
+         <div class="separator"></div>
   
-        <label>
-          What kind of theme do you want?
-        </label>
+      <p class="controller">
+          What kind of theme do you want? </p>
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" id="basic" class="layout-button btn btn-primary" 
           value="basic">
@@ -71,10 +76,10 @@
             Textured
           </button>
         </div>
+
+         <div class="separator"></div>
  
-        <label>
-          Do you want automatated presentation
-        </label>
+     <p class="controller"> Do you want automatated presentation</p>
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" id="auto" class="layout-button btn btn-primary">
             Yes
@@ -83,13 +88,16 @@
             No
           </button>
         </div>
+         <div class="separator"></div>
 
       <button id="generator" type="button" class="btn btn-large">
-        Generate Presentation
+        Generate Preview
       </button>
+       <div class="separator"></div>
       <button id="download" type="button" class="btn btn-large">
         Download Zip
       </button>
+      <div class="separator"></div>
 
    <script>
     var generator = document.getElementById('generator');

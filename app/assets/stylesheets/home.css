@@ -2,12 +2,11 @@
 color: #333333;
 text-shadow: none;
 background-color: #fff;
-}
-
-body, input, select, textarea, button {
 font: 13px Helvetica, arial, freesans, clean, sans-serif;
 line-height: 1.4;
 }
+
+
 
 .header {
 height: 60px;
@@ -19,4 +18,28 @@ margin-bottom: 20px;
 #preview {
   width: 100%;
   height: 500px;
+}
+
+.controller {
+position: relative;
+padding: 8px 10px;
+margin: 5px 0;
+display: block;
+text-shadow: 0 1px 0 #fff;
+text-decoration: none;
+border-top: 1px solid transparent;
+outline: 0;
+color: #4183c4;
+font-size: 1.1em;
+}
+
+.separator {
+position: relative;
+display: block;
+margin: 8px 0 6px;
+height: 5px;
+background-image: -webkit-radial-gradient(left top, farthest-side, #f4f4f4, rgba(244,244,244,0));
+background-image: -moz-radial-gradient(left top, farthest-side, #f4f4f4, rgba(244,244,244,0));
+background-image: radial-gradient(farthest-side at left top, #f4f4f4, rgba(244,244,244,0));
+margin-left: 1px;
 }
