@@ -17,6 +17,22 @@
 <%= javascript_include_tag "impress" %>
 <%= javascript_include_tag "impress-layouts" %>
 
+
+
+ <% if @automated == "true" %>
+       <script>
+          document.addEventListener("impress:stepenter", function (e) {
+              var duration = 3000;
+              var timing = setTimeout(function() {
+              api.next()
+              }, duration);
+          }, false);
+          if (typeof timing !== "undefined") {
+              clearTimeout(timing);
+          }
+      </script>
+   <% end %>
+
 <script>
   <% if @layout == "vertical" %>
     layoutVertical();

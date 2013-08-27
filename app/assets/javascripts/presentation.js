@@ -1,8 +1,9 @@
 var updatePreview = function() {
+  var num_slides = document.getElementById("num_slides").value;
   var layout = getLayout();
   var shape = getShape();
-  var num_slides = document.getElementById("num_slides").value;
-  document.getElementById("preview").src = "presentation?layout=" + layout + "&num_slides=" + num_slides + "&shape=" + shape;
+  var automated = getAuto();
+  document.getElementById("preview").src = "presentation?layout=" + layout + "&num_slides=" + num_slides + "&shape=" + shape + "&automated=" + automated;
 };
 
 var getLayout = function() {
@@ -29,3 +30,11 @@ var getShape = function() {
   }
   return shape;
 };
+
+var getAuto = function () {
+  var automated = "false";
+  if (document.querySelector('#auto.active')) {
+    automated = "true";
+  }
+  return automated;
+}

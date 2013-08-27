@@ -1,36 +1,77 @@
 <div class="container">
   <form>
-    <fieldset>
-      <legend>Set Your Presentation Up</legend>
-      <input type="text" id="num_slides" placeholder="Number of slides">
-      <label>Choose the slides shape?</label>
+    <div class="row">
+      <div class="span3">
+        <legend>
+          Set Your Presentation Up
+        </legend>
+        <input type="text" id="num_slides" placeholder="Number of slides">
+      </div>
+      <div class="span3">
+        <label>
+          Choose the slides shape?
+        </label>
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" id="circle" class="layout-button btn btn-primary" 
-          value="circle">Circle</button>
+          value="circle">
+            Circle
+          </button>
           <button type="button" id="rectangle"  class="layout-button btn btn-primary" 
-          value="rectangle">Rectangle</button>
-       </div>
-
-
-      <label>What kind of layout do you want?</label>
-      <div class="btn-group" data-toggle="buttons-radio">
-        <button type="button" id="vertical" class="layout-button btn btn-primary" 
-        value="vertical">Vertical</button>
-        <button type="button" id="linear"  class="layout-button btn btn-primary" 
-        value="linear">Linear</button>
-        <button type="button" id="circle"  class="layout-button btn btn-primary" 
-        value="circle">Circle</button>
+          value="rectangle">
+            Rectangle
+          </button>
+        </div>
       </div>
-      <button id="generator" type="button"   class="btn btn-large">Generate Presentation</button>
-    </fieldset>
+      <div class="span4">
+        <label>
+          What kind of layout do you want?
+        </label>
+        <div class="btn-group" data-toggle="buttons-radio">
+          <button type="button" id="vertical" class="layout-button btn btn-primary" 
+          value="vertical">
+            Vertical
+          </button>
+          <button type="button" id="linear"  class="layout-button btn btn-primary" 
+          value="linear">
+            Linear
+          </button>
+          <button type="button" id="circle"  class="layout-button btn btn-primary" 
+          value="circle">
+            Circle
+          </button>
+        </div>
+      </div>
+      <div class="span3">
+        <label>
+          Do you want automatated presentation
+        </label>
+        <div class="btn-group" data-toggle="buttons-radio">
+          <button type="button" id="auto" class="layout-button btn btn-primary">
+            Yes
+          </button>
+          <button type="button" id="noauto"  class="layout-button btn btn-primary">
+            No
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="span6">
+      <button id="generator" type="button" class="btn btn-large">
+        Generate Presentation
+      </button>
+      <button id="download" type="button" class="btn btn-large">
+        Download Zip
+      </button>
+    </div>
   </form>
-
+  
   <script>
-  var generator = document.getElementById('generator');
-   generator.addEventListener('click', updatePreview, false);
-  document.getElementById('preview').focus();
-
+    var generator = document.getElementById('generator');
+    generator.addEventListener('click', updatePreview, false);
+    document.getElementById('preview').focus();
+    
   </script>
- 
+  
 </div>
 <iframe src="/presentation" id="preview" />
