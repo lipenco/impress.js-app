@@ -3,7 +3,8 @@ var updatePreview = function() {
   var layout = getLayout();
   var shape = getShape();
   var automated = getAuto();
-  document.getElementById("preview").src = "presentation?layout=" + layout + "&num_slides=" + num_slides + "&shape=" + shape + "&automated=" + automated;
+  var theme = getTheme();
+  document.getElementById("preview").src = "presentation?layout=" + layout + "&num_slides=" + num_slides + "&shape=" + shape + "&automated=" + automated + "&theme=" + theme;
 };
 
 var getLayout = function() {
@@ -38,3 +39,15 @@ var getAuto = function () {
   }
   return automated;
 }
+
+var getTheme = function () {
+  var theme = "basic";
+  if (document.querySelector('#textured.active')) {
+    theme = "textured";
+  }
+  return theme;
+}
+
+
+
+

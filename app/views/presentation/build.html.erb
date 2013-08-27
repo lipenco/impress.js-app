@@ -3,7 +3,13 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Droid+Sans|Lato:400,900' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag "impress-theme2.css", :media => "all" %>
+  
+  <% if @theme == "textured" %>
+    <%= stylesheet_link_tag "impress-theme2.css", :media => "all" %>
+  <% elsif @theme == "basic" %>
+   <%= stylesheet_link_tag "impress-theme1.css", :media => "all" %>
+  <% end %>
+
 </head>
 <body class="impress-supported">
 

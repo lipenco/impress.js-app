@@ -8,6 +8,8 @@ class PresentationController < ApplicationController
     @shape = params[:shape] if ["circle", "rectangle"].include?(params[:shape])
     @automated = "false"
     @automated = params[:automated] if ["false", "true"].include?(params[:automated])
+    @theme = "basic"
+    @theme = params[:theme] if ["basic", "textured"].include?(params[:theme])
   end
 
   def home
