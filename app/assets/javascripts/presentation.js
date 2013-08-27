@@ -18,7 +18,3 @@ var getLayout = function() {
   return layoutType;
 };
 
-document.addEventListener('click', updatePreview, false);
-// document.getElementById('preview').focus();
-
-

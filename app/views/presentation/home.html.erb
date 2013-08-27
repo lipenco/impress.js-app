@@ -2,7 +2,6 @@
   <form>
     <fieldset>
       <legend>Set Your Presentation Up</legend>
-      <label>Label name</label>
       <input type="text" id="num_slides" placeholder="Number of slides">
       <label class="checkbox">
         <input type="checkbox"> Circle slides
@@ -16,8 +15,16 @@
         <button type="button" id="circle"  class="layout-button btn btn-primary" 
         value="circle">Circle</button>
       </div>
+      <button id="generator" type="button"   class="btn btn-large">Generate Presentation</button>
     </fieldset>
   </form>
+
+  <script>
+  var generator = document.getElementById('generator');
+   generator.addEventListener('click', updatePreview, false);
+  document.getElementById('preview').focus();
+
+  </script>
  
 </div>
 <iframe src="/presentation" id="preview" />
