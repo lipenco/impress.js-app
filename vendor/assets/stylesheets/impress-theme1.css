@@ -218,7 +218,7 @@ th {
 .impress-enabled .step.active { opacity: 1 }
 
 
-.slide {
+.slide, .slide-circle {
     display: block;
     width: 900px;
     height: 700px;
@@ -236,47 +236,53 @@ th {
     z-index: 10000;
 }
 
-.slide q {
+.slide-circle {
+    border-radius: 50%;
+    height: 700px;
+    width: 700px;
+}
+
+.slide q, .slide-circle q {
     display: block;
     font-size: 50px;
     line-height: 72px;
     margin-top: 100px;
 }
 
-.slide q strong {
+.slide q strong, .slide-circle q strong {
     white-space: nowrap;
 }
 
-.slide h1 {
+.slide h1, .slide-circle h1{
     font-size: 3em;
     line-height: 1.2em;
     padding: 2em 0.5em;
 }
 
-.slide h2 {
+.slide h2, .slide-circle h2 {
     font-size: 2em;
     line-height: 1em;
     padding: 1em 0.5em;
 }
 
-.slide h3 {
+.slide h3, .slide-circle h3 {
     font-size: 1.7em;
     line-height: 1em;
     padding: 0.7em 0.5em;
 }
 
-.slide h4 {
+.slide h4, .slide-circle h4 {
     font-size: 1.3em;
     line-height: 1em;
     padding: 0.3em 0.5em;
 }
 
-.slide p, .slide li {
+.slide p, .slide li, .slide-circle li, .slide-circle p {
     font-size: 1em;
     line-height: 1.4em;
 }
 
-.slide .lead {
+.slide .lead, .slide-circle .lead {
     font-size: 1.2em;
 }
 
@@ -286,11 +292,11 @@ th {
     font-weight: lighter;
 }
 
-.slide table {
+.slide table .slide-circle table{
     font-size: 0.8em;
 }
 
-.slide a {
+.slide a, .slide-circle a {
     color: inherit;
     text-decoration: none;
     padding: 0 0.1em;
@@ -306,7 +312,7 @@ th {
 }
 
 .slide a:hover, 
-.slide a:focus {
+.slide a:focus, .slide-circle a:hover, .slide-circle a:focus {
     background: rgba(209,205,205,0.1);
     text-shadow: -1px -1px 2px rgba(100,100,100,0.5);
 }

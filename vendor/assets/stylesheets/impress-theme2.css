@@ -240,7 +240,7 @@ box-shadow: 0 2px 0 rgba(255,255,255,.2), inset 0 5px 6px rgba(0,0,0,.6), inset 
 
 .slide {
     display: block;
-    width: 600px;
+    width: 800px;
     height: 600px;
     border: 2px dashed rgba(0, 0, 0, .3);
     border-radius: 10px;

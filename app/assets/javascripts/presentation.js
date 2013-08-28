@@ -36,6 +36,9 @@ var getShape = function() {
   else if (document.querySelector('#rectangle.active')) {
     shape = document.getElementById("rectangle").value;
   }
+  else if (document.querySelector('#blank.active')) {
+    shape = document.getElementById("blank").value;
+  }
   return shape;
 };
 

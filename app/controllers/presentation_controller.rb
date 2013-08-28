@@ -5,7 +5,7 @@ class PresentationController < ApplicationController
     @layout = "vertical"
     @layout = params[:layout] if ["vertical", "linear", "circle"].include?(params[:layout])
     @shape = "rectangle"
-    @shape = params[:shape] if ["circle", "rectangle"].include?(params[:shape])
+    @shape = params[:shape] if ["circle", "rectangle", "blank"].include?(params[:shape])
     @automated = "false"
     @automated = params[:automated] if ["false", "true"].include?(params[:automated])
     @theme = "basic"
