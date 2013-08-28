@@ -10,6 +10,8 @@ class PresentationController < ApplicationController
     @automated = params[:automated] if ["false", "true"].include?(params[:automated])
     @theme = "basic"
     @theme = params[:theme] if ["basic", "textured"].include?(params[:theme])
+    @substeps = "false"
+    @substeps = params[:substeps] if ["false", "true"].include?(params[:substeps])
   end
 
   def home

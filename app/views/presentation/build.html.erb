@@ -24,10 +24,6 @@
     <% end %>
 </div>
 
-<%= javascript_include_tag "impress" %>
-<%= javascript_include_tag "navigation" %>
-<%= javascript_include_tag "impress-layouts" %>
-
 
 
  <% if @automated == "true" %>
@@ -43,6 +39,18 @@
           }
       </script>
    <% end %>
+
+
+ <% if @substeps == "true" %>
+   <%= javascript_include_tag "substeps.js" %>
+   <%= javascript_include_tag "navigation-substeps.js" %>
+ <% elsif @substeps == "linear" %>
+   <%= javascript_include_tag "navigation" %>
+ <% end %>
+
+
+<%= javascript_include_tag "impress" %>
+<%= javascript_include_tag "impress-layouts" %>
 
 <script>
   <% if @layout == "vertical" %>

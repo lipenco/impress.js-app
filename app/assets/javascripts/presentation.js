@@ -4,7 +4,14 @@ var updatePreview = function() {
   var shape = getShape();
   var automated = getAuto();
   var theme = getTheme();
-  document.getElementById("preview").src = "presentation?layout=" + layout + "&num_slides=" + num_slides + "&shape=" + shape + "&automated=" + automated + "&theme=" + theme;
+  var substeps = getSubsteps();
+  document.getElementById("preview").src = 
+  "presentation?layout=" + layout + 
+  "&num_slides=" + num_slides + 
+  "&shape=" + shape + 
+  "&automated=" + automated + 
+  "&theme=" + theme +
+  "&substeps=" + substeps;
 };
 
 var getLayout = function() {
@@ -48,6 +55,13 @@ var getTheme = function () {
   return theme;
 }
 
+var getSubsteps = function () {
+  var substeps = "false";
+  if (document.querySelector('#substeps.active')) {
+    substeps = "true";
+  }
+  return substeps;
+}
 
 
 
