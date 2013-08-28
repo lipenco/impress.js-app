@@ -44,30 +44,31 @@
 <%= javascript_include_tag "impress-layouts" %>
 
 <script>
-  <% if @layout == "vertical" %>
-    layoutVertical();
-  <% elsif @layout == "linear" %>
-    layoutLinear();
-  <% elsif @layout == "circlev1" %>
-    layoutCircleV1({radius: 1500 });
-  <% elsif @layout == "circlev2" %>
-    layoutCircleV2({radius: 1500 });
-  <% elsif @layout == "circlev3" %>
-    layoutCircleV3({radius: 1500 });
-  <% elsif @layout == "circlev4" %>
-    layoutCircleV4({radius: 1500 });
-  <% elsif @layout == "deep" %>
-    layoutDeep();
-  <% elsif @layout == "chain" %>
-    layoutChain({distance: 1000});
-  <% elsif @layout == "lineargrid" %>
-    layoutLinearGrid({numberOfColumns: 4, distanceX: 4});
-  <% elsif @layout == "snakegrid" %>
-    layoutSnakeGrid({numberOfColumns: 4});
-  <% elsif @layout == "verticalgrid" %>
-    layoutVerticalGrid({numberOfColumns: 4});
-  <% end %>
-  impress().init();
+   <% case params[:layout] 
+      when "vertical" %>
+       layoutVertical();
+   <% when "linear" %>
+       layoutLinear();
+   <% when "circlev1" %>
+       layoutCircleV1({radius: 1500 });
+   <% when "circlev2" %>
+       layoutCircleV2({radius: 1500 });
+   <% when "circlev3" %>
+       layoutCircleV3({radius: 1500 });
+   <% when "circlev4" %>
+       layoutCircleV4({radius: 1500 });
+   <% when "deep" %>
+       layoutDeep();
+   <% when "chain" %>
+       layoutChain({distance: 1000});
+   <% when "lineargrid" %>
+       layoutLinearGrid({numberOfColumns: 4, distanceX: 4});
+   <% when "snakegrid" %>
+       layoutSnakeGrid({numberOfColumns: 4});
+   <% when "verticalgrid" %>
+      layoutVerticalGrid({numberOfColumns: 4});
+   <% end %>
+      impress().init();
 </script>
 
 <script> var api = impress();</script>
