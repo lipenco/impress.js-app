@@ -98,8 +98,8 @@ function layoutLinearGrid(options) {
     var distanceX = options.distanceX;
     var distanceY = options.distanceY;
     var elements = document.querySelectorAll(".step");
-    var positionX = 100;
-    var positionY = 100;
+    var positionX = 0;
+    var positionY = 0;
     if (!distanceX || distanceX < 900) {
         options.distanceX = 1500;
     }
@@ -114,7 +114,7 @@ function layoutLinearGrid(options) {
         elements[index].dataset.y = positionY;
         if ((index + 1) % numberOfColumns === 0) {
             positionY = positionY + distanceY;
-            positionX = 100;
+            positionX = 0;
         } else {
             positionX = positionX + distanceX;
         }
@@ -170,15 +170,16 @@ function layoutVerticalGrid(options) {
     var elements = document.querySelectorAll(".step");
     var positionX = 100;
     var positionY = 100;
+    if (!numberOfColumns || numberOfColumns < 1) {
+        numberOfColumns = 5;
+    }
     if (!distanceX || distanceX < 900) {
         distanceX = 1500;
     }
     if (!distanceY || distanceY < 700) {
         distanceY = 1000;
     }
-    if (!numberOfColumns || numberOfColumns < 1) {
-        numberOfColumns = 5;
-    }
+   
     for (var index = 0; index < elements.length; index++) {
         elements[index].dataset.x = positionX;
         elements[index].dataset.y = positionY;
