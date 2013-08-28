@@ -33,14 +33,15 @@
        <p  class="controller">Choose the slides shape </p>
 
         <div class="btn-group" data-toggle="buttons-radio">
+           <button type="button" id="rectangle"  class="active layout-button btn btn-primary" 
+          value="rectangle">
+            Rectangle
+          </button>
           <button type="button" id="circle" class="layout-button btn btn-primary" 
           value="circle">
             Circle
           </button>
-          <button type="button" id="rectangle"  class="layout-button btn btn-primary" 
-          value="rectangle">
-            Rectangle
-          </button>
+         
         </div>
 
        <div class="separator"></div>
@@ -48,7 +49,7 @@
          <p  class="controller"> What kind of layout do you want? </p>
 
         <div class="btn-group" data-toggle="buttons-radio">
-          <button type="button" id="vertical" class="layout-button btn btn-primary" 
+          <button type="button" id="vertical" class="active layout-button btn btn-primary" 
           value="vertical">
             Vertical
           </button>
@@ -67,7 +68,7 @@
       <p class="controller">
           What kind of theme do you want? </p>
         <div class="btn-group" data-toggle="buttons-radio">
-          <button type="button" id="basic" class="layout-button btn btn-primary" 
+          <button type="button" id="basic" class="active layout-button btn btn-primary" 
           value="basic">
             Basic
           </button>
@@ -81,22 +82,23 @@
  
      <p class="controller"> Do you want automatated presentation</p>
         <div class="btn-group" data-toggle="buttons-radio">
-          <button type="button" id="auto" class="layout-button btn btn-primary">
-            Yes
-          </button>
-          <button type="button" id="noauto"  class="layout-button btn btn-primary">
+           <button type="button" id="noauto"  class="active layout-button btn btn-primary">
             No
           </button>
+          <button type="button" id="auto" class="layout-button btn btn-primary">
+            Yes
+          </button>        
         </div>
    <div class="separator"></div>
         <p class="controller">Do you want tu use substeps?</p>
       <div class="btn-group" data-toggle="buttons-radio">
+      <button type="button" id="nosubsteps"  class="active layout-button btn btn-primary">
+          No
+        </button>
         <button type="button" id="substeps" class="layout-button btn btn-primary">
           Yes
         </button>
-        <button type="button" id="nosubsteps"  class="layout-button btn btn-primary">
-          No
-        </button>
+        
       </div>
          <div class="separator"></div>
 
