@@ -17,6 +17,17 @@ height: 40px;
 #preview {
   width: 100%;
   height: 600px;
+  border-radius: 15px;
+  -webkit-transition: border linear 0.2s,box-shadow linear 0.2s;
+-moz-transition: border linear 0.2s,box-shadow linear 0.2s;
+-ms-transition: border linear 0.2s,box-shadow linear 0.2s;
+-o-transition: border linear 0.2s,box-shadow linear 0.2s;
+transition: border linear 0.2s,box-shadow linear 0.2s;
+}
+
+#preview:focus {
+  border: 3px solid;
+  border-color:rgba(237,29,137,0.8);
 }
 
 .controller {
