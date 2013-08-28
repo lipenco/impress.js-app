@@ -18,19 +18,55 @@ var updatePreview = function() {
   "&substeps=" + substeps;
 };
 
+
+//   switch () {
+// case "vertical":
+//   layoutType = document.getElementById("vertical").value;
+//   break;
+// case "linear"):
+//   layoutType = document.getElementById("linear").value;
+//   break;
+// case "circlev1":
+//   layoutType = document.getElementById("circlev1").value;
+//   break;
+// case "circlev2":
+//   layoutType = document.getElementById("circlev2").value;
+//   break;
+// case "circlev3":
+//   layoutType = document.getElementById("circlev3").value;
+//   break;
+// case "circlev4":
+//   layoutType = document.getElementById("circlev4").value;
+//   break;
+// case "chain":
+//   layoutType = document.getElementById("chain").value;
+//   break;
+// case "deep":
+//   layoutType = document.getElementById("deep").value;
+//   break;
+// case "snakegrid":
+//   layoutType = document.getElementById("snakegrid").value;
+//   break;
+// case "verticalgrid":
+//   layoutType = document.getElementById("verticalgrid").value;
+//   break;
+// }
+// return layoutType;
+
 var getLayout = function() {
-  var layoutType = "vertical";
+  var layoutType = "vertical"
   if (document.querySelector('#vertical.active')) {
     layoutType = document.getElementById("vertical").value;
   }
   else if (document.querySelector('#linear.active')) {
     layoutType = document.getElementById("linear").value;
   }
-  else if (document.querySelector('#circle.active')) {
-    layoutType = document.getElementById("circle").value;
+  else if (document.querySelector('#circlev2.active')) {
+    layoutType = document.getElementById("circlev2").value;
   }
   return layoutType;
-};
+}
+
 
 var getNumber = function () {
   var num_sildes = document.getElementById("num_slides").value;
@@ -82,5 +118,7 @@ var setFocusOnIframe = function () {
   var iframe = $("#preview")[0];
     iframe.contentWindow.focus();
 }
+
+
 
 

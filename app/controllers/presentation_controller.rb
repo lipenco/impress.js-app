@@ -3,7 +3,7 @@ class PresentationController < ApplicationController
     @num_slides = 0
     @num_slides = params[:num_slides].to_i if params[:num_slides].to_i > 0
     @layout = "vertical"
-    @layout = params[:layout] if ["vertical", "linear", "circle"].include?(params[:layout])
+    @layout = params[:layout] if ["vertical", "linear", "circlev1", "circlev2", "circlev3", "circlev4", "chain", "lineargrid", "snakegrid", "verticalgrid", "deep"].include?(params[:layout])
     @shape = "rectangle"
     @shape = params[:shape] if ["circle", "rectangle", "blank"].include?(params[:shape])
     @automated = "false"

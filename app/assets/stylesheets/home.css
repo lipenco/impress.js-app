@@ -19,6 +19,11 @@ height: 40px;
   left: 0;
 }
 
+.layout-btn {
+  width: 100px;
+  height: 40px
+}
+
 
 
 #preview {
