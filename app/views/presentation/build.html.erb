@@ -25,29 +25,20 @@
 </div>
 
 
-
- <% if @automated == "true" %>
-       <script>
-          document.addEventListener("impress:stepenter", function (e) {
-              var duration = 3000;
-              var timing = setTimeout(function() {
-              api.next()
-              }, duration);
-          }, false);
-          if (typeof timing !== "undefined") {
-              clearTimeout(timing);
-          }
-      </script>
-   <% end %>
-
-
  <% if @substeps == "true" %>
    <%= javascript_include_tag "substeps.js" %>
    <%= javascript_include_tag "navigation-substeps.js" %>
- <% elsif @substeps == "linear" %>
+ <% elsif @substeps == "false" %>
    <%= javascript_include_tag "navigation" %>
  <% end %>
 
+ <% if @automated == "true" && @substeps == "true" %>
+   <%= javascript_include_tag "automated-substeps.js" %>
+   <script> automatedPresentationWithSubsteps(); </script>
+ <% elsif @automated == "true" && @substeps == "false" %>
+   <%= javascript_include_tag "automated.js" %>
+   <script> automatedPresentation(); </script>
+ <% end %>
 
 <%= javascript_include_tag "impress" %>
 <%= javascript_include_tag "impress-layouts" %>
@@ -62,6 +53,7 @@
   <% end %>
   impress().init();
 </script>
+
 <script> var api = impress();</script>
 
 </body>
