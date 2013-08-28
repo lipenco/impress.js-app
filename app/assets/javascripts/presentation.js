@@ -1,5 +1,5 @@
 var updatePreview = function() {
-  var num_slides = document.getElementById("num_slides").value;
+  var num_slides = getNumber();
   var layout = getLayout();
   var shape = getShape();
   var automated = getAuto();
@@ -26,6 +26,14 @@ var getLayout = function() {
     layoutType = document.getElementById("circle").value;
   }
   return layoutType;
+};
+
+var getNumber = function () {
+  var num_sildes = document.getElementById("num_slides").value;
+  if (!num_sildes) {
+    num_sildes = "6";
+  };
+  return num_sildes;
 };
 
 var getShape = function() {

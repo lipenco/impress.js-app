@@ -12,6 +12,13 @@ line-height: 1.4;
 height: 40px;
 }
 
+.icon-logo {
+  width: 30px;
+  position: fixed;
+  top:0;
+  left: 0;
+}
+
 
 
 #preview {
