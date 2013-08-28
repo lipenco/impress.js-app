@@ -27,6 +27,9 @@
       <div class="span2 ">
          <p class="controller">Number of slides </p>
         <input class="input-mini" type="text" id="num_slides" placeholder="number">
+         <button type="button" class="layout-button btn btn-primary">
+            Set Number
+          </button>
 
       <div class="separator"></div>
 
@@ -106,9 +109,6 @@
       </div>
          <div class="separator"></div>
 
-      <button id="generator" type="button" class="btn btn-large">
-        Generate Preview
-      </button>
        <div class="separator"></div>
       <button id="download" type="button" class="btn btn-large">
         Download Zip
@@ -116,8 +116,8 @@
       <div class="separator"></div>
 
    <script>
-    var generator = document.getElementById('generator');
-    generator.addEventListener('click', updatePreview, false);    
+    document.addEventListener('click', updatePreview, false);  
+    document.addEventListener('keydown', setFocusOnIframe, false);   
   </script>
       </div>
 

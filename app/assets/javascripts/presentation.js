@@ -74,5 +74,9 @@ var getSubsteps = function () {
   return substeps;
 }
 
+var setFocusOnIframe = function () {
+  var iframe = $("#preview")[0];
+    iframe.contentWindow.focus();
+}
 
 
