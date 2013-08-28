@@ -1,3 +1,7 @@
+$(document).ready(function() {
+    updatePreview();
+});
+
 var updatePreview = function() {
   var num_slides = getNumber();
   var layout = getLayout();
