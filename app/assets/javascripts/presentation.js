@@ -61,7 +61,7 @@ var getLayout = function() {
 var getNumber = function () {
   var num_sildes = document.getElementById("num_slides").value;
   if (!num_sildes) {
-    num_sildes = "6";
+    num_sildes = "9";
   };
   return num_sildes;
 };
