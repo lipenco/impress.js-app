@@ -1,3 +1,10 @@
+<head>
+  <title>ImpressJsApp</title>
+  <%= stylesheet_link_tag  "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
 
 <body class="home">
   <div class="header">
@@ -133,7 +140,7 @@
       <p class="controller">
           Do you need progress bar? </p>
         <div class="btn-group" data-toggle="buttons-radio">
-          <button type="button" id="no-pbar" class="active  btn btn-primary" 
+          <button type="button" id="no-pbar" class="active btn btn-primary" 
           value="no-pbar">
             No
           </button>

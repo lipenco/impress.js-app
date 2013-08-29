@@ -1,5 +1,8 @@
 function layoutCircleV1(options) {
-    var radius = options.radius;
+    var radius;
+    if (options != undefined) {
+        radius = options.radius;
+    }
     var elements = document.querySelectorAll(".step");
     if (!radius || radius < 900) {
         radius = 1024 / (2 * Math.tan(Math.PI / elements.length));
@@ -18,7 +21,10 @@ function layoutCircleV1(options) {
 }
 
 function layoutCircleV2(options) {
-    var radius = options.radius;
+    var radius;
+    if (options != undefined) {
+        radius = options.radius;
+    }
     var elements = document.querySelectorAll(".step");
     if (!radius || radius < 900) {
         radius = 1024 / (2 * Math.tan(Math.PI / elements.length));
@@ -37,10 +43,13 @@ function layoutCircleV2(options) {
 }
 
 function layoutCircleV3(options) {
-    var radius = options.radius;
+    var radius;
+    if (options != undefined) {
+        radius = options.radius;
+    }
     var elements = document.querySelectorAll(".step");
     if (!radius || radius < 900) {
-        radius = 1024 / (2 * Math.tan(Math.PI / elements.length));
+        radius = 1024 / (2 * Math.tan(Math.PI /(elements.length + 2)));
     }
     var r = radius;
     for (var i = 0; i < elements.length; i++) {
@@ -55,10 +64,13 @@ function layoutCircleV3(options) {
 }
 
 function layoutCircleV4(options) {
-    var radius = options.radius;
+    var radius;
+    if (options != undefined) {
+        radius = options.radius;
+    }
     var elements = document.querySelectorAll(".step");
     if (!radius || radius < 900) {
-        radius = 1024 / (2 * Math.tan(Math.PI / elements.length));
+        radius = 1024 / (2 * Math.tan(Math.PI / (elements.length +10) ));
     }
     var r = radius;
     for (var i = 0; i < elements.length; i++) {
@@ -74,11 +86,14 @@ function layoutCircleV4(options) {
 }
 
 function layoutChain(options) {
-    var distance = options.distance;
+    var distance;
+    if (options != undefined) {
+        distance = options.distance;
+    }
     var elements = document.querySelectorAll(".step");
     var positionX = 0;
     if (!distance || distance < 700) {
-        distance = 700;
+        distance = 800;
     }
     for (var i = 0; i < elements.length; i++) {
         var phi = -i / (elements.length) * 2 * Math.PI;
@@ -91,12 +106,15 @@ function layoutChain(options) {
 }
 
 
-
-
 function layoutLinearGrid(options) {
-    var numberOfColumns = options.numberOfColumns;
-    var distanceX = options.distanceX;
-    var distanceY = options.distanceY;
+    var numberOfColumns;
+    var distanceX;
+    var distanceY;
+    if (options != undefined) {
+        numberOfColumns = options.numberOfColumns;
+        distanceX = options.distanceX;
+        distanceY = options.distanceY;
+    }  
     var elements = document.querySelectorAll(".step");
     var positionX = 0;
     var positionY = 0;
@@ -124,9 +142,14 @@ function layoutLinearGrid(options) {
 
 
 function layoutSnakeGrid(options) {
-    var numberOfColumns = options.numberOfColumns;
-    var distanceX = options.distanceX;
-    var distanceY = options.distanceY;
+    var numberOfColumns;
+    var distanceX;
+    var distanceY;
+    if (options != undefined) {
+        numberOfColumns = options.numberOfColumns;
+        distanceX = options.distanceX;
+        distanceY = options.distanceY;
+    } 
     var elements = document.querySelectorAll(".step");
     var positionX = 100;
     var positionY = 100;
@@ -164,9 +187,14 @@ function layoutSnakeGrid(options) {
 
 
 function layoutVerticalGrid(options) {
-    var numberOfColumns = options.numberOfColumns;
-    var distanceX = options.distanceX;
-    var distanceY = options.distanceY;
+    var numberOfColumns;
+    var distanceX;
+    var distanceY;
+    if (options != undefined) {
+        numberOfColumns = options.numberOfColumns;
+        distanceX = options.distanceX;
+        distanceY = options.distanceY;
+    } 
     var elements = document.querySelectorAll(".step");
     var positionX = 100;
     var positionY = 100;

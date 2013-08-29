@@ -11,6 +11,7 @@ var updatePreview = function() {
   var theme = getTheme();
   var substeps = getSubsteps();
   var progress_bar = getProgressBar();
+  if (document.getElementById("preview") !== null) {
   document.getElementById("preview").src = 
   "presentation?layout=" + layout + 
   "&num_slides=" + num_slides + 
@@ -19,6 +20,7 @@ var updatePreview = function() {
   "&theme=" + theme +
   "&substeps=" + substeps +
   "&progress_bar=" + progress_bar;
+   }
 };
 
 
@@ -112,6 +114,7 @@ var getProgressBar = function () {
   if (document.querySelector('#pbar1.active')) {
     progress_bar = document.getElementById("pbar1").value;
   }
+  return progress_bar;
 }
 
 var setFocusOnIframe = function () {

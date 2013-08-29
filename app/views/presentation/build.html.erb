@@ -1,20 +1,20 @@
 <head>
   <title>ImpressTitle</title>
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Droid+Sans|Lato:400,900' rel='stylesheet' type='text/css'>
-    <% if @progress_bar == "pbar1" %>
-     <%= stylesheet_link_tag "progressbar.css", :media => "all" %>
-  <% end %>
+  
   <% if @theme == "textured" %>
     <%= stylesheet_link_tag "impress-theme2.css", :media => "all" %>
   <% elsif @theme == "basic" %>
    <%= stylesheet_link_tag "impress-theme1.css", :media => "all" %>
+  <% end %>
+  <% if @progress_bar == "pbar1" %>
+     <%= stylesheet_link_tag "progressbar.css", :media => "all" %>
   <% end %>
 </head>
 
 <body class="impress-supported">
 
 <div id="impress">
-
 
 
   <% @num_slides.times do |n| %>
@@ -98,10 +98,8 @@
       <% end %>
 
   <% if @progress_bar == "pbar1" %>
-     <footer> 
         <div class="progressbar"><div></div></div>
         <div class="progress"></div>
-    </footer>
   <% end %>
 
 </div>
@@ -137,23 +135,23 @@
    <% when "linear" %>
        layoutLinear();
    <% when "circlev1" %>
-       layoutCircleV1({radius: 1500 });
+       layoutCircleV1();
    <% when "circlev2" %>
-       layoutCircleV2({radius: 1500 });
+       layoutCircleV2();
    <% when "circlev3" %>
-       layoutCircleV3({radius: 1500 });
+       layoutCircleV3();
    <% when "circlev4" %>
-       layoutCircleV4({radius: 1500 });
+       layoutCircleV4();
    <% when "deep" %>
        layoutDeep();
    <% when "chain" %>
-       layoutChain({distance: 1000});
+       layoutChain();
    <% when "lineargrid" %>
-       layoutLinearGrid({numberOfColumns: 4, distanceX: 4});
+       layoutLinearGrid();
    <% when "snakegrid" %>
-       layoutSnakeGrid({numberOfColumns: 4});
+       layoutSnakeGrid();
    <% when "verticalgrid" %>
-      layoutVerticalGrid({numberOfColumns: 4});
+      layoutVerticalGrid();
    <% end %>
       impress().init();
 </script>
