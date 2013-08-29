@@ -1,5 +1,6 @@
 $(document).ready(function() {
     updatePreview();
+    addSlide();
 });
 
 var updatePreview = function() {
@@ -109,6 +110,19 @@ var setFocusOnIframe = function () {
     iframe.contentWindow.focus();
 }
 
+var addSlide = function() {
+  var counter = parseInt($("#num_slides").val()) || 9;
+  $("#addslide").click(function(){
+    counter++;
+    $("#num_slides").val(counter);
+    $("#num_slides").text(counter);
+  });
+  $("#decrement_slide").click(function(){
+    counter--;
+    $("#num_slides").val(counter);
+    $("#num_slides").text(counter);
+  });
+}
 
 
 
