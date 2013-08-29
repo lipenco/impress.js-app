@@ -1,7 +1,9 @@
 <head>
   <title>ImpressTitle</title>
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Droid+Sans|Lato:400,900' rel='stylesheet' type='text/css'>
-  
+  <% if @substeps == "true" %>
+    <%= stylesheet_link_tag "substeps.css", :media => "all" %>
+  <% end %>
   <% if @theme == "textured" %>
     <%= stylesheet_link_tag "impress-theme2.css", :media => "all" %>
   <% elsif @theme == "basic" %>
@@ -49,11 +51,14 @@
           <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, <a href="#">sed do eiusmod</a> tempor incididunt ut labore et dolore magna aliqua.</p> 
           <p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut <a href="#">aliquip ex</a> ea commodo consequat. </p>
          </div>
-        <% elsif n == 4 %>
-          <h2>This is h2 </h2>
-          <h3>This is h3 </h3>
-          <p class="lead">This is lead. This is lead. This is lead. This is lead.</p>
-          <p>This is just text. This is just text.</p>
+        <% elsif n == 4 && @substeps == "true"  %>
+         <h2>This is h2 </h2>
+            <p class="substep fadeIn" data-duration="1000"> Substep fadeIn </p>
+            <p class="substep fadeInRight" data-duration="2000"> Substep fadeInRight</p>
+            <p class="substep fadeInLeft" data-duration="3000"> Substep  fadeInLeft</p>
+            <p class="substep rollIn" data-duration="4000"> Substep rollIn </p>
+            <p class="substep flipInX" data-duration="5000"> Substep flipInX </p>
+            <p class="substep flipInY" data-duration="1000"> Substep flipInY</p> 
          </div>
         <% elsif n == 5 %>
           <blockquote>

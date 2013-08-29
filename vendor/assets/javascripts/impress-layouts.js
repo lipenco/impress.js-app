@@ -277,7 +277,7 @@ function layoutVertical(distanceY) {
 function layoutDeep(distanceZ) {
     var elements = document.querySelectorAll(".step");
     if (!distanceZ || distanceZ < 900) {
-        distanceZ = 1000;
+        distanceZ = 2000;
     }
     elements[0].dataset.z = 0; 
     MoveElementsFromEachOtherZ(distanceZ, elements);
