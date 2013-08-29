@@ -240,20 +240,20 @@ box-shadow: 0 2px 0 rgba(255,255,255,.2), inset 0 5px 6px rgba(0,0,0,.6), inset 
 
 .slide {
     display: block;
-    width: 800px;
-    height: 600px;
+    width: 900px;
+    height: 700px;
     border: 2px dashed rgba(0, 0, 0, .3);
     border-radius: 10px;
     padding: 40px;
     box-shadow:  0 2px 6px rgba(0, 0, 0, .1);
-    background-image: url('/assets/blank55.png');
+    background-image: url('/assets/blank55.jpg');
    
 }
 
 
 .slide-circle { 
-   width: 700px;
-   height: 700px;
+   width: 750px;
+   height: 750px;
    padding: 110px;
    -moz-border-radius: 100%; 
    -webkit-border-radius: 100%; 
@@ -261,6 +261,59 @@ box-shadow: 0 2px 0 rgba(255,255,255,.2), inset 0 5px 6px rgba(0,0,0,.6), inset 
    background: url('/assets/blank44.png');
    border: 2px dashed rgba(0, 0, 0, .3);
 }
+
+table {
+    border-collapse: collapse;
+    font-size: 1.4em;
+    margin: auto;
+    width: 80%;
+
+}
+
+th {
+    font-weight: 600;
+    text-align: left;
+}
+
+td,
+th {
+    border: 2px solid rgb(142, 148, 145);
+    padding: 3% 5%;
+    vertical-align: top;
+}
+
+.grey {
+    color: #8f8f8f;
+}
+
+.orange {
+    color: #c99a4a;
+}
+
+.red{
+    color: #a74240;
+}
+
+.blue {
+    color: #2d6987;
+}
+
+.green {
+      color: #468858;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
 
 
 

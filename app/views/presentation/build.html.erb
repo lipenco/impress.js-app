@@ -9,19 +9,90 @@
 </head>
 
 <body class="impress-supported">
-  
+
 <div id="impress">
-    <% @num_slides.times do |n| %>
-<div class="step 
-        <% if @shape == "rectangle" %>
-           slide                       
-        <% elsif @shape == "circle" %>
+  <% @num_slides.times do |n| %>
+    
+    <div class="step 
+      <% if @shape == "rectangle" %>
+        slide                       
+       <% elsif @shape == "circle" %>
            slide-circle
         <% end %>
         ">
-            <h2>slide <%= n+1 %></h2>
+        <% if n == 0 %>
+          <h1>Example Title</h1>
         </div>
-    <% end %>
+        <% elsif n == 1 %>
+          <h2>Agenda</h2>
+          <ol>
+          <li>Lorem ipsum dolor</li>
+          <li>Lorem ipsum dolor</li>
+          <li>Lorem ipsum dolor</li>
+          <li>Lorem ipsum dolor </li>
+          </ol>
+        </div>
+        <% elsif n == 2 %>
+          <h2>Good to know</h2>
+          <ul>
+          <li>Lorem ipsum dolor</li>
+          <li>Lorem ipsum dolor</li>
+          <li>Lorem ipsum dolor</li>
+          <li>Lorem ipsum dolor </li>
+          </ul>
+        </div>
+         <% elsif n == 3 %>
+          <h2>Paragraph</h2>
+          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, <a href="#">sed do eiusmod</a> tempor incididunt ut labore et dolore magna aliqua.</p> 
+          <p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut <a href="#">aliquip ex</a> ea commodo consequat. </p>
+         </div>
+        <% elsif n == 4 %>
+          <h2>This is h2 </h2>
+          <h3>This is h3 </h3>
+          <p class="lead">This is lead. This is lead. This is lead. This is lead.</p>
+          <p>This is just text. This is just text.</p>
+         </div>
+        <% elsif n == 5 %>
+          <blockquote>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget leo nunc, nec tempus mi? Curabitur id nisl mi, ut vulputate urna. Quisque porta facilisis tortor, vitae bibendum!
+          <cite>Somebody famous</cite>
+          </blockquote>
+         </div>
+        <% elsif n == 6 %>
+          <h2>This is a table</h2>
+          <table>
+          <tr>
+          <th>Key</th><th>Value</th>
+          </tr>
+          <tr>
+          <td>ACT</td><td>Australian Capital Territory</td>
+          </tr>
+          <tr>
+          <td>NSW</td><td>New South Wales</td>
+          </tr>
+          <tr>
+          <td>NT</td><td>Northern Territory</td>
+          </tr>
+          </table>
+        </div>
+        <% elsif n == 7 %>
+          <p class="lead">This is lead. This is lead. This is lead. This is lead.</p>
+          <p class="text-left">Left aligned text.</p>
+          <p class="text-center">Center aligned text.</p>
+          <p class="text-right">Right aligned text.</p>
+        </div>
+        <% elsif n == 8 %>
+          <p class="green">This is text with class="green"</p>
+          <p class="red">This is text with class="red"</p>
+          <p class="grey">This is text with class="grey"</p>
+          <p class="orange">This is text with class="orange"</p>
+          <p class="blue">This is text with class="blue"</p>
+         </div>
+        <% else %>
+          <h2> slide <%= n+1 %> </h2>
+        </div>
+      <% end %>
+      <% end %>
 </div>
 
 
