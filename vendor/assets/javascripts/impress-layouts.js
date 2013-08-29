@@ -6,7 +6,7 @@ function layoutCircleV1(options) {
     }
     var r = radius;
     for (var i = 0; i < elements.length; i++) {
-        var phi = -i / (elements.length - 1) * 2 * Math.PI;
+        var phi = -i / (elements.length) * 2 * Math.PI;
         var x = r * Math.cos(phi);
         var y = r * Math.sin(phi);
         var rotation = phi / (2 * Math.PI) * 360 - 90;
@@ -25,7 +25,7 @@ function layoutCircleV2(options) {
     }
     var r = radius;
     for (var i = 0; i < elements.length; i++) {
-        var phi = -i / (elements.length - 1) * 2 * Math.PI;
+        var phi = -i / (elements.length) * 2 * Math.PI;
         var x = r * Math.cos(phi);
         var y = r * Math.sin(phi);
         var rotation = phi / (2 * Math.PI) * 360 - 90;
@@ -44,7 +44,7 @@ function layoutCircleV3(options) {
     }
     var r = radius;
     for (var i = 0; i < elements.length; i++) {
-        var phi = -i / (elements.length - 1) * 2 * Math.PI;
+        var phi = -i / (elements.length) * 2 * Math.PI;
         var x = r * Math.cos(phi);
         var y = r * Math.sin(phi);
         var rotation = phi / (2 * Math.PI) * 360 - 90;
@@ -62,7 +62,7 @@ function layoutCircleV4(options) {
     }
     var r = radius;
     for (var i = 0; i < elements.length; i++) {
-        var phi = -i / (elements.length - 1) * 2 * Math.PI;
+        var phi = -i / (elements.length) * 2 * Math.PI;
         var x = r * Math.cos(phi);
         var y = r * Math.sin(phi);
         var rotation = phi / (2 * Math.PI) * 360 - 90;
@@ -81,7 +81,7 @@ function layoutChain(options) {
         distance = 700;
     }
     for (var i = 0; i < elements.length; i++) {
-        var phi = -i / (elements.length - 1) * 2 * Math.PI;
+        var phi = -i / (elements.length) * 2 * Math.PI;
         var rotation = phi / (2 * Math.PI) * 360;
         elements[i].dataset.rotateX = Math.round(rotation);
         elements[i].dataset.rotateZ = Math.round(rotation);

@@ -1,6 +1,9 @@
 <head>
   <title>ImpressTitle</title>
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Droid+Sans|Lato:400,900' rel='stylesheet' type='text/css'>
+    <% if @progress_bar == "pbar1" %>
+     <%= stylesheet_link_tag "progressbar.css", :media => "all" %>
+  <% end %>
   <% if @theme == "textured" %>
     <%= stylesheet_link_tag "impress-theme2.css", :media => "all" %>
   <% elsif @theme == "basic" %>
@@ -11,15 +14,15 @@
 <body class="impress-supported">
 
 <div id="impress">
+
+
+
   <% @num_slides.times do |n| %>
     
-    <div class="step 
-      <% if @shape == "rectangle" %>
-        slide                       
+    <div class="step  <% if @shape == "rectangle" %> slide                       
        <% elsif @shape == "circle" %>
            slide-circle
-        <% end %>
-        ">
+        <% end %> ">
         <% if n == 0 %>
           <h1>Example Title</h1>
         </div>
@@ -93,15 +96,28 @@
         </div>
       <% end %>
       <% end %>
+
+  <% if @progress_bar == "pbar1" %>
+     <footer> 
+        <div class="progressbar"><div></div></div>
+        <div class="progress"></div>
+    </footer>
+  <% end %>
+
 </div>
+  
 
-
+ 
  <% if @substeps == "true" %>
    <%= javascript_include_tag "substeps.js" %>
    <%= javascript_include_tag "navigation-substeps.js" %>
  <% elsif @substeps == "false" %>
    <%= javascript_include_tag "navigation" %>
  <% end %>
+
+ <% if @progress_bar == "pbar1" %>
+    <%= javascript_include_tag "impress-progressbar.js" %>
+  <% end %>
 
  <% if @automated == "true" && @substeps == "true" %>
    <%= javascript_include_tag "automated-substeps.js" %>

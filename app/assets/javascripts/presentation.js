@@ -10,13 +10,15 @@ var updatePreview = function() {
   var automated = getAuto();
   var theme = getTheme();
   var substeps = getSubsteps();
+  var progress_bar = getProgressBar();
   document.getElementById("preview").src = 
   "presentation?layout=" + layout + 
   "&num_slides=" + num_slides + 
   "&shape=" + shape + 
   "&automated=" + automated + 
   "&theme=" + theme +
-  "&substeps=" + substeps;
+  "&substeps=" + substeps +
+  "&progress_bar=" + progress_bar;
 };
 
 
@@ -59,13 +61,13 @@ var getLayout = function() {
 };
 
 
-var getNumber = function () {
-  var num_sildes = document.getElementById("num_slides").value;
-  if (!num_sildes) {
-    num_sildes = "9";
-  };
+var getNumber = function () { 
+  var num_sildes = "9";
+  if (document.getElementById("num_slides") !== null) {
+   num_sildes = document.getElementById("num_slides").value;
+  } 
   return num_sildes;
-};
+}
 
 var getShape = function() {
   var shape = "rectangle";
@@ -103,6 +105,13 @@ var getSubsteps = function () {
     substeps = "true";
   }
   return substeps;
+}
+
+var getProgressBar = function () {
+  var progress_bar = "no-pbar";
+  if (document.querySelector('#pbar1.active')) {
+    progress_bar = document.getElementById("pbar1").value;
+  }
 }
 
 var setFocusOnIframe = function () {

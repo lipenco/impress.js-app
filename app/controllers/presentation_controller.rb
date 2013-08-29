@@ -12,6 +12,8 @@ class PresentationController < ApplicationController
     @theme = params[:theme] if ["basic", "textured"].include?(params[:theme])
     @substeps = "false"
     @substeps = params[:substeps] if ["false", "true"].include?(params[:substeps])
+    @progress_bar = "no-pbar"
+    @progress_bar = params[:progress_bar] if ["no-pbar", "pbar1"].include?(params[:progress_bar])
   end
 
   def home
