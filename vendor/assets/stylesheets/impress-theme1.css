@@ -26,10 +26,10 @@ footer, header, hgroup, menu, nav, section {
     display: block;
 }
 
-blockquote, q {
+q {
     quotes: none;
 }
-blockquote:before, blockquote:after,
+
 q:before, q:after {
     content: '';
     content: none;
@@ -184,6 +184,40 @@ th {
 
 .text-center {
     text-align: center;
+}
+
+blockquote {
+    font-size: 1em;
+    font-style: italic;
+    width: 80%;
+    margin: 0.25em 0;
+    padding: 7% 0 0 15%;
+    line-height: 1.9em;
+    position: relative;
+    color: #383838;
+}
+
+blockquote:before {
+    font-family: 'Source Sans Pro';
+    display: block;
+    content: "\201C";
+    font-size: 4em;
+    position: absolute;
+    left: 2%;
+    top: 15%;
+    color: #7a7a7a;
+}
+
+blockquote cite {
+    color: #999999;
+    font-size: 0.8em;
+    display: block;
+    margin-top: 3px;
+    text-align: right;
+}
+ 
+blockquote cite:before {
+    content: "\2014 \2009";
 }
 
 .step {
