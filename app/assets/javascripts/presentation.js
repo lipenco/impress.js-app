@@ -11,16 +11,19 @@ var updatePreview = function() {
   var theme = getTheme();
   var substeps = getSubsteps();
   var progress_bar = getProgressBar();
-  if (document.getElementById("preview") !== null) {
-  document.getElementById("preview").src = 
-  "presentation?layout=" + layout + 
+  var source =  "?layout=" + layout + 
   "&num_slides=" + num_slides + 
   "&shape=" + shape + 
   "&automated=" + automated + 
   "&theme=" + theme +
   "&substeps=" + substeps +
   "&progress_bar=" + progress_bar;
-   }
+  if (document.getElementById("preview") !== null) {
+    document.getElementById("preview").src = "presentation" + source;   
+  }
+  if (document.getElementById("download") !== null) {
+    document.getElementById("download").href = "download" + source;
+  }
 };
 
 

@@ -27,4 +27,10 @@ class PresentationController < ApplicationController
 
   def home
   end
+
+  def download
+    build
+    data = render_to_string :build
+    send_data(data, {filename: "impresscustomized.txt"})
+  end
 end

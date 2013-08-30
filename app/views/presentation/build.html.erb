@@ -18,7 +18,6 @@
 <body class="impress-supported">
 
   <div id="impress">
-
     <% @num_slides.times do |n| %>   
       <div class="step <%= @shape_class %> ">
       <%= render "presentation/partials/#{@example_slides[n]}" %>
