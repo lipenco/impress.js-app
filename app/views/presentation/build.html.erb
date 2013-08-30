@@ -17,104 +17,76 @@
 
 <body class="impress-supported">
 
-<div id="impress">
+  <div id="impress">
 
+    <% @num_slides.times do |n| %>   
+      <div class="step <%= @shape_class %> ">
+      <%= render "presentation/partials/#{@example_slides[n]}" %>
+    <% end %>
 
-  <% @num_slides.times do |n| %>   
-    <div class="step  <% if @shape == "rectangle" %> slide                       
-       <% elsif @shape == "circle" %>
-           slide-circle
-        <% end %> ">
-      <% if n == 0 %>
-          <%= render "presentation/partials/title" %>
-        <% elsif n == 1 %>
-          <%= render "presentation/partials/ollist" %>
-        <% elsif n == 2 %>
-          <%= render "presentation/partials/ullist" %>
-        <% elsif n == 3 %> 
-          <%= render  "presentation/partials/paragraph" %>
-        <% elsif n == 4 && @substeps == "true" %>
-          <%= render "presentation/partials/substeps" %>
-        <% elsif n == 5 %>
-          <%= render  "presentation/partials/blockquote" %>
-        <% elsif n == 6 %>
-          <%= render  "presentation/partials/table" %>
-        <% elsif n == 7 %>
-          <%= render "presentation/partials/align" %>
-        <% elsif n == 8 %>
-           <%= render "presentation/partials/colors" %> 
-        <% else %>
-           <h2> slide <%= n+1 %> </h2>
-        </div>
-      <% end %>
-  <% end %>
+  </div>
 
-
-
-</div>
   <% if @progress_bar == "pbar1" %>
      <div class="progressbar"><div></div></div>
-        <div class="progress"></div>
+      <div class="progress"></div>
   <% end %>
-  
 
- 
- <% if @substeps == "true" %>
+  <% if @substeps == "true" %>
    <%= javascript_include_tag "substeps.js" %>
    <%= javascript_include_tag "navigation-substeps.js" %>
- <% elsif @substeps == "false" %>
+  <% elsif @substeps == "false" %>
    <%= javascript_include_tag "navigation" %>
- <% end %>
-
- <% if @progress_bar == "pbar1" %>
-    <%= javascript_include_tag "progressbar.js" %>
- <% end %>
-
- <% if @automated == "true" && @substeps == "true" %>
-   <%= javascript_include_tag "automated-substeps.js" %>
-   <script> automatedPresentationWithSubsteps(); </script>
- <% elsif @automated == "true" && @substeps == "false" %>
-   <%= javascript_include_tag "automated.js" %>
-   <script> automatedPresentation(); </script>
- <% end %>
-
-
-
-<%= javascript_include_tag "impress" %>
-<%= javascript_include_tag "impress-layouts" %>
-
-<script>
-   <% case params[:layout] 
-      when "vertical" %>
-       layoutVertical();
-   <% when "linear" %>
-       layoutLinear();
-   <% when "circlev1" %>
-       layoutCircleV1();
-   <% when "circlev2" %>
-       layoutCircleV2();
-   <% when "circlev3" %>
-       layoutCircleV3();
-   <% when "circlev4" %>
-       layoutCircleV4();
-   <% when "deep" %>
-       layoutDeep();
-   <% when "chain" %>
-       layoutChain();
-   <% when "lineargrid" %>
-       layoutLinearGrid();
-   <% when "snakegrid" %>
-       layoutSnakeGrid();
-   <% when "verticalgrid" %>
-      layoutVerticalGrid();
-   <% end %>
+  <% end %>
 
   <% if @progress_bar == "pbar1" %>
-       progressBar();
+    <%= javascript_include_tag "progressbar.js" %>
   <% end %>
-      impress().init();
-</script>
 
-<script> var api = impress();</script>
+  <% if @automated == "true" && @substeps == "true" %>
+   <%= javascript_include_tag "automated-substeps.js" %>
+   <script> automatedPresentationWithSubsteps(); </script>
+  <% elsif @automated == "true" && @substeps == "false" %>
+   <%= javascript_include_tag "automated.js" %>
+   <script> automatedPresentation(); </script>
+  <% end %>
+
+
+
+  <%= javascript_include_tag "impress" %>
+  <%= javascript_include_tag "impress-layouts" %>
+
+  <script>
+     <% case params[:layout] 
+        when "vertical" %>
+         layoutVertical();
+     <% when "linear" %>
+         layoutLinear();
+     <% when "circlev1" %>
+         layoutCircleV1();
+     <% when "circlev2" %>
+         layoutCircleV2();
+     <% when "circlev3" %>
+         layoutCircleV3();
+     <% when "circlev4" %>
+         layoutCircleV4();
+     <% when "deep" %>
+         layoutDeep();
+     <% when "chain" %>
+         layoutChain();
+     <% when "lineargrid" %>
+         layoutLinearGrid();
+     <% when "snakegrid" %>
+         layoutSnakeGrid();
+     <% when "verticalgrid" %>
+        layoutVerticalGrid();
+     <% end %>
+
+    <% if @progress_bar == "pbar1" %>
+         progressBar();
+    <% end %>
+        impress().init();
+  </script>
+
+  <script> var api = impress();</script>
 
 </body>

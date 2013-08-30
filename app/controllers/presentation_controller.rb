@@ -4,8 +4,15 @@ class PresentationController < ApplicationController
     @num_slides = params[:num_slides].to_i if params[:num_slides].to_i > 0
     @layout = "vertical"
     @layout = params[:layout] if ["vertical", "linear", "circlev1", "circlev2", "circlev3", "circlev4", "chain", "lineargrid", "snakegrid", "verticalgrid", "deep"].include?(params[:layout])
-    @shape = "rectangle"
-    @shape = params[:shape] if ["circle", "rectangle", "blank"].include?(params[:shape])
+
+    if params[:shape] == "rectangle"
+      @shape_class = "slide"
+    elsif params[:shape] == "circle"
+      @shape_class = "slide-circle"
+    else 
+      @shape_class = ""
+    end
+
     @automated = "false"
     @automated = params[:automated] if ["false", "true"].include?(params[:automated])
     @theme = "basic"
@@ -14,6 +21,8 @@ class PresentationController < ApplicationController
     @substeps = params[:substeps] if ["false", "true"].include?(params[:substeps])
     @progress_bar = "no-pbar"
     @progress_bar = params[:progress_bar] if ["no-pbar", "pbar1"].include?(params[:progress_bar])
+
+    @example_slides = %w{title ollist ullist paragraph substeps blockquote table align colors}
   end
 
   def home
