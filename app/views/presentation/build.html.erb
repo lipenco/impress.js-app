@@ -19,88 +19,36 @@
 <div id="impress">
 
 
-  <% @num_slides.times do |n| %>
-    
+  <% @num_slides.times do |n| %>   
     <div class="step  <% if @shape == "rectangle" %> slide                       
        <% elsif @shape == "circle" %>
            slide-circle
         <% end %> ">
-        <% if n == 0 %>
-          <h1>Example Title</h1>
-        </div>
+      <% if n == 0 %>
+          <%= render "presentation/partials/title" %>
         <% elsif n == 1 %>
-          <h2>Agenda</h2>
-          <ol>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor </li>
-          </ol>
-        </div>
+          <%= render "presentation/partials/ollist" %>
         <% elsif n == 2 %>
-          <h2>Good to know</h2>
-          <ul>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor </li>
-          </ul>
-        </div>
-         <% elsif n == 3 %>
-          <h2>Paragraph</h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, <a href="#">sed do eiusmod</a> tempor incididunt ut labore et dolore magna aliqua.</p> 
-          <p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut <a href="#">aliquip ex</a> ea commodo consequat. </p>
-         </div>
-        <% elsif n == 4 && @substeps == "true"  %>
-         <h2>This is h2 </h2>
-            <p class="substep fadeIn" data-duration="1000"> Substep fadeIn </p>
-            <p class="substep fadeInRight" data-duration="2000"> Substep fadeInRight</p>
-            <p class="substep fadeInLeft" data-duration="3000"> Substep  fadeInLeft</p>
-            <p class="substep rollIn" data-duration="4000"> Substep rollIn </p>
-            <p class="substep flipInX" data-duration="5000"> Substep flipInX </p>
-            <p class="substep flipInY" data-duration="1000"> Substep flipInY</p> 
-         </div>
+          <%= render "presentation/partials/ullist" %>
+        <% elsif n == 3 %> 
+          <%= render  "presentation/partials/paragraph" %>
+        <% elsif n == 4 && @substeps == "true" %>
+          <%= render "presentation/partials/substeps" %>
         <% elsif n == 5 %>
-          <blockquote>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget leo nunc, nec tempus mi? Curabitur id nisl mi, ut vulputate urna!
-          <cite>Somebody famous</cite>
-          </blockquote>
-         </div>
+          <%= render  "presentation/partials/blockquote" %>
         <% elsif n == 6 %>
-          <h2>This is a table</h2>
-          <table>
-          <tr>
-          <th>Key</th><th>Value</th>
-          </tr>
-          <tr>
-          <td>ACT</td><td>Australian Capital Territory</td>
-          </tr>
-          <tr>
-          <td>NSW</td><td>New South Wales</td>
-          </tr>
-          <tr>
-          <td>NT</td><td>Northern Territory</td>
-          </tr>
-          </table>
-        </div>
+          <%= render  "presentation/partials/table" %>
         <% elsif n == 7 %>
-          <p class="lead">This is lead. This is lead. This is lead. This is lead.</p>
-          <p class="text-left">Left aligned text.</p>
-          <p class="text-center">Center aligned text.</p>
-          <p class="text-right">Right aligned text.</p>
-        </div>
+          <%= render "presentation/partials/align" %>
         <% elsif n == 8 %>
-          <p class="green">This is text with class="green"</p>
-          <p class="red">This is text with class="red"</p>
-          <p class="grey">This is text with class="grey"</p>
-          <p class="orange">This is text with class="orange"</p>
-          <p class="blue">This is text with class="blue"</p>
-         </div>
+           <%= render "presentation/partials/colors" %> 
         <% else %>
-          <h2> slide <%= n+1 %> </h2>
+           <h2> slide <%= n+1 %> </h2>
         </div>
       <% end %>
-      <% end %>
+  <% end %>
+
+
 
   <% if @progress_bar == "pbar1" %>
         <div class="progressbar"><div></div></div>
