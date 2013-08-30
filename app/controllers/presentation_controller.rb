@@ -31,6 +31,6 @@ class PresentationController < ApplicationController
   def download
     build
     data = render_to_string :build
-    send_data(data, {filename: "impresscustomized.txt"})
+    send_data(data, {filename: "impresscustomized.html"})
   end
 end
