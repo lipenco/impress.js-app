@@ -1,7 +1,4 @@
-
-(function ( document, window ) {
-    'use strict';
-    
+var progressBar = function () {
   var stepids = [];
   // wait for impress.js to be initialized
   document.addEventListener("impress:init", function (event) {
@@ -14,14 +11,14 @@
   var progressbar = document.querySelector('div.progressbar div');
   var progress = document.querySelector('div.progress');
 
-  if (null !== progressbar || null !== progressbar) {      
+  if (null !== progressbar || null !== progress) {      
     document.addEventListener("impress:starttransition", function (event) {
       updateProgressbar(event.detail.next.id);
-    });
+    }, false);
 
     document.addEventListener("impress:stepenter", function (event) {
       updateProgressbar(event.target.id);
-    });
+    }, false);
   }
 
   function updateProgressbar(slideId) {
@@ -33,4 +30,4 @@
       progress.innerHTML = slideNumber + '/' + (stepids.length-1);
     }
   }
-})(document, window);
+}
