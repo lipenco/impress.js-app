@@ -1,3 +1,5 @@
+require 'zip'
+
 class PresentationController < ApplicationController
   def build
     @num_slides = 0
@@ -31,6 +33,14 @@ class PresentationController < ApplicationController
   def download
     build
     data = render_to_string :build
-    send_data(data, {filename: "impresscustomized.html"})
+
+    zip = Zip::OutputStream.write_buffer do |out|
+      out.put_next_entry("index.html")
+      out.write data
+    end
+    zip.rewind
+    binary_zip = zip.sysread
+
+    send_data(binary_zip, {filename: "impresscustomized.zip"})
   end
 end
