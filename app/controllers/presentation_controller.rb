@@ -33,37 +33,53 @@ class PresentationController < ApplicationController
   def download
     build
     data = render_to_string :build
+    js_path = Rails.root.join("vendor", "assets", "javascripts")
+    css_path = Rails.root.join("vendor", "assets", "stylesheets")
 
     zip = Zip::OutputStream.write_buffer do |out|
       out.put_next_entry("index.html")
-      out.put_next_entry("impress.js")
+      out.write(data)
+
+      out.put_next_entry("assets/impress.js")
+      out.write File.read js_path.join("impress.js")
+
       out.put_next_entry("impress-layouts.js")
-          if params[:theme] == "basic"
-            out.put_next_entry("impress-theme1.css")
-          else 
-            out.put_next_entry("impress-theme2.css")
-          end
+      out.write File.read js_path.join("impress-layouts.js")
 
-          if params[:substeps] == "false"
-            out.put_next_entry("navigation.js")
-          else 
-            out.put_next_entry("substeps.css")
-            out.put_next_entry("substeps.js")
-            out.put_next_entry("navigation-substeps.js")
-          end
+      if params[:theme] == "basic"
+        out.put_next_entry("impress-theme1.css")
+        out.write File.read css_path.join("impress-theme1.css")
+      else 
+        out.put_next_entry("impress-theme2.css")
+        out.write File.read css_path.join("impress-theme2.css")
+      end
 
-          if params[:automated] == "true" && params[:substeps] == "false"
-            out.put_next_entry("automated.js")
-          elsif params[:automated] == "true" && params[:substeps] == "true"
-            out.put_next_entry("automated-substeps.js") 
-          end
+      if params[:substeps] == "false"
+        out.put_next_entry("navigation.js")
+        out.write File.read js_path.join("navigation.js")
+      else 
+        out.put_next_entry("substeps.css")
+        out.write File.read css_path.join("substeps.css")
+        out.put_next_entry("substeps.js")
+        out.write File.read js_path.join("substeps.js")
+        out.put_next_entry("navigation-substeps.js")
+        out.write File.read js_path.join("navigation-substeps.js")
+      end
 
-          if params[:progress_bar] == "pbar1"
-            out.put_next_entry("progressbar.css")
-            out.put_next_entry("progressbar.js")
-          end
-          
-      out.write data
+      if params[:automated] == "true" && params[:substeps] == "false"
+        out.put_next_entry("automated.js")
+        out.write File.read js_path.join("automated.js")
+      elsif params[:automated] == "true" && params[:substeps] == "true"
+        out.put_next_entry("automated-substeps.js")
+        out.write File.read js_path.join("automated-substeps.js") 
+      end
+
+      if params[:progress_bar] == "pbar1"
+        out.put_next_entry("progressbar.css")
+        out.write File.read css_path.join("progressbar.css")
+        out.put_next_entry("progressbar.js")
+        out.write File.read js_path.join("progressbar.js") 
+      end        
     end
     zip.rewind
     binary_zip = zip.sysread
