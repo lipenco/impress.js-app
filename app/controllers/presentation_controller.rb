@@ -57,6 +57,11 @@ class PresentationController < ApplicationController
           elsif params[:automated] == "true" && params[:substeps] == "true"
             out.put_next_entry("automated-substeps.js") 
           end
+
+          if params[:progress_bar] == "pbar1"
+            out.put_next_entry("progressbar.css")
+            out.put_next_entry("progressbar.js")
+          end
       out.write data
     end
     zip.rewind
