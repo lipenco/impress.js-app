@@ -20,7 +20,12 @@
   <div id="impress">
     <% @num_slides.times do |n| %>   
       <div class="step <%= @shape_class %> ">
-      <%= render "presentation/partials/#{@example_slides[n]}" %>
+      <% if n < 9 %>
+        <%= render "presentation/partials/#{@example_slides[n]}" %>
+      <% else %>
+         <h2> Slide <%= n +1 %> </h2>
+        </div>
+      <% end %>
     <% end %>
 
   </div>
