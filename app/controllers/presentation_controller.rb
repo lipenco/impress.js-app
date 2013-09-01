@@ -35,6 +35,7 @@ class PresentationController < ApplicationController
     data = render_to_string :build
     js_path = Rails.root.join("vendor", "assets", "javascripts")
     css_path = Rails.root.join("vendor", "assets", "stylesheets")
+    img_path = Rails.root.join("vendor", "assets", "images")
 
     zip = Zip::OutputStream.write_buffer do |out|
       out.put_next_entry("index.html")
@@ -52,6 +53,12 @@ class PresentationController < ApplicationController
       else 
         out.put_next_entry("assets/impress-theme2.css")
         out.write File.read css_path.join("impress-theme2.css")
+        out.put_next_entry("assets/bg1.png")
+        out.write File.read img_path.join("bg1.png")
+        out.put_next_entry("assets/bg2.png")
+        out.write File.read img_path.join("bg2.png")
+        out.put_next_entry("assets/bg3.jpg")
+        out.write File.read img_path.join("bg3.jpg")
       end
 
       if params[:substeps] == "false"
