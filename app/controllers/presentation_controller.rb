@@ -36,6 +36,27 @@ class PresentationController < ApplicationController
 
     zip = Zip::OutputStream.write_buffer do |out|
       out.put_next_entry("index.html")
+      out.put_next_entry("impress.js")
+      out.put_next_entry("impress-layouts.js")
+          if params[:theme] == "basic"
+            out.put_next_entry("impress-theme1.css")
+          else 
+            out.put_next_entry("impress-theme2.css")
+          end
+
+          if params[:substeps] == "false"
+            out.put_next_entry("navigation.js")
+          else 
+            out.put_next_entry("substeps.css")
+            out.put_next_entry("substeps.js")
+            out.put_next_entry("navigation-substeps.js")
+          end
+
+          if params[:automated] == "true" && params[:substeps] == "false"
+            out.put_next_entry("automated.js")
+          elsif params[:automated] == "true" && params[:substeps] == "true"
+            out.put_next_entry("automated-substeps.js") 
+          end
       out.write data
     end
     zip.rewind
