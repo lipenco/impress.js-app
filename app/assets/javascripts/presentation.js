@@ -126,30 +126,25 @@ var setFocusOnIframe = function () {
 }
 
 var addSlide = function() {
-   var $span = $("#num_slides");
-   $span.numberAnimate();
+  var $showNum = $("#showNum");
+  $showNum.numberAnimate();
   var counter = parseInt($("#num_slides").val()) || 9;
+  var counter2 = parseInt($("#showNum").val()) || 9;
   $("#addslide").click(function(){
     counter++;
+    counter2++;
     $("#num_slides").val(counter);
-    // $("#num_slides").text(counter);
-    $span.numberAnimate('set', $("#num_slides").val());
+    $("#showNum").val(counter2);
+    $showNum.numberAnimate('set', $("#showNum").val());
   });
   $("#decrement_slide").click(function(){
     counter--;
+    counter2--;
     $("#num_slides").val(counter);
-    $span.numberAnimate('set', $("#num_slides").val());
+    $("#showNum").val(counter2);
+    $showNum.numberAnimate('set', $("#showNum").val());
   });
 }
 
-
-            // $(function(){
-            //     var $span = $('span');
-            //     $span.numberAnimate();
-                
-            //     $('#addslide').click(function(e){
-            //             $span.numberAnimate('set', $(this).val());
-            //          });
-            // });
 
 

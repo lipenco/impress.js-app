@@ -12,9 +12,13 @@ line-height: 1.4;
 height: 40px;
 }
 
-#num_slides {
+#showNum {
   font: 35px / 1 Courier;
   font-weight: bold;
+}
+
+#num_slides {
+  display: none;
 }
 
 .layout-btn {
