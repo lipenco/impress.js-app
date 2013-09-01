@@ -126,18 +126,30 @@ var setFocusOnIframe = function () {
 }
 
 var addSlide = function() {
+   var $span = $("#num_slides");
+   $span.numberAnimate();
   var counter = parseInt($("#num_slides").val()) || 9;
   $("#addslide").click(function(){
     counter++;
     $("#num_slides").val(counter);
-    $("#num_slides").text(counter);
+    // $("#num_slides").text(counter);
+    $span.numberAnimate('set', $("#num_slides").val());
   });
   $("#decrement_slide").click(function(){
     counter--;
     $("#num_slides").val(counter);
-    $("#num_slides").text(counter);
+    $span.numberAnimate('set', $("#num_slides").val());
   });
 }
 
+
+            // $(function(){
+            //     var $span = $('span');
+            //     $span.numberAnimate();
+                
+            //     $('#addslide').click(function(e){
+            //             $span.numberAnimate('set', $(this).val());
+            //          });
+            // });
 
 
