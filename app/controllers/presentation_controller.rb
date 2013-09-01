@@ -43,41 +43,41 @@ class PresentationController < ApplicationController
       out.put_next_entry("assets/impress.js")
       out.write File.read js_path.join("impress.js")
 
-      out.put_next_entry("impress-layouts.js")
+      out.put_next_entry("assets/impress-layouts.js")
       out.write File.read js_path.join("impress-layouts.js")
 
       if params[:theme] == "basic"
-        out.put_next_entry("impress-theme1.css")
+        out.put_next_entry("assets/impress-theme1.css")
         out.write File.read css_path.join("impress-theme1.css")
       else 
-        out.put_next_entry("impress-theme2.css")
+        out.put_next_entry("assets/impress-theme2.css")
         out.write File.read css_path.join("impress-theme2.css")
       end
 
       if params[:substeps] == "false"
-        out.put_next_entry("navigation.js")
+        out.put_next_entry("assets/navigation.js")
         out.write File.read js_path.join("navigation.js")
       else 
-        out.put_next_entry("substeps.css")
+        out.put_next_entry("assets/substeps.css")
         out.write File.read css_path.join("substeps.css")
-        out.put_next_entry("substeps.js")
+        out.put_next_entry("assets/substeps.js")
         out.write File.read js_path.join("substeps.js")
-        out.put_next_entry("navigation-substeps.js")
+        out.put_next_entry("assets/navigation-substeps.js")
         out.write File.read js_path.join("navigation-substeps.js")
       end
 
       if params[:automated] == "true" && params[:substeps] == "false"
-        out.put_next_entry("automated.js")
+        out.put_next_entry("assets/automated.js")
         out.write File.read js_path.join("automated.js")
       elsif params[:automated] == "true" && params[:substeps] == "true"
-        out.put_next_entry("automated-substeps.js")
+        out.put_next_entry("assets/automated-substeps.js")
         out.write File.read js_path.join("automated-substeps.js") 
       end
 
       if params[:progress_bar] == "pbar1"
-        out.put_next_entry("progressbar.css")
+        out.put_next_entry("assets/progressbar.css")
         out.write File.read css_path.join("progressbar.css")
-        out.put_next_entry("progressbar.js")
+        out.put_next_entry("assets/progressbar.js")
         out.write File.read js_path.join("progressbar.js") 
       end        
     end
