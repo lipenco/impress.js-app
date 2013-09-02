@@ -1,0 +1,241 @@
+<head>
+  <title>ImpressJsApp</title>
+  <%= stylesheet_link_tag  "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar" data-twttr-rendered="true">
+  <div class="header">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">  
+           <a class="brand" href="">Impress Lab</a> 
+            <ul class="nav">
+              <li class="">
+                <a href="/index.html">Build</a>
+              </li>
+              <li class="active">
+                <a href="/components.html">Components for developers</a>
+              </li>
+              <li class="">
+                <a href="./customize.html">About</a>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1>Components</h1>
+    <p class="lead">Dozens of reusable components built to provide substeps, automated presentation, layout options and progress bar.</p>
+  </header>
+
+
+  <div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav affix">
+          <li class="active"><a href="#substeps"><i class="icon-chevron-right"></i> Substeps</a></li>
+          <li><a href="#automated"><i class="icon-chevron-right"></i>Automated presentation</a></li>
+          <li><a href="#layouts"><i class="icon-chevron-right"></i>Layouts</a></li>
+          <li><a href="#progress"><i class="icon-chevron-right"></i>Progress Bar</a></li>
+        </ul>
+      </div>
+      <div class="span9">
+
+
+
+        <!-- Dropdowns
+        ================================================== -->
+        <section id="substeps">
+          <div class="page-header">
+            <h1>Substeps</h1>
+          </div>
+
+          <h2>Example</h2>
+
+            <pre class="prettyprint linenums">
+        &lt;div class="step slide" data-x="1000"&gt;
+          &lt;q>Slide In Part 1</q>
+          &lt;p class="substep fadeIn"&gt; Substep fadeIn &lt;/p&gt;
+          &lt;p class="substep fadeInRight"&gt; Substep fadeInRight&lt;/p&gt;
+          &lt;p class="substep fadeInLeft"&gt; Substep  fadeInLeft&lt;/p&gt;
+          &lt;p class="substep rollIn"&gt; Substep rollIn &lt;/p&gt;
+          &lt;p class="substep flipInX"&gt; Substep flipInX &lt;/p&gt;
+          &lt;p class="substep flipInY"&gt; Substep flipInY&lt;/p&gt;   
+       &lt;/div>
+            </pre>
+<!-- 
+          <iframe src="http://lipen.co/impress.js-substeps" class="example-iframe" />
+           -->
+
+
+          <!-- <h2>Markup</h2>
+          <p>Looking at just the dropdown menu, here's the required HTML. You need to wrap the dropdown's trigger and the dropdown menu within <code>.dropdown</code>, or another element that declares <code>position: relative;</code>. Then just create the menu.</p>
+
+            <pre class="prettyprint linenums">
+            &lt;div class="dropdown"&gt;
+              &lt;!-- Link or button to toggle dropdown --&gt;
+              &lt;ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"&gt;
+                &lt;li&gt;&lt;a tabindex="-1" href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a tabindex="-1" href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a tabindex="-1" href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+                &lt;li class="divider"&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a tabindex="-1" href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+            </pre>
+
+          <h2>Options</h2>
+          <p>Align menus to the right and add include additional levels of dropdowns.</p>
+
+          <h3>Aligning the menus</h3>
+          <p>Add <code>.pull-right</code> to a <code>.dropdown-menu</code> to right align the dropdown menu.</p>
+          <pre class="prettyprint linenums">
+          &lt;ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel"&gt;
+            ...
+          &lt;/ul&gt;
+          </pre>
+
+          <h3>Disabled menu options</h3>
+          <p>Add <code>.disabled</code> to a <code>&lt;li&gt;</code> in the dropdown to disable the link.</p>
+          <div class="bs-docs-example">
+            <div class="dropdown clearfix">
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
+                <li><a tabindex="-1" href="#">Regular link</a></li>
+                <li class="disabled"><a tabindex="-1" href="#">Disabled link</a></li>
+                <li><a tabindex="-1" href="#">Another link</a></li>
+              </ul>
+            </div>
+          </div>
+          <pre class="prettyprint linenums">
+          &lt;ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu"&gt;
+            &lt;li&gt;&lt;a tabindex="-1" href="#"&gt;Regular link&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="disabled"&gt;&lt;a tabindex="-1" href="#"&gt;Disabled link&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a tabindex="-1" href="#"&gt;Another link&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+          </pre>
+
+          <h3>Sub menus on dropdowns</h3>
+          <p>Add an extra level of dropdown menus, appearing on hover like those of OS X, with some simple markup additions. Add <code>.dropdown-submenu</code> to any <code>li</code> in an existing dropdown menu for automatic styling.</p>
+          <div class="bs-docs-example bs-docs-example-submenus">
+
+            <div class="pull-left">
+              <p class="muted">Default</p>
+              <div class="dropdown clearfix">
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                  <li><a tabindex="-1" href="#">Action</a></li>
+                  <li><a tabindex="-1" href="#">Another action</a></li>
+                  <li><a tabindex="-1" href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">More options</a>
+                    <ul class="dropdown-menu">
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="pull-left">
+              <p class="muted">Dropup</p>
+              <div class="dropup">
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                  <li><a tabindex="-1" href="#">Action</a></li>
+                  <li><a tabindex="-1" href="#">Another action</a></li>
+                  <li><a tabindex="-1" href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">More options</a>
+                    <ul class="dropdown-menu">
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="pull-left">
+              <p class="muted">Left submenu</p>
+              <div class="dropdown">
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                  <li><a tabindex="-1" href="#">Action</a></li>
+                  <li><a tabindex="-1" href="#">Another action</a></li>
+                  <li><a tabindex="-1" href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-submenu pull-left">
+                    <a tabindex="-1" href="#">More options</a>
+                    <ul class="dropdown-menu">
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                      <li><a tabindex="-1" href="#">Second level link</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+          <pre class="prettyprint linenums">
+          &lt;ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"&gt;
+            ...
+            &lt;li class="dropdown-submenu"&gt;
+              &lt;a tabindex="-1" href="#"&gt;More options&lt;/a&gt;
+              &lt;ul class="dropdown-menu"&gt;
+                ...
+              &lt;/ul&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+          </pre> -->
+        </section>
+          <section id="automated">
+              <div class="page-header">
+                <h1>Automated Presentation</h1>
+              </div>
+               <h2>Automated Substeps</h2>
+            <pre class="prettyprint linenums">
+  &lt;div class="step slide" data-x="1000"&gt;
+    &lt;q>Slide In Part 1</q>
+    &lt;p class="substep fadeIn" data-duration="1000"&gt; Substep fadeIn &lt;/p&gt;
+    &lt;p class="substep fadeInRight" data-duration="2000"&gt; Substep fadeInRight&lt;/p&gt;
+    &lt;p class="substep fadeInLeft" data-duration="3000"&gt; Substep  fadeInLeft&lt;/p&gt;
+    &lt;p class="substep rollIn" data-duration="4000"&gt; Substep rollIn &lt;/p&gt;
+    &lt;p class="substep flipInX" data-duration="5000"&gt; Substep flipInX &lt;/p&gt;
+    &lt;p class="substep flipInY" data-duration="1000"&gt; Substep flipInY&lt;/p&gt;   
+ &lt;/div>
+            </pre>
+           </section>
+            <section id="layouts">
+              <div class="page-header">
+                <h1>Layouts</h1>
+              </div>
+           </section>
+            <section id="progress">
+              <div class="page-header">
+                <h1>Progress Bar</h1>
+              </div>
+           </section>
+    </div>
+  </div>
+
+
+
+      

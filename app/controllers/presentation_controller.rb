@@ -30,6 +30,9 @@ class PresentationController < ApplicationController
   def home
   end
 
+  def components
+  end
+
   def download
     build
     data = render_to_string :build

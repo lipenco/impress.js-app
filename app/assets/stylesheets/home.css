@@ -80,4 +80,9 @@ background-image: radial-gradient(farthest-side at left top, #f4f4f4, rgba(244,2
 margin-left: 1px;
 }
 
+.example-iframe {
+  width: 400px;
+  height: 300px;
+}
+
 
