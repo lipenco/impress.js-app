@@ -26,6 +26,17 @@ height: 40px;
   height: 40px
 }
 
+.arrows {
+  background-image: url('/assets/ui2.jpg');
+  width:200px;
+  height: 150px;
+  opacity: 0.7;
+  position: fixed;
+  bottom:20%;
+  right: 33%;
+  z-index: 99999;
+}
+
 
 
 #preview {
@@ -68,3 +79,5 @@ background-image: -moz-radial-gradient(left top, farthest-side, #f4f4f4, rgba(24
 background-image: radial-gradient(farthest-side at left top, #f4f4f4, rgba(244,244,244,0));
 margin-left: 1px;
 }
+
+

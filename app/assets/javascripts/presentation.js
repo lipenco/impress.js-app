@@ -123,6 +123,8 @@ var getProgressBar = function () {
 var setFocusOnIframe = function () {
   var iframe = $("#preview")[0];
     iframe.contentWindow.focus();
+  $('.arrows').addClass('fadeOutRightBig');
+  $('.arrows').removeClass('fadeInRightBig');
 }
 
 var addSlide = function() {
