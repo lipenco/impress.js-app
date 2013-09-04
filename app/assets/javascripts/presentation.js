@@ -29,38 +29,10 @@ var updatePreview = function() {
 
 var getLayout = function() {
   var layoutType = "vertical";
-  if (document.querySelector('#vertical.active')) {
-    layoutType = document.getElementById("vertical").value;
-  }
-  else if (document.querySelector('#linear.active')) {
-    layoutType = document.getElementById("linear").value;
-  }
-  else if (document.querySelector('#lineargrid.active')) {
-    layoutType = document.getElementById("lineargrid").value;
-  }
-  else if (document.querySelector('#circlev1.active')) {
-    layoutType = document.getElementById("circlev1").value;
-  }
-  else if (document.querySelector('#circlev2.active')) {
-    layoutType = document.getElementById("circlev2").value;
-  }
-  else if (document.querySelector('#circlev3.active')) {
-    layoutType = document.getElementById("circlev3").value;
-  }
-  else if (document.querySelector('#circlev4.active')) {
-    layoutType = document.getElementById("circlev4").value;
-  }
-  else if (document.querySelector('#deep.active')) {
-    layoutType = document.getElementById("deep").value;
-  }
-  else if (document.querySelector('#snakegrid.active')) {
-    layoutType = document.getElementById("snakegrid").value;
-  }
-  else if (document.querySelector('#verticalgrid.active')) {
-    layoutType = document.getElementById("verticalgrid").value;
-  }
-  else if (document.querySelector('#chain.active')) {
-    layoutType = document.getElementById("chain").value;
+  var layoutbuttons = document.getElementById("butonslayout");
+  var activebutton = layoutbuttons.querySelector(".active");
+  if (activebutton) {
+    layoutType = activebutton.value;
   }
   return layoutType;
 };
