@@ -40,9 +40,9 @@ var getLayout = function() {
 
 
 var getNumber = function () { 
-  var num_sildes = "9";
-  if (document.getElementById("num_slides") !== null) {
-   num_sildes = document.getElementById("num_slides").value;
+  var num_sildes;
+  if (document.getElementById("showNum") !== null) {
+   num_sildes = document.getElementById("showNum").value  || 9;
   } 
   return num_sildes;
 }
@@ -103,20 +103,15 @@ var setFocusOnIframe = function () {
 var addSlide = function() {
   var $showNum = $("#showNum");
   $showNum.numberAnimate();
-  var counter = parseInt($("#num_slides").val()) || 9;
-  var counter2 = parseInt($("#showNum").val()) || 9;
+  var counter = 9;
   $("#addslide").click(function(){
     counter++;
-    counter2++;
-    $("#num_slides").val(counter);
-    $("#showNum").val(counter2);
+    $("#showNum").val(counter);
     $showNum.numberAnimate('set', $("#showNum").val());
   });
   $("#decrement_slide").click(function(){
     counter--;
-    counter2--;
-    $("#num_slides").val(counter);
-    $("#showNum").val(counter2);
+    $("#showNum").val(counter);
     $showNum.numberAnimate('set', $("#showNum").val());
   });
 }
