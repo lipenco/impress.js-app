@@ -30,10 +30,10 @@ var updatePreview = function() {
 
 var getLayout = function() {
   var layoutType = "vertical";
-  var layoutbuttons = document.getElementById("butonslayout");
-  var activebutton = layoutbuttons.querySelector(".active");
-  if (activebutton) {
-    layoutType = activebutton.value;
+  var layoutbuttons = document.getElementById("layout");
+  var activebutton = layoutbuttons.querySelector(".current");
+  if (activebutton != null) {
+    layoutType = activebutton.id;
   }
   return layoutType;
 };
@@ -49,46 +49,54 @@ var getNumber = function () {
 
 var getShape = function() {
   var shape = "rectangle";
-  if (document.querySelector('#circle.active')) {
-    shape = document.getElementById("circle").value;
-  }
-  else if (document.querySelector('#rectangle.active')) {
-    shape = document.getElementById("rectangle").value;
-  }
-  else if (document.querySelector('#blank.active')) {
-    shape = document.getElementById("blank").value;
+  var shapegroup = document.getElementById("shape");
+  var shapecurrent = shapegroup.querySelector(".current");
+  if (shapecurrent != null) {
+    shape = shapecurrent.id;
   }
   return shape;
 };
 
 var getAuto = function () {
   var automated = "false";
-  if (document.querySelector('#auto.active')) {
-    automated = "true";
+  var autogroup = document.getElementById("autobuttons");
+  var autocurrent = autogroup.querySelector(".current");
+  if (autocurrent != null) {
+    if (autocurrent.id == "auto") {
+        automated = "true";
+      }
   }
   return automated;
 }
 
 var getTheme = function () {
   var theme = "basic";
-  if (document.querySelector('#textured.active')) {
-    theme = "textured";
+  var themegroup = document.getElementById("theme");
+  var themecurrent = themegroup.querySelector(".current");
+  if (themecurrent != null) {
+    theme = themecurrent.id;
   }
   return theme;
 }
 
 var getSubsteps = function () {
   var substeps = "false";
-  if (document.querySelector('#substeps.active')) {
-    substeps = "true";
+  var substepsgroup = document.getElementById("substepsbutton");
+  var substepscurrent = substepsgroup.querySelector(".current");
+  if (substepscurrent != null) {
+    if (substepscurrent.id == "substeps") {
+        substeps = "true";
+    }
   }
   return substeps;
 }
 
 var getProgressBar = function () {
   var progress_bar = "no-pbar";
-  if (document.querySelector('#pbar1.active')) {
-    progress_bar = document.getElementById("pbar1").value;
+  var progressgroup = document.getElementById("progress");
+  var progresscurrent = progressgroup.querySelector(".current");
+  if (progresscurrent  != null) {
+    progress_bar = progresscurrent.id;
   }
   return progress_bar;
 }
@@ -117,7 +125,7 @@ var addSlide = function() {
 }
 
  var eventsListeners = function() {
-      var buttons = document.querySelectorAll(".btn-primary");
+      var buttons = document.querySelectorAll(".btn-p");
         for (var i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', function(){
           setTimeout(function(){

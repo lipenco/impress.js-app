@@ -33,144 +33,78 @@
     <div class="row-fluid">
       <div class="span2 ">
          <p class="controller">Number of slides </p>
-        <button type="button" id="decrement_slide" class="btn btn-primary"> - </button>
+        <button type="button" id="decrement_slide" class="btn btn-p"> - </button>
     <div id="showNum" value="9">9</div> 
-      <button type="button" id="addslide" class="btn btn-primary"> + </button>      
+      <button type="button" id="addslide" class="btn btn-p"> + </button>      
       <div class="separator"></div>
+       
+       <ul class="accordion"><!-- \ mainmenu -->
+  
+    <!-- \ 1st Menu Item -->
+    <li><a class="active" href="#">Slides Shape</a>
+      <ul class="expand" id="shape"><!-- \ expanded submenu -->
+        <li><a id="rectangle" class="current btn-p" href="#">Rectangle</a></li>
+        <li><a id="circle" class="btn-p" href="#">Circle</a></li>
+        <li><a id="blank" class="btn-p" href="#">Blank</a></li>
+      </ul>
+    </li>
+    
+    <!-- \ 2nd Menu Item -->
+    <li><a href="#">Choose Layout</a>
+      <ul id="layout"><!-- \ submenu -->
+        <li><a id="vertical" class="current btn-p" href="#">Vertical</a></li>
+        <li><a id="linear" class="btn-p" href="#">Linear</a></li>
+        <li><a id="circlev1" class="btn-p" href="#">Circle I</a></li>
+        <li><a id="circlev2" class="btn-p" href="#">Circle II</a></li>
+        <li><a id="circlev3" class="btn-p" href="#">Circle III</a></li>
+        <li><a id="circlev4" class="btn-p" href="#">Circle IV</a></li>
+        <li><a id="verticalgrid" class="btn-p" href="#">Vertical Grid</a></li>
+        <li><a id="snakegrid" class="btn-p" href="#">Snake Grid</a></li>
+        <li><a id="deep" class="btn-p" href="#">Deep</a></li>
+        <li><a id="chain" class="btn-p"href="#">Chain</a></li>
+      </ul>
+    </li>
+    
+    <!-- \ 3rd Menu Item -->
+    <li><a href="#">Choose Theme</a>
+      <ul id="theme"><!-- \ submenu -->
+        <li><a id="basic" class="current btn-p" href="#">Basic</a></li>
+        <li><a id="textured" class="btn-p" href="#">Textured</a></li>
+      </ul>
+    </li>
+    
+    <!-- \ 4th Menu Item -->
+    <li><a href="#">Progress Bar</a>
+      <ul id="progress"><!-- \ submenu -->
+        <li><a id="no-pbar" class="current btn-p" href="#">No</a></li>
+        <li><a id="pbar1" class="btn-p" href="#">Yes</a></li>
+      </ul>
+    </li>
+    
+    <li><a href="#">Automated Slide Show</a>
+      <ul id="autobuttons"><!-- \ submenu -->
+        <li><a id="noauto" class="current btn-p" href="#">No</a></li>
+        <li><a id="auto" class="btn-p" href="#">Yes</a></li>
+      </ul>
+    </li>
 
-       <p  class="controller">Choose the slides shape </p>
+     <li><a href="#">Substeps</a>
+      <ul id="substepsbutton"><!-- \ submenu -->
+        <li><a id="nosubsteps" class="current btn-p" href="#">No</a></li>
+        <li><a id="substeps" class="btn-p" href="#">Yes</a></li>
+      </ul>
+    </li>
+  </ul><!-- / mainmenu -->
 
-        <div class="btn-group" data-toggle="buttons-radio">
-           <button type="button" id="rectangle"  class="active btn btn-primary" 
-          value="rectangle">
-            Rectangle
-          </button>
-          <button type="button" id="circle" class=" btn btn-primary" 
-          value="circle">
-            Circle
-          </button>
-           <button type="button" id="blank" class="btn btn-primary" 
-          value="blank">
-            Blank
-          </button>
-         
-        </div>
+
 
        <div class="separator"></div>
 
-         <p  class="controller"> What kind of layout do you want? </p>
-
-        <div class="btn-group" id="butonslayout" data-toggle="buttons-radio">
-          <button type="button" id="vertical" class="active layout-btn btn btn-primary" 
-          value="vertical">
-            Vertical
-          </button>
-          <button type="button" id="linear"  class="layout-btn btn btn-primary" 
-          value="linear">
-            Linear
-          </button>
-           <br>
-      <!--      <button type="button" id="lineargrid"  class="layout-btn btn btn-primary" 
-          value="lineargrid">
-            Linear Grid
-          </button> -->
-          
-           <button type="button" id="circlev1"  class="layout-btn btn btn-primary" 
-          value="circlev1">
-            Circle I
-          </button>
-           <button type="button" id="circlev2"  class="layout-btn btn btn-primary" 
-          value="circlev2">
-            Circle II
-          </button>
-           <br>
-         
-          <button type="button" id="circlev3"  class="layout-btn btn btn-primary" 
-          value="circlev3">
-            Circle III
-          </button>
-           <button type="button" id="circlev4"  class="layout-btn btn btn-primary" 
-          value="circlev4">
-            Circle IV
-          </button>
-          <br>
-          
-           <button type="button" id="verticalgrid"  class="layout-btn btn btn-primary" 
-          value="verticalgrid">
-            Vertical Grid
-          </button>
-          <button type="button" id="snakegrid"  class="layout-btn btn btn-primary" 
-          value="snakegrid">
-            Snake Grid
-          </button>
-         
-           <br>
-           <button type="button" id="deep"  class="layout-btn btn btn-primary" 
-          value="deep">
-            Deep
-          </button>
-            <button type="button" id="chain"  class="layout-btn btn btn-primary" 
-          value="chain">
-            Chain
-          </button>
-           <br>
-         
-         
-        </div>
-
-         <div class="separator"></div>
+        <!--  <div class="separator"></div> -->
   
-      <p class="controller">
-          What kind of theme do you want? </p>
-        <div class="btn-group" data-toggle="buttons-radio">
-          <button type="button" id="basic" class="active  btn btn-primary" 
-          value="basic">
-            Basic
-          </button>
-          <button type="button" id="textured"  class=" btn btn-primary" 
-          value="textured">
-            Textured
-          </button>
-        </div>
 
-      <div class="separator"></div>
-  
-      <p class="controller">
-          Do you need progress bar? </p>
-        <div class="btn-group" data-toggle="buttons-radio">
-          <button type="button" id="no-pbar" class="active btn btn-primary" 
-          value="no-pbar">
-            No
-          </button>
-          <button type="button" id="pbar1"  class="btn btn-primary" 
-          value="pbar1">
-            Yes
-          </button>
-        </div>
 
-         <div class="separator"></div>
- 
-     <p class="controller"> Do you want automatated presentation</p>
-        <div class="btn-group" data-toggle="buttons-radio">
-           <button type="button" id="noauto"  class="active  btn btn-primary">
-            No
-          </button>
-          <button type="button" id="auto" class="layout-button btn btn-primary">
-            Yes
-          </button>        
-        </div>
-   <div class="separator"></div>
-        <p class="controller">Do you want to use substeps?</p>
-      <div class="btn-group" data-toggle="buttons-radio">
-      <button type="button" id="nosubsteps"  class="active layout-button btn btn-primary">
-          No
-        </button>
-        <button type="button" id="substeps" class="layout-button btn btn-primary">
-          Yes
-        </button>
-        
-      </div>
-         <div class="separator"></div>
+
 
       <a id="download" class="btn btn-large">
         Download Zip
