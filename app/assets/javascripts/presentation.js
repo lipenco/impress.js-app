@@ -1,7 +1,7 @@
 $(document).ready(function() {
+    eventsListeners();
     updatePreview();
     addSlide();
-    eventsListeners();
 });
 
 var updatePreview = function() {
@@ -122,10 +122,14 @@ var addSlide = function() {
 }
 
  var eventsListeners = function() {
-//     var buttons = document.querySelectorAll(".btn-primary");
-//     for (var i = 0; i < buttons.length; i++) {
-//         buttons[i].addEventListener('click', updatePreview, false); 
-//         }; 
+      var buttons = document.querySelectorAll(".btn-primary");
+        for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', function(){
+          setTimeout(function(){
+            updatePreview();
+          }, 1);
+        }, false); 
+      };
       document.addEventListener("keydown", function ( event ) {
         if ( event.keyCode === 9 || ( event.keyCode >= 32 && event.keyCode <= 34 ) 
           || (event.keyCode >= 37 && event.keyCode <= 40) )
