@@ -24,6 +24,7 @@ a {
     width: auto;
     height: auto;
     padding: 18px 0;
+    margin-left: 0;
   }
   /* Main Menu List Links */
   .accordion > li > a {
@@ -111,163 +112,8 @@ a {
   }
 
   
-/* =================================================================== */
-/* Background and Shadow Toggles
-  ====================================================================== */
-  #toggles {
-    margin: 60px auto 0;  
-  }
-  .toggle {
-    width: 190px;
-    height: 60px;
-    margin: 0 auto; 
-    color: #fff;
-  }
-  .label {
-    width: 150px;
-    float:left;
-  }
-  input[type=checkbox] {
-    visibility: hidden;
-  }
-  .slideOne, .slideTwo {
-    width: 40px;
-    float:left;
-    height: 10px;
-    background: #333;
-    margin: 20px auto;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-    position: relative;
-
-    -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
-    -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
-    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
-  }
-  .slideOne label, .slideTwo label {
-    display: block;
-    width: 16px;
-    height: 16px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-
-    -webkit-transition: all .4s ease;
-    -moz-transition: all .4s ease;
-    -o-transition: all .4s ease;
-    -ms-transition: all .4s ease;
-    transition: all .4s ease;
-    cursor: pointer;
-    position: absolute;
-    top: -3px;
-    left: -3px;
-
-    -webkit-box-shadow: 0px 3px 6px -2px rgba(0,0,0,0.7);
-    -moz-box-shadow: 0px 3px 6px -2px rgba(0,0,0,0.7);
-    box-shadow: 0px 3px 6px -2px rgba(0,0,0,0.7);
-    background: #fcfff4;
-
-    background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-    background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-    background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-    background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
-  }
-  .slideOne input[type=checkbox]:checked + label {
-    left: 27px;
-  }
-  .slideTwo input[type=checkbox]:checked + label {
-    left: 27px;
-  }
-  .noshadow-img {
-    background-position: 0px -40px!important;
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
-  }
-  .noshadow-box {
-    -webkit-box-shadow: none!important;
-    -moz-box-shadow: none!important;
-    box-shadow: none!important;
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
-  }
-
-/* =================================================================== */
-/* Color Switcher
-====================================================================== */
-  #style-switcher h3 {
-    color: #252525;
-    font-size: 14px;
-    margin: 5px 3px;
-    font-family: 'Novecentowide-Bold';
-  }
-  
-  #style-switcher p {
-    text-align: center;
-    margin: 10px 0 13px;
-    padding: 0;
-  }
-  
-  #style-switcher {
-    background: #fff;
-    width: 195px;
-    z-index:9;
-    margin: 0 auto;
-    -webkit-box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.5);
-    -moz-box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.5);
-    box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.5);
-  }
-  
-  #style-switcher div {
-    padding: 5px 10px;
-  }
-  
-  #style-switcher .bottom {
-    color: #252525;
-    padding: 0;
-    height: 40px;
-  }
-  
-  #style-switcher .bottom a.settings {
-    display: block;
-    height: 41px;
-    position: absolute;
-
-    right: -40px;
-    text-indent: -9999px;
-    bottom: 0;
-    width: 44px;
-  }
-  
-  .colors, .backgrounds { list-style:none; margin: 0px 0px 10px 0px; overflow: hidden}
-  .colors li, .backgrounds li { float:left; margin:2px; }
-  .colors li a, .backgrounds a { display: block; width:30px; height:30px; cursor: pointer;} 
-  .colors li a:hover { opacity: 0.8 }
-  
-  #reset {margin: 0 0 15px 2px;}
-  #reset a {color: #fff; font-size: 12px; padding: 5px 14px; box-shadow: none; border-radius: 1px; }
-  #reset a:hover { background: #252525; }
-
-  .black { background: #3d3d3d; }
-  .blue { background: #169fe6; }
-  .green { background: #389646; }
-  .red { background: #de3939; }
-  .orange { background: #ff3600; }
-
-
-  .colors li a.actived {
-  box-shadow:0 0 0 2px #fff inset;    
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-  }
-
   .accordion > li > a:hover, .accordion > li > a.active 
-{ background-color: #3d3d3d; }
+{ background-color: #389646; }
 
 .accordion > li > ul li a.current, 
 .accordion > li > ul li a.current:before, 
@@ -275,7 +121,7 @@ a {
 .accordion > li > ul li:hover a:before,
 .accordion > li > ul li:hover a,
 .accordion > li > ul li:hover a:before 
-{ color: #3d3d3d; }
+{ color: #389646; }
 
 .accordion > li > ul li a.current
 { font-weight: 600;}
