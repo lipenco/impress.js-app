@@ -82,4 +82,27 @@ margin-left: 1px;
   height: 300px;
 }
 
+.green-button {
+  background-color: #389646;
+  width: 100%;
+  margin: 0 auto;
+  height: 39px;
+line-height: 39px;
+text-indent: 18px;
+display: block;
+position: relative;
+font-weight: 600;
+  color: #fff;
+}
+
+.green-button:after {
+     content: "\f0ed";
+     font-family:'FontAwesome';
+     position: absolute;
+     right: 30px;
+  }
+.green-button:hover {
+ color: #fff;
+}
+
 
