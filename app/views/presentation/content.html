@@ -1,0 +1,43 @@
+<head>
+  <title>ImpressJsApp</title>
+  <%= stylesheet_link_tag  "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+
+<body class="home">
+  <div class="header">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">  
+           <a class="brand" href="">Impress Lab</a> 
+            <ul class="nav">
+              <li class="active">
+                <a href="/index.html">Build</a>
+              </li>
+              <li class="">
+                <a href="/components.html">Components for developers</a>
+              </li>
+              <li class="">
+                <a href="./customize.html">About</a>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3">
+        <div class="slide-markdown">
+        </div>
+      </div>
+
+      <div class="span9">
+        <iframe src="/presentation" id="preview" />
+      </div>
+    </div>
+  </div>

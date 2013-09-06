@@ -95,15 +95,22 @@ font-weight: 600;
   color: #fff;
 }
 
-.green-button:after {
+.green-button:hover {
+ color: #fff;
+}
+
+.download:after {
      content: "\f0ed";
      font-family:'FontAwesome';
      position: absolute;
      right: 30px;
   }
-.green-button:hover {
- color: #fff;
-}
+.content:after {
+     content: "\f054";
+     font-family:'FontAwesome';
+     position: absolute;
+     right: 30px;
+  }
 
 .icon-2 {
 font-size: 1.7em;

@@ -1,136 +1,118 @@
 <head>
-  <title>ImpressJsApp</title>
-  <%= stylesheet_link_tag  "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+   <title>ImpressJsApp</title>
+   <%= stylesheet_link_tag  "application", :media => "all" %>
+   <%= javascript_include_tag "application" %>
+   <%= csrf_meta_tags %>
 </head>
-
-
 <body class="home">
-  <div class="header">
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">  
-           <a class="brand" href="">Impress Lab</a> 
-            <ul class="nav">
-              <li class="active">
-                <a href="/index.html">Build</a>
-              </li>
-              <li class="">
-                <a href="/components.html">Components for developers</a>
-              </li>
-              <li class="">
-                <a href="./customize.html">About</a>
-              </li>
+   <div class="header">
+      <div class="navbar navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container">
+               <a class="brand" href="">Impress Lab</a> 
+               <ul class="nav">
+                  <li class="active">
+                     <a href="/index.html">Build</a>
+                  </li>
+                  <li class="">
+                     <a href="/components.html">Components for developers</a>
+                  </li>
+                  <li class="">
+                     <a href="./customize.html">About</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="container-fluid">
+      <div class="row-fluid">
+         <div class="span2 ">
+            <p class="controller">Number of slides </p>
+            <i class="icon-minus icon-2 btn-p" id="decrement_slide"></i>
+            <div id="showNum" value="9">9</div>
+            <i class="icon-plus icon-2 btn-p" id="addslide"></i>
+            <div class="separator"></div>
+            <ul class="accordion">
+               <!-- \ mainmenu -->
+               <!-- \ 1st Menu Item -->
+               <li>
+                  <a class="active" href="#">Slides Shape</a>
+                  <ul class="expand" id="shape">
+                     <!-- \ expanded submenu -->
+                     <li><a id="rectangle" class="current btn-p" href="#">Rectangle</a></li>
+                     <li><a id="circle" class="btn-p" href="#">Circle</a></li>
+                     <li><a id="blank" class="btn-p" href="#">Blank</a></li>
+                  </ul>
+               </li>
+               <!-- \ 2nd Menu Item -->
+               <li>
+                  <a href="#">Choose Layout</a>
+                  <ul id="layout">
+                     <!-- \ submenu -->
+                     <li><a id="vertical" class="current btn-p" href="#">Vertical</a></li>
+                     <li><a id="linear" class="btn-p" href="#">Linear</a></li>
+                     <li><a id="circlev1" class="btn-p" href="#">Circle I</a></li>
+                     <li><a id="circlev2" class="btn-p" href="#">Circle II</a></li>
+                     <li><a id="circlev3" class="btn-p" href="#">Circle III</a></li>
+                     <li><a id="circlev4" class="btn-p" href="#">Circle IV</a></li>
+                     <li><a id="verticalgrid" class="btn-p" href="#">Vertical Grid</a></li>
+                     <li><a id="snakegrid" class="btn-p" href="#">Snake Grid</a></li>
+                     <li><a id="deep" class="btn-p" href="#">Deep</a></li>
+                     <li><a id="chain" class="btn-p"href="#">Chain</a></li>
+                  </ul>
+               </li>
+               <!-- \ 3rd Menu Item -->
+               <li>
+                  <a href="#">Choose Theme</a>
+                  <ul id="theme">
+                     <!-- \ submenu -->
+                     <li><a id="basic" class="current btn-p" href="#">Basic</a></li>
+                     <li><a id="textured" class="btn-p" href="#">Textured</a></li>
+                  </ul>
+               </li>
+               <!-- \ 4th Menu Item -->
+               <li>
+                  <a href="#">Progress Bar</a>
+                  <ul id="progress">
+                     <!-- \ submenu -->
+                     <li><a id="no-pbar" class="current btn-p" href="#">No</a></li>
+                     <li><a id="pbar1" class="btn-p" href="#">Yes</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="#">Slide Show</a>
+                  <ul id="autobuttons">
+                     <!-- \ submenu -->
+                     <li><a id="noauto" class="current btn-p" href="#">No</a></li>
+                     <li><a id="auto" class="btn-p" href="#">Yes</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="#">Substeps</a>
+                  <ul id="substepsbutton">
+                     <!-- \ submenu -->
+                     <li><a id="nosubsteps" class="current btn-p" href="#">No</a></li>
+                     <li><a id="substeps" class="btn-p" href="#">Yes</a></li>
+                  </ul>
+               </li>
             </ul>
-        </div>
+            <!-- / mainmenu -->
+            <div class="separator"></div>
+            <!--  <div class="separator"></div> -->
+            <a id="download" class="green-button download">
+            Take Your Code
+            </a>
+            <div class="separator"></div>
+            <a id="content" class="green-button content">
+            Work on Content
+            </a>
+            <div class="separator"></div>
+            <div class="arrows animated fadeInRightBig"></div>
+         </div>
+         <div class="span10">
+            <iframe src="/presentation" id="preview" />
+         </div>
       </div>
-    </div>
-  </div>
-
-
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span2 ">
-         <p class="controller">Number of slides </p>
-      <i class="icon-minus icon-2 btn-p" id="decrement_slide"></i>
-    <div id="showNum" value="9">9</div> 
-    <i class="icon-plus icon-2 btn-p" id="addslide"></i>
-  
-      <div class="separator"></div>
-       
-       <ul class="accordion"><!-- \ mainmenu -->
-  
-    <!-- \ 1st Menu Item -->
-    <li><a class="active" href="#">Slides Shape</a>
-      <ul class="expand" id="shape"><!-- \ expanded submenu -->
-        <li><a id="rectangle" class="current btn-p" href="#">Rectangle</a></li>
-        <li><a id="circle" class="btn-p" href="#">Circle</a></li>
-        <li><a id="blank" class="btn-p" href="#">Blank</a></li>
-      </ul>
-    </li>
-    
-    <!-- \ 2nd Menu Item -->
-    <li><a href="#">Choose Layout</a>
-      <ul id="layout"><!-- \ submenu -->
-        <li><a id="vertical" class="current btn-p" href="#">Vertical</a></li>
-        <li><a id="linear" class="btn-p" href="#">Linear</a></li>
-        <li><a id="circlev1" class="btn-p" href="#">Circle I</a></li>
-        <li><a id="circlev2" class="btn-p" href="#">Circle II</a></li>
-        <li><a id="circlev3" class="btn-p" href="#">Circle III</a></li>
-        <li><a id="circlev4" class="btn-p" href="#">Circle IV</a></li>
-        <li><a id="verticalgrid" class="btn-p" href="#">Vertical Grid</a></li>
-        <li><a id="snakegrid" class="btn-p" href="#">Snake Grid</a></li>
-        <li><a id="deep" class="btn-p" href="#">Deep</a></li>
-        <li><a id="chain" class="btn-p"href="#">Chain</a></li>
-      </ul>
-    </li>
-    
-    <!-- \ 3rd Menu Item -->
-    <li><a href="#">Choose Theme</a>
-      <ul id="theme"><!-- \ submenu -->
-        <li><a id="basic" class="current btn-p" href="#">Basic</a></li>
-        <li><a id="textured" class="btn-p" href="#">Textured</a></li>
-      </ul>
-    </li>
-    
-    <!-- \ 4th Menu Item -->
-    <li><a href="#">Progress Bar</a>
-      <ul id="progress"><!-- \ submenu -->
-        <li><a id="no-pbar" class="current btn-p" href="#">No</a></li>
-        <li><a id="pbar1" class="btn-p" href="#">Yes</a></li>
-      </ul>
-    </li>
-    
-    <li><a href="#">Slide Show</a>
-      <ul id="autobuttons"><!-- \ submenu -->
-        <li><a id="noauto" class="current btn-p" href="#">No</a></li>
-        <li><a id="auto" class="btn-p" href="#">Yes</a></li>
-      </ul>
-    </li>
-
-     <li><a href="#">Substeps</a>
-      <ul id="substepsbutton"><!-- \ submenu -->
-        <li><a id="nosubsteps" class="current btn-p" href="#">No</a></li>
-        <li><a id="substeps" class="btn-p" href="#">Yes</a></li>
-      </ul>
-    </li>
-  </ul><!-- / mainmenu -->
-
-
-
-       <div class="separator"></div>
-
-        <!--  <div class="separator"></div> -->
-  
-
-
-
-
-      <a id="download" class="green-button">
-        Download Zip
-      </a>
-      <div class="separator"></div>
-    
-    <div class="arrows animated fadeInRightBig"></div>
-
-      </div>
-
-
-    <div class="span10">
-      <iframe src="/presentation" id="preview" />
-    </div>
-
-
-  </div>
-</div>
-
-
- 
-  
- 
-  
-
-
-
+   </div>
 </body>

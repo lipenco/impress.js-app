@@ -25,6 +25,9 @@ var updatePreview = function() {
   if (document.getElementById("download") !== null) {
     document.getElementById("download").href = "download" + source;
   }
+  if (document.getElementById("content") !== null) {
+    document.getElementById("content").href = "content" + source;   
+  }
 };
 
 
