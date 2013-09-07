@@ -34,7 +34,6 @@ class PresentationController < ApplicationController
   end
 
   def content
-    build
   end
 
   def download
