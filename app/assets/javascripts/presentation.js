@@ -26,10 +26,14 @@ var updatePreview = function() {
   }
   if (document.getElementById("download") !== null) {
     document.getElementById("download").href = "download" + source;
-  }
-  if (document.getElementById("content") !== null) {
-    document.getElementById("content").href = "content" + source;   
-  }  
+  } 
+  $("#style-mode").click(function(){
+    document.getElementById("preview").src = "presentation" + source;  
+  });
+  $("#content-mode").click(function(){
+    document.getElementById("preview").src = "content" + source; 
+  });
+
 };
 
 
@@ -119,6 +123,7 @@ var getProgressBar = function () {
 }
 
 var getContent = function() {
+  var content = null;
   var contentgroup = document.getElementById("editorr");
   if (contentgroup != null) {
    content = contentgroup.innerHTML;
@@ -166,3 +171,5 @@ var addSlide = function() {
           { setFocusOnIframe();} }, false); 
  }
 
+
+ 

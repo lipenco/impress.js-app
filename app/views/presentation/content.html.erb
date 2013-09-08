@@ -25,6 +25,9 @@
       });
     });
   </script> 
+
+
+
   <style>
   .slide { z-index: 1;}
   </style>
@@ -33,22 +36,12 @@
 
 <body>
   <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span3">
-        <div class="btn-p green-button">
-          update
-        </div>
-      </div>
-
-      <div class="span9">
-       
-      <% @num_slides.times do |n| %> 
         <div class="step slide" >
            <div id="editorr" class="editor" contenteditable="true">
           <h1>Example Title</h1>
           </div>
         </div>
-      <% end %>
+
 
      <!--   <div class="step slide">
             <div class="editor" contenteditable="true">
@@ -62,10 +55,16 @@
         </div>
       </div>  -->
 
-
-      </div>
-    </div>
   </div>
+    <script>
+    window.parent.func = function() {
+     var editorr = document.querySelector("#editorr");
+      editorr.addEventListener('blur', function(){
+        var content = contentgroup.innerHTML;
+        }, false); 
+      return content;
+    };
+  </script>
 
 </body>
 
