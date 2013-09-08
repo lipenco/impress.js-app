@@ -7,7 +7,7 @@
   <%= stylesheet_link_tag "/assets/css/normalize.css" %>
   <%= stylesheet_link_tag "/assets/css/toggle-switch.css" %>
   <%= stylesheet_link_tag "/assets/default.css" %>
-  <%= javascript_include_tag "http://kenshin54.github.io/popline/scripts/jquery.min.js" %>
+  <%= javascript_include_tag "/assets/scripts/jquery.min.js" %>
   <%= javascript_include_tag "http://kenshin54.github.io/popline/build/jquery.popline.min.js" %>
 
     <script type="text/javascript">
@@ -35,7 +35,8 @@
   <div class="container-fluid">
     <div class="row-fluid">
       <div class="span3">
-        <div class="slide-markdown">
+        <div class="btn-p green-button">
+          update
         </div>
       </div>
 
@@ -43,7 +44,7 @@
        
       <% @num_slides.times do |n| %> 
         <div class="step slide" >
-           <div class="editor" contenteditable="true">
+           <div id="editorr" class="editor" contenteditable="true">
           <h1>Example Title</h1>
           </div>
         </div>

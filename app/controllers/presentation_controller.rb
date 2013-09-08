@@ -101,6 +101,6 @@ class PresentationController < ApplicationController
     zip.rewind
     binary_zip = zip.sysread
 
-    send_data(binary_zip, {filename: "impresscustomized.zip"})
+    send_data(binary_zip, {filename: "impress-customized.zip"})
   end
 end

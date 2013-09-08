@@ -12,13 +12,15 @@ var updatePreview = function() {
   var theme = getTheme();
   var substeps = getSubsteps();
   var progress_bar = getProgressBar();
+  var content = getContent();
   var source =  "?layout=" + layout + 
   "&num_slides=" + num_slides + 
   "&shape=" + shape + 
   "&automated=" + automated + 
   "&theme=" + theme +
   "&substeps=" + substeps +
-  "&progress_bar=" + progress_bar;
+  "&progress_bar=" + progress_bar +
+  "&content[0]=" + content;
   if (document.getElementById("preview") !== null) {
     document.getElementById("preview").src = "presentation" + source;   
   }
@@ -27,14 +29,16 @@ var updatePreview = function() {
   }
   if (document.getElementById("content") !== null) {
     document.getElementById("content").href = "content" + source;   
-  }
+  }  
 };
 
 
 var getLayout = function() {
   var layoutType = "vertical";
   var layoutbuttons = document.getElementById("layout");
-  var activebutton = layoutbuttons.querySelector(".current");
+  if (layoutbuttons != null) {
+    var activebutton = layoutbuttons.querySelector(".current");
+  }  
   if (activebutton != null) {
     layoutType = activebutton.id;
   }
@@ -53,7 +57,9 @@ var getNumber = function () {
 var getShape = function() {
   var shape = "rectangle";
   var shapegroup = document.getElementById("shape");
-  var shapecurrent = shapegroup.querySelector(".current");
+  if (shapegroup != null) {
+    var shapecurrent = shapegroup.querySelector(".current");
+  }
   if (shapecurrent != null) {
     shape = shapecurrent.id;
   }
@@ -63,7 +69,9 @@ var getShape = function() {
 var getAuto = function () {
   var automated = "false";
   var autogroup = document.getElementById("autobuttons");
-  var autocurrent = autogroup.querySelector(".current");
+  if (autogroup != null) {
+    var autocurrent = autogroup.querySelector(".current");
+  }
   if (autocurrent != null) {
     if (autocurrent.id == "auto") {
         automated = "true";
@@ -75,7 +83,9 @@ var getAuto = function () {
 var getTheme = function () {
   var theme = "basic";
   var themegroup = document.getElementById("theme");
-  var themecurrent = themegroup.querySelector(".current");
+  if (themegroup != null) {
+    var themecurrent = themegroup.querySelector(".current");
+  }
   if (themecurrent != null) {
     theme = themecurrent.id;
   }
@@ -85,7 +95,9 @@ var getTheme = function () {
 var getSubsteps = function () {
   var substeps = "false";
   var substepsgroup = document.getElementById("substepsbutton");
+  if (substepsgroup != null) {
   var substepscurrent = substepsgroup.querySelector(".current");
+  }
   if (substepscurrent != null) {
     if (substepscurrent.id == "substeps") {
         substeps = "true";
@@ -97,12 +109,23 @@ var getSubsteps = function () {
 var getProgressBar = function () {
   var progress_bar = "no-pbar";
   var progressgroup = document.getElementById("progress");
-  var progresscurrent = progressgroup.querySelector(".current");
+  if (progressgroup != null) {
+    var progresscurrent = progressgroup.querySelector(".current");
+  }
   if (progresscurrent  != null) {
     progress_bar = progresscurrent.id;
   }
   return progress_bar;
 }
+
+var getContent = function() {
+  var contentgroup = document.getElementById("editorr");
+  if (contentgroup != null) {
+   content = contentgroup.innerHTML;
+  }
+  return content;
+}
+
 
 var setFocusOnIframe = function () {
   var iframe = $("#preview")[0];
@@ -112,7 +135,8 @@ var setFocusOnIframe = function () {
 }
 
 var addSlide = function() {
-  var $showNum = $("#showNum");
+
+  var $showNum = $("#showNum"); 
   $showNum.numberAnimate();
   var counter = 9;
   $("#addslide").click(function(){
@@ -132,7 +156,7 @@ var addSlide = function() {
         for (var i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', function(){
           setTimeout(function(){
-            updatePreview();
+            updatePreview(); 
           }, 1);
         }, false); 
       };
