@@ -1,6 +1,8 @@
 require 'zip'
 
 class PresentationController < ApplicationController
+  layout "application", except: [:build]
+
   def build
     @num_slides = 0
     @num_slides = params[:num_slides].to_i if params[:num_slides].to_i > 0
@@ -25,6 +27,7 @@ class PresentationController < ApplicationController
     @progress_bar = params[:progress_bar] if ["no-pbar", "pbar1"].include?(params[:progress_bar])
 
     @example_slides = %w{title ollist ullist paragraph substeps blockquote table align colors}
+    @content = params[:content]
   end
 
   def home
@@ -34,6 +37,7 @@ class PresentationController < ApplicationController
   end
 
   def content
+    build
   end
 
   def download

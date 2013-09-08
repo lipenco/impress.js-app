@@ -3,7 +3,7 @@
   <%= stylesheet_link_tag  "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-<%= stylesheet_link_tag "impress-theme1.css", :media => "all" %>
+  <%= stylesheet_link_tag "impress-theme1.css", :media => "all" %>
   <%= stylesheet_link_tag "/assets/css/normalize.css" %>
   <%= stylesheet_link_tag "/assets/css/toggle-switch.css" %>
   <%= stylesheet_link_tag "/assets/default.css" %>
@@ -32,28 +32,6 @@
 
 
 <body>
-  <div class="header">
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">  
-           <a class="brand" href="">Impress Lab</a> 
-            <ul class="nav">
-              <li class="active">
-                <a href="/index.html">Build</a>
-              </li>
-              <li class="">
-                <a href="/components.html">Components for developers</a>
-              </li>
-              <li class="">
-                <a href="./customize.html">About</a>
-              </li>
-            </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
   <div class="container-fluid">
     <div class="row-fluid">
       <div class="span3">
@@ -62,13 +40,16 @@
       </div>
 
       <div class="span9">
+       
+      <% @num_slides.times do |n| %> 
         <div class="step slide" >
            <div class="editor" contenteditable="true">
           <h1>Example Title</h1>
           </div>
         </div>
+      <% end %>
 
-       <div class="step slide">
+     <!--   <div class="step slide">
             <div class="editor" contenteditable="true">
            <h2>Good to know</h2>
           <ul>
@@ -78,7 +59,7 @@
           <li>Lorem ipsum dolor </li>
           </ul>
         </div>
-      </div> 
+      </div>  -->
 
 
       </div>
