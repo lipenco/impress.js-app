@@ -24,6 +24,7 @@
         }
       });
     });
+
   </script> 
 
 
@@ -37,7 +38,7 @@
 <body>
   <div class="container-fluid">
         <div class="step slide" >
-           <div id="editorr" class="editor" contenteditable="true">
+           <div id="editorr" class="editor editorr" contenteditable="true">
           <h1>Example Title</h1>
           </div>
         </div>
@@ -57,13 +58,10 @@
 
   </div>
     <script>
-    window.parent.func = function() {
-     var editorr = document.querySelector("#editorr");
+     var editorr = document.querySelector(".editorr");
       editorr.addEventListener('blur', function(){
-        var content = contentgroup.innerHTML;
+          parent.$("#data-store").data("content[0]", editorr.innerHTML)
         }, false); 
-      return content;
-    };
   </script>
 
 </body>

@@ -12,7 +12,6 @@ var updatePreview = function() {
   var theme = getTheme();
   var substeps = getSubsteps();
   var progress_bar = getProgressBar();
-  var content = getContent();
   var source =  "?layout=" + layout + 
   "&num_slides=" + num_slides + 
   "&shape=" + shape + 
@@ -20,7 +19,11 @@ var updatePreview = function() {
   "&theme=" + theme +
   "&substeps=" + substeps +
   "&progress_bar=" + progress_bar +
-  "&content[0]=" + content;
+  "&content[0]=" + $("#data-store").data("content[0]");
+  "&content[1]=" + $("#data-store").data("content[1]");
+  "&content[2]=" + $("#data-store").data("content[2]");
+  "&content[3]=" + $("#data-store").data("content[3]");
+  "&content[4]=" + $("#data-store").data("content[4]");
   if (document.getElementById("preview") !== null) {
     document.getElementById("preview").src = "presentation" + source;   
   }
@@ -120,15 +123,6 @@ var getProgressBar = function () {
     progress_bar = progresscurrent.id;
   }
   return progress_bar;
-}
-
-var getContent = function() {
-  var content = null;
-  var contentgroup = document.getElementById("editorr");
-  if (contentgroup != null) {
-   content = contentgroup.innerHTML;
-  }
-  return content;
 }
 
 
