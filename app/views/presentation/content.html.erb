@@ -40,7 +40,13 @@
       <% @num_slides.times do |n| %>  
         <div class="step slide" >
           <div  class="editor editorr" contenteditable="true">
-            <%= render "presentation/partials/#{@example_slides[n]}" %>  
+            <%=
+            if @content.nil? || @content[n.to_s].nil?
+              render "presentation/partials/#{@example_slides[n]}"
+            else
+                @content[n.to_s].html_safe
+            end
+          %>
           </div>
         </div>
       <% end %>

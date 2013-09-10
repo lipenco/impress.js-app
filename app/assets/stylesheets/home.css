@@ -94,6 +94,19 @@ font-weight: 600;
   color: #fff;
 }
 
+.mode {
+  border: 2px solid #389646;
+  width: 100%;
+  margin: 0 auto;
+  height: 39px;
+line-height: 39px;
+text-indent: 18px;
+display: block;
+position: relative;
+font-weight: 600;
+  color: #000;
+}
+
 .green-button:hover {
  color: #fff;
 }
