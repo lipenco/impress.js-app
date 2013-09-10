@@ -1,14 +1,20 @@
 $(document).ready(function(){
 
-  // Give .current class to clicked element (only for demo).  
   
   $('.accordion ul li a').click(function () {
     
     var divname= this.name;
-  
     $("#"+divname).show("fast").siblings().hide("fast");
     $(".accordion ul li a").removeClass("current");               
     $(this).addClass("current");
+
+    // var divname= this.name;
+    // if (divname !== divname ) { 
+    //   $("#"+divname).show("fast").siblings().hide("fast");             
+    // } else {
+    //   $(".accordion ul li a").removeClass("current");               
+    //   $(this).addClass("current");
+    // }
 
   });
     
@@ -56,30 +62,8 @@ $(document).ready(function(){
   });
   
   
-  // Change classes when :checked (only for demo).  
 
-  $('#toggles .toggle .slideOne label').click(function(){
-    
-    if($(this).prev().is(":checked")===true){
-      
-      $('body').addClass('bodybg');
-    }
-    else{
-      $('body').removeClass('bodybg');
-    }
-  });
   
-  $('#toggles .toggle .slideTwo label').click(function(){
-    
-    if($(this).prev().is(":checked")===false){
-      
-      $('#shadow-bottom').addClass('noshadow-img');
-      $('#container').addClass('noshadow-box');
-    }
-    else{
-      $('#shadow-bottom').removeClass('noshadow-img');
-      $('#container').removeClass('noshadow-box');
-    }
-  });
+
 
 });
