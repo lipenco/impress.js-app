@@ -5,17 +5,9 @@ $(document).ready(function(){
     
     var divname= this.name;
     $("#"+divname).show("fast").siblings().hide("fast");
-    $(".accordion ul li a").removeClass("current");               
+    var group = $(this).closest( "ul" );
+    group.find("a.current").removeClass("current");               
     $(this).addClass("current");
-
-    // var divname= this.name;
-    // if (divname !== divname ) { 
-    //   $("#"+divname).show("fast").siblings().hide("fast");             
-    // } else {
-    //   $(".accordion ul li a").removeClass("current");               
-    //   $(this).addClass("current");
-    // }
-
   });
     
   // Accordion Script
