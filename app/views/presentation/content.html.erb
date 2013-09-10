@@ -37,60 +37,32 @@
 
 <body>
   <div class="container-fluid">
-      <% @num_slides.times do |n| %>   
+      <% @num_slides.times do |n| %>  
         <div class="step slide" >
-           <div  id="#editorr<%=n%>" class="editor" contenteditable="true">
-          <h1>Example Title</h1>
+          <div  class="editor editorr" contenteditable="true">
+            <%= render "presentation/partials/#{@example_slides[n]}" %>  
           </div>
         </div>
       <% end %>
-<!-- 
-         <div class="step slide" >
-           <div  class="editor editorr" contenteditable="true">
-          <h1>2 example </h1>
-          </div>
-        </div>
-
-         <div class="step slide" >
-           <div  class="editor editorr" contenteditable="true">
-          <h1>3 example </h1>
-          </div>
-        </div> -->
-
-
-     <!--   <div class="step slide">
-            <div class="editor" contenteditable="true">
-           <h2>Good to know</h2>
-          <ul>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor</li>
-          <li>Lorem ipsum dolor </li>
-          </ul>
-        </div>
-      </div>  -->
-
   </div>
 
+
   <script>
-     var editorr = document.getElementById("#editorr0");
-      editorr.addEventListener('blur', function(){
-          parent.$("#data-store").data("content[0]", editorr.innerHTML);
-        }, false); 
+    var editor = document.querySelectorAll('.editor');
+      for (var i = 0; i< editor.length; i++) {
+        var content = editor[i].innerHTML;
+        editor[i].addEventListener('blur', function(){
+        storeData(); }, false);
+      }
+     
 
-     // var editorr = document.getElementById("#editorr1");
-     //  editorr.addEventListener('blur', function(){
-     //      parent.$("#data-store").data("content[1]", editorr.innerHTML);
-     //    }, false); 
-
-     //  var editorr = document.getElementById("#editorr2");
-     //  editorr.addEventListener('blur', function(){
-     //      parent.$("#data-store").data("content[2]", editorr.innerHTML)
-     //    }, false); 
+    var storeData = function () {
+      var editor = document.querySelectorAll('.editor');
+      for (var i = 0; i< editor.length; i++) {
+        parent.$("#data-store").data("content["+i+"]", editor[i].innerHTML);
+      } 
+    } 
   </script>
-
-
-
 
 
 </body>

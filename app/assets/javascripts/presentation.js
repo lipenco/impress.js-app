@@ -18,12 +18,14 @@ var updatePreview = function() {
   "&automated=" + automated + 
   "&theme=" + theme +
   "&substeps=" + substeps +
-  "&progress_bar=" + progress_bar +
-  "&content[0]=" + $("#data-store").data("content[0]");
-  "&content[1]=" + $("#data-store").data("content[1]");
-  "&content[2]=" + $("#data-store").data("content[2]");
-  "&content[3]=" + $("#data-store").data("content[3]");
-  "&content[4]=" + $("#data-store").data("content[4]");
+  "&progress_bar=" + progress_bar;
+
+  for(i=0; i<num_slides; i++){
+    if($("#data-store").data("content["+i+"]")) {
+      source += "&content["+i+"]=" + $("#data-store").data("content["+i+"]");
+    }
+  }
+
   if (document.getElementById("preview") !== null) {
     document.getElementById("preview").src = "presentation" + source;   
   }
