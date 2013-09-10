@@ -37,12 +37,14 @@
 
 <body>
   <div class="container-fluid">
+      <% @num_slides.times do |n| %>   
         <div class="step slide" >
-           <div  class="editor editorr" contenteditable="true">
+           <div  id="#editorr<%=n%>" class="editor" contenteditable="true">
           <h1>Example Title</h1>
           </div>
         </div>
-
+      <% end %>
+<!-- 
          <div class="step slide" >
            <div  class="editor editorr" contenteditable="true">
           <h1>2 example </h1>
@@ -53,7 +55,7 @@
            <div  class="editor editorr" contenteditable="true">
           <h1>3 example </h1>
           </div>
-        </div>
+        </div> -->
 
 
      <!--   <div class="step slide">
@@ -69,19 +71,26 @@
       </div>  -->
 
   </div>
-    <script>
-     var editorr = document.querySelectorAll(".editorr");
-     for (var i =0; i < editorr.length; i++) {
-      editorr[i].addEventListener('blur', function(){
-          console.log(i);
-          parent.$("#data-store").data("content["+0+"]", editorr[i].innerHTML)
+
+  <script>
+     var editorr = document.getElementById("#editorr0");
+      editorr.addEventListener('blur', function(){
+          parent.$("#data-store").data("content[0]", editorr.innerHTML);
         }, false); 
-    }
+
+     // var editorr = document.getElementById("#editorr1");
+     //  editorr.addEventListener('blur', function(){
+     //      parent.$("#data-store").data("content[1]", editorr.innerHTML);
+     //    }, false); 
+
+     //  var editorr = document.getElementById("#editorr2");
+     //  editorr.addEventListener('blur', function(){
+     //      parent.$("#data-store").data("content[2]", editorr.innerHTML)
+     //    }, false); 
   </script>
 
-arr[c.name] = (function(url) { 
-    return function() { callback(url); }
-})(c.url);
+
+
 
 
 </body>
