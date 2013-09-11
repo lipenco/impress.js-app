@@ -33,13 +33,33 @@ var updatePreview = function() {
     document.getElementById("download").href = "download" + source;
   } 
   $("#style-mode").click(function(){
-    document.getElementById("preview").src = "presentation" + source;  
+    document.getElementById("preview").src = "presentation" + source;
+    f();  
   });
   $("#content-mode").click(function(){
     document.getElementById("preview").src = "content" + source; 
+    g();
   });
 
 };
+
+
+function g() {
+    $(".disapear").animate({
+            opacity: 0
+        }, 500, "easeOutQuint", function () {
+          $(".disapear").css("display", "none")
+          });
+      }
+
+
+function f() {
+    $(".disapear").animate({
+            opacity: 1
+        }, 500, "easeOutQuint", function () {
+          $(".disapear").css("display", "block")
+          });
+      }
 
 
 var getLayout = function() {
