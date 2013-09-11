@@ -1,7 +1,7 @@
 $(document).ready(function() {
     eventsListeners();
     updatePreview();
-    addSlide();
+    addSlide();    
 });
 
 var updatePreview = function() {
@@ -190,6 +190,22 @@ var addSlide = function() {
         if ( event.keyCode === 9 || ( event.keyCode >= 32 && event.keyCode <= 34 ) 
           || (event.keyCode >= 37 && event.keyCode <= 40) )
           { setFocusOnIframe();} }, false); 
+ }
+
+ var storeContentFromContentMode = function() {
+    var editor = document.querySelectorAll('.editor');
+      for (var i = 0; i< editor.length; i++) {
+        var content = editor[i].innerHTML;
+        editor[i].addEventListener('blur', function(){
+        storeData(); }, false);
+      }
+     
+    var storeData = function () {
+      var editor = document.querySelectorAll('.editor');
+      for (var i = 0; i< editor.length; i++) {
+        parent.$("#data-store").data("content["+i+"]", editor[i].innerHTML);
+      } 
+    } 
  }
 
 

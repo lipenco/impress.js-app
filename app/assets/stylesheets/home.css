@@ -105,10 +105,21 @@ display: block;
 position: relative;
 font-weight: 600;
   color: #000;
+  -webkit-transition: all 1.5s ease;
+-moz-transition: all 1.5s ease;
+-o-transition: all 1.5s ease;
+-ms-transition: all 1.5s ease;
+transition: all 1.5s ease;
 }
 
 .green-button:hover {
  color: #fff;
+}
+
+.new-slide  {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #389646;
 }
 
 .download:after {

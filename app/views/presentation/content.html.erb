@@ -27,8 +27,6 @@
 
   </script> 
 
-
-
   <style>
   .slide { z-index: 1;}
   </style>
@@ -48,28 +46,27 @@
             end
           %>
           </div>
+          <div class="new-slide"> + </div>
         </div>
       <% end %>
   </div>
 
 
   <script>
-    var editor = document.querySelectorAll('.editor');
-      for (var i = 0; i< editor.length; i++) {
-        var content = editor[i].innerHTML;
-        editor[i].addEventListener('blur', function(){
-        storeData(); }, false);
-      }
-     
+  storeContentFromContentMode();
 
-    var storeData = function () {
-      var editor = document.querySelectorAll('.editor');
-      for (var i = 0; i< editor.length; i++) {
-        parent.$("#data-store").data("content["+i+"]", editor[i].innerHTML);
-      } 
-    } 
+  var newSlideButton = document.querySelectorAll('.new-slide');
+  for (var i = 0; i < newSlideButton.length; i++ ) { 
+    newSlideButton[i].addEventListener('click', function(){
+       newSlide(); }, false )
+  }
+
+  var newSlide = function() {
+    console.log("klik");
+    var newSlideDiv = $('<div class="step slide"> </div>');
+    $(".container-fluid").append(newSlideDiv);
+  }
   </script>
-
 
 </body>
 
