@@ -39,6 +39,7 @@ var updatePreview = function() {
   $("#content-mode").click(function(){
     document.getElementById("preview").src = "content" + source; 
     g();
+    h();
   });
 
 };
@@ -60,6 +61,11 @@ function f() {
           $(".disapear").css("display", "block")
           });
       }
+
+function h() {
+  $('.arrows').addClass('fadeOutRightBig');
+  $('.arrows').removeClass('fadeInRightBig');
+}
 
 
 var getLayout = function() {
@@ -151,8 +157,7 @@ var getProgressBar = function () {
 var setFocusOnIframe = function () {
   var iframe = $("#preview")[0];
     iframe.contentWindow.focus();
-  $('.arrows').addClass('fadeOutRightBig');
-  $('.arrows').removeClass('fadeInRightBig');
+    h();
 }
 
 var addSlide = function() {
