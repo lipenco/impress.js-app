@@ -38,6 +38,7 @@
       <% @num_slides.times do |n| %>  
         <div class="step slide" >
           <div  class="editor editorr" contenteditable="true">
+        <% if n < 9 %>
             <%=
             if @content.nil? || @content[n.to_s].nil?
               render "presentation/partials/#{@example_slides[n]}"
@@ -45,6 +46,9 @@
                 @content[n.to_s].html_safe
             end
           %>
+        <% else %>
+          <h2> Slide <%= n +1 %> </h2>
+        <% end %>
           </div>
           <div class="new-slide"> + </div>
         </div>
@@ -61,11 +65,14 @@
        newSlide(); }, false )
   }
 
+
   var newSlide = function() {
-    console.log("klik");
     var newSlideDiv = $('<div class="step slide"> </div>');
     $(".container-fluid").append(newSlideDiv);
-  }
+    var nawVal = document.getElementById("showNum").value || 9;
+  } 
+   
+
   </script>
 
 </body>
