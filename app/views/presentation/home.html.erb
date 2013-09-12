@@ -3,6 +3,7 @@
    <%= stylesheet_link_tag  "application", :media => "all" %>
    <%= javascript_include_tag "application" %>
    <%= csrf_meta_tags %>
+
 </head>
 <body class="home">
    <div id="data-store"></div>
@@ -29,10 +30,10 @@
    <div class="container-fluid">
       <div class="row-fluid">
          <div class="span2 ">
-          <div class="disapear">
+          <div class="">
             <p class="controller">Number of slides </p>
             <i class="icon-minus icon-2 btn-p" id="decrement_slide"></i>
-            <div id="showNum" value="9">9</div>
+            <div id="showNum">9</div>
             <i class="icon-plus icon-2 btn-p" id="addslide"></i>
          </div>
           <ul class="accordion">

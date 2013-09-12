@@ -68,6 +68,8 @@ function h() {
 }
 
 
+
+
 var getLayout = function() {
   var layoutType = "vertical";
   var layoutbuttons = document.getElementById("layout");
@@ -161,8 +163,8 @@ var setFocusOnIframe = function () {
 }
 
 var addSlide = function() {
-
   var $showNum = $("#showNum"); 
+  console.log($showNum)
   $showNum.numberAnimate();
   var counter = 9;
   $("#addslide").click(function(){
