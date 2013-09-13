@@ -76,7 +76,7 @@ var setContent = function () {
     style_mode.addEventListener('click', function () {
         setTimeout(function () {
             postData();
-        }, 100);
+        }, 1000);
     }, false);
 }
 
@@ -97,7 +97,7 @@ var getContentBackToEditor = function () {
     content_mode.addEventListener('click', function () {
         setTimeout(function () {
             postDataEdit();
-        }, 500);
+        }, 1000);
     }, false);
 }
 
