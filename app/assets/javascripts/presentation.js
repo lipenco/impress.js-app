@@ -71,9 +71,12 @@ function h() {
 }
 
 var setContent = function() {
-    var style_mode = document.getElementById("style-mode2");
+    var style_mode = document.getElementById("style-mode");
       style_mode.addEventListener('click', function () {
-      postData();}, false); 
+         setTimeout(function(){
+            postData();
+               }, 100);
+          }, false); 
 
       var postData = function() {
          var x=document.getElementById("preview");
