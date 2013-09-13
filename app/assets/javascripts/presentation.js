@@ -9,7 +9,7 @@ $(document).ready(function () {
 var updatePreview = function () {
     setTimeout(function () {
         postData();
-    }, 100);
+    }, 1000);
     var num_slides = getNumber();
     var layout = getLayout();
     var shape = getShape();
