@@ -39,13 +39,9 @@
         <div class="step slide" >
           <div  class="editor editorr" contenteditable="true">
         <% if n < 9 %>
-            <%=
-            if @content.nil? || @content[n.to_s].nil?
-              render "presentation/partials/#{@example_slides[n]}"
-            else
-                @content[n.to_s].html_safe
-            end
-            %>
+           <% if @content == "no" %>
+            <%= render "presentation/partials/#{@example_slides[n]}" %>
+          <% end %>
         <% else %>
           <h2> Slide <%= n +1 %> </h2>
         <% end %>
