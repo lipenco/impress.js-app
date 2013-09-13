@@ -1,7 +1,8 @@
 $(document).ready(function() {
     eventsListeners();
     updatePreview();
-    addSlide();    
+    addSlide();
+    setContent();   
 });
 
 var updatePreview = function() {
@@ -45,6 +46,8 @@ var updatePreview = function() {
 };
 
 
+
+
 function g() {
     $(".disapear").animate({
             opacity: 0
@@ -67,7 +70,22 @@ function h() {
   $('.arrows').removeClass('fadeInRightBig');
 }
 
+var setContent = function() {
+    var style_mode = document.getElementById("style-mode2");
+      style_mode.addEventListener('click', function () {
+      postData();}, false); 
 
+      var postData = function() {
+         var x=document.getElementById("preview");
+         var y=(x.contentWindow || x.contentDocument);
+         var slides = y.document.querySelectorAll(".step");
+
+         var contentObject = $("#data-store").data()
+         for (var i = 0; i < slides.length; i++) {
+           slides[i].innerHTML = contentObject["content["+i+"]"];
+         }
+       }
+  }
 
 
 var getLayout = function() {
@@ -193,19 +211,9 @@ var addSlide = function() {
           || (event.keyCode >= 37 && event.keyCode <= 40) )
           { setFocusOnIframe();} }, false); 
 
-      var style_mode = document.getElementById("style-mode");
-         style_mode.addEventListener('click', function() {
-          postData(); }, false);
-         
-      var postData = function() {
-        if($("#data-store").data("content["+i+"]")) {
-          $.post('../home.html.erb', null, 
-          $("#impress").html.data("content["+i+"]", editor[i].innerHTML)
-          );
-         } 
-       }
  }
 
+    
  var storeContentFromContentMode = function() {
     var editor = document.querySelectorAll('.editor');
       for (var i = 0; i< editor.length; i++) {
