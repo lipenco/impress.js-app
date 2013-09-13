@@ -45,7 +45,7 @@
             else
                 @content[n.to_s].html_safe
             end
-          %>
+            %>
         <% else %>
           <h2> Slide <%= n +1 %> </h2>
         <% end %>
@@ -58,7 +58,7 @@
   </div>
 
 
-  <script>
+<script>
   storeContentFromContentMode();
 
   var newSlideButton = document.querySelectorAll('.new-slide');
@@ -71,11 +71,7 @@
     var newSlideDiv = $('<div class="step slide"> </div>');
     $(".container-fluid").append(newSlideDiv); 
   } 
-
-
-
-
-  </script>
+</script>
 
 </body>
 

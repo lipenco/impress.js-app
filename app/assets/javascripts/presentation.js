@@ -20,11 +20,11 @@ var updatePreview = function() {
   "&substeps=" + substeps +
   "&progress_bar=" + progress_bar;
 
-  for(i=0; i<num_slides; i++){
-    if($("#data-store").data("content["+i+"]")) {
-      source += "&content["+i+"]=" + $("#data-store").data("content["+i+"]");
-    }
-  }
+  // for(i=0; i<num_slides; i++){
+  //   if($("#data-store").data("content["+i+"]")) {
+  //     source += "&content["+i+"]=" + $("#data-store").data("content["+i+"]");
+  //   }
+  // }
 
   if (document.getElementById("preview") !== null) {
     document.getElementById("preview").src = "presentation" + source;   
@@ -192,6 +192,18 @@ var addSlide = function() {
         if ( event.keyCode === 9 || ( event.keyCode >= 32 && event.keyCode <= 34 ) 
           || (event.keyCode >= 37 && event.keyCode <= 40) )
           { setFocusOnIframe();} }, false); 
+
+      var style_mode = document.getElementById("style-mode");
+         style_mode.addEventListener('click', function() {
+          postData(); }, false);
+         
+      var postData = function() {
+        if($("#data-store").data("content["+i+"]")) {
+          $.post('../home.html.erb', null, 
+          $("#impress").html.data("content["+i+"]", editor[i].innerHTML)
+          );
+         } 
+       }
  }
 
  var storeContentFromContentMode = function() {
