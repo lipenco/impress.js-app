@@ -4,6 +4,7 @@ $(document).ready(function () {
     addSlide();
     setContent();
     getContentBackToEditor();
+    downloadZip();
 });
 
 var updatePreview = function () {
@@ -27,12 +28,8 @@ var updatePreview = function () {
         "&content=" + content +
         "&progress_bar=" + progress_bar;
 
-
     if (document.getElementById("preview") !== null) {
         document.getElementById("preview").src = "presentation" + source;
-    }
-    if (document.getElementById("download") !== null) {
-        document.getElementById("download").href = "download" + source;
     }
     $("#style-mode").click(function () {
         document.getElementById("preview").src = "presentation" + source;
@@ -45,8 +42,6 @@ var updatePreview = function () {
     });
 
 };
-
-
 
 
 function g() {
@@ -81,9 +76,9 @@ var setContent = function () {
 }
 
 var postData = function () {
-    var x = document.getElementById("preview");
-    var y = (x.contentWindow || x.contentDocument);
-    var slides = y.document.querySelectorAll(".step");
+    var previewDiv = document.getElementById("preview");
+    var iframeContent = (previewDiv.contentWindow || previewDiv.contentDocument);
+    var slides = iframeContent.document.querySelectorAll(".step");
     var contentObject = $("#data-store").data();
     if (contentObject["content[0]"] !== undefined) {
       for (var i = 0; i < slides.length; i++) {
@@ -112,7 +107,6 @@ var postDataEdit = function () {
        }
     }
 }
-
 
 
 var getLayout = function () {
@@ -249,6 +243,50 @@ var eventsListeners = function () {
 
 }
 
+var downloadZip = function () {
+    var button = document.getElementById('download');
+    button.addEventListener('click', function () { 
+    var data = {
+        "num_slides" : getNumber(),
+        "layout" : getLayout(),
+        "shape" : getShape(),
+        "automated" : getAuto(),
+        "theme" : getTheme(),
+        "substeps" : getSubsteps(),
+        "progress_bar" : getProgressBar()
+    };    
+    var dataObject = $("#data-store").data();
+    for ( var key in dataObject ) {
+        data[key] = dataObject[key]
+    }
+    post_to_url('/download', data, 'post');
+    }, false)
+}
+
+var post_to_url = function(path, params, method) {
+    method = method || "post"; // Set method to post by default if not specified.
+
+    // The rest of this code assumes you are not using a library.
+    // It can be made less wordy if you use one.
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+
+    for(var key in params) {
+        if(params.hasOwnProperty(key)) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+
+            form.appendChild(hiddenField);
+         }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+}
+
 
 var storeContentFromContentMode = function () {
     var editor = document.querySelectorAll('.editor');
@@ -256,6 +294,7 @@ var storeContentFromContentMode = function () {
         var content = editor[i].innerHTML;
         editor[i].addEventListener('blur', function () {
             storeData();
+
         }, false);
     }
 
