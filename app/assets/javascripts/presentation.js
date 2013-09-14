@@ -18,14 +18,12 @@ var updatePreview = function () {
     var theme = getTheme();
     var substeps = getSubsteps();
     var progress_bar = getProgressBar();
-    var content = getContent();
     var source = "?layout=" + layout +
         "&num_slides=" + num_slides +
         "&shape=" + shape +
         "&automated=" + automated +
         "&theme=" + theme +
         "&substeps=" + substeps +
-        "&content=" + content +
         "&progress_bar=" + progress_bar;
 
     if (document.getElementById("preview") !== null) {
@@ -121,14 +119,6 @@ var getLayout = function () {
     return layoutType;
 };
 
-var getContent = function () {
-    var content = "no";
-    var contentData = $("#data-store").data();
-    if (contentData["content[0]"] !== undefined) {
-        content = "yes";
-    }
-    return content;
-}
 
 
 var getNumber = function () {
