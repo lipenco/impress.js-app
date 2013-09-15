@@ -250,8 +250,9 @@ var eventsListeners = function () {
         newSlide(); }, false )
     }
     var newSlide = function() {
-        var newSlideDiv = $('<div class="step slide"> </div>');
-        $(".container-fluid").append(newSlideDiv);                  
+        var newSlideDiv = $('<div class="step slide"><div  class="editor editorr" contenteditable="true"><h2>New Slide</h2></div></div>');
+        $(".container-fluid").append(newSlideDiv);  
+
     } 
 }
 

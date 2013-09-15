@@ -19,7 +19,7 @@
 
   <div id="impress">
     <% @num_slides.times do |n| %>   
-      <div class="step <%= @shape_class %> ">
+      <div class="step <%= @shape_class %> " id="<%=n%>-slide">
         <% if n < 9 %>
           <%=
             if @content.nil? || @content[n.to_s].nil?
