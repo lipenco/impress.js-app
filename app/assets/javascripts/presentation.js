@@ -11,7 +11,7 @@ var updatePreview = function () {
     setTimeout(function () {
         postData();
     }, 1000);
-    var num_slides = getNumber();
+    var num_slides = currentNumberOfSlides() ||  getNumber();
     var layout = getLayout();
     var shape = getShape();
     var automated = getAuto();
@@ -124,9 +124,21 @@ var getLayout = function () {
 var getNumber = function () {
     var num_sildes;
     if (document.getElementById("showNum") !== null) {
-        num_sildes = document.getElementById("showNum").value || 9;
+        num_sildes =  document.getElementById("showNum").value || 9;
     }
+
     return num_sildes;
+}
+
+ var currentNumberOfSlides = function () {
+    var current_slides;
+    var x = document.getElementById("preview");
+    var y = (x.contentWindow || x.contentDocument);
+    var currentSteps = y.document.querySelectorAll('.step');
+        for (var i = 0; i < currentSteps.length; i++) {
+        current_slides = currentSteps.length;
+        }
+    return current_slides;
 }
 
 var getShape = function () {
@@ -225,14 +237,26 @@ var eventsListeners = function () {
             }, 1);
         }, false);
     };
+
     document.addEventListener("keydown", function (event) {
         if (event.keyCode === 9 || (event.keyCode >= 32 && event.keyCode <= 34) || (event.keyCode >= 37 && event.keyCode <= 40)) {
             setFocusOnIframe();
         }
     }, false);
 
+    var newSlideButton = document.querySelectorAll('.new-slide');
+    for (var i = 0; i < newSlideButton.length; i++) { 
+        newSlideButton[i].addEventListener('click', function(){
+        newSlide(); }, false )
+    }
+    var newSlide = function() {
+        var newSlideDiv = $('<div class="step slide"> </div>');
+        $(".container-fluid").append(newSlideDiv);                  
+    } 
 }
 
+
+  
 var downloadZip = function () {
     var button = document.getElementById('download');
     button.addEventListener('click', function () { 

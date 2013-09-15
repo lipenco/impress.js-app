@@ -52,8 +52,9 @@
           </div>
          
         </div>
-         <% end %>
          <div class="new-slide" id="new-slide"> + </div>
+         <% end %>
+        
      
   </div>
 
@@ -61,16 +62,7 @@
 <script>
   storeContentFromContentMode();
 
-  var newSlideButton = document.querySelectorAll('.new-slide');
-  for (var i = 0; i < newSlideButton.length; i++ ) { 
-    newSlideButton[i].addEventListener('click', function(){
-       newSlide(); }, false )
-  }
 
-  var newSlide = function() {
-    var newSlideDiv = $('<div class="step slide"> </div>');
-    $(".container-fluid").append(newSlideDiv); 
-  } 
 </script>
 
 </body>
