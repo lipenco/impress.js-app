@@ -254,14 +254,26 @@ var eventsListeners = function () {
        storeContentFromContentMode();     
      });
 
+    $('.delete-slide').click(function(){
+         if ($(this).prev().prev().hasClass('step')) 
+            $(this).prev().prev().remove();  
+         $(this).prev().remove();  
+         $(this).remove();    
+         decreseNumberFromShowNum(); 
+         storeContentFromContentMode();     
+     });
 
-    
     var counter = parent.document.getElementById("showNum").value || 9;
     var addNumberToShowNum = function () {
         counter++;
      parent.$("#showNum").val(counter);
      parent.$("#showNum").numberAnimate('set', parent.$("#showNum").val());
-    }        
+    }  
+    var decreseNumberFromShowNum = function() {
+        counter--;
+     parent.$("#showNum").val(counter);
+     parent.$("#showNum").numberAnimate('set', parent.$("#showNum").val());
+    }      
 }
 
 
