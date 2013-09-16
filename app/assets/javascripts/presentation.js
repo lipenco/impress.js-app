@@ -218,7 +218,7 @@ var setFocusOnIframe = function () {
 var animateNumberOfSlides = function () {
     var $showNum = $("#showNum");
     $showNum.numberAnimate();
-    var counter = 9;
+    var counter = getNumberFromShowNum();
     $("#addslide").click(function () {
         counter++;
         $("#showNum").val(counter);
@@ -251,7 +251,8 @@ var eventsListeners = function () {
        var newSlideDiv = $('<div class="step slide"> <div  class="editor editorr" contenteditable="true"><h2>New Slide</h2></div></div>');
        $(this).before(newSlideDiv);
        addNumberToShowNum(); 
-       storeContentFromContentMode();     
+       storeContentFromContentMode();
+       storeData();     
      });
 
     $('.delete-slide').click(function(){
@@ -260,8 +261,10 @@ var eventsListeners = function () {
          $(this).prev().remove();  
          $(this).remove();    
          decreseNumberFromShowNum(); 
-         storeContentFromContentMode();     
+         storeContentFromContentMode(); 
+         storeData();    
      });
+
 
     var counter = parent.document.getElementById("showNum").value || 9;
     var addNumberToShowNum = function () {
@@ -276,6 +279,13 @@ var eventsListeners = function () {
     }      
 }
 
+
+var storeData = function () {
+    var editor = document.querySelectorAll('.editor');
+    for (var i = 0; i < editor.length; i++) {
+        parent.$("#data-store").data("content[" + i + "]", editor[i].innerHTML);
+    }
+}
 
   
 var downloadZip = function () {
@@ -301,8 +311,6 @@ var downloadZip = function () {
 var post_to_url = function(path, params, method) {
     method = method || "post"; // Set method to post by default if not specified.
 
-    // The rest of this code assumes you are not using a library.
-    // It can be made less wordy if you use one.
     var form = document.createElement("form");
     form.setAttribute("method", method);
     form.setAttribute("action", path);
@@ -332,10 +340,4 @@ var storeContentFromContentMode = function () {
         }, false);
     }
 
-    var storeData = function () {
-        var editor = document.querySelectorAll('.editor');
-        for (var i = 0; i < editor.length; i++) {
-            parent.$("#data-store").data("content[" + i + "]", editor[i].innerHTML);
-        }
-    }
 }
