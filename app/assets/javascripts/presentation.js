@@ -11,7 +11,7 @@ var updatePreview = function () {
     setTimeout(function () {
         postData();
     }, 1000);
-    var num_slides = getNumberFromShowNum() || currentNumberOfSlides();
+    var num_slides = getNumberFromShowNum();
     var layout = getLayout();
     var shape = getShape();
     var automated = getAuto();
@@ -130,17 +130,16 @@ var getNumberFromShowNum = function () {
     return num_sildes;
 }
 
-
- var currentNumberOfSlides = function () {
-    var current_slides;
-    var x = document.getElementById("preview");
-    var y = (x.contentWindow || x.contentDocument);
-    var currentSteps = y.document.querySelectorAll('.step');
-        for (var i = 0; i < currentSteps.length; i++) {
-        current_slides = currentSteps.length;
-        }
-    return current_slides;
-}
+//  var currentNumberOfSlides = function () {
+//     var current_slides;
+//     var x = document.getElementById("preview");
+//     var y = (x.contentWindow || x.contentDocument);
+//     var currentSteps = y.document.querySelectorAll('.step');
+//         for (var i = 0; i < currentSteps.length; i++) {
+//         current_slides = currentSteps.length;
+//         }
+//     return current_slides;
+// }
 
 var getShape = function () {
     var shape = "rectangle";
@@ -248,20 +247,17 @@ var eventsListeners = function () {
         }
     }, false);
 
-    var newSlideButton = document.querySelectorAll('.new-slide');
-    for (var i = 0; i < newSlideButton.length; i++) { 
-        newSlideButton[i].addEventListener('click', function(){
-        newSlide(); addNumberToShowNum(); }, false )
-    }
-    var newSlide = function() {
-        var newSlideDiv = $('<div class="step slide"><div  class="editor editorr" contenteditable="true"><h2>New Slide</h2></div></div>');
-        $(".container-fluid").append(newSlideDiv); 
-    } 
+    $('.new-slide').click(function(){
+       var newSlideDiv = $('<div class="step slide"><h2>New Slide</h2></div>');
+       $(this).before(newSlideDiv);
+       addNumberToShowNum();      
+     });
+
+
     
     var counter = parent.document.getElementById("showNum").value || 9;
     var addNumberToShowNum = function () {
         counter++;
-        console.log(counter);
      parent.$("#showNum").val(counter);
      parent.$("#showNum").numberAnimate('set', parent.$("#showNum").val());
     }        

@@ -117,9 +117,11 @@ transition: all 1.5s ease;
 }
 
 .new-slide  {
-  width: 30px;
+  width: 40px;
   height: 30px;
   border: 2px solid #389646;
+  padding-top: 5px;
+  margin: 0 auto;
 }
 
 .download:after {
@@ -141,4 +143,11 @@ color: #389646;
 position: relative;
 margin: 1.2em;
 margin-top: 6em;
+}
+
+.icon-22 {
+font-size: 1.7em;
+color: #389646;
+position: relative;
+padding: 9px;
 }
