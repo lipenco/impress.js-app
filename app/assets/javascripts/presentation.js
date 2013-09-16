@@ -270,7 +270,7 @@ var downloadZip = function () {
     var button = document.getElementById('download');
     button.addEventListener('click', function () { 
     var data = {
-        "num_slides" : getNumber(),
+        "num_slides" : getNumberFromShowNum(),
         "layout" : getLayout(),
         "shape" : getShape(),
         "automated" : getAuto(),
