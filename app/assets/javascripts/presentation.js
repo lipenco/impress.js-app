@@ -1,7 +1,7 @@
 $(document).ready(function () {
     eventsListeners();
     updatePreview();
-    addSlide();
+    animateNumberOfSlides();
     setContent();
     getContentBackToEditor();
     downloadZip();
@@ -11,7 +11,7 @@ var updatePreview = function () {
     setTimeout(function () {
         postData();
     }, 1000);
-    var num_slides = currentNumberOfSlides() ||  getNumber();
+    var num_slides = getNumberFromShowNum() || currentNumberOfSlides();
     var layout = getLayout();
     var shape = getShape();
     var automated = getAuto();
@@ -121,7 +121,7 @@ var getLayout = function () {
 
 
 
-var getNumber = function () {
+var getNumberFromShowNum = function () {
     var num_sildes;
     if (document.getElementById("showNum") !== null) {
         num_sildes =  document.getElementById("showNum").value || 9;
@@ -129,6 +129,7 @@ var getNumber = function () {
 
     return num_sildes;
 }
+
 
  var currentNumberOfSlides = function () {
     var current_slides;
@@ -212,7 +213,10 @@ var setFocusOnIframe = function () {
     h();
 }
 
-var addSlide = function () {
+
+
+
+var animateNumberOfSlides = function () {
     var $showNum = $("#showNum");
     $showNum.numberAnimate();
     var counter = 9;
@@ -247,13 +251,20 @@ var eventsListeners = function () {
     var newSlideButton = document.querySelectorAll('.new-slide');
     for (var i = 0; i < newSlideButton.length; i++) { 
         newSlideButton[i].addEventListener('click', function(){
-        newSlide(); }, false )
+        newSlide(); addNumberToShowNum(); }, false )
     }
     var newSlide = function() {
         var newSlideDiv = $('<div class="step slide"><div  class="editor editorr" contenteditable="true"><h2>New Slide</h2></div></div>');
-        $(".container-fluid").append(newSlideDiv);  
-
+        $(".container-fluid").append(newSlideDiv); 
     } 
+    
+    var counter = parent.document.getElementById("showNum").value || 9;
+    var addNumberToShowNum = function () {
+        counter++;
+        console.log(counter);
+     parent.$("#showNum").val(counter);
+     parent.$("#showNum").numberAnimate('set', parent.$("#showNum").val());
+    }        
 }
 
 
