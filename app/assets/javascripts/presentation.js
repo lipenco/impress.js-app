@@ -78,7 +78,7 @@ var postData = function () {
     var iframeContent = (previewDiv.contentWindow || previewDiv.contentDocument);
     var slides = iframeContent.document.querySelectorAll(".step");
     var contentObject = $("#data-store").data();
-    if (contentObject["content[0]"] !== undefined) {
+    if (! jQuery.isEmptyObject(contentObject)) {
       for (var i = 0; i < slides.length; i++) {
           slides[i].innerHTML = contentObject["content[" + i + "]"];
       }
@@ -250,7 +250,8 @@ var eventsListeners = function () {
     $('.new-slide').click(function(){
        var newSlideDiv = $('<div class="step slide"> <div  class="editor editorr" contenteditable="true"><h2>New Slide</h2></div></div>');
        $(this).before(newSlideDiv);
-       addNumberToShowNum();      
+       addNumberToShowNum(); 
+       storeContentFromContentMode();     
      });
 
 
@@ -314,9 +315,8 @@ var storeContentFromContentMode = function () {
     var editor = document.querySelectorAll('.editor');
     for (var i = 0; i < editor.length; i++) {
         var content = editor[i].innerHTML;
-        editor[i].addEventListener('blur', function () {
-            storeData();
-
+        editor[i].addEventListener('blur', function () {    
+          storeData(); 
         }, false);
     }
 
