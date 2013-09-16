@@ -248,7 +248,7 @@ var eventsListeners = function () {
     }, false);
 
     $('.new-slide').click(function(){
-       var newSlideDiv = $('<div class="step slide"><h2>New Slide</h2></div>');
+       var newSlideDiv = $('<div class="step slide"> <div  class="editor editorr" contenteditable="true"><h2>New Slide</h2></div></div>');
        $(this).before(newSlideDiv);
        addNumberToShowNum();      
      });
