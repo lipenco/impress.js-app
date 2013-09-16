@@ -1,10 +1,10 @@
 $(document).ready(function () {
     eventsListeners();
-    updatePreview();
-    animateNumberOfSlides();
+    updatePreview();  
     setContent();
     getContentBackToEditor();
     downloadZip();
+    animateNumberOfSlides();
 });
 
 var updatePreview = function () {
@@ -68,7 +68,7 @@ var setContent = function () {
     var style_mode = document.getElementById("style-mode");
     style_mode.addEventListener('click', function () {
         setTimeout(function () {
-            postData();
+            postData();  
         }, 1000);
     }, false);
 }

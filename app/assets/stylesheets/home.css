@@ -122,7 +122,7 @@ transition: all 1.5s ease;
   height: 30px;
   border: 2px solid #389646;
   padding-top: 5px;
-  margin: 0 auto; 
+  display: inline-block;
 }
 
 .download:after {
