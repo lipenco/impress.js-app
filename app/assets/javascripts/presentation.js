@@ -5,6 +5,7 @@ $(document).ready(function () {
     getContentBackToEditor();
     downloadZip();
     animateNumberOfSlides();
+    
 });
 
 var updatePreview = function () {
@@ -341,3 +342,4 @@ var storeContentFromContentMode = function () {
     }
 
 }
+

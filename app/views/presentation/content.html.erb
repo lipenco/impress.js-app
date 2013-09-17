@@ -33,11 +33,48 @@
   .slide { z-index: 1;}
   </style>
 
+  <style>
+
+    .connected, .sortable, .exclude, .handles {
+      margin: auto;
+      padding: 0;
+      width: 100%;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+ 
+    .connected li, .sortable li, .exclude li, .handles li {
+      list-style: none;
+      border: 1px solid #CCC;
+      background: #F6F6F6;
+      margin: 5px;
+      padding: 5px;
+      height: 50px;
+    }
+    li.highlight {
+      background: #FEE25F;
+    }
+
+  </style>
+
 </head>
 
 
 <body>
   <div class="container-fluid">
+    <div class="row">
+      <div class="span2">
+        <ul class="sortable list">
+          <% @num_slides.times do |n| %>  
+            <li id="slide<%= n +1 %>">Slide <%= n +1 %></li>
+          <% end %>
+         </ul>
+      </div>
+      <div class="span10">
       <% @num_slides.times do |n| %>  
         <div class="step slide" >
           <div  class="editor editorr" contenteditable="true">
@@ -58,16 +95,17 @@
      
          <div class="new-slide" id="addNextSlide"><i class="icon-plus icon-22"></i></div>
          <div class="delete-slide"><i class="icon-minus icon-22"></i></div>
-         <% end %>
-
-   
-
-        
+         <% end %>    
      
+    </div>
+   </div>
   </div>
-
-
+ 
+ <%= javascript_include_tag "/assets/sortable.js" %>
 <script>
+$(document).ready(function () {
+      $('.sortable').sortable();
+});
   
   storeContentFromContentMode();
   
