@@ -10,6 +10,9 @@
   <%= javascript_include_tag "/assets/scripts/jquery.min.js" %>
   <%= javascript_include_tag "http://kenshin54.github.io/popline/build/jquery.popline.min.js" %>
 
+ 
+
+
     <script type="text/javascript">
     $(function(){
       document.execCommand('defaultParagraphSeparator', false, 'p');
@@ -34,7 +37,7 @@
 
 <body>
 
-  <div class="container-fluid sortable">
+  <div class="container-fluid">
       <% @num_slides.times do |n| %>  
         <div class="step slide" >
           <div  class="editor editorr" contenteditable="true">
@@ -49,12 +52,10 @@
         <% else %>
           <h2> Slide <%= n +1 %> </h2>
         <% end %>
-     
           </div>
-          <div class="new-slide" id="addNextSlide"><i class="icon-plus icon-22"></i></div>
+         <div class="new-slide" id="addNextSlide"><i class="icon-plus icon-22"></i></div>
          <div class="delete-slide"><i class="icon-minus icon-22"></i></div>
         </div>
-
      
          
          <% end %>    
@@ -64,17 +65,11 @@
 
 
 
- 
- <%= javascript_include_tag "/assets/sortable.js" %>
-<script>
-$(document).ready(function () {
-      $('.sortable').sortable();
-});
-   
 
+<script>
   storeContentFromContentMode();
-  
-</script>
+ </script>
+
 
 </body>
 
