@@ -117,13 +117,23 @@ transition: all 1.5s ease;
 }
 
 
-.new-slide, .delete-slide {
+.new-slide {
   width: 40px;
   height: 30px;
-  border: 2px solid #389646;
-  padding-top: 5px;
-  display: inline-block;
+  position: absolute;
+  bottom: 5%;
+  left:2%;
 }
+
+.delete-slide {
+   width: 40px;
+  height: 30px;
+  display: block;
+  position: absolute;
+ bottom: 5%;
+  left:10%;
+}
+
 
 .download:after {
      content: "\f0ed";

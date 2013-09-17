@@ -28,11 +28,12 @@
   </script> 
   <style>
   .slide { z-index: 1;  }
- 
+
   </style>
 </head>
 
 <body>
+
   <div class="container-fluid sortable">
       <% @num_slides.times do |n| %>  
         <div class="step slide" >
@@ -48,15 +49,20 @@
         <% else %>
           <h2> Slide <%= n +1 %> </h2>
         <% end %>
-          </div>
-         
-        </div>
      
-         <div class="new-slide" id="addNextSlide"><i class="icon-plus icon-22"></i></div>
+          </div>
+          <div class="new-slide" id="addNextSlide"><i class="icon-plus icon-22"></i></div>
          <div class="delete-slide"><i class="icon-minus icon-22"></i></div>
+        </div>
+
+     
+         
          <% end %>    
      
     </div>
+
+
+
 
  
  <%= javascript_include_tag "/assets/sortable.js" %>
@@ -64,7 +70,8 @@
 $(document).ready(function () {
       $('.sortable').sortable();
 });
-  
+   
+
   storeContentFromContentMode();
   
 </script>

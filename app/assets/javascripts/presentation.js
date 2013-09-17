@@ -250,17 +250,14 @@ var eventsListeners = function () {
 
     $('.new-slide').click(function(){
        var newSlideDiv = $('<div class="step slide"> <div  class="editor editorr" contenteditable="true"><h2>New Slide</h2></div></div>');
-       $(this).before(newSlideDiv);
+       $(this).parent().after(newSlideDiv);
        addNumberToShowNum(); 
        storeContentFromContentMode();
        storeData();     
      });
 
     $('.delete-slide').click(function(){
-         if ($(this).prev().prev().hasClass('step')) 
-            $(this).prev().prev().remove();  
-         $(this).prev().remove();  
-         $(this).remove();    
+         $(this).parent().remove();   
          decreseNumberFromShowNum(); 
          storeContentFromContentMode(); 
          storeData();    
