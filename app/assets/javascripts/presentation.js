@@ -249,8 +249,7 @@ var eventsListeners = function () {
     }, false);
 
     $('.new-slide').click(function(){
-       var newSlideDiv = $('<div class="step slide"> <div  class="editor editorr" contenteditable="true"><h2>New Slide</h2></div></div>');
-       $(this).parent().after(newSlideDiv);
+      $(this).parent().after($(this).parent().clone());
        addNumberToShowNum(); 
        storeContentFromContentMode();
        storeData();     
