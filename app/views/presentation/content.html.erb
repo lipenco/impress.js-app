@@ -63,16 +63,14 @@
     </div>
 
 
-
-
  <%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
 <script>
    $(function() {
      parent.$('#sort-slides').click(function(){
-       $( "#sortable" ).sortable();
-       $( "#sortable" ).disableSelection();
-        });
-   });
+      $("#sortable").hasClass("ui-sortable")? $("#sortable").sortable("disable") : 
+      $("#sortable").sortable();
+         });
+    });
 
   storeContentFromContentMode();
  </script>

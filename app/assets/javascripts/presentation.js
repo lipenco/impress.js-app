@@ -14,6 +14,7 @@ var updatePreview = function () {
     setTimeout(function () {
         postData();
     }, 1000);
+    f();
     var num_slides = getNumberFromShowNum();
     var layout = getLayout();
     var shape = getShape();
@@ -35,6 +36,7 @@ var updatePreview = function () {
     $("#style-mode").click(function () {
         document.getElementById("preview").src = "presentation" + source;
         f();
+        d(); 
     });
     $("#content-mode").click(function () {
         document.getElementById("preview").src = "content" + source;
@@ -70,10 +72,10 @@ function g() {
 
 
 function f() {
-    $(".disapear").animate({
+    $(".disappear").animate({
         opacity: 1
     }, 500, "easeOutQuint", function () {
-        $(".disapear").css("display", "block")
+        $(".disappear").css("display", "block")
     });
 }
 
