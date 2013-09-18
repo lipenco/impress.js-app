@@ -249,7 +249,7 @@ var eventsListeners = function () {
     }, false);
 
     $('.new-slide').click(function(){
-      $(this).parent().after($(this).parent().clone());
+       $(this).parent().after($(this).parent().clone(true));
        addNumberToShowNum(); 
        storeContentFromContentMode();
        storeData();     
