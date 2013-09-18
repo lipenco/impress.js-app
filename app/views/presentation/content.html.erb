@@ -65,15 +65,19 @@
 
  <%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
 <script> 
-  parent.$('#sort-slides').click(function() {
-      if (!($(this).hasClass('sortable'))){
-        $("#sortable" ).sortable();
-        $(this).addClass('sortable');
-    }else{
-        $("#sortable" ).sortable("disable" );
-        $(this).removeClass('sortable');
-    } 
-  });
+   
+   
+   function sort(){
+    $( "#sortable" ).sortable();
+     $("#sortable").sortable("enable");
+   }
+
+   function reset(){
+     $("#sortable").sortable('disable');
+   }
+
+   parent.$('#sort-slides').bind('click',sort);
+   parent.$('#stop').bind('click',reset);
 
   storeContentFromContentMode();
  </script>
