@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
     eventsListeners();
     updatePreview();  
@@ -5,7 +7,7 @@ $(document).ready(function () {
     getContentBackToEditor();
     downloadZip();
     animateNumberOfSlides();
-    
+    d();   
 });
 
 var updatePreview = function () {
@@ -36,6 +38,7 @@ var updatePreview = function () {
     });
     $("#content-mode").click(function () {
         document.getElementById("preview").src = "content" + source;
+        e();
         g();
         h();
     });
@@ -43,11 +46,25 @@ var updatePreview = function () {
 };
 
 
+function e() {
+    if ($(".appear").css("display") == "none") {
+            $(".appear").animate({
+                opacity: 1
+            }, 500, "easeOutQuint", function () {
+                $(".appear").css("display", "block")
+            })
+    }
+ }
+
+function d() {
+    $(".appear").css("display", "none")
+}
+
 function g() {
-    $(".disapear").animate({
+    $(".disappear").animate({
         opacity: 0
     }, 500, "easeOutQuint", function () {
-        $(".disapear").css("display", "none")
+        $(".disappear").css("display", "none")
     });
 }
 

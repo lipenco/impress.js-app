@@ -37,7 +37,7 @@
 
 <body>
 
-  <div class="container-fluid">
+  <div class="container-fluid" id="sortable">
       <% @num_slides.times do |n| %>  
         <div class="step slide" >
           <div  class="editor editorr" contenteditable="true">
@@ -65,8 +65,15 @@
 
 
 
-
+ <%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
 <script>
+   $(function() {
+     parent.$('#sort-slides').click(function(){
+       $( "#sortable" ).sortable();
+       $( "#sortable" ).disableSelection();
+        });
+   });
+
   storeContentFromContentMode();
  </script>
 
