@@ -64,13 +64,16 @@
 
 
  <%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
-<script>
-   $(function() {
-      parent.$('#sort-slides').click(function(){ 
-       $("#sortable").hasClass("ui-sortable")? $("#sortable").sortable("disable"): 
-        $("#sortable").sortable();
-      });
-    });
+<script> 
+  parent.$('#sort-slides').click(function() {
+      if (!($(this).hasClass('sortable'))){
+        $("#sortable" ).sortable();
+        $(this).addClass('sortable');
+    }else{
+        $("#sortable" ).sortable("disable" );
+        $(this).removeClass('sortable');
+    } 
+  });
 
   storeContentFromContentMode();
  </script>
