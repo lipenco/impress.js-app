@@ -36,7 +36,8 @@ var updatePreview = function () {
     $("#style-mode").click(function () {
         document.getElementById("preview").src = "presentation" + source;
         f();
-        d(); 
+        d();
+        storeData();  
     });
     $("#content-mode").click(function () {
         document.getElementById("preview").src = "content" + source;
