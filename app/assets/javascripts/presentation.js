@@ -270,22 +270,23 @@ var eventsListeners = function () {
         }
     }, false);
 
-    $('.copy-slide').click(function(){
+
+    $(document).on('click', '.copy-slide', function(){ 
        $(this).parent().after($(this).parent().clone(true));
        addNumberToShowNum(); 
        storeContentFromContentMode();
        storeData();     
      });
 
-    $('.new-slide').click(function(){
+    $(document).on('click', '.new-slide', function(){
       var newSlideDiv = $('<div class="step slide"><div  class="editor editorr" contenteditable="true"><h2>New Slide</h2></div><div class="sort-slides"><i class="icon-sort icon-22"></i></div><div class="copy-slide"><i class="icon-copy icon-22"></i></div><div class="new-slide"><i class="icon-plus icon-22"></i></div><div class="delete-slide"><i class="icon-minus icon-22"></i></div></div>');
        $(this).parent().after(newSlideDiv);    
        addNumberToShowNum(); 
        storeContentFromContentMode();
        storeData();     
      });
-
-    $('.delete-slide').click(function(){
+     
+    $(document).on('click', '.delete-slide', function(){ 
          $(this).parent().remove();   
          decreseNumberFromShowNum(); 
          storeContentFromContentMode(); 
