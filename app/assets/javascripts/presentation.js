@@ -293,6 +293,7 @@ var eventsListeners = function () {
      });
 
 
+
     var counter = parent.document.getElementById("showNum").value || 9;
     var addNumberToShowNum = function () {
         counter++;

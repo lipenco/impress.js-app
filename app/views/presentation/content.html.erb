@@ -40,7 +40,7 @@
   <div class="container-fluid" id="sortable">
       <% @num_slides.times do |n| %>  
         <div class="step slide" >
-          <div  class="editor editorr" contenteditable="true">
+          <div  class="editor" contenteditable="true">
         <% if n < 9 %>
            <%=
             if @content.nil? || @content[n.to_s].nil?
@@ -53,8 +53,9 @@
           <h2> Slide <%= n +1 %> </h2>
         <% end %>
           </div>
-        <div class="copy-slide" id="addNextSlide"><i class="icon-copy icon-22"></i></div>
-         <div class="new-slide" id="addNextSlide"><i class="icon-plus icon-22"></i></div>
+         <div class="sort-slides"><i class="icon-sort icon-22"></i></div>
+         <div class="copy-slide"><i class="icon-copy icon-22"></i></div>
+         <div class="new-slide"><i class="icon-plus icon-22"></i></div>
          <div class="delete-slide"><i class="icon-minus icon-22"></i></div>
         </div>
      
@@ -67,7 +68,7 @@
  <%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
 <script> 
    function sort(){
-    $( "#sortable" ).sortable();
+    $("#sortable" ).sortable();
      $("#sortable").sortable("enable");
    }
 
@@ -75,8 +76,8 @@
      $("#sortable").sortable('disable');
    }
 
-   parent.$('#sort-slides').on('click',sort);
-   parent.$('#contant-change').on('click',reset);
+   $('.sort-slides').on('mousedown',sort);
+   $('.editor').on('click',reset);
 
   storeContentFromContentMode();
  </script>

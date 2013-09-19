@@ -147,6 +147,15 @@ transition: all 1.5s ease;
   left:14%;
 }
 
+.sort-slides {
+   width: 40px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  top: 2%;
+  left: 2%;
+}
+
 
 .download:after {
      content: "\f0ed";
