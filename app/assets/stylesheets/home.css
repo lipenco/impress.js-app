@@ -99,17 +99,23 @@ font-weight: 600;
   width: 100%;
   margin: 0 auto;
   height: 39px;
-line-height: 39px;
-text-indent: 18px;
-display: block;
-position: relative;
-font-weight: 600;
+  line-height: 39px;
+  text-indent: 18px;
+  display: block;
+  position: relative;
+  font-weight: 600;
   color: #000;
+
   -webkit-transition: all 1.5s ease;
 -moz-transition: all 1.5s ease;
 -o-transition: all 1.5s ease;
 -ms-transition: all 1.5s ease;
 transition: all 1.5s ease;
+}
+
+ul.modes {
+  margin-bottom: 0;
+  padding: 0;
 }
 
 .mode.appear.active {
@@ -183,4 +189,45 @@ font-size: 1.2em;
 color: #389646;
 position: relative;
 padding: 9px;
+}
+
+
+nav {
+  position: fixed;
+  left: 0;
+  top: 20px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+  height: 95%;
+  overflow: auto;
+  width: 60px;
+
+}
+
+nav ul {
+  color: #444444;
+  text-align: center;
+  line-height: 40px;
+  width: 40px;
+  list-style-type: none;
+  border: 2px solid #389646;
+}
+nav ul li {
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  opacity: 1;
+  margin-bottom: 1px;
+  cursor: pointer;
+  font: 400 16px/50px 'Lato', sans-serif;
+}
+nav ul li:hover {
+  background: #ffffff;
+  opacity: 0.8;
+}
+nav ul li:active {
+  background: #ffffff;
+  opacity: 0.5;
 }

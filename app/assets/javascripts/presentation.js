@@ -278,7 +278,7 @@ var eventsListeners = function () {
      });
 
     $('.new-slide').click(function(){
-      var newSlideDiv = $('<div class="step slide"><div  class="editor editorr" contenteditable="true"><h2>New Slide</h2></div></div>');
+      var newSlideDiv = $('<div class="step slide"><div  class="editor editorr" contenteditable="true"><h2>New Slide</h2></div><div class="sort-slides"><i class="icon-sort icon-22"></i></div><div class="copy-slide"><i class="icon-copy icon-22"></i></div><div class="new-slide"><i class="icon-plus icon-22"></i></div><div class="delete-slide"><i class="icon-minus icon-22"></i></div></div>');
        $(this).parent().after(newSlideDiv);    
        addNumberToShowNum(); 
        storeContentFromContentMode();

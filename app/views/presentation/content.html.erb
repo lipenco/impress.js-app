@@ -36,10 +36,17 @@
 </head>
 
 <body>
+<nav>
+  <ul class="slides-representation">
+   <% @num_slides.times do |n| %>  
+      <li data-loc="slide<%=n+1%>"><%=n+1%></li>
+   <% end %>
+  </ul>
+</nav>
 
   <div class="container-fluid" id="sortable">
       <% @num_slides.times do |n| %>  
-        <div class="step slide" >
+        <div class="step slide">
           <div  class="editor" contenteditable="true">
         <% if n < 9 %>
            <%=
@@ -78,6 +85,18 @@
 
    $('.sort-slides').on('mousedown',sort);
    $('.editor').on('click',reset);
+
+
+  $(document).on('touchstart click', 'nav ul li', function(){
+    var steps = document.querySelectorAll(".step");
+    for (var i = 0; i < (steps.length); i++) {
+      steps[i].id = "slide"+(i+1);
+    }
+    var currTarget = $(this).attr('data-loc');
+    $('html, body').stop().animate({
+      scrollTop: $($('#' + currTarget)).offset().top
+    }, 500);
+  });
 
   storeContentFromContentMode();
  </script>
