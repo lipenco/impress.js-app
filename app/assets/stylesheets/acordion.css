@@ -19,7 +19,7 @@ a {
     -moz-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
   }
-  .accordion {
+  .accordion, .modes {
     background: #fff;
     width: auto;
     height: auto;
@@ -27,7 +27,7 @@ a {
     margin-left: 0;
   }
   /* Main Menu List Links */
-  .accordion > li > a {
+  .accordion > li > a, .modes > li > a {
     width: 100%;
     margin: 0 auto;
     height: 39px;
@@ -39,22 +39,22 @@ a {
     color: #646464;
   }
   
-  .accordion > li > a:after {
+  .accordion > li > a:after, .modes > li > a:after {
      content: "\f105";
      font-family:'FontAwesome';
      position: absolute;
      right: 30px;
   }
   
-  .accordion > li > a:hover, 
-  .accordion > li > a.active {
+  .accordion > li > a:hover, .modes > li > a:hover
+  .accordion > li > a.active , .modes> li > a.active{
     color: #fff;
     -webkit-transition: background 0.4s ease-in-out;
     -moz-transition: background 0.4s ease-in-out;
     transition: background 0.4s ease-in-out;
   }
   
-  .accordion > li > a.active:after {
+  .accordion > li > a.active:after, .modes > li > a.active:after {
     content: "\f106";
     font-family:'FontAwesome';
     position: absolute;
@@ -62,7 +62,7 @@ a {
   }
 
   /* Submenu List Links */
-  .accordion ul li a {
+  .accordion ul li a,  .modes ul li a {
     width: 212px;
     margin: 0 auto;
     line-height: 39px;
@@ -86,7 +86,7 @@ a {
   }
   
   /* Before Current (active) Submenu Item */
-  .accordion > li > ul li a.current:before{
+  .accordion > li > ul li a.current:before,  .modes > li > ul li a.current:before{
     content: "\f00c";
     font-family: 'FontAwesome';
     font-size: 10px;
@@ -97,22 +97,22 @@ a {
   }
   
   /* Current (active) Submenu Item */
-  .accordion > li > ul li a.current {
+  .accordion > li > ul li a.current , .modes > li > ul li a.current{
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
   }
   
   /* Submenu Hover Transitions */
-  .accordion > li > ul li:hover a,
-  .accordion > li > ul li:hover a:before {
+  .accordion > li > ul li:hover a, .modes > li > ul li:hover a,
+  .accordion > li > ul li:hover a:before,  .modes > li > ul li:hover a:before {
     -webkit-transition: color 0.4s ease-in-out;
     -moz-transition: color 0.4s ease-in-out;
     transition: color 0.4s ease-in-out;
   }
 
   
-  .accordion > li > a:hover, .accordion > li > a.active 
+  .accordion > li > a:hover, .modes > li > a:hover, .accordion > li > a.active , .modes > li > a.active 
 { background-color: #389646; }
 
 .accordion > li > ul li a.current, 
@@ -123,18 +123,18 @@ a {
 .accordion > li > ul li:hover a:before 
 { color: #389646; }
 
-.accordion > li > ul li a.current
+.accordion > li > ul li a.current, .modes > li > ul li a.current
 { font-weight: 600;}
 
-.accordion ul li a {
+.accordion ul li a , .modes ul li a{
   -moz-box-shadow: inset 2px 0px 0px 0px #e5e5e5;
   -webkit-box-shadow: inset 2px 0px 0px 0px #e5e5e5;
   box-shadow: inset 2px 0px 0px 0px #e5e5e5;
   color: #8d8d8d;
 }
 
-.accordion > li > ul li:hover a,
-.accordion > li > ul li:hover a:before {
+.accordion > li > ul li:hover a, .modes > li > ul li:hover a,
+.accordion > li > ul li:hover a:before, .modes > li > ul li:hover a:before {
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;

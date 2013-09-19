@@ -53,6 +53,7 @@
           <h2> Slide <%= n +1 %> </h2>
         <% end %>
           </div>
+        <div class="copy-slide" id="addNextSlide"><i class="icon-copy icon-22"></i></div>
          <div class="new-slide" id="addNextSlide"><i class="icon-plus icon-22"></i></div>
          <div class="delete-slide"><i class="icon-minus icon-22"></i></div>
         </div>
@@ -65,8 +66,6 @@
 
  <%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
 <script> 
-   
-   
    function sort(){
     $( "#sortable" ).sortable();
      $("#sortable").sortable("enable");
@@ -76,8 +75,8 @@
      $("#sortable").sortable('disable');
    }
 
-   parent.$('#sort-slides').bind('click',sort);
-   parent.$('#stop').bind('click',reset);
+   parent.$('#sort-slides').on('click',sort);
+   parent.$('#contant-change').on('click',reset);
 
   storeContentFromContentMode();
  </script>

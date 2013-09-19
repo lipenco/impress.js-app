@@ -112,7 +112,10 @@ font-weight: 600;
 transition: all 1.5s ease;
 }
 
-
+.mode.appear.active {
+  background-color: #389646;
+ 
+}
 
 .green-button:hover {
  color: #fff;
@@ -120,6 +123,14 @@ transition: all 1.5s ease;
 
 
 .new-slide {
+  width: 40px;
+  height: 30px;
+  position: absolute;
+  bottom: 5%;
+  left:8%;
+}
+
+.copy-slide {
   width: 40px;
   height: 30px;
   position: absolute;
@@ -133,7 +144,7 @@ transition: all 1.5s ease;
   display: block;
   position: absolute;
  bottom: 5%;
-  left:10%;
+  left:14%;
 }
 
 
@@ -159,7 +170,7 @@ margin-top: 6em;
 }
 
 .icon-22 {
-font-size: 1.7em;
+font-size: 1.2em;
 color: #389646;
 position: relative;
 padding: 9px;

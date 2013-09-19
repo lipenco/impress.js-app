@@ -7,7 +7,7 @@ $(document).ready(function () {
     getContentBackToEditor();
     downloadZip();
     animateNumberOfSlides();
-    d();   
+    d(); 
 });
 
 var updatePreview = function () {
@@ -83,6 +83,9 @@ function h() {
     $('.arrows').addClass('fadeOutRightBig');
     $('.arrows').removeClass('fadeInRightBig');
 }
+
+
+
 
 var setContent = function () {
     var style_mode = document.getElementById("style-mode");
@@ -267,8 +270,16 @@ var eventsListeners = function () {
         }
     }, false);
 
-    $('.new-slide').click(function(){
+    $('.copy-slide').click(function(){
        $(this).parent().after($(this).parent().clone(true));
+       addNumberToShowNum(); 
+       storeContentFromContentMode();
+       storeData();     
+     });
+
+    $('.new-slide').click(function(){
+      var newSlideDiv = $('<div class="step slide"><div  class="editor editorr" contenteditable="true"><h2>New Slide</h2></div></div>');
+       $(this).parent().after(newSlideDiv);    
        addNumberToShowNum(); 
        storeContentFromContentMode();
        storeData();     
