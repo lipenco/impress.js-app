@@ -24,6 +24,8 @@
     }
   }
 
+
+
   $.popline.addButton({
     picture: {
       iconClass: "icon-picture",
@@ -53,7 +55,11 @@
       },
       afterHide: function() {
         this.find(":text").val('');
+ 
+
       }
+
+
     }
   });
 })(jQuery);

@@ -37,7 +37,7 @@ var updatePreview = function () {
         document.getElementById("preview").src = "presentation" + source;
         f();
         d();
-        storeData();  
+        storeData(); 
     });
     $("#content-mode").click(function () {
         document.getElementById("preview").src = "content" + source;
@@ -47,6 +47,8 @@ var updatePreview = function () {
     });
 
 };
+
+
 
 
 function e() {
