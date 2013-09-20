@@ -9,11 +9,13 @@
   <%= stylesheet_link_tag "/assets/default.css" %>
   <%= javascript_include_tag "/assets/scripts/jquery.min.js" %>
   <%= javascript_include_tag "http://kenshin54.github.io/popline/build/jquery.popline.min.js" %>
+  <%= javascript_include_tag "/assets/scripts/colors.js" %>
 
  
 
 
     <script type="text/javascript">
+
     $(function(){
       document.execCommand('defaultParagraphSeparator', false, 'p');
       $(".editor").popline();
