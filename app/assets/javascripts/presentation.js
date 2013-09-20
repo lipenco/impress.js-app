@@ -273,10 +273,11 @@ var eventsListeners = function () {
 
 
     $(document).on('click', '.copy-slide', function(){ 
-       $(this).parent().after($(this).parent().clone(true));
+       $(this).parent().after($(this).parent().clone());
        addNumberToShowNum(); 
        storeContentFromContentMode();
-       storeData();     
+       storeData();
+       $(".editor").popline();     
      });
 
     $(document).on('click', '.new-slide', function(){
@@ -284,14 +285,16 @@ var eventsListeners = function () {
        $(this).parent().after(newSlideDiv);    
        addNumberToShowNum(); 
        storeContentFromContentMode();
-       storeData();     
+       storeData();  
+       $(".editor").popline();   
      });
      
     $(document).on('click', '.delete-slide', function(){ 
          $(this).parent().remove();   
          decreseNumberFromShowNum(); 
          storeContentFromContentMode(); 
-         storeData();    
+         storeData();  
+         $(".editor").popline();  
      });
 
 
