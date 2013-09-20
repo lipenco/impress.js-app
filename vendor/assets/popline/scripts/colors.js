@@ -1,7 +1,7 @@
 ;(function($) {
   $.popline.addButton({
     justify: {
-      iconClass: "icon-pencil red",
+      iconClass: "icon-tint",
       mode: "edit",
       buttons: {
         justifyLeft: {
