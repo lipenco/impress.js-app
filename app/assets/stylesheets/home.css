@@ -162,6 +162,14 @@ ul.modes {
   left: 2%;
 }
 
+.dragable_on {
+  width: 40px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  top: 2%;
+  left: 7%;
+}
 
 .download:after {
      content: "\f0ed";
@@ -189,6 +197,31 @@ font-size: 1.2em;
 color: #389646;
 position: relative;
 padding: 9px;
+}
+
+.icon-222 {
+font-size: 0.95em;
+color: #389646;
+position: relative;
+padding: 9px;
+ -webkit-transition: all 1.5s ease;
+-moz-transition: all 1.5s ease;
+-o-transition: all 1.5s ease;
+-ms-transition: all 1.5s ease;
+transition: all 1.5s ease;
+}
+
+
+.red-icon {
+  color: #a74240;
+  font-size: 0.95em;
+  position: relative;
+  padding: 9px;
+-webkit-transition: all 1.5s ease;
+-moz-transition: all 1.5s ease;
+-o-transition: all 1.5s ease;
+-ms-transition: all 1.5s ease;
+transition: all 1.5s ease;
 }
 
 

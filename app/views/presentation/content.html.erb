@@ -50,7 +50,8 @@
   <div class="container-fluid" id="sortable">
       <% @num_slides.times do |n| %>  
         <div class="step slide">
-          <div  class="editor" contenteditable="true">
+          <div  class="editor " contenteditable="true" >
+            <div class="draggable">
         <% if n < 9 %>
            <%=
             if @content.nil? || @content[n.to_s].nil?
@@ -62,8 +63,10 @@
         <% else %>
           <h2> Slide <%= n +1 %> </h2>
         <% end %>
+      </div>
           </div>
          <div class="sort-slides"><i class="icon-sort icon-22"></i></div>
+         <div class="dragable_on"><i class="icon-move icon-222"></i></div>
          <div class="copy-slide"><i class="icon-copy icon-22"></i></div>
          <div class="new-slide"><i class="icon-plus icon-22"></i></div>
          <div class="delete-slide"><i class="icon-minus icon-22"></i></div>
@@ -79,15 +82,41 @@
 <script> 
    function sort(){
     $("#sortable" ).sortable();
-     $("#sortable").sortable("enable");
+    $("#sortable").sortable("enable");   
+   }
+
+   function dragable(){
+    $( ".draggable" ).draggable();
+    $( ".draggable" ).draggable("enable");
    }
 
    function reset(){
-     $("#sortable").sortable('disable');
+    $("#sortable").sortable('disable');
+   }
+   function resetDragable(){
+    $(".draggable").draggable('disable');
+   }
+   function dragableDelete() {
+      $(".icon-move").addClass("red-icon")
+      $(".icon-move").removeClass("icon-222");
    }
 
    $('.sort-slides').on('mousedown',sort);
    $('.editor').on('click',reset);
+   $('.dragable_on').click(function(){ 
+       if  ($('.dragable_on').hasClass("active")) {
+              $('.dragable_on').removeClass("active");
+              resetDragable();
+              $(".icon-move").addClass("icon-222");
+              $(".icon-move").removeClass("red-icon")
+       } else {
+        $('.dragable_on').addClass("active");
+         dragableDelete();
+         dragable();
+       }
+    });
+
+
 
 
   $(document).on('touchstart click', 'nav ul li', function(){
