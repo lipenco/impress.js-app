@@ -409,10 +409,11 @@ var draggableAndSortable = function() {
     $(".draggable").draggable('disable');
    }
 
-   $('.sort-slides').on('mousedown',sort);
+   $(document).on('click', '.sort-slides', sort); 
    $('.editor').on('click',reset);
-   
-   $('.draggable_on').click(function(){ 
+
+
+   $(document).on('click', '.draggable_on', function(){ 
        if  ($('.draggable_on').hasClass("active")) {
               $('.draggable_on').removeClass("active");
               // $('.editor').find('*').removeClass('draggable');
