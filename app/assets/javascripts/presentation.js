@@ -15,6 +15,7 @@ var updatePreview = function () {
         postData();
     }, 1000);
     f();
+
     var num_slides = getNumberFromShowNum();
     var layout = getLayout();
     var shape = getShape();
@@ -36,8 +37,8 @@ var updatePreview = function () {
     $("#style-mode").click(function () {
         document.getElementById("preview").src = "presentation" + source;
         f();
-        d();
-        storeData(); 
+        d();   
+        
     });
     $("#content-mode").click(function () {
         document.getElementById("preview").src = "content" + source;
@@ -283,7 +284,7 @@ var eventsListeners = function () {
      });
 
     $(document).on('click', '.new-slide', function(){
-      var newSlideDiv = $('<div class="step slide"><div  class="editor editorr" contenteditable="true"><h2>New Slide</h2></div><div class="sort-slides"><i class="icon-sort icon-22"></i></div><div class="copy-slide"><i class="icon-copy icon-22"></i></div><div class="new-slide"><i class="icon-plus icon-22"></i></div><div class="delete-slide"><i class="icon-minus icon-22"></i></div></div>');
+      var newSlideDiv = $('<div class="step slide"><div  class="editor editorr" contenteditable="true"><h2>New Slide</h2></div><div class="sort-slides"><i class="icon-sort icon-22"></i></div><div class="draggable_on"><i class="icon-move icon-222"></i></div><div class="copy-slide"><i class="icon-copy icon-22"></i></div><div class="new-slide"><i class="icon-plus icon-22"></i></div><div class="delete-slide"><i class="icon-minus icon-22"></i></div></div>');
        $(this).parent().after(newSlideDiv);    
        addNumberToShowNum(); 
        storeContentFromContentMode();
@@ -387,5 +388,46 @@ var storeContentFromContentMode = function () {
         }, false);
     }
 
+}
+
+
+var draggableAndSortable = function() {
+    function sort(){
+    $("#sortable" ).sortable();
+    $("#sortable").sortable("enable");   
+   }
+   function reset(){
+    $("#sortable").sortable('disable');
+   }
+
+   function draggable(){
+    $( ".draggable" ).draggable();
+    $( ".draggable" ).draggable("enable");
+   }
+
+   function resetDraggable(){
+    $(".draggable").draggable('disable');
+   }
+
+   $('.sort-slides').on('mousedown',sort);
+   $('.editor').on('click',reset);
+   
+   $('.draggable_on').click(function(){ 
+       if  ($('.draggable_on').hasClass("active")) {
+              $('.draggable_on').removeClass("active");
+              $('.editor').find('*').removeClass('draggable');
+              resetDraggable();
+              $(".icon-move").addClass("icon-222");
+              $(".icon-move").removeClass("red-icon");
+              storeData();
+       } else {
+        $('.draggable_on').addClass("active");
+        $(".icon-move").addClass("red-icon")
+        $(".icon-move").removeClass("icon-222");
+        $('.editor').find('*').addClass('draggable');
+        draggable();
+        storeData();
+       }
+    });
 }
 
