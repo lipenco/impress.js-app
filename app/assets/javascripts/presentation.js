@@ -415,7 +415,7 @@ var draggableAndSortable = function() {
    $('.draggable_on').click(function(){ 
        if  ($('.draggable_on').hasClass("active")) {
               $('.draggable_on').removeClass("active");
-              $('.editor').find('*').removeClass('draggable');
+              // $('.editor').find('*').removeClass('draggable');
               resetDraggable();
               $(".icon-move").addClass("icon-222");
               $(".icon-move").removeClass("red-icon");
