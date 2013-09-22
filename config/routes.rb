@@ -10,6 +10,7 @@ ImpressJsApp::Application.routes.draw do
   match 'download' => 'presentation#download'
   match 'components' => 'presentation#components'
   match 'content' => 'presentation#content'
+  match 'home'  => 'presentation#home'
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
@@ -55,7 +56,7 @@ ImpressJsApp::Application.routes.draw do
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
 
-  root :to => 'presentation#home'
+  root :to => 'presentation#dashboard'
 
   # See how all your routes lay out with "rake routes"
 

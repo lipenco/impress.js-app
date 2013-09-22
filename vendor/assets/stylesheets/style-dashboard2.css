@@ -1,0 +1,739 @@
+/*--- Type (Self-Hosted) ---*/
+/*@font-face {
+    font-family: 'AvenirNextLTW01-Regular';
+    src: url('/assets/type/avenir/avenirnextltpro-regular.eot?#iefix');
+    src: url('/assets/type/avenir/avenirnextltpro-regular.eot?#iefix') format('eot'),
+         url('/assets/type/avenir/avenirnextltpro-regular.woff') format('woff'),
+         url('/assets/type/avenir/avenirnextltpro-regular.ttf') format('truetype'),
+         url('/assets/type/avenir/avenirnextltpro-regular.svg#avenirnextltpro-regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Avenir Next LT W01 Demi';
+    src: url('/assets/type/avenir-demi/avenirnextltpro-demi.eot?#iefix');
+    src: url('/assets/type/avenir-demi/avenirnextltpro-demi.eot?#iefix') format('eot'),
+         url('/assets/type/avenir-demi/avenirnextltpro-demi.woff') format('woff'),
+         url('/assets/type/avenir-demi/avenirnextltpro-demi.ttf') format('truetype'),
+         url('/assets/type/avenir-demi/avenirnextltpro-demi.svg#avenirnextltpro-demi') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Avenir Next LT W01 Bold';
+    src: url('/assets/type/avenir-bold/avenirnextltpro-bold.eot?#iefix');
+    src: url('/assets/type/avenir-bold/avenirnextltpro-bold.eot?#iefix') format('eot'),
+         url('/assets/type/avenir-bold/avenirnextltpro-bold.woff') format('woff'),
+         url('/assets/type/avenir-bold/avenirnextltpro-bold.ttf') format('truetype'),
+         url('/assets/type/avenir-bold/avenirnextltpro-bold.svg#avenirnextltpro-bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+/* --- End Type ---*/
+
+/*--- Elements ---*/
+html, body {
+    font-family: 'Lato' 'AvenirNextLTW01-Regular';
+    color: #389646;
+    height:  100%;
+    width: 100%;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+p,
+h1, h2, h3, h4, h5, h6 {
+    -moz-user-select: text;
+    -webkit-user-select: text;
+    -ms-user-select: tex;
+    user-select: text;
+}
+a,
+a:visited {
+    color: #211f1f;
+    text-decoration: none;
+}
+a:hover,
+a:active {
+    color:  #c94a00;
+    text-decoration: none;
+}
+#main {
+    height:  100%;
+    width: 100%;
+}
+p {
+    font-size: 12px;
+}
+
+h1 {
+    line-height: 1em;
+    font-family: 'Lato', 'Avenir Next LT W01 Bold';
+    font-size: 75px;
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+}
+h2 {
+    font-size: 55px;
+    font-weight: normal;
+}
+h3 {
+    font-family: 'Lato' 'Avenir Next LT W01 Bold';
+    font-size: 32px;
+    font-weight: normal;
+}
+h4 {
+    font-family: 'Lato' 'Avenir Next LT W01 Bold';
+    font-size: 30px;
+    font-weight: normal;
+}
+h5 {
+    font-family: 'Avenir Next LT W01 Bold';
+    font-size: 26px;
+    font-weight: normal;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    display: inline;
+}
+::-moz-selection {
+    background: #F6861E; color: #fff; text-shadow: none;
+}
+::selection {
+    background: #F6861E; color: #fff; text-shadow: none;
+}
+/*--- End Elements ---*/
+
+/* --- Navs --- */
+#nav {
+    height: 100px;
+    position: relative;
+}
+.darkNav {
+    font-family: 'Lato' 'Avenir Next LT W01 Demi';
+    font-size: 12px;
+}
+.darkNav li {
+    margin-right: 20px;
+}
+.darkNav li:last-child {
+    margin-right: 0;
+}
+.darkNav a,
+.darkNav a:visited {
+    color: #389646;
+}
+.darkNav a:hover,
+.darkNav a:active {
+    color: #c94a00;
+}
+.lightNav {
+    font-family: 'Lato' 'Avenir Next LT W01 Demi';
+    font-size: 12px;
+}
+.lightNav li {
+    float: left;
+    margin-right: 25px;
+}
+.lightNav li:last-child {
+    margin-right: 0;
+}
+.lightNav li.animateArrowParent {
+    margin-top: -5px;
+}
+.lightNav a:visited,
+.lightNav a {
+    color: #211f1f;
+}
+.lightNav a:hover,
+.lightNav a:active {
+    color: #c94a00;
+}
+.lightNav li.animateArrowParent a,
+.lightNav li.animateArrowParent a:visited,
+.lightNav li.animateArrowParent a:hover,
+.lightNav li.animateArrowParent a:active {
+    color: #c94a00;
+}
+.lightNav li.socialIcons {
+    margin-top: -11px;  /* XXX FIXME hardcoded; depends on font-size */
+}
+.inverted a:visited,
+.inverted a {
+    color: #389646;
+}
+.inverted a:hover,
+.inverted a:active {
+    color: #c94a00;
+}
+.inverted li.animateArrowParent a,
+.inverted li.animateArrowParent a:visited,
+.inverted li.animateArrowParent a:hover,
+.inverted li.animateArrowParent a:active {
+    color: #c94a00;
+}
+#footerInfo a:visited,
+#footerInfo a {
+    color: #665C5C;
+}
+#footerInfo a:hover,
+#footerInfo a:active {
+    text-decoration: underline;
+    color: #665C5C;
+}
+
+/* --- End Navs ---*/
+
+/* --- Arrow Animations --- */
+
+.no-touch .animateArrow {
+    -webkit-transition: -webkit-transform 0.2s ease-in;
+    -moz-transition: -moz-transform 0.2s ease-in;
+    -ms-transition: -ms-transform 0.2s ease-in;
+    /* Required to prevent flicker in Safari */
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+}
+.no-touch .animateArrowParent:hover .animateArrow {
+    -webkit-transform: translate(5px, 0);
+    -moz-transform: translate(5px, 0);
+    -ms-transform: translate(5px, 0);
+    transform: translate(5px, 0);
+}
+/* --- End Arrow Animations --- */
+
+/* --- COLORS --- */
+.yellow {
+    color: #F6A71E;
+}
+.blue {
+    color: #557B7F;
+}
+.red {
+    color: #C94A00;
+}
+.brown {
+    color: #B08358;
+}
+.green {
+    color: #91A072;
+}
+.purple {
+    color: #BF93B0;
+}
+.grey {
+    color: #B7B2A8;
+}
+/* --- END COLORS --- */
+
+/* --- Misc --- */
+.disabled {
+    visibility: hidden;
+}
+.relative {
+    position: relative;
+}
+.noBold {
+    font-family: 'AvenirNextLTW01-Regular';
+}
+.bold {
+    font-family: 'Avenir Next LT W01 Bold';
+}
+.demi {
+    font-family: 'Avenir Next LT W01 Demi';
+    font-weight:normal;
+}
+.toUpper {
+    text-transform: uppercase;
+}
+.clear_fix {
+    overflow: hidden;
+    display: inline-block; /* Necessary to trigger "hasLayout" in IE */
+    display: block; /* Sets element back to block */
+}
+.noSelect {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.twentyOne {
+    font-size: 21px;
+}
+a.isLocation,
+a.isLocation:visited,
+a.isLocation:hover,
+a.isLocation:active {
+    text-decoration: underline;
+}
+.heart {
+    display: inline-block;
+    width: 24px;
+    height: 20px;
+    font-size: 0;
+    background: url("/assets/images/heart.svg") no-repeat 50% 50%;
+    background-size: 24px 20px;
+    vertical-align: 19px;
+}
+.no-touch.svg .heart:hover {
+    background-size: 22px 18px;
+}
+.no-svg .heart {
+    background-image: url("/assets/images/heart.png");
+}
+
+.title-subheading {
+    font-size: 21px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.title-subheading a, .title-subheading a:visited {
+    color: #389646;
+}
+
+.title-subheading:hover .white-arrow-btn {
+    background-color: #211f1f;
+}
+
+.white-arrow-btn {
+    margin-left: 8px;
+    background: #ca4a1e url('/assets/images/white-arrow-full-right.png') no-repeat 13px 9px;
+    -moz-border-radius: 10em;
+    -webkit-border-radius: 10em;
+    border-radius: 10em;
+    cursor: pointer;
+    display: inline-block;
+    height: 35px;
+    width: 35px;
+    vertical-align: -8px;
+}
+
+
+#toolsVideoShield {
+    display: none;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 99999;
+}
+#toolsVideo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 800px;
+    height: 450px;
+    margin-left: -400px;
+    margin-top:  -225px;
+}
+#toolsVideo iframe {
+    position: relative;
+    z-index: 1;
+}
+#videoPopupClose {
+    background: #f2b21c url("/assets/images/icons/close-white.svg") no-repeat 50%;
+    height: 44px;
+    width: 44px;
+    position: absolute;
+    right: -44px;
+    top: 0;
+    z-index: 2;
+}
+.no-touch #videoPopupClose:hover {
+    background-color: #d8981a;
+}
+
+.no-svg #videoPopupClose {
+    background: url("/assets/images/icons/video-close-white.png") no-repeat 50%;
+}
+.no-svg.no-touch #videoPopupClose:hover {
+    background-position: 100% 0;
+}
+
+/* --- End Misc ---*/
+
+/* --- Logos ---*/
+.logoAquaman {
+    position: absolute;
+    width: 76px;
+    height: 75px;
+    background: url("../assets/images/logo-aquaman.png") no-repeat;
+}
+.logoBatman {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 64px;
+    height: 64px;
+    background: url("../assets/images/logos/53-dark.svg") no-repeat 50% 50%;
+    background-size: 64px 64px;
+}
+.no-svg .logoBatman {
+    background-image: url("/assets/images/logos/53-64x64-dark.png");
+}
+
+.logoCatwoman {
+    position: absolute;
+    left: 0;
+    top: 85px;
+    width: 82px;
+    height: 82px;
+    background: url("../assets/images/logos/53-light.svg") no-repeat 50% 50%;
+    background-size: 82px 82px;
+}
+.no-svg .logoCatwoman {
+    background-image: url("/assets/images/logos/53-82x82-light.png");
+}
+
+.logoDeadpool {
+    width: 82px;
+    height: 81px;
+    background: url("../assets/images/logo-deadpool.png") no-repeat;
+}
+.logoElectro {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 64px;
+    height: 63px;
+    background: url("../assets/images/logo-electro.png") no-repeat;
+}
+.logoFlash {
+    width: 445px;
+    height: 426px;
+    background: url("../assets/images/logo-flash.jpg") no-repeat 45px center;
+    float: left;
+}
+.paperLogoAntman {
+    width: 231px;
+    height: 49px;
+    background-image: url("../assets/images/paper-logo-antman.png");
+}
+.paperLogoBeast {
+    width: 225px;
+    height: 53px;
+    background-image: url("../assets/images/paper-logo-beast.png");
+}
+.paperLogoCyclops {
+    width: 158px;
+    height: 37px;
+    background-image: url("../assets/images/paper-logo-cyclops.png");
+}
+.appStore {
+    color: transparent;     /* hide the text */
+    text-indent: -9999em;    /* ditto, to ensure */
+    overflow: hidden;
+    cursor: pointer;
+    background-image: url("../assets/images/app-store-badge.png");
+    width: 135px;
+    height: 40px;
+    margin: 15px;   /* required margin from Apple: >1/4 of height */
+}
+.appStore:hover {
+    background-position: right;
+}
+
+/* on retina devices, show the app store badge image at 2x for readability: */
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .appStore {
+        background-image: url("../assets/images/app-store-badge@2x.png");
+        background-size: 270px 40px;
+    }
+}
+
+.socialIcons a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    background-position: top;
+    color: transparent;
+    overflow: hidden;
+    text-indent: -9999em;
+}
+.socialIcons a:first-child {
+    margin-left: 0;
+}
+.socialIcons a:hover {
+    background-position: bottom;
+}
+.socialIcons a.facebook {
+    background-image: url('/assets/images/icon-facebook.png');
+}
+.socialIcons a.twitter {
+    background-image: url('/assets/images/icon-twitter.png');
+}
+.inverted .socialIcons a.facebook {
+    background-image: url('/assets/images/icon-facebook-inverted.png');
+}
+.inverted .socialIcons a.twitter {
+    background-image: url('/assets/images/icon-twitter-inverted.png');
+}
+/*--- End Logos ---*/
+
+#navLinks {
+    position: absolute;
+    top: 33px;
+    right: 0;
+}
+.arrow-light {
+    position: relative;
+    display: inline-block;
+    top: 3px;
+    width: 9px;
+    height: 15px;
+    margin-right: 10px;
+    background: url("../img/arrow-light.svg") no-repeat;
+    background-size: 9px 15px;
+}
+.no-svg .arrow-light {
+    background-image: url("/assets/images/arrow-light.png");
+}
+.redArrow {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    top: 3px;
+    width: 9px;
+    height: 15px;
+}
+.svg .redArrow {
+    background: url("/assets/images/icons/arrow-orange.svg") no-repeat center;
+    background-size: 9px 15px;
+}
+.no-svg .redArrow {
+    background: url("/assets/images/icons/arrow-orange.png") no-repeat center;
+}
+.blackArrow {
+    position: relative;
+    display: inline-block;
+    top: 3px;
+    width: 9px;
+    height: 15px;
+    background-image: url("../assets/images/black-arrow.png");
+}
+.section {
+    min-height: 723px;
+}
+.sized {
+    overflow: visible;
+    position: relative;
+    height: 100%;
+    width: 890px;
+    margin: 0 auto;
+}
+.sectionHead {
+    position: relative;
+    height: 63px;
+    width: 890px;
+    margin: 0 auto;
+    border-bottom: 2px solid #95928e;
+}
+.sectionLeft {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.sectionRight {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+/*--- Video Play ---*/
+
+#videoPopup {
+    /* position/top/left declared in page-specific stylesheets */
+    width: 188px;
+    height: 128px;
+    cursor: pointer;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    /* experimental: give it a nice pulsating shadow. XXX webkit only for now. */
+    -webkit-animation: shadow-pulse 3s ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+}
+.svg #videoPopup {
+    background: rgba(0,0,0,0.25) url("/assets/images/icons/video-play.svg") no-repeat 50% 50%;
+    background-size: 188px 128px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+
+    -webkit-transition: background-color 0.2s ease-out;
+    -moz-transition: background-color  0.2s ease-out;
+    -o-transition: background-color  0.2s ease-out;
+    -ms-transition: background-color  0.2s ease-out;
+    transition: background-color  0.2s ease-out;
+}
+.no-svg.no-touch #videoPopup:hover,
+.no-svg.no-touch #videoPopup:active,
+.no-svg #videoPopup.active {
+    background: url("/assets/images/icons/video-play.png") no-repeat right;
+}
+.svg.touch #videoPopup,
+.svg.no-touch #videoPopup:hover,
+.svg.no-touch #videoPopup:active,
+.svg #videoPopup.active {
+    background-color: rgba(0,0,0,0.5);
+}
+/* helper animation to pulse shadow: */
+@-webkit-keyframes shadow-pulse {
+    0% { box-shadow: 0 0 1em black; }
+    50% { box-shadow: 0 0 2em black; }
+    100% {box-shadow: 0 0 1em black; }
+}
+/*--- End Video Play ---*/
+
+/* --- Carousel ---*/
+.buttons {
+    margin-left: 166px;
+    height: 23px;
+    clear: both;
+}
+.carouselButton {
+    cursor: pointer;
+    float: left;
+    width: 23px;
+    height: 23px;
+    background: url("/assets/images/carousel-button-sprite.png") no-repeat 5px 50%;
+}
+.no-touch .carouselButton {
+    -webkit-transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+    -o-transition: opacity 0.3s ease-out;
+    -ms-transition: opacity 0.3s ease-out;
+    transition: opacity 0.3s ease-out;
+}
+.carouselButtonActive,
+.no-touch .carouselButton:hover {
+    background: url("/assets/images/carousel-button-sprite.png") no-repeat -21px 50%;
+}
+
+.svg .carouselButton,
+.svg .carouselButtonActive,
+.no-touch.svg .carouselButton:hover {
+    background: url("/assets/images/carousel-button.svg") no-repeat 50% 50%;
+    background-size: 14px 14px;
+    opacity: 0.27;
+}
+.svg .carouselButtonActive,
+.no-touch.svg .carouselButton:hover {
+    opacity: 1;
+}
+/*--- End Carousel ---*/
+
+/*--- Dark Pages ---*/
+.darkBody a,
+.darkBody a:visited {
+    color: #389646;
+    text-decoration: underline;
+}
+.darkBody a:hover,
+.darkBody a:active {
+    color:  #389646;
+    text-decoration: none;
+}
+.darkFooter {
+    width: 100%;
+    height: 375px;
+    background-color: #211F1F;
+    color: #389646;
+}
+.upperFooter {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #F2EDE3;
+    height: 50%;
+}
+.lowerFooter {
+    height: 50%;
+}
+.paperLogo {
+    width: 175px;
+    height: 41px;
+    background-image: url("../assets/images/paper-logo.png");
+}
+.darkNav {
+    /*
+    XXX IMPORTANT: this nav *cannot* be absolutely positioned to get it to
+    vertically align with the baseline of the 53 logo. this is because then it
+    gets removed from the flow, and we can't deterministically know how big to
+    make its container in that case. so we keep it in the flow, and hardcode
+    the vertical position instead via margin-top. lesser of two evils...
+
+    entire footer = 375px
+    upper footer = 50% of that = 187.5px
+    upper footer has 20px margin-bottom spacing, so similar top = 167.5px
+    this nav has 19px height (12px font size and 1.231 line-height) = 148.5px
+    */
+    margin-top: 148px;
+}
+/*--- End Dark Pages ---*/
+
+/*--- Footers ---*/
+/* XXX ASEEMK: fix overflowing nav; hope this doesn't break something else? */
+.upperFooter .sectionLeft {
+    width: auto;
+}
+.upperFooter .sectionRight {
+    float: right;
+    width: auto;
+}
+/* XXX ASEEMK: manually justify lower footer with upper one; hardcode yuck! */
+.lowerFooter .sectionLeft {
+    width: auto;
+}
+.lowerFooter .sectionRight {
+    float: right;
+    width: 517px;   /* XXX to match upperFooter .sectionRight width above */
+}
+/* END XXX ASEEMK */
+.footerNav ul {
+    width: 445px;
+}
+.footerNav li {
+    font-family: 'Lato' 'Avenir Next LT W01 Demi';
+    margin-right: 17px;
+}
+.footerNav li:last-child {
+    margin-right: 0;
+}
+.footerNav li:hover,
+.footerNav li:active {
+    color: #c94a00;
+}
+#footerInfo {
+    color: #665c5c;
+    width: 100%;
+    float: right;
+}
+#footerInfo p {
+    width: 100%;
+    font-size: 10px;
+    margin: 0;
+    text-align: justify;
+}
+#footerInfo p span.links {
+    /* XXX This is hardcoded! Adds enough spacing so that the total justified
+    text of #footerInfo p has decently legible kerning/letter-spacing. */
+    margin-left: 3em;
+}
+#footerInfo p:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+.footer-fix {
+    min-width: 890px;
+}
+/* --- End Footer ---*/

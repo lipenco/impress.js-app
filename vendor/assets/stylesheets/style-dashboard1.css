@@ -1,0 +1,249 @@
+#container {
+    height: 100%;
+    width: 100%;
+}
+#main {
+    background: center center no-repeat url('/assets/images/home-bg.jpg');
+    background-size: cover;     /* note that IE8- doesn't support this */
+    min-width: 890px;
+}
+
+/*--- Header ---*/
+#mainHeader {
+    height: 25%;    /* =175px at 700px window height; minimum we want */
+}
+#mainHeader .logo {
+    background: url("/assets/images/app-icon.png") no-repeat;
+    width: 135px;
+    height: 135px;
+    float: left;
+    margin-top: 20px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 192dpi) {
+    #mainHeader .logo {
+        background-image: url("/assets/images/icons/paper@2x.png");
+        background-size: 135px 135px;
+    }
+}
+
+#mainHeader nav {
+    float: right;
+    margin-top: 45px;
+}
+#mainHeader nav div {
+    display: inline-block;
+    margin-left: 25px;
+}
+#mainHeader nav div.socialIcons {
+    /* XXX FIXME manually positioning to vertically center-align */
+    position: relative;
+    top: -8px;  /* XXX FIXME hardcoded for now; depends on font-size */
+}
+.svg .socialIcons a {
+    opacity: 0.27;
+
+    -webkit-transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+    -o-transition: opacity 0.3s ease-out;
+    -ms-transition: opacity 0.3s ease-out;
+    transition: opacity 0.3s ease-out;
+}
+.touch .socialIcons a,
+.no-touch.svg .socialIcons a:hover {
+    opacity: 1;
+}
+.svg a.facebook {
+    background: url("../img/facebook-dark.svg");
+    background-size: 30px 30px;
+}
+.svg a.twitter {
+    background: url("../img/twitter-dark.svg");
+    background-size: 30px 30px;
+}
+a.learnMore,
+a:visited.learnMore {
+    color: #389646;
+}
+/*--- End Header ---*/
+
+/*--- Main Content ---*/
+#homeText {
+    color: #389646;
+    font-size: 75px;
+    line-height: 0.95;
+    padding-left: 6px;
+    width: 305px;
+}
+.title-word {
+    border-bottom: 4px solid #389646;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+#homeSubText {
+    font-size: 18px;
+    margin-bottom: 1em;
+    color: #389646;     /* explicitly needed in case this is a link */
+}
+
+
+
+/*--- End Main Content ---*/
+
+/*--- Video PopUp ---*/
+#videoPopup {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -64px;
+}
+
+/* hide the video button initially if JS enabled; we'll position it better */
+html.js #videoPopup {
+    opacity: 0.01;  /* don't display none; image won't load etc. */
+}
+/*--- End Video Popup ---*/
+
+
+/*--- Endorsement ---*/
+#endorsement {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    right: 0px;
+    width: 245px;
+}
+#endorsement p {
+    font-size: 14px;
+    margin: 0;
+}
+#endorsement p:last-child {
+    float: right;
+}
+#endorsement .toUpper {
+    font-size: 13px;
+}
+/*--- End Endorsement ---*/
+
+/*--- Footer ---*/
+#footer {
+    color: #211f1f;
+    position: relative;
+    height: 155px;
+    width: 100%;
+    background-color: #fffcf5;
+    outline: 1px solid black;
+}
+/* XXX ASEEMK: fix overflowing nav; hope this doesn't break something else? */
+#footer .sectionLeft {
+    width: auto;
+}
+#footer .sectionRight {
+    float: right;
+    width: auto;
+}
+#footer .logo {
+    height: 76px;
+    left: 6px;
+    position: absolute;
+    top: 36px;
+    width: 76px;
+
+    background: url("/assets/images/logos/53-dark.svg") no-repeat;
+    background-size: 76px;
+}
+.no-svg #footer .logo {
+    background-image: url("/assets/images/logos/53-76x76-dark.png");
+}
+.lightNav {
+    margin-top: 50px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #211f1f;
+}
+.lightNav li {
+    float: none;    /* reset style for top light nav */
+    margin-right: 13px;
+}
+.lightNav li:last-child {
+    margin-right: 0;
+}
+.lightNav li:last-child a,
+.lightNav li:last-child a:visited,
+.lightNav li:last-child a:hover,
+.lightNav li:last-child a:active {
+    color: #211F1F; /* reset style for top light nav's "Get Paper" link */
+}
+/*--- End Footer ---*/
+
+
+/*--- Resolution Tweaks ---*/
+@media only screen and (max-height: 700px) {
+    #mainHeader {
+        height: 28%;
+    }
+
+    #homeText {
+        font-size: 60px;
+        width: 240px;
+    }
+
+    .svg #homeSubText.apple-aoty-2012-award {
+        background-size: 213px auto;
+        width: 213px;
+        height: 78px;
+    }
+
+}
+@media only screen and (max-height: 620px) {
+    #mainHeader {
+        height: 33%;
+    }
+
+    #homeText {
+        font-size: 42px;
+        width: 200px;
+    }
+    .title-word {
+        border-width: 3px;
+        margin-bottom: 4px;
+    }
+
+    .svg #homeSubText.apple-aoty-2012-award {
+        background-size: 159px auto;
+        width: 159px;
+        height: 60px;
+    }
+}
+@media only screen and (max-height: 540px) {
+    #mainHeader {
+        height: 25px;
+    }
+    #mainHeader .logo {
+        position: absolute;
+        top: 25px;
+        right: 0;
+        margin: 0;
+    }
+    #mainHeader .learnMore {
+        position: absolute;
+        top: 175px;
+        right: 15px;
+        margin: 0;
+    }
+    #mainHeader nav div.socialIcons {
+        position: absolute;
+        top: 215px;
+        right: 10px;
+        margin: 0;
+    }
+    #toolsVideo {
+        width: 640px;
+        height: 360px;
+        margin-left: -320px;
+        margin-top: -180px;
+    }
+    .no-svg #homeSubText.apple-aoty-2012-award {
+        display: none;
+    }
+}
+/*--- End Resolution Tweaks ---*/
