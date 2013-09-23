@@ -8,7 +8,8 @@
   <%= stylesheet_link_tag "/assets/css/toggle-switch.css" %>
   <%= stylesheet_link_tag "/assets/default.css" %>
   <%= javascript_include_tag "/assets/scripts/jquery.min.js" %>
-  <%= javascript_include_tag "/assets/build/jquery.popline.min.js" %>
+   <%= javascript_include_tag "/assets/scripts/jquery.popline.js" %>
+ <!-- <%= javascript_include_tag "/assets/build/jquery.popline.min.js" %> --> 
   <%= javascript_include_tag "/assets/scripts/colors.js" %>
   <%= javascript_include_tag "/assets/scripts/img.js" %>
 
@@ -78,7 +79,12 @@
 
  <%= javascript_include_tag "jquery-ui.js" %>
 <script> 
-   
+// buggy feature.
+  // $(document).on('click', '.step', function() {
+  //   if ( $(event.target)  !== $(".sort-slides") || $(".draggable_on") || $(".copy-slide") || $(".new-slide") || $(".delete-slide")  )
+  //   $(this).find(".editor").focus();
+  //  });
+
 
 
 
