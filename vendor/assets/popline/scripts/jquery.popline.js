@@ -22,9 +22,9 @@
   });
 
   var toggleBox = function(event) {
-    if ($.popline.utils.isNull($.popline.current)) {
-      return;
-    }
+    // if ($.popline.utils.isNull($.popline.current)) {
+    //   return;
+    // }
     var isTargetOrChild = $.contains($.popline.current.target.get(0), event.target) || $.popline.current.target.get(0) === event.target;
     var isBarOrChild = $.contains($.popline.current.bar.get(0), event.target) || $.popline.current.bar.get(0) === event.target;
     if ((isTargetOrChild || isBarOrChild) && window.getSelection().toString().length > 0) {
