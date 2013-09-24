@@ -275,29 +275,32 @@ var eventsListeners = function () {
     }, false);
 
 
-    $(document).on('click', '.copy-slide', function(){ 
+    $(document).on('click', '.copy-slide', function(event){ 
        $(this).parent().after($(this).parent().clone());
        addNumberToShowNum(); 
        storeContentFromContentMode();
        storeData();
-       $(".editor").popline();     
+       $(".editor").popline();   
+       return false;  
      });
 
-    $(document).on('click', '.new-slide', function(){
-      var newSlideDiv = $('<div class="step slide"><div  class="editor editorr" contenteditable="true"><h2>New Slide</h2></div><div class="sort-slides"><i class="icon-sort icon-22"></i></div><div class="draggable_on"><i class="icon-move icon-222"></i></div><div class="copy-slide"><i class="icon-copy icon-22"></i></div><div class="new-slide"><i class="icon-plus icon-22"></i></div><div class="delete-slide"><i class="icon-minus icon-22"></i></div></div>');
+    $(document).on('click', '.new-slide', function(event){
+      var newSlideDiv = $('<div class="step slide"><div  class="editor" contenteditable="true"><h2>New Slide</h2></div><div class="sort-slides"><i class="icon-sort icon-22"></i></div><div class="draggable_on"><i class="icon-move icon-222"></i></div><div class="copy-slide"><i class="icon-copy icon-22"></i></div><div class="new-slide"><i class="icon-plus icon-22"></i></div><div class="delete-slide"><i class="icon-minus icon-22"></i></div></div>');
        $(this).parent().after(newSlideDiv);    
        addNumberToShowNum(); 
        storeContentFromContentMode();
        storeData();  
-       $(".editor").popline();   
+       $(".editor").popline(); 
+       return false;  
      });
      
-    $(document).on('click', '.delete-slide', function(){ 
+    $(document).on('click', '.delete-slide', function(event){ 
          $(this).parent().remove();   
          decreseNumberFromShowNum(); 
          storeContentFromContentMode(); 
          storeData();  
          $(".editor").popline();  
+         return false;
      });
 
 
@@ -393,7 +396,7 @@ var storeContentFromContentMode = function () {
 
 var draggableAndSortable = function() {
     function sort(){
-    $("#sortable" ).sortable();
+    $("#sortable" ).sortable({ axis: "y" });
     $("#sortable").sortable("enable");   
    }
    function reset(){
@@ -409,11 +412,11 @@ var draggableAndSortable = function() {
     $(".draggable").draggable('disable');
    }
 
-   $(document).on('click', '.sort-slides', sort); 
-   $('.editor').on('click',reset);
+   $(document).on('ready', function(event){ 
+       sort(); return false; }); 
+  
 
-
-   $(document).on('click', '.draggable_on', function(){ 
+   $(document).on('click', '.draggable_on', function(event){ 
        if  ($('.draggable_on').hasClass("active")) {
               $('.draggable_on').removeClass("active");
               // $('.editor').find('*').removeClass('draggable');
@@ -429,6 +432,7 @@ var draggableAndSortable = function() {
         draggable();
         storeData();
        }
+    return false;
     });
 }
 
