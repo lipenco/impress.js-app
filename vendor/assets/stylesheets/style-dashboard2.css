@@ -277,7 +277,7 @@ a.isLocation:active {
     width: 24px;
     height: 20px;
     font-size: 0;
-    background: url("/assets/images/heart.svg") no-repeat 50% 50%;
+    background: url("/assets/heart.svg") no-repeat 50% 50%;
     background-size: 24px 20px;
     vertical-align: 19px;
 }
@@ -285,7 +285,7 @@ a.isLocation:active {
     background-size: 22px 18px;
 }
 .no-svg .heart {
-    background-image: url("/assets/images/heart.png");
+    background-image: url("/assets/heart.png");
 }
 
 .title-subheading {
@@ -443,12 +443,7 @@ a.isLocation:active {
 }
 
 /* on retina devices, show the app store badge image at 2x for readability: */
-@media screen and (-webkit-min-device-pixel-ratio: 2) {
-    .appStore {
-        background-image: url("../assets/images/app-store-badge@2x.png");
-        background-size: 270px 40px;
-    }
-}
+
 
 .socialIcons a {
     display: inline-block;
@@ -467,7 +462,7 @@ a.isLocation:active {
     background-position: bottom;
 }
 .socialIcons a.facebook {
-    background-image: url('/assets/images/icon-facebook.png');
+    background-image: url('/assets/icon-facebook.png');
 }
 .socialIcons a.twitter {
     background-image: url('/assets/images/icon-twitter.png');
@@ -492,7 +487,7 @@ a.isLocation:active {
     width: 9px;
     height: 15px;
     margin-right: 10px;
-    background: url("../img/arrow-light.svg") no-repeat;
+    background: url("../assets/arrow-light.svg") no-repeat;
     background-size: 9px 15px;
 }
 .no-svg .arrow-light {

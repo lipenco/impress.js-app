@@ -53,11 +53,11 @@
     opacity: 1;
 }
 .svg a.facebook {
-    background: url("../img/facebook-dark.svg");
+    background: url("../assets/facebook-dark.svg");
     background-size: 30px 30px;
 }
 .svg a.twitter {
-    background: url("../img/twitter-dark.svg");
+    background: url("../assets/twitter-dark.svg");
     background-size: 30px 30px;
 }
 a.learnMore,

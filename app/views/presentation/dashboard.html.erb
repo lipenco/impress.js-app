@@ -1,20 +1,13 @@
-
-<!doctype html>
-<html class="no-js" lang="en">
 <head>
-  
-
     <title>ImpressLab</title>
 
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Droid+Sans|Lato:400,900' rel='stylesheet' type='text/css'>
-
+  <%= javascript_include_tag "application" %>
   <%= stylesheet_link_tag "def.css", :media => "all" %>
 
-  <%= stylesheet_link_tag "style-dashboard2.css", :media => "all" %>
-    <%= stylesheet_link_tag "style-dashboard1.css", :media => "all" %>
-  <%= javascript_include_tag "modernizer.js" %>
-
-
+  <%= stylesheet_link_tag "style-dashboard2.css"  %>
+  <%= stylesheet_link_tag "style-dashboard1.css" %>
+  <%= javascript_include_tag "http://www.fiftythree.com/js/libs/modernizr-2.0.6.min.js" %>
 </head>
 <body>
 <div id="container">
@@ -71,7 +64,7 @@
                     </ul>
                     <div id="footerInfo">
                         <p>
-                            2013 &copy; Lipen.co. Made in Berlin, Chojnice, Sant Petersburg, London and Tokyo.
+                            2013 &copy; Lipen.co. Made in Berlin, Chojnice, Sant Petersburg, London and Tokyo on Rails Girls Summer of Code.
                         </p>
                     </div>
                 </div>
@@ -81,7 +74,10 @@
 </div> 
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+
+
 
 
 
