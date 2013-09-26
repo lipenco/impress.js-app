@@ -135,7 +135,7 @@ li {
 }
 .lightNav {
     font-family: 'Lato' 'Avenir Next LT W01 Demi';
-    font-size: 12px;
+    font-size: 14px;
 }
 .lightNav li {
     float: left;
@@ -246,8 +246,9 @@ li {
     font-family: 'Avenir Next LT W01 Bold';
 }
 .demi {
-    font-family: 'Avenir Next LT W01 Demi';
-    font-weight:normal;
+    font-family: 'Lato';
+    font-weight:lighter;
+    font-size: 20px;
 }
 .toUpper {
     text-transform: uppercase;
@@ -694,7 +695,7 @@ a.isLocation:active {
 }
 /* END XXX ASEEMK */
 .footerNav ul {
-    width: 445px;
+    width: 465px;
 }
 .footerNav li {
     font-family: 'Lato' 'Avenir Next LT W01 Demi';
@@ -705,16 +706,16 @@ a.isLocation:active {
 }
 .footerNav li:hover,
 .footerNav li:active {
-    color: #c94a00;
+    color: #fffcf5;
 }
 #footerInfo {
-    color: #665c5c;
+    color: #000;
     width: 100%;
     float: right;
 }
 #footerInfo p {
     width: 100%;
-    font-size: 10px;
+    font-size: 11px;
     margin: 0;
     text-align: justify;
 }

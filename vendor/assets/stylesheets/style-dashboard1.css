@@ -28,6 +28,7 @@
 
 #mainHeader nav {
     float: right;
+    margin-right: 100px;
     margin-top: 45px;
 }
 #mainHeader nav div {
@@ -68,14 +69,19 @@ a:visited.learnMore {
 
 /*--- Main Content ---*/
 #homeText {
-    color: #389646;
-    font-size: 75px;
+    color: #fffcf5;
+    font-size: 65px;
     line-height: 0.95;
-    padding-left: 6px;
-    width: 305px;
+    padding: 40px 70px 60px 30px;
+    width: 405px;
+    margin-left: 100px;
+    margin-top: 35%;
+    background: #389646;
+    border-radius: 20px;
 }
+
 .title-word {
-    border-bottom: 4px solid #389646;
+    border-bottom: 3px solid #389646;
     display: inline-block;
     margin-bottom: 5px;
 }
@@ -127,11 +133,11 @@ html.js #videoPopup {
 
 /*--- Footer ---*/
 #footer {
-    color: #211f1f;
+    color: #fffcf5;
     position: relative;
     height: 155px;
     width: 100%;
-    background-color: #fffcf5;
+    background-color: #389646;
     outline: 1px solid black;
 }
 /* XXX ASEEMK: fix overflowing nav; hope this doesn't break something else? */

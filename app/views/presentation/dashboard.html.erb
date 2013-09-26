@@ -7,16 +7,15 @@
 
   <%= stylesheet_link_tag "style-dashboard2.css"  %>
   <%= stylesheet_link_tag "style-dashboard1.css" %>
-  <%= javascript_include_tag "http://www.fiftythree.com/js/libs/modernizr-2.0.6.min.js" %>
+  <%= javascript_include_tag "modernizer.js" %>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+   <%= javascript_include_tag "tubular.js" %>
+
 </head>
 <body>
 <div id="container">
     <div id="main" role="main">
-        <div id="toolsVideoShield">
-            <div id="toolsVideo">
-            </div>
-        </div>
-        <div class="sized">
+
             <div id="mainHeader" class="clear_fix">
                 <a href="">
                     <div class="logo">
@@ -35,8 +34,8 @@
             <div class="clear_fix">
                 <div class="sectionLeft">
                     <a href="./home">
-                        <div id="homeText" class="toUpper">
-                            <span class="title-word">Feel Free to be Impressed.</span>
+                        <div id="homeText" class="">
+                            <span class="title-word">feel free <br/> to be impressed.</span>
                             <!-- <span class="title-word bold">Impressed</span> -->
                         </div>
 
@@ -44,10 +43,19 @@
              
                 </div>
                 <div class="sectionRight">
-             
+                 <!--    <div id="youtube" style="width:100%;height:100%; position:absolute; top:0; left:0">
+                      </div> -->
+                   
                 </div>
             </div>
         </div> 
+     <script>
+       $('document').ready(function() {
+        var options = { videoId: 'mabNy5Yk_04', start: 3 };
+       $('#main').tubular(options);
+
+       });
+    </script>
         <div id="footer">
             <div class="sized">
                 <div class="sectionLeft">
@@ -74,7 +82,11 @@
 </div> 
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        
+
+
+
+
 
 
 
