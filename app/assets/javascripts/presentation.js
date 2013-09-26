@@ -397,10 +397,11 @@ var storeContentFromContentMode = function () {
 var draggableAndSortable = function() {
     function sort(){
     $("#sortable" ).sortable({ axis: "y" });
-    $("#sortable").sortable("enable");   
+    // $("#sortable").sortable("enable");   
    }
+
    function reset(){
-    $("#sortable").sortable('disable');
+    $("#sortable").sortable("disable");
    }
 
    function draggable(){
@@ -412,12 +413,27 @@ var draggableAndSortable = function() {
     $(".draggable").draggable('disable');
    }
 
-   $(document).on('click','.sort-slides', function(event){ 
+   $(document).on('mousedown','.sort-slides', function(event){ 
        sort(); return false; }); 
    
-   $(document).on('click', '.editor', function(event){
-       reset(); return false;}); 
+   $(document).on('mouseup', '.sort-slides', function(event){
+       reset(); return false; console.log("up"); }); 
+
+   function resizable() {
+     $(".resizable").resizable();
+     $(".resizable").resizable("enable");
+   }
+
+   $(document).on('click', '.resize-img', function(event){ 
+      $('.editor').find('img').addClass('resizable');
+        reset(); 
+        return false; 
+   }); 
    
+   $(document).on('click', '.resizable', function(event){ 
+        return false; 
+        console.log("klik");
+   }); 
 
    $(document).on('click', '.draggable_on', function(event){ 
        if  ($('.draggable_on').hasClass("active")) {

@@ -55,6 +55,7 @@
       },
       afterHide: function() {
         this.find(":text").val('');
+        $(".resize-img").css("display","block");
  
 
       }

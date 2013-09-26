@@ -162,10 +162,21 @@ ul.modes {
   left: 2%;
 }
 
+.resize-img {
+  width: 40px;
+  height: 30px;
+  color: #389646;
+  position: absolute;
+  top: 2%;
+  left: 12%;
+  display: none;
+}
+
 .draggable_on {
   width: 40px;
   height: 30px;
   display: block;
+  color: #389646;
   position: absolute;
   top: 2%;
   left: 7%;
@@ -199,7 +210,7 @@ position: relative;
 padding: 9px;
 }
 
-.icon-222 {
+.icon-222, {
 font-size: 0.95em;
 color: #389646;
 position: relative;
@@ -210,6 +221,8 @@ padding: 9px;
 -ms-transition: all 1.5s ease;
 transition: all 1.5s ease;
 }
+
+
 
 
 .red-icon {
