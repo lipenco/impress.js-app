@@ -10,7 +10,8 @@
 
 /*--- Header ---*/
 #mainHeader {
-    height: 25%;    /* =175px at 700px window height; minimum we want */
+    height: 25%;
+          /* =175px at 700px window height; minimum we want */
 }
 #mainHeader .logo {
     background: url("/assets/images/app-icon.png") no-repeat;
@@ -28,8 +29,22 @@
 
 #mainHeader nav {
     float: right;
-    margin-right: 100px;
+    margin-right: -20px;
     margin-top: 45px;
+    background: #389646;
+    border-radius: 20px;
+    font-weight: lighter;
+    padding: 15px 10px 20px 5px ;
+    text-align: center;
+    color: #b3b3b3;
+    color: rgba(255, 255, 255, 0.5);
+    text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+    -webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    -ms-text-rendering: optimizeLegibility;
+    -o-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+
 }
 #mainHeader nav div {
     display: inline-block;
@@ -39,6 +54,8 @@
     /* XXX FIXME manually positioning to vertically center-align */
     position: relative;
     top: -8px;  /* XXX FIXME hardcoded for now; depends on font-size */
+    padding-left: 20px;
+    padding-right: 60px;
 }
 .svg .socialIcons a {
     opacity: 0.27;
@@ -63,7 +80,16 @@
 }
 a.learnMore,
 a:visited.learnMore {
-    color: #389646;
+    font-size: 40px;
+    color: #b3b3b3;
+    color: rgba(255, 255, 255, 0.5);
+    text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+    -webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    -ms-text-rendering: optimizeLegibility;
+    -o-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+;
 }
 /*--- End Header ---*/
 
