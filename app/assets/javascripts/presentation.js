@@ -395,14 +395,7 @@ var storeContentFromContentMode = function () {
 
 
 var draggableAndSortable = function() {
-    function sort(){
-    $("#sortable" ).sortable({ axis: "y" });
-    // $("#sortable").sortable("enable");   
-   }
 
-   function reset(){
-    $("#sortable").sortable("disable");
-   }
 
    function draggable(){
     $( ".draggable" ).draggable();
@@ -413,11 +406,9 @@ var draggableAndSortable = function() {
     $(".draggable").draggable('disable');
    }
 
-   $(document).on('mousedown','.sort-slides', function(event){ 
-       sort(); return false; }); 
+   $( "#sortable" ).sortable({ handle: ".sort-slides", axis: "y" });
    
-   $(document).on('mouseup', '.sort-slides', function(event){
-       reset(); return false; console.log("up"); }); 
+
 
    function resizable() {
      $(".resizable").resizable();
@@ -432,7 +423,7 @@ var draggableAndSortable = function() {
    
    $(document).on('click', '.resizable', function(event){ 
         return false; 
-        console.log("klik");
+       
    }); 
 
    $(document).on('click', '.draggable_on', function(event){ 
