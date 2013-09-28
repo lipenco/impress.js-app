@@ -4,35 +4,35 @@
       iconClass: "icon-tint",
       mode: "edit",
       buttons: {
-        justifyLeft: {
+        green: {
           iconClass: "icon-tint green",
           action: function(event) {
             document.execCommand('ForeColor', false, '#468858');
           }
         },
 
-        justifyCenter: {
+        red: {
           iconClass: "icon-tint red",
           action: function(event) {
             document.execCommand('ForeColor', false, '#a74240');
           }
         },
 
-        justifyRight: {
+        grey: {
           iconClass: "icon-tint grey",
           action: function(event) {
             document.execCommand('ForeColor', false, '#8f8f8f');
           }
         },
 
-        indent: {
+        yellow: {
           iconClass: "icon-tint orange",
           action: function(event) {
             document.execCommand('ForeColor', false, '#c99a4a');
           }
         },
 
-        outdent: {
+        blue: {
           iconClass: "icon-tint blue",
           action: function(event) {
             document.execCommand('ForeColor', false, '#2d6987');

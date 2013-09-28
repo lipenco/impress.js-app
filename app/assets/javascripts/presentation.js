@@ -396,7 +396,6 @@ var storeContentFromContentMode = function () {
 
 var draggableAndSortable = function() {
 
-
    function draggable(){
     $( ".draggable" ).draggable();
     $( ".draggable" ).draggable("enable");
