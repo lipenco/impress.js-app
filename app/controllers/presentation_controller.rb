@@ -46,6 +46,10 @@ class PresentationController < ApplicationController
   def download
     build
     data = render_to_string :build
+    data.gsub!('<script src="/', '<script src="./')
+    data.gsub!('<link href="/', '<link href="./')
+
+
     js_path = Rails.root.join("vendor", "assets", "javascripts")
     css_path = Rails.root.join("vendor", "assets", "stylesheets")
     img_path = Rails.root.join("vendor", "assets", "images")

@@ -1,4 +1,6 @@
 ;(function($) {
+
+
   $.popline.addButton({
     justify: {
       iconClass: "icon-tint",
@@ -7,7 +9,7 @@
         green: {
           iconClass: "icon-tint green",
           action: function(event) {
-            document.execCommand('ForeColor', false, '#468858');
+           document.execCommand('ForeColor', false, '#468858');
           }
         },
 
