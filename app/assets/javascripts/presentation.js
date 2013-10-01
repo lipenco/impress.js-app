@@ -408,22 +408,19 @@ var draggableAndSortable = function() {
    $( "#sortable" ).sortable({ handle: ".sort-slides", axis: "y" });
    
 
-
-   function resizable() {
-     $(".resizable").resizable();
-     $(".resizable").resizable("enable");
+   function setResizable(){
+    $( ".resizable" ).resizable({ handles: "n, e, s, w" });
+  
    }
 
-   $(document).on('click', '.resize-img', function(event){ 
-      $('.editor').find('img').addClass('resizable');
-        reset(); 
-        return false; 
-   }); 
-   
-   $(document).on('click', '.resizable', function(event){ 
-        return false; 
-       
-   }); 
+   $(document).on('click', 'img', function(event){ 
+      $('h2').addClass('resizable');
+      setResizable(); 
+      console.log("klik");
+      return false;
+   });
+
+
 
    $(document).on('click', '.draggable_on', function(event){ 
        if  ($('.draggable_on').hasClass("active")) {
