@@ -151,7 +151,7 @@ var getLayout = function () {
 var getNumberFromShowNum = function () {
     var num_sildes;
     if (document.getElementById("showNum") !== null) {
-        num_sildes =  document.getElementById("showNum").value || 9;
+        num_sildes =  document.getElementById("showNum").value || 8;
     }
 
     return num_sildes;
@@ -414,7 +414,7 @@ var draggableAndSortable = function() {
    }
 
    $(document).on('click', 'img', function(event){ 
-      $(this).addClass('resizable');
+      $(this).addClass('resizable').focus();
       setResizable(); 
       console.log("klik");
       return false;

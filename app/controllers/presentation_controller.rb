@@ -26,7 +26,7 @@ class PresentationController < ApplicationController
     @progress_bar = "no-pbar"
     @progress_bar = params[:progress_bar] if ["no-pbar", "pbar1"].include?(params[:progress_bar])
 
-    @example_slides = %w{title ollist ullist paragraph substeps blockquote table align colors}
+    @example_slides = %w{title ollist ullist paragraph substeps blockquote align colors}
     @content = params[:content]
   end
 

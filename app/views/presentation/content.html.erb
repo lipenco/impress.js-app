@@ -20,16 +20,8 @@
 
     $(function(){
       document.execCommand('defaultParagraphSeparator', false, 'p');
-      $(".editor").popline();
+      $(".editor").popline({position: 'fixed'});
       $("body").data("mode", "edit");
-      $("input[name='mode']").click(function(){
-        if (this.id !== $("body").data("mode")) {
-          $(".editor").popline("destroy");
-          $(".editor").attr("contenteditable", this.id === "edit");
-          $(".editor").popline({mode: this.id});
-          $("body").data("mode", this.id);
-        }
-      });
     });
 
   </script> 
@@ -52,7 +44,7 @@
       <% @num_slides.times do |n| %>  
         <div class="step slide">
           <div  class="editor " contenteditable="true" >
-        <% if n < 9 %>
+        <% if n < 8 %>
            <%=
             if @content.nil? || @content[n.to_s].nil?
               render "presentation/partials/#{@example_slides[n]}"
