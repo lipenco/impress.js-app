@@ -414,7 +414,7 @@ var draggableAndSortable = function() {
    }
 
    $(document).on('click', 'img', function(event){ 
-      $('h2').addClass('resizable');
+      $(this).addClass('resizable');
       setResizable(); 
       console.log("klik");
       return false;
