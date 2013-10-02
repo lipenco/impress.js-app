@@ -409,12 +409,13 @@ var draggableAndSortable = function() {
    
 
    function setResizable(){
-    $( ".resizable" ).resizable({ handles: "n, e, s, w" });
+    $( ".resizable" ).resizable();
   
    }
 
    $(document).on('click', 'img', function(event){ 
-      $(this).addClass('resizable').focus();
+      $(this).addClass('resizable');
+      $(this).css("position" ,"absolute")
       setResizable(); 
       console.log("klik");
       return false;
