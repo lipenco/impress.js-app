@@ -409,15 +409,12 @@ var draggableAndSortable = function() {
    
 
    function setResizable(){
-      var x = document.getElementById("preview");
-      var y = (x.contentWindow || x.contentDocument);
-      var resizable = y.document.querySelectorAll(".resizable");
-      resizable.resizable(); 
+      $(".resizable").resizable(); 
    }
 
    // $(document).on('click', 'img', function(){ 
-   //    $(this).addClass('resizable');
-   //    $(this).css("display" ,"inline-block")
+   //    // $(this).addClass('resizable');
+   //    // $(this).css("display" ,"inline-block")
    //    setResizable(); 
    //    console.log("klik");
    //    // return false;

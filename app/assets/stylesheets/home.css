@@ -153,6 +153,15 @@ ul.modes {
   left:14%;
 }
 
+.add-picture{
+  width: 40px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  bottom: 5%;
+  left:20%;
+}
+
 .sort-slides {
    width: 40px;
   height: 30px;
@@ -173,8 +182,7 @@ ul.modes {
 }
 
 .draggable_on {
-  width: 40px;
-  height: 30px;
+
   display: block;
   color: #389646;
   position: absolute;
@@ -204,14 +212,7 @@ margin-top: 6em;
 }
 
 .icon-22 {
-font-size: 1.2em;
-color: #389646;
-position: relative;
-padding: 9px;
-}
-
-.icon-222, {
-font-size: 0.95em;
+font-size: 1em;
 color: #389646;
 position: relative;
 padding: 9px;
@@ -225,9 +226,10 @@ transition: all 1.5s ease;
 
 
 
+
 .red-icon {
   color: #a74240;
-  font-size: 0.95em;
+  font-size: 0.5em;
   position: relative;
   padding: 9px;
 -webkit-transition: all 1.5s ease;

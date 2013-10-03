@@ -12,6 +12,7 @@
  <%= javascript_include_tag "/assets/build/jquery.popline.min.js" %> 
   <%= javascript_include_tag "/assets/scripts/colors.js" %>
   <%= javascript_include_tag "/assets/scripts/img.js" %>
+  <%= javascript_include_tag "jquery-ui.js" %>
 
  
 
@@ -43,7 +44,6 @@
   <div class="container-fluid" id="sortable">
       <% @num_slides.times do |n| %>  
         <div class="step slide">
-          <!-- <div>DROP!<button onclick="document.querySelector('input').click()">Or click</button></div> -->
           <input style="visibility: collapse; width: 0px;" type="file" onchange="upload(this.files[0])">
         <div class="step-wrapper">
           <img class="resizable" id="link">
@@ -62,7 +62,7 @@
           </div>
         </div>
          <div class="sort-slides"><i class="icon-sort icon-22"></i></div>
-         <div class="draggable_on"><i class="icon-move icon-222"></i></div>
+         <div class="draggable_on"><i class="icon-move icon-22"></i></div>
          <div class="copy-slide"><i class="icon-copy icon-22"></i></div>
          <div class="new-slide"><i class="icon-plus icon-22"></i></div>
          <div class="delete-slide"><i class="icon-minus icon-22"></i></div>
@@ -75,13 +75,13 @@
     </div>
 
 
- <%= javascript_include_tag "jquery-ui.js" %>
+ 
  
 <script> 
 
-  $(document).on('click', '.step', function() {
-    $(this).find(".editor").focus();
-   });
+  // $(document).on('click', '.step', function() {
+  //   $(this).find(".editor").focus();
+  //  });
    
   
  
