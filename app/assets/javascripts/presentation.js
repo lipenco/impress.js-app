@@ -124,11 +124,11 @@ var getContentBackToEditor = function () {
 var postDataEdit = function () {
     var x = document.getElementById("preview");
     var y = (x.contentWindow || x.contentDocument);
-    var editor = y.document.querySelectorAll(".editor");
+    var stepWrapper = y.document.querySelectorAll(".step-wrapper");
     var contentObject = $("#data-store").data();
     if (contentObject["content[0]"] !== undefined) {
-       for (var i = 0; i < editor.length; i++) {
-          editor[i].innerHTML = contentObject["content[" + i + "]"];
+       for (var i = 0; i < stepWrapper.length; i++) {
+          stepWrapper[i].innerHTML = contentObject["content[" + i + "]"];
        }
     }
 }
@@ -330,9 +330,9 @@ var eventsListeners = function () {
 
 
 var storeData = function () {
-    var editor = document.querySelectorAll('.editor');
-    for (var i = 0; i < editor.length; i++) {
-        parent.$("#data-store").data("content[" + i + "]", editor[i].innerHTML);
+    var stepWrapper = document.querySelectorAll('.step-wrapper');
+    for (var i = 0; i < stepWrapper.length; i++) {
+        parent.$("#data-store").data("content[" + i + "]", stepWrapper[i].innerHTML);
     }
 }
 
@@ -383,10 +383,10 @@ var post_to_url = function(path, params, method) {
 
 
 var storeContentFromContentMode = function () {
-    var editor = document.querySelectorAll('.editor');
-    for (var i = 0; i < editor.length; i++) {
-        var content = editor[i].innerHTML;
-        editor[i].addEventListener('blur', function () {    
+    var stepWrapper = document.querySelectorAll('.step-wrapper');
+    for (var i = 0; i < stepWrapper.length; i++) {
+        var content = stepWrapper[i].innerHTML;
+        stepWrapper[i].addEventListener('blur', function () {    
           storeData(); 
         }, false);
     }
@@ -409,18 +409,19 @@ var draggableAndSortable = function() {
    
 
    function setResizable(){
-    $(document).find('.resizable').resizable()
-    // $( ".resizable" ).resizable();
-  
+      var x = document.getElementById("preview");
+      var y = (x.contentWindow || x.contentDocument);
+      var resizable = y.document.querySelectorAll(".resizable");
+      resizable.resizable(); 
    }
 
-   $(document).on('click', 'img', function(){ 
-      $(this).addClass('resizable');
-      $(this).css("display" ,"inline-block")
-      setResizable(); 
-      console.log("klik");
-      // return false;
-   });
+   // $(document).on('click', 'img', function(){ 
+   //    $(this).addClass('resizable');
+   //    $(this).css("display" ,"inline-block")
+   //    setResizable(); 
+   //    console.log("klik");
+   //    // return false;
+   // });
 
 
 
@@ -436,7 +437,7 @@ var draggableAndSortable = function() {
         $('.draggable_on').addClass("active");
         $(".icon-move").addClass("red-icon")
         $(".icon-move").removeClass("icon-222");
-        $('.editor').find('*').addClass('draggable');
+        $('.step-wrapper').find('*').addClass('draggable');
         draggable();
         storeData();
        }

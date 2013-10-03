@@ -43,7 +43,11 @@
   <div class="container-fluid" id="sortable">
       <% @num_slides.times do |n| %>  
         <div class="step slide">
-          <div  class="editor " contenteditable="true" >
+          <!-- <div>DROP!<button onclick="document.querySelector('input').click()">Or click</button></div> -->
+          <input style="visibility: collapse; width: 0px;" type="file" onchange="upload(this.files[0])">
+        <div class="step-wrapper">
+          <img class="resizable" id="link">
+          <div  class="editor " contenteditable="true" >        
         <% if n < 8 %>
            <%=
             if @content.nil? || @content[n.to_s].nil?
@@ -56,11 +60,13 @@
           <h2> Slide <%= n +1 %> </h2>
         <% end %>
           </div>
+        </div>
          <div class="sort-slides"><i class="icon-sort icon-22"></i></div>
          <div class="draggable_on"><i class="icon-move icon-222"></i></div>
          <div class="copy-slide"><i class="icon-copy icon-22"></i></div>
          <div class="new-slide"><i class="icon-plus icon-22"></i></div>
          <div class="delete-slide"><i class="icon-minus icon-22"></i></div>
+         <div class="add-picture" onclick="document.querySelector('input').click()"><i class="icon-picture icon-22"></i></div>
         </div>
      
          
@@ -95,6 +101,36 @@
   storeContentFromContentMode();
   draggableAndSortable();
   parent.$("#style-mode").on("click", storeData);
+
+
+
+    /* imugir img */
+    window.ondragover = function(e) {e.preventDefault()}
+    window.ondrop = function(e) {e.preventDefault(); upload(e.dataTransfer.files[0]); }
+    function upload(file) {
+
+        /* Is the file an image? */
+        if (!file || !file.type.match(/image.*/)) return;
+
+        /* It is! */
+        document.body.className = "uploading";
+
+        /* Lets build a FormData object*/
+        var fd = new FormData(); // I wrote about it: https://hacks.mozilla.org/2011/01/how-to-develop-a-html5-image-uploader/
+        fd.append("image", file); // Append the file
+        fd.append("key", "6528448c258cff474ca9701c5bab6927"); // Get your own key http://api.imgur.com/
+        var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
+        xhr.open("POST", "http://api.imgur.com/2/upload.json"); // Boooom!
+        xhr.onload = function() {
+            // Big win!
+            document.querySelector("#link").src = JSON.parse(xhr.responseText).upload.links.original;
+            document.body.className = "uploaded";
+        }
+        // Ok, I don't handle the errors. An exercice for the reader.
+
+        /* And now, we send the formdata */
+        xhr.send(fd);
+    }
 
 
  </script>
