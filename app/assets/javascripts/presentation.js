@@ -409,16 +409,17 @@ var draggableAndSortable = function() {
    
 
    function setResizable(){
-    $( ".resizable" ).resizable();
+    $(document).find('.resizable').resizable()
+    // $( ".resizable" ).resizable();
   
    }
 
-   $(document).on('click', 'img', function(event){ 
+   $(document).on('click', 'img', function(){ 
       $(this).addClass('resizable');
-      $(this).css("position" ,"absolute")
+      $(this).css("display" ,"inline-block")
       setResizable(); 
       console.log("klik");
-      return false;
+      // return false;
    });
 
 

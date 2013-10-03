@@ -1,38 +1,4 @@
-/*--- Type (Self-Hosted) ---*/
-/*@font-face {
-    font-family: 'AvenirNextLTW01-Regular';
-    src: url('/assets/type/avenir/avenirnextltpro-regular.eot?#iefix');
-    src: url('/assets/type/avenir/avenirnextltpro-regular.eot?#iefix') format('eot'),
-         url('/assets/type/avenir/avenirnextltpro-regular.woff') format('woff'),
-         url('/assets/type/avenir/avenirnextltpro-regular.ttf') format('truetype'),
-         url('/assets/type/avenir/avenirnextltpro-regular.svg#avenirnextltpro-regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Avenir Next LT W01 Demi';
-    src: url('/assets/type/avenir-demi/avenirnextltpro-demi.eot?#iefix');
-    src: url('/assets/type/avenir-demi/avenirnextltpro-demi.eot?#iefix') format('eot'),
-         url('/assets/type/avenir-demi/avenirnextltpro-demi.woff') format('woff'),
-         url('/assets/type/avenir-demi/avenirnextltpro-demi.ttf') format('truetype'),
-         url('/assets/type/avenir-demi/avenirnextltpro-demi.svg#avenirnextltpro-demi') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Avenir Next LT W01 Bold';
-    src: url('/assets/type/avenir-bold/avenirnextltpro-bold.eot?#iefix');
-    src: url('/assets/type/avenir-bold/avenirnextltpro-bold.eot?#iefix') format('eot'),
-         url('/assets/type/avenir-bold/avenirnextltpro-bold.woff') format('woff'),
-         url('/assets/type/avenir-bold/avenirnextltpro-bold.ttf') format('truetype'),
-         url('/assets/type/avenir-bold/avenirnextltpro-bold.svg#avenirnextltpro-bold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}*/
 
-/* --- End Type ---*/
-
-/*--- Elements ---*/
 html, body {
     font-family: 'Lato' 'AvenirNextLTW01-Regular';
     color: #389646;
@@ -41,7 +7,11 @@ html, body {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    user-select: none;
+    user-select: none;  
+}
+body {
+      background: #dfdbdb;
+    z-index: -999;
 }
 p,
 h1, h2, h3, h4, h5, h6 {
@@ -731,5 +701,16 @@ a.isLocation:active {
 }
 .footer-fix {
     min-width: 890px;
+}
+
+.cover {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    width: 65%;
+ 
+    z-index: -1;
+    border-left: 20%;
+    border-right: 20%;
 }
 /* --- End Footer ---*/
