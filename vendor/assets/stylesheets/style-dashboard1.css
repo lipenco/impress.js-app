@@ -98,14 +98,14 @@ a:visited.learnMore {
 
     font-size: 65px;
     line-height: 0.95;
-    padding: 40px 70px 70px 30px;
+    padding: 40px 70px 55px 40px;
     width: 405px;
     margin-left: 100px;
-    margin-top: 33%;
+    position: absolute;
+    bottom: -20px;
     background: #389646;
     border-radius: 20px;
     font-weight: lighter;
-    text-align: center;
     color: #b3b3b3;
     color: rgba(255, 255, 255, 0.5);
     text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
