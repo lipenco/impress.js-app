@@ -285,7 +285,7 @@ var eventsListeners = function () {
      });
 
     $(document).on('click', '.new-slide', function(event){
-      var newSlideDiv = $('<div class="step slide"><div  class="editor" contenteditable="true"><h2>New Slide</h2></div><div class="sort-slides"><i class="icon-sort icon-22"></i></div><div class="draggable_on"><i class="icon-move icon-222"></i></div><div class="copy-slide"><i class="icon-copy icon-22"></i></div><div class="new-slide"><i class="icon-plus icon-22"></i></div><div class="delete-slide"><i class="icon-minus icon-22"></i></div></div>');
+      var newSlideDiv = $('<div class="step slide"><div class="step-wrapper"><div  class="editor" contenteditable="true"><h2>New Slide</h2></div></div><div class="sort-slides"><i class="icon-sort icon-22"></i></div><div class="draggable_on"><i class="icon-move icon-222"></i></div><div class="copy-slide"><i class="icon-copy icon-22"></i></div><div class="new-slide"><i class="icon-plus icon-22"></i></div><div class="delete-slide"><i class="icon-minus icon-22"></i></div><div class="add-picture" onclick="document.querySelector("input").click()"><i class="icon-picture icon-22"></i></div></div>');
        $(this).parent().after(newSlideDiv);    
        addNumberToShowNum(); 
        storeContentFromContentMode();
