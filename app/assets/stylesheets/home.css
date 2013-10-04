@@ -129,42 +129,42 @@ ul.modes {
 
 
 .new-slide {
-  width: 40px;
-  height: 30px;
+  width: 30px;
+  height: 20px;
   position: absolute;
-  bottom: 5%;
-  left:8%;
+  bottom: 3%;
+  left:6%;
 }
 
 .copy-slide {
-  width: 40px;
-  height: 30px;
+  width: 30px;
+  height: 20px;
   position: absolute;
-  bottom: 5%;
-  left:2%;
+  bottom: 3%;
+  left:1%;
 }
 
 .delete-slide {
-   width: 40px;
-  height: 30px;
+   width: 30px;
+  height: 20px;
   display: block;
   position: absolute;
- bottom: 5%;
-  left:14%;
+ bottom: 3%;
+  left:11%;
 }
 
 .add-picture{
-  width: 40px;
-  height: 30px;
+  width: 30px;
+  height: 20px;
   display: block;
   position: absolute;
-  bottom: 5%;
-  left:20%;
+  bottom: 3%;
+  left:16%;
 }
 
 .sort-slides {
-   width: 40px;
-  height: 30px;
+   width: 30px;
+  height: 20px;
   display: block;
   position: absolute;
   top: 2%;
@@ -172,8 +172,8 @@ ul.modes {
 }
 
 .resize-img {
-  width: 40px;
-  height: 30px;
+  width: 30px;
+  height: 20px;
   color: #389646;
   position: absolute;
   top: 2%;
@@ -182,7 +182,8 @@ ul.modes {
 }
 
 .draggable_on {
-
+  width: 30px;
+  height: 20px;
   display: block;
   color: #389646;
   position: absolute;
@@ -212,7 +213,7 @@ margin-top: 6em;
 }
 
 .icon-22 {
-font-size: 1em;
+font-size: 0.9em;
 color: #389646;
 position: relative;
 padding: 9px;

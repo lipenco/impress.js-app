@@ -46,9 +46,9 @@
   <div class="container-fluid" id="sortable">
       <% @num_slides.times do |n| %>  
         <div class="step slide">
-          <input style="visibility: collapse; width: 0px;" type="file" onchange="upload(this.files[0])">
+          <input class="photo-input" style="visibility: collapse; width: 0px;" type="file">
         <div class="step-wrapper">
-          <img class="resizable" id="link">
+          <img class="resizable link">
           <div  class="editor " contenteditable="true" >        
         <% if n < 8 %>
            <%=
@@ -85,9 +85,7 @@
   //   $(this).find(".editor").focus();
   //  });
    
-  $(document).on('click', '.add-picture', function() {
-    document.querySelector('input').click();
-  });
+ 
  
 
 
