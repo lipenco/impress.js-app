@@ -2,7 +2,7 @@ var imageCounter = 0
 
 $(document).on('click', '.add-picture', function() {
     imageCounter++;
-    var imageField = $('<img id="link'+imageCounter+' "style="position: absolute" >');
+    var imageField = $('<img id="link'+imageCounter+'"style="position: absolute" >');
     $(this).parent().find(".step-wrapper").prepend(imageField);   
     var inputField = $('<input class="photo-input" style="visibility: collapse; width: 0px;" type="file">');
     $(this).parent().find(".step-wrapper").before(inputField); 
@@ -15,7 +15,9 @@ $(document).on('change', '.photo-input', function() {
 });
 
 
-function upload(file, imageCounter) {
+
+function upload(file) {
+
     if (!file || !file.type.match(/image.*/)) return;
 
     document.body.className = "uploading";
@@ -26,7 +28,9 @@ function upload(file, imageCounter) {
     var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
     xhr.open("POST", "http://api.imgur.com/2/upload.json"); // Boooom!
     xhr.onload = function() {
-     document.getElementById('"link'+imageCounter+'"').src = JSON.parse(xhr.responseText).upload.links.original;
+      imageCounter;
+      console.log(imageCounter);
+     document.getElementById('link'+imageCounter).src = JSON.parse(xhr.responseText).upload.links.original;
         // document.body.className = "uploaded";
     }
 
