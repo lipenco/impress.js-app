@@ -1,4 +1,4 @@
-var imageCounter = 0
+var imageCounter = parent.$("#data-store").data()["imageNum"] ||  0;
 
 $(document).on('click', '.add-picture', function() {
     imageCounter++;
@@ -7,6 +7,7 @@ $(document).on('click', '.add-picture', function() {
     var inputField = $('<input class="photo-input" style="visibility: collapse; width: 0px;" type="file">');
     $(this).parent().find(".step-wrapper").before(inputField); 
     inputField.click();
+    // imageCounter = parent.$("#data-store").data("imageNum");
     return imageCounter;
 });
  
@@ -32,6 +33,7 @@ function upload(file) {
       console.log(imageCounter);
      document.getElementById('link'+imageCounter).src = JSON.parse(xhr.responseText).upload.links.original;
         // document.body.className = "uploaded";
+     parent.$("#data-store").data()["imageNum"] = imageCounter;
     }
 
     xhr.send(fd);

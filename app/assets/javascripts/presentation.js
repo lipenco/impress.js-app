@@ -333,6 +333,7 @@ var storeData = function () {
     var stepWrapper = document.querySelectorAll('.step-wrapper');
     for (var i = 0; i < stepWrapper.length; i++) {
         parent.$("#data-store").data("content[" + i + "]", stepWrapper[i].innerHTML);
+        parent.$("#data-store").data("imageNum", imageCounter);
     }
 }
 
