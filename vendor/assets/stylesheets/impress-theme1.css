@@ -111,14 +111,6 @@ p, li{
 }
     
 
-img {
-    -webkit-box-shadow: 0 2px 0 rgba(255,255,255,.2), inset 0 5px 6px rgba(0,0,0,.6), inset 0 2px 0 rgba(0,0,0,.6);
-    -moz-box-shadow: 0 2px 0 rgba(255,255,255,.2), inset 0 5px 6px rgba(0,0,0,.6), inset 0 2px 0 rgba(0,0,0,.6);
-    box-shadow: 0 2px 0 rgba(255,255,255,.2), inset 0 5px 6px rgba(0,0,0,.6), inset 0 2px 0 rgba(0,0,0,.6);
-    border-radius: 15px;
-    margin:auto; 
-    display:block;
-}
 
 ul, 
 ol {

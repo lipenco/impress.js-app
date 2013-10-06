@@ -8,8 +8,6 @@
       $textField.addClass("textfield");
       $textField.attr("placeholder", "Type Url Here");
 
-      var $buttonField = $("<div class='popline-picture'><i class='icon-upload'></i> Upload</div>");
-      $buttonField.addClass("add-picture");
 
 
       $textField.keyup(function(event) {
@@ -26,7 +24,6 @@
         event.stopPropagation();
       });
       button.append($textField);
-      button.append($buttonField);
     }
   }
 
