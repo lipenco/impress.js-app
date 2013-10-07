@@ -332,8 +332,9 @@ var eventsListeners = function () {
 var storeData = function () {
     var stepWrapper = document.querySelectorAll('.step-wrapper');
     for (var i = 0; i < stepWrapper.length; i++) {
+        var pictures_number = imageCounter || 0;
         parent.$("#data-store").data("content[" + i + "]", stepWrapper[i].innerHTML);
-        parent.$("#data-store").data("imageNum", imageCounter);
+        parent.$("#data-store").data("imageNum", pictures_number);
     }
 }
 
