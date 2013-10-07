@@ -1,15 +1,16 @@
-
-
-if (! parent.$("#data-store").data() == null) {
-    var imageCounter = parent.$("#data-store").data()["imageNum"];
-} else {
-   imageCounter =  0; 
-}
-
+var imageCounter;
+var contentObject = parent.$("#data-store").data();
+    if (! jQuery.isEmptyObject(contentObject)) {
+     imageCounter = contentObject["imageNum"];
+      } else {
+      imageCounter =  0;
+      }
  
 
 
+
 $(document).on('click', '.add-picture', function() {
+   
     imageCounter++;
     var imageField = $('<img id="link'+imageCounter+'"style="position: absolute" >');
     $(this).parent().find(".step-wrapper").prepend(imageField);   
