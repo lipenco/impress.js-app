@@ -1,4 +1,13 @@
-var imageCounter = parent.$("#data-store").data()["imageNum"] ||  0;
+
+
+if (! parent.$("#data-store").data() == null) {
+    var imageCounter = parent.$("#data-store").data()["imageNum"];
+} else {
+   imageCounter =  0; 
+}
+
+ 
+
 
 $(document).on('click', '.add-picture', function() {
     imageCounter++;
