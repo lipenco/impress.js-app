@@ -414,13 +414,11 @@ var draggableAndSortable = function() {
       $(".resizable").resizable(); 
    }
 
-   // $(document).on('click', 'img', function(){ 
-   //    // $(this).addClass('resizable');
-   //    // $(this).css("display" ,"inline-block")
-   //    setResizable(); 
-   //    console.log("klik");
-   //    // return false;
-   // });
+   $(document).on('click', 'img', function(event){ 
+      $(this)
+      .resizable()
+    return false;
+   });
 
 
 
@@ -433,6 +431,7 @@ var draggableAndSortable = function() {
               $(".icon-move").removeClass("red-icon");
               storeData();
        } else {
+        $('.ui-wrapper').remove();
         $('.draggable_on').addClass("active");
         $(".icon-move").addClass("red-icon")
         $(".icon-move").removeClass("icon-222");
