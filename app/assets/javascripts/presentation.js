@@ -37,7 +37,8 @@ var updatePreview = function () {
     $("#style-mode").click(function () {
         document.getElementById("preview").src = "presentation" + source;
         f();
-        d();   
+        d();
+        deleteWrapper();   
         
     });
     $("#content-mode").click(function () {
@@ -258,6 +259,17 @@ var animateNumberOfSlides = function () {
     });
 }
 
+var deleteWrapper = function () {
+    var x = document.getElementById("preview");
+    var y = (x.contentWindow || x.contentDocument);
+    var imageWrapper = y.document.querySelectorAll(".ui-wrapper");
+    var wraper = y.$(".ui-wrapper").attr('style');
+    y.$('.ui-wrapper').children().unwrap();
+    y.$('img').attr('style', wraper);
+    y.$('ui-resizable-handle').remove();
+}
+
+
 var eventsListeners = function () {
     var buttons = document.querySelectorAll(".btn-p");
     for (var i = 0; i < buttons.length; i++) {
@@ -409,13 +421,16 @@ var draggableAndSortable = function() {
 
    $( "#sortable" ).sortable({ handle: ".sort-slides", axis: "y" });
    
-
-   $(document).on('click', 'img', function(event){ 
-      $(this).resizable()
-      $(".ui-wrapper").draggable();
-    return false;
-   });
    
+
+   $(document).on('click', 'img', function() {      
+        $(this).resizable();
+        $(".ui-wrapper").draggable();     
+   });
+
+   
+
+
 
 
    $(document).on('click', '.draggable_on', function(event){ 
@@ -427,7 +442,6 @@ var draggableAndSortable = function() {
               $(".icon-move").removeClass("red-icon");
               storeData();
        } else {
-        $('.ui-wrapper').remove();
         $('.draggable_on').addClass("active");
         $(".icon-move").addClass("red-icon")
         $(".icon-move").removeClass("icon-222");
@@ -438,4 +452,8 @@ var draggableAndSortable = function() {
     return false;
     });
 }
+
+
+
+
 

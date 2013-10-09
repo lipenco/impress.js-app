@@ -17,12 +17,15 @@ $(document).on('click', '.add-picture', function() {
     var inputField = $('<input class="photo-input" style="visibility: collapse; width: 0px;" type="file">');
     $(this).parent().find(".step-wrapper").before(inputField); 
     inputField.click();
+
+
     // imageCounter = parent.$("#data-store").data("imageNum");
     return imageCounter;
 });
  
 $(document).on('change', '.photo-input', function() {
     upload(this.files[0]);
+
 });
 
 
@@ -43,10 +46,14 @@ function upload(file) {
       console.log(imageCounter);
      document.getElementById('link'+imageCounter).src = JSON.parse(xhr.responseText).upload.links.original;
         // document.body.className = "uploaded";
+
+
      parent.$("#data-store").data()["imageNum"] = imageCounter;
     }
 
     xhr.send(fd);
+   
+
 }
 
 
