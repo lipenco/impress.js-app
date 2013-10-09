@@ -423,7 +423,7 @@ var draggableAndSortable = function() {
    
    
 
-   $(document).on('click', 'img', function() {      
+   $(document).on('mousedown', 'img', function() {      
         $(this).resizable();
         $(".ui-wrapper").draggable();     
    });
