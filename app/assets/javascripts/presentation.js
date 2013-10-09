@@ -262,11 +262,11 @@ var animateNumberOfSlides = function () {
 var deleteWrapper = function () {
     var x = document.getElementById("preview");
     var y = (x.contentWindow || x.contentDocument);
-    var imageWrapper = y.document.querySelectorAll(".ui-wrapper");
-    var wraper = y.$(".ui-wrapper").attr('style');
+    y.$(".ui-wrapper").each(function(){
+    $(this).find('img').attr('style',$(this).attr('style'));
+     });
     y.$('.ui-wrapper').children().unwrap();
-    y.$('img').attr('style', wraper);
-    y.$('ui-resizable-handle').remove();
+    y.$('.ui-resizable-handle').remove();
 }
 
 
