@@ -410,16 +410,12 @@ var draggableAndSortable = function() {
    $( "#sortable" ).sortable({ handle: ".sort-slides", axis: "y" });
    
 
-   function setResizable(){
-      $(".resizable").resizable(); 
-   }
-
    $(document).on('click', 'img', function(event){ 
-      $(this)
-      .resizable()
+      $(this).resizable()
+      $(".ui-wrapper").draggable();
     return false;
    });
-
+   
 
 
    $(document).on('click', '.draggable_on', function(event){ 
