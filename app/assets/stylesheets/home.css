@@ -183,14 +183,12 @@ ul.modes {
   display: none;
 }
 
-.draggable_on {
-  width: 30px;
-  height: 20px;
-  display: block;
+.editor-move {
   color: #389646;
   position: absolute;
-  top: 2%;
-  left: 7%;
+  bottom: 2%;
+  left: 2%;
+  font-size: 0.4em;
 }
 
 .download:after {

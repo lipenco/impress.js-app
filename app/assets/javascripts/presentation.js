@@ -297,7 +297,7 @@ var eventsListeners = function () {
      });
 
     $(document).on('click', '.new-slide', function(event){
-      var newSlideDiv = $('<div class="step slide"><div class="step-wrapper"><div  class="editor" contenteditable="true"><h2>New Slide</h2></div></div><div class="sort-slides"><i class="icon-sort icon-22"></i></div><div class="draggable_on"><i class="icon-move icon-222"></i></div><div class="copy-slide"><i class="icon-copy icon-22"></i></div><div class="new-slide"><i class="icon-plus icon-22"></i></div><div class="delete-slide"><i class="icon-minus icon-22"></i></div><div class="add-picture" onclick="document.querySelector("input").click()"><i class="icon-picture icon-22"></i></div></div>');
+      var newSlideDiv = $('<div class="step slide"><div class="step-wrapper"><div  class="editor" contenteditable="true"><h2>New Slide</h2></div></div><div class="sort-slides"><i class="icon-sort icon-22"></i></div><div class="copy-slide"><i class="icon-copy icon-22"></i></div><div class="new-slide"><i class="icon-plus icon-22"></i></div><div class="delete-slide"><i class="icon-minus icon-22"></i></div><div class="add-picture" onclick="document.querySelector("input").click()"><i class="icon-picture icon-22"></i></div></div>');
        $(this).parent().after(newSlideDiv);    
        addNumberToShowNum(); 
        storeContentFromContentMode();
@@ -410,47 +410,28 @@ var storeContentFromContentMode = function () {
 
 var draggableAndSortable = function() {
 
-   function draggable(){
-    $( ".draggable" ).draggable();
-    $( ".draggable" ).draggable("enable");
-   }
-
-   function resetDraggable(){
-    $(".draggable").draggable('disable');
-   }
-
    $( "#sortable" ).sortable({ handle: ".sort-slides", axis: "y" });
+   $(".editor *").resizable().draggable({ handle: ".editor-move" });
    
-   
-
    $(document).on('mousedown', 'img', function() {      
         $(this).resizable();
         $(".ui-wrapper").draggable();     
    });
 
-   
+   $('.editor *').on('click', function(event) {   
+        // $(this).append("<i class='icon-move editor-move'></i>"); 
+     if ($(event.target).hasClass("icon-move"))
+          return false;
+     if($(".icon-move",this).length==0)
+          $(this).append("<i class='icon-move editor-move'></i>");
+   });
 
-
-
-
-   $(document).on('click', '.draggable_on', function(event){ 
-       if  ($('.draggable_on').hasClass("active")) {
-              $('.draggable_on').removeClass("active");
-              // $('.editor').find('*').removeClass('draggable');
-              resetDraggable();
-              $(".icon-move").addClass("icon-222");
-              $(".icon-move").removeClass("red-icon");
-              storeData();
-       } else {
-        $('.draggable_on').addClass("active");
-        $(".icon-move").addClass("red-icon")
-        $(".icon-move").removeClass("icon-222");
-        $('.step-wrapper').find('*').addClass('draggable');
-        draggable();
-        storeData();
-       }
-    return false;
-    });
+  $('.editor').on('blur', function(event) {   
+        $(this).find($('.icon-move')).remove(); 
+       return false;
+   });
+     
+     
 }
 
 
