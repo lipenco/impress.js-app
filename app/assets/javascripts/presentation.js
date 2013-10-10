@@ -301,7 +301,7 @@ var eventsListeners = function () {
        $(this).parent().after(newSlideDiv);    
        addNumberToShowNum(); 
        storeContentFromContentMode();
-       storeData();  
+       storeData(); 
        $(".editor").popline(); 
        return false;  
      });
@@ -411,26 +411,29 @@ var storeContentFromContentMode = function () {
 var draggableAndSortable = function() {
 
    $( "#sortable" ).sortable({ handle: ".sort-slides", axis: "y" });
-   $(".editor *").resizable().draggable({ handle: ".editor-move" });
-   
+  
    $(document).on('mousedown', 'img', function() {      
         $(this).resizable();
         $(".ui-wrapper").draggable();     
    });
 
-   $('.editor *').on('click', function(event) {   
-        // $(this).append("<i class='icon-move editor-move'></i>"); 
-     if ($(event.target).hasClass("icon-move"))
-          return false;
-     if($(".icon-move",this).length==0)
-          $(this).append("<i class='icon-move editor-move'></i>");
-   });
 
   $('.editor').on('blur', function(event) {   
-        $(this).find($('.icon-move')).remove(); 
+        $(this).find($('.icon')).remove(); 
        return false;
    });
-     
+
+  $(document).on('click', '.editor *', function(event) {      
+        if ($(event.target).hasClass("icon-move")) {
+            return false;
+           }
+        if($(".icon-move",this).length==0) {
+             $(this).append("<i class='icon-move icon'></i>");
+         }
+        $(this).resizable();
+        $(this).draggable({ handle: ".icon-move" }); 
+    return false;
+   });
      
 }
 

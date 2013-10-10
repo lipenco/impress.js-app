@@ -183,12 +183,20 @@ ul.modes {
   display: none;
 }
 
-.editor-move {
+.icon-move {
   color: #389646;
   position: absolute;
-  bottom: 2%;
-  left: 2%;
-  font-size: 0.4em;
+  bottom: 5px;
+  left: -50px;
+ font-size: 25px;
+}
+
+.icon-trash {
+  color: #389646;
+  position: absolute;
+  bottom: 5px;
+  left: -90px;
+  font-size: 25px;
 }
 
 .download:after {
