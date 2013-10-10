@@ -58,7 +58,7 @@ function upload(file) {
 
 
 $(document).on('click', '.add-edit', function() {
-    var editField = $('<div class="editor" contenteditable="true">New text</div>');
+    var editField = $('<div class="editor" contenteditable="true"><p>New text</p></div>');
     $(this).parent().find(".step-wrapper").prepend(editField);   
      $(".editor").popline(); 
 
