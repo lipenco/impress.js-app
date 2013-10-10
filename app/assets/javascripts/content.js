@@ -52,9 +52,17 @@ function upload(file) {
     }
 
     xhr.send(fd);
-   
+
 
 }
+
+
+$(document).on('click', '.add-edit', function() {
+    var editField = $('<div class="editor" contenteditable="true">New text</div>');
+    $(this).parent().find(".step-wrapper").prepend(editField);   
+     $(".editor").popline(); 
+
+});
 
 
 

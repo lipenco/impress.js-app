@@ -427,7 +427,7 @@ var draggableAndSortable = function() {
         if ($(event.target).hasClass("icon-move")) {
             return false;
            }
-        if($(".icon-move",this).length==0) {
+        if ($(".icon-move",this).length==0) {
              $(this).append("<i class='icon-move icon'></i>");
          }
         $(this).resizable();

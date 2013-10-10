@@ -164,6 +164,24 @@ ul.modes {
   left:16%;
 }
 
+.add-deco {
+  width: 30px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  bottom: 3%;
+  left:22%;
+}
+
+.add-edit {
+  width: 30px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  bottom: 3%;
+  left:27%;
+}
+
 .sort-slides {
    width: 30px;
   height: 20px;
