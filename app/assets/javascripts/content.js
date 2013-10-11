@@ -34,24 +34,27 @@ function upload(file) {
 
     if (!file || !file.type.match(/image.*/)) return;
 
-    document.body.className = "uploading";
+        /* It is! */
+        document.body.className = "uploading";
 
-    var fd = new FormData(); // I wrote about it: https://hacks.mozilla.org/2011/01/how-to-develop-a-html5-image-uploader/
-    fd.append("image", file); // Append the file
-    fd.append("key", "6528448c258cff474ca9701c5bab6927"); // Get your own key http://api.imgur.com/
-    var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
-    xhr.open("POST", "http://api.imgur.com/2/upload.json"); // Boooom!
-    xhr.onload = function() {
-      imageCounter;
-      console.log(imageCounter);
-     document.getElementById('link'+imageCounter).src = JSON.parse(xhr.responseText).upload.links.original;
-        // document.body.className = "uploaded";
+        /* Lets build a FormData object*/
+        var fd = new FormData(); // I wrote about it: https://hacks.mozilla.org/2011/01/how-to-develop-a-html5-image-uploader/
+        fd.append("image", file); // Append the file
+        var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
+        xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
+        xhr.onload = function () {
+            imageCounter;
+            var response1 = JSON.parse(xhr.responseText);
+            var response = JSON.parse(xhr.responseText).data.link;
+            document.getElementById('link'+imageCounter).src  = response;
+            parent.$("#data-store").data()["imageNum"] = imageCounter;
 
+        }
+        // Ok, I don't handle the errors. An exercice for the reader.
+        xhr.setRequestHeader('Authorization', 'Client-ID 24ef784af7d62de');
 
-     parent.$("#data-store").data()["imageNum"] = imageCounter;
-    }
-
-    xhr.send(fd);
+        /* And now, we send the formdata */
+        xhr.send(fd);
 
 
 }
