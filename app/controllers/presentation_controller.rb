@@ -36,6 +36,9 @@ class PresentationController < ApplicationController
   def dashboard
   end
 
+  def images
+  end
+
   def components
   end
 

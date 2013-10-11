@@ -13,6 +13,7 @@
   <%= javascript_include_tag "/assets/scripts/colors.js" %>
   <%= javascript_include_tag "/assets/scripts/img.js" %>
  <%= javascript_include_tag "jquery-ui.js" %> 
+  <%= javascript_include_tag "json.js" %> 
   <!--  jqDnR Recommended -->
 
 
@@ -73,6 +74,7 @@
          <div class="add-picture"><i class="icon-picture icon-22"></i></div>
          <div class="add-deco"><i class="icon-paper-clip  icon-22"></i></div>
          <div class="add-edit"><i class="icon-edit  icon-22"></i></div>
+         <div class="add-background"><i class="icon-edit-sign icon-22"></i></div>
          
         </div>
      
@@ -86,14 +88,7 @@
  
 <script> 
 
-  // $(document).on('click', '.step', function() {
-  //   $(this).find(".editor").focus();
-  //  });
    
- 
- 
-
-
   $(document).on('touchstart click', 'nav ul li', function(){
     var steps = document.querySelectorAll(".step");
     for (var i = 0; i < (steps.length); i++) {

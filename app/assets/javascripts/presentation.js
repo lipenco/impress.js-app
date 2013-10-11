@@ -395,7 +395,6 @@ var post_to_url = function(path, params, method) {
 
 
 
-
 var storeContentFromContentMode = function () {
     var stepWrapper = document.querySelectorAll('.step-wrapper');
     for (var i = 0; i < stepWrapper.length; i++) {
@@ -412,7 +411,7 @@ var draggableAndSortable = function() {
 
    $( "#sortable" ).sortable({ handle: ".sort-slides", axis: "y" });
   
-   $(document).on('mousedown', 'img', function() {      
+   $(document).on('mousedown', '.step-wrapper img', function() {      
         $(this).resizable();
         $(".ui-wrapper").draggable();     
    });
@@ -435,7 +434,12 @@ var draggableAndSortable = function() {
     return false;
    });
      
-}
+};
+
+
+
+    
+
 
 
 
