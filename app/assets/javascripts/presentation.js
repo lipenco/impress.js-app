@@ -109,6 +109,7 @@ var postData = function () {
     if (! jQuery.isEmptyObject(contentObject)) {
       for (var i = 0; i < slides.length; i++) {
           slides[i].innerHTML = contentObject["content[" + i + "]"];
+          slides[i].style.background = contentObject["background[" + i + "]"];
       }
     }
 }
@@ -130,6 +131,12 @@ var postDataEdit = function () {
     if (contentObject["content[0]"] !== undefined) {
        for (var i = 0; i < stepWrapper.length; i++) {
           stepWrapper[i].innerHTML = contentObject["content[" + i + "]"];
+       }
+    }
+    var steps = y.document.querySelectorAll(".step");
+    if (contentObject["content[0]"] !== undefined) {
+       for (var i = 0; i < steps.length; i++) {
+          steps[i].style.background = contentObject["background[" + i + "]"];
        }
     }
 }
@@ -347,6 +354,10 @@ var storeData = function () {
         // var pictures_number = imageCounter || 0;
         parent.$("#data-store").data("content[" + i + "]", stepWrapper[i].innerHTML);
         // parent.$("#data-store").data("imageNum", pictures_number);
+    }
+    var steps = document.querySelectorAll('.step');
+    for (var i = 0; i < steps.length; i++) {
+      parent.$("#data-store").data("background[" + i + "]", steps[i].style.background);
     }
 }
 

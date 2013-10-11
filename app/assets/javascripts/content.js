@@ -69,21 +69,25 @@ $(document).on('click', '.add-edit', function() {
 });
 
 
-$(document).on('click', '.add-background', function(){ 
-  if ($("#images").length==0) {
-      $(this).parent().after("<div id='images'></div>");
-      }
-  $("#images").load("/images.html", null,
-      function (responseText, status, response) {
-                          //alert(JSON.stringify(response));
-                        }); 
+$(document).on('click', '.add-background', function(event){ 
+    if ( ! $(this).hasClass("active")) {
+        $(this).parent().after("<div class='images'></div>");
+        $(".images").load("/images.html", null,
+        function (responseText, status, response) {}); 
+        $(this).addClass("active");
+    } else {
+      $(".images").hide("slow");
+      $(this).removeClass("active");
+    } 
+    return false;
 });
 
-$(document).on('click', '#images img', function(){ 
-  var src = $(this).data('src');
-  
-  $(this).parent().prev('.step').css("background" , "url("+src+")"); 
 
+
+$(document).on('click', '.images img', function(){ 
+  console.log("klik");
+  var src = $(this).data('src');
+  $(this).parent().prev('.step').css("background" , "url("+src+")"); 
 });
 
 

@@ -335,7 +335,7 @@ nav ul li:active {
 }
 
 
-#images {
+.images {
  /* position: absolute;
   top: 0;*/
   background-color: #323232;
