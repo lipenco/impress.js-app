@@ -353,5 +353,21 @@ nav ul li:active {
   border-bottom: 2px solid #444444;
   border-left: 2px solid #444444;
   border-right: 2px solid #444444; 
+  height: 100px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space:nowrap
+
 }
+
+.images img {
+    margin: 2px;
+    cursor: pointer;
+    display:inline-block;
+    *display:inline;/* For IE7*/
+    *zoom:1;/* For IE7*/
+    vertical-align:top;
+ }
+
+
 
