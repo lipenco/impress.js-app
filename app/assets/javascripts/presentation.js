@@ -109,7 +109,7 @@ var postData = function () {
     if (! jQuery.isEmptyObject(contentObject)) {
       for (var i = 0; i < slides.length; i++) {
           slides[i].innerHTML = contentObject["content[" + i + "]"];
-          slides[i].style.background = contentObject["background[" + i + "]"];
+          slides[i].style.backgroundImage = contentObject["background[" + i + "]"];
       }
     }
 }
@@ -134,9 +134,9 @@ var postDataEdit = function () {
        }
     }
     var steps = y.document.querySelectorAll(".step");
-    if (contentObject["content[0]"] !== undefined) {
+    if (contentObject["background[0]"] !== undefined) {
        for (var i = 0; i < steps.length; i++) {
-          steps[i].style.background = contentObject["background[" + i + "]"];
+          steps[i].style.backgroundImage = contentObject["background[" + i + "]"];
        }
     }
 }
@@ -357,7 +357,7 @@ var storeData = function () {
     }
     var steps = document.querySelectorAll('.step');
     for (var i = 0; i < steps.length; i++) {
-      parent.$("#data-store").data("background[" + i + "]", steps[i].style.background);
+      parent.$("#data-store").data("background[" + i + "]", steps[i].style.backgroundImage);
     }
 }
 

@@ -28,6 +28,7 @@ class PresentationController < ApplicationController
 
     @example_slides = %w{title ollist ullist paragraph substeps blockquote align colors}
     @content = params[:content]
+    @background = params[:background]
   end
 
   def home
@@ -36,7 +37,10 @@ class PresentationController < ApplicationController
   def dashboard
   end
 
-  def images
+  def images_background
+  end
+
+  def icons
   end
 
   def components

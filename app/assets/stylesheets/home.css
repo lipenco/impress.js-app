@@ -182,6 +182,15 @@ ul.modes {
   left:33%;
 }
 
+.add-icon {
+  width: 30px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  bottom: 3%;
+  left:39%;
+}
+
 .add-edit {
   width: 30px;
   height: 20px;
