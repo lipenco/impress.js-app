@@ -440,8 +440,9 @@ var draggableAndSortable = function() {
         if ($(".icon-move",this).length==0) {
              $(this).append("<i class='icon-move icon'></i>");
          }
-        $(this).resizable();
-        $(this).draggable({ handle: ".icon-move" }); 
+        $(this).resizable().draggable({ handle: ".icon-move" }); 
+        $(this).css('position', 'absolute');
+        storeData(); 
     return false;
    });
      
