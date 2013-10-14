@@ -17,18 +17,13 @@
   <!--  jqDnR Recommended -->
 
 
- 
-
-
-    <script type="text/javascript">
-
+ <script type="text/javascript">
     $(function(){
       document.execCommand('defaultParagraphSeparator', false, 'p');
-      $(".editor").popline({position: 'fixed'});
+      $(".editor").popline();
       $("body").data("mode", "edit");
     });
-
-  </script> 
+ </script> 
   <style>
   .slide { 
     z-index: 1; 
@@ -53,7 +48,7 @@
          
         <div class="step-wrapper">
           <!-- <img class="resizable link"> -->
-          <div  class="editor " contenteditable="true" >        
+          <div  class="editor" contenteditable="true" >        
         <% if n < 8 %>
            <%=
             if @content.nil? || @content[n.to_s].nil?
@@ -87,9 +82,7 @@
 
  
  
-<script> 
-
-   
+<script>   
   $(document).on('touchstart click', 'nav ul li', function(){
     var steps = document.querySelectorAll(".step");
     for (var i = 0; i < (steps.length); i++) {
@@ -104,7 +97,6 @@
   storeContentFromContentMode();
   draggableAndSortable();
   parent.$("#style-mode").on("click", storeData);
- 
 
  </script>
 
