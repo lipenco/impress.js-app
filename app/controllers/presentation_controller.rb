@@ -43,6 +43,9 @@ class PresentationController < ApplicationController
   def icons
   end
 
+  def deco
+  end
+
   def components
   end
 

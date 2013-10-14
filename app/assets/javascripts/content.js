@@ -72,12 +72,14 @@ $(document).on('click', '.add-edit', function() {
 $(document).on('click', '.add-background', function(event){ 
    $(".images").hide();
    $('.add-icon').removeClass("active");
+   $('.add-deco').removeClass("active");
     if ( ! $(this).hasClass("active")) {
         $(this).parent().after("<div class='images'></div>");
         $(".images").load("/images_background.html", null,
         function (responseText, status, response) {}); 
         $(this).addClass("active");
         $('.add-icon').removeClass("active");
+        $('.add-deco').removeClass("active");
     } else {
       $(".images").hide("slow");
       $(this).removeClass("active");
@@ -90,12 +92,32 @@ $(document).on('click', '.add-background', function(event){
 $(document).on('click', '.add-icon', function(event){ 
     $(".images").hide();
     $('.add-background').removeClass("active");
+    $('.add-deco').removeClass("active");
     if ( ! $(this).hasClass("active")) {
         $(this).parent().after("<div class='images'></div>");
         $(".images").load("/icons.html", null,
         function (responseText, status, response) {}); 
         $(this).addClass("active");
         $('.add-background').removeClass("active");
+        $('.add-deco').removeClass("active");
+    } else {
+      $(".images").hide("slow");
+      $(this).removeClass("active");
+    } 
+    return false;
+});
+
+$(document).on('click', '.add-deco', function(event){ 
+    $(".images").hide();
+    $('.add-background').removeClass("active");
+    $('.add-icon').removeClass("active");
+    if ( ! $(this).hasClass("active")) {
+        $(this).parent().after("<div class='images'></div>");
+        $(".images").load("/deco.html", null,
+        function (responseText, status, response) {}); 
+        $(this).addClass("active");
+        $('.add-background').removeClass("active");
+        $('.add-icon').removeClass("active");
     } else {
       $(".images").hide("slow");
       $(this).removeClass("active");
@@ -119,6 +141,14 @@ $(document).on('click', '.images img', function(){
     var src = $(this).data('src');
     $(this).parent().prev('.step').css("background" , "url("+src+")");
   } 
+  if ($('.add-deco').hasClass("active")) {
+     imageCounter ++;
+      var src = $(this).data('src');
+      var imageField = $('<img id="link'+imageCounter+'" "style="position: absolute, top:0">');
+      $(this).parent().prev('.step').find(".step-wrapper").prepend(imageField); 
+      document.getElementById('link'+imageCounter).src = src;
+      parent.$("#data-store").data()["imageNum"] = imageCounter;   
+   }
 });
 
 

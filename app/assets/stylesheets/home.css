@@ -8,7 +8,14 @@ line-height: 1.4;
 
 
 .header {
+height: 38px;
+
+}
+
+.navbar {
 height: 40px;
+background: #dfdbdb;
+outline: 1px solid black;
 }
 
 #showNum {
@@ -39,7 +46,6 @@ height: 40px;
   position: fixed;
   width: 82%;
   height: 94%;
-  border-radius: 15px;
   -webkit-transition: border linear 0.2s,box-shadow linear 0.2s;
 -moz-transition: border linear 0.2s,box-shadow linear 0.2s;
 -ms-transition: border linear 0.2s,box-shadow linear 0.2s;
