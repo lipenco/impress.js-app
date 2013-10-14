@@ -47,20 +47,13 @@
         <div class="step slide">
          
         <div class="step-wrapper">
-          <!-- <img class="resizable link"> -->
-          <div  class="editor" contenteditable="true" >        
-        <% if n < 8 %>
-           <%=
-            if @content.nil? || @content[n.to_s].nil?
-              render "presentation/partials/#{@example_slides[n]}"
-            else
-                @content[n.to_s].html_safe
-            end
-          %>
-        <% else %>
-          <h2> Slide <%= n +1 %> </h2>
-        <% end %>
-          </div>
+                      
+          <% if @content.nil? || @content[n.to_s].nil? %>
+                
+          <% else %> 
+                <%= @content[n.to_s].html_safe %>
+          <% end %>
+    
         </div>
          <div class="sort-slides"><i class="icon-sort icon-22"></i></div>
          <div class="copy-slide"><i class="icon-copy icon-22"></i></div>
