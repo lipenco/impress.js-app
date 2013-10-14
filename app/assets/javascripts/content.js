@@ -62,17 +62,56 @@ function upload(file) {
 
 
 $(document).on('click', '.add-edit', function() {
-    var editField = $('<div class="editor" contenteditable="true"><p>New text</p></div>');
-    $(this).parent().find(".step-wrapper").prepend(editField);   
-     $(".editor").popline(); 
+   $(".images").hide();
+    if ( ! $(this).hasClass("active")) {
+        $(this).parent().after("<div class='images'></div>");
+        $(".images").load("/editor.html", '.editor-elements',
+        function (responseText, status, response) {}); 
+        $(this).addClass("active");
+        $('.add-icon').removeClass("active");
+        $('.add-deco').removeClass("active");
+        $('.add-background').removeClass("active");   
+    } else {
+      $(".images").hide("slow");
+      $(this).removeClass("active");
+    } 
+    return false;
+
+
+
+    // var editField = $('<div class="editor" contenteditable="true"><p>New text</p></div>');
+    // $(this).parent().find(".step-wrapper").prepend(editField);   
+    //  $(".editor").popline(); 
 
 });
 
+$(document).on('click', '.editor-elements.h1', function() {
+   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h1>Title</h1></div>'); 
+   $(".editor").popline(); 
+}); 
+
+$(document).on('click', '.editor-elements.h2', function() {
+   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h2>Heading</h2></div>'); 
+   $(".editor").popline(); 
+}); 
+
+$(document).on('click', '.editor-elements.h3', function() {
+   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h3>Heading</h3></div>'); 
+   $(".editor").popline(); 
+}); 
+
+$(document).on('click', '.editor-elements.h4', function() {
+   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h4>Heading</h4></div>'); 
+   $(".editor").popline(); 
+});
+
+$(document).on('click', '.editor-elements.p', function() {
+   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><p>Paragraph</p></div>'); 
+   $(".editor").popline(); 
+}); 
 
 $(document).on('click', '.add-background', function(event){ 
    $(".images").hide();
-   $('.add-icon').removeClass("active");
-   $('.add-deco').removeClass("active");
     if ( ! $(this).hasClass("active")) {
         $(this).parent().after("<div class='images'></div>");
         $(".images").load("/images_background.html", null,
@@ -80,6 +119,7 @@ $(document).on('click', '.add-background', function(event){
         $(this).addClass("active");
         $('.add-icon').removeClass("active");
         $('.add-deco').removeClass("active");
+        $('.add-edit').removeClass("active"); 
     } else {
       $(".images").hide("slow");
       $(this).removeClass("active");
@@ -91,8 +131,6 @@ $(document).on('click', '.add-background', function(event){
 
 $(document).on('click', '.add-icon', function(event){ 
     $(".images").hide();
-    $('.add-background').removeClass("active");
-    $('.add-deco').removeClass("active");
     if ( ! $(this).hasClass("active")) {
         $(this).parent().after("<div class='images'></div>");
         $(".images").load("/icons.html", null,
@@ -100,6 +138,7 @@ $(document).on('click', '.add-icon', function(event){
         $(this).addClass("active");
         $('.add-background').removeClass("active");
         $('.add-deco').removeClass("active");
+        $('.add-edit').removeClass("active"); 
     } else {
       $(".images").hide("slow");
       $(this).removeClass("active");

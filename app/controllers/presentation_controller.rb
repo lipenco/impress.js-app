@@ -49,6 +49,9 @@ class PresentationController < ApplicationController
   def components
   end
 
+  def editor
+  end
+
   def content
     build
   end
