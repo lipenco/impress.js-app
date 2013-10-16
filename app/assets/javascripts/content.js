@@ -232,6 +232,8 @@ var draggableAndSortable = function() {
         storeData(); 
     return false;
    });
+
+ 
   
 };
 
@@ -241,8 +243,13 @@ $(document).on('click', '.icon-layer-up', function(event) {
  return false;
 });
 
-$(document).on('click', '.icon-trash', function() {  
-  $(this).parent().remove();
-});
+
+ $(document).on('click', '.icon-trash', function() { 
+      $(this).parent(".ui-wrapper").find(".decor").hide("slow"); 
+      $(this).parent(".ui-wrapper").remove();
+
+   });
+
+
 
 
