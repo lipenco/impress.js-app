@@ -195,11 +195,54 @@ $(document).on('click', '.images img', function(){
   if ($('.add-deco').hasClass("active")) {
      imageCounter ++;
       var src = $(this).data('src');
-      var imageField = $('<img id="link'+imageCounter+'" "style="position: absolute, top:0">');
+      var imageField = $('<img id="link'+imageCounter+'" class="decor" style="position: absolute, top:0">');
       $(this).parent().prev('.step').find(".step-wrapper").prepend(imageField); 
       document.getElementById('link'+imageCounter).src = src;
       parent.$("#data-store").data()["imageNum"] = imageCounter;   
    }
+});
+
+
+var draggableAndSortable = function() {
+
+   $( "#sortable" ).sortable({ handle: ".sort-slides", axis: "y" });
+  
+   $(document).on('mousedown', '.step-wrapper img', function() {   
+         if ($(event.target).hasClass("icon-on-img")) {
+            return false;
+           }   
+        $(this).resizable();
+        $(".ui-wrapper").draggable().append('<img class="icon-layer-up icon-on-img" src="/assets/icon_layer_up.png"><img class="icon-layer-down icon-on-img" src="/assets/icon_layer_down.png"><img class="icon-trash icon-on-img" src="/assets/icon_trash.png"><img class="icon-copy-el icon-on-img" src="/assets/icon_copy.png">');  
+        $(".icon-on-img").css('z-index', 1);
+   });
+
+  $(document).on('mouseover', '.editor', function(event) { 
+     $(".editor").popline();
+    });
+
+  $(document).on('click', '.editor', function(event) {      
+        if ($(event.target).hasClass("icon-move")) {
+            return false;
+           }
+        if ($(".icon-move",this).length==0) {
+             $(this).append("<i class='icon-move icon'></i>");
+         }
+        $(this).resizable().draggable({ handle: ".icon-move" }); 
+        $(this).css('position', 'absolute');
+        storeData(); 
+    return false;
+   });
+  
+};
+
+$(document).on('click', '.icon-layer-up', function(event) {  
+  console.log($(this).before().find('.decor'));
+  $(this).prev('.ui-wrapper').find('.decor').css( "position", "absolute");
+ return false;
+});
+
+$(document).on('click', '.icon-trash', function() {  
+  $(this).parent().remove();
 });
 
 

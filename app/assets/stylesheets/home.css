@@ -376,4 +376,51 @@ nav ul li:active {
  }
 
 
+.icon-layer-up{
+    width:15px;
+    height:15px;
+    position:absolute;
+    top:0px;
+    background: #389646;
+    padding: 10px;
+    z-index: -1;
+}
+
+.icon-layer-down {
+    width:15px;
+    height:15px;
+    position:absolute;
+    top:30px;
+    background: #389646;
+    color: #fff;
+    padding: 10px;
+    z-index: -1;  
+}
+
+
+.icon-trash {
+   width:15px;
+    height:15px;
+    position:absolute;
+    top:60px;
+      left: 0;
+    color: #fff;
+    background: #389646;
+    padding: 10px;
+    z-index: -1;  
+}
+
+.icon-copy-el {
+   width:15px;
+    height:15px;
+    position:absolute;
+    top:90px;
+    left: 0;
+    color: #fff;
+    background: #389646;
+    padding: 10px;
+    z-index: -1;  
+}
+
+
 

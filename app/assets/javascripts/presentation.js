@@ -419,50 +419,7 @@ var storeContentFromContentMode = function () {
 }
 
 
-var draggableAndSortable = function() {
 
-   $( "#sortable" ).sortable({ handle: ".sort-slides", axis: "y" });
-  
-   $(document).on('mousedown', '.step-wrapper img', function() {      
-        $(this).resizable();
-        $(".ui-wrapper").draggable().append('<i class="icon-sort-up"></i>');  
-        $(".icon-sort-up").css('z-index', 1);
-   });
-
-   //  $(document).on('blur', '.step-wrapper img', function() {      
-   //      $(this).resizable();
-   //      // $(".ui-wrapper").draggable();  
-   //      $(".ui-wrapper").draggable().append('<img class="icon-sort-up" src="http://thesimpsonplace.e-monsite.com/medias/album/images/76278889donut-1-jpg.jpg"/>');  
-   //      $(".icon-sort-up").css('z-index', 1);
-   //      $(this).css("position", "relative");
-   // });
-
-
-
-  // $('.editor').on('blur', function(event) {   
-  //       $(this).find($('.icon')).remove(); 
-  //      return false;
-  //  });
-
-  $(document).on('mouseover', '.editor', function(event) { 
-     $(".editor").popline();
-    });
-
-  $(document).on('click', '.editor', function(event) {      
-        if ($(event.target).hasClass("icon-move")) {
-            return false;
-           }
-        if ($(".icon-move",this).length==0) {
-             $(this).append("<i class='icon-move icon'></i>");
-         }
-        $(this).resizable().draggable({ handle: ".icon-move" }); 
-        $(this).css('position', 'absolute');
-        storeData(); 
-    return false;
-   });
-
-     
-};
 
 
 
