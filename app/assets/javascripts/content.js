@@ -245,9 +245,13 @@ $(document).on('click', '.icon-layer-up', function(event) {
 
 
  $(document).on('click', '.icon-trash', function() { 
-      $(this).parent(".ui-wrapper").find(".decor").hide("slow"); 
+      $(this).parent(".ui-wrapper").find("img").hide("slow"); 
       $(this).parent(".ui-wrapper").remove();
 
+   });
+
+  $(document).on('click', '.icon-copy-el', function() { 
+    $(this).parent(".ui-wrapper").after($(this).parent(".ui-wrapper").find(".decor").clone());
    });
 
 
