@@ -26,8 +26,20 @@ $(document).on('change', '.photo-input', function() {
     upload(this.files[0]);
 });
 
-// window.ondragover = function(e) {e.preventDefault()};
-window.ondrop = function(e) { e.preventDefault(); upload(e.dataTransfer.files[0]); console.log(e.dataTransfer.files[0]) };
+window.ondragover = function(e) {e.preventDefault();
+    //   imageCounter++;
+    // var imageField = $('<img id="link'+imageCounter+'"style="position: absolute" >');
+    // $(this).parent().find(".step-wrapper").prepend(imageField);   
+    // var inputField = $('<input class="photo-input" style="visibility: collapse; width: 0px;" type="file">');
+    // $(this).parent().find(".step-wrapper").before(inputField); 
+    // inputField.click();
+    //  return imageCounter;
+};
+window.ondrop = function(e) {
+      
+      e.preventDefault(); 
+      upload(e.dataTransfer.files[0]);    
+};
 
 function upload(file) {
 
@@ -44,9 +56,9 @@ function upload(file) {
             var response1 = JSON.parse(xhr.responseText);
             var response = JSON.parse(xhr.responseText).data.link;
             console.log(response);
-          setTimeout(function () {
+         if (document.getElementById('link'+imageCounter) ) {
            document.getElementById('link'+imageCounter).src  = response;
-           }, 1500);
+           }
             
             parent.$("#data-store").data()["imageNum"] = imageCounter;
 

@@ -274,6 +274,7 @@ var deleteWrapper = function () {
      });
     y.$('.ui-wrapper').children().unwrap();
     y.$('.ui-resizable-handle').remove();
+    y.$('.icon-sort-up').remove();
 }
 
 
@@ -424,10 +425,17 @@ var draggableAndSortable = function() {
   
    $(document).on('mousedown', '.step-wrapper img', function() {      
         $(this).resizable();
-        $(".ui-wrapper").draggable();  
-        $(this).append('<i class="icon-sort-up icon"></i>');
-        $(".icon-sort-up").css('z-index', 100);
+        $(".ui-wrapper").draggable().append('<i class="icon-sort-up"></i>');  
+        $(".icon-sort-up").css('z-index', 1);
    });
+
+   //  $(document).on('blur', '.step-wrapper img', function() {      
+   //      $(this).resizable();
+   //      // $(".ui-wrapper").draggable();  
+   //      $(".ui-wrapper").draggable().append('<img class="icon-sort-up" src="http://thesimpsonplace.e-monsite.com/medias/album/images/76278889donut-1-jpg.jpg"/>');  
+   //      $(".icon-sort-up").css('z-index', 1);
+   //      $(this).css("position", "relative");
+   // });
 
 
 
