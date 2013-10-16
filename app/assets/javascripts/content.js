@@ -11,7 +11,7 @@ var contentObject = parent.$("#data-store").data();
 
 $(document).on('click', '.add-picture', function() { 
     imageCounter++;
-    var imageField = $('<img id="link'+imageCounter+'"style="position: absolute" >');
+    var imageField = $('<img id="link'+imageCounter+'" class="decor" style="position: absolute" >');
     $(this).parent().find(".step-wrapper").prepend(imageField);   
     var inputField = $('<input class="photo-input" style="visibility: collapse; width: 0px;" type="file">');
     $(this).parent().find(".step-wrapper").before(inputField); 
@@ -251,7 +251,7 @@ $(document).on('click', '.icon-layer-up', function(event) {
    });
 
   $(document).on('click', '.icon-copy-el', function() { 
-    $(this).parent(".ui-wrapper").after($(this).parent(".ui-wrapper").find(".decor").clone());
+    $(this).parent(".ui-wrapper").after($(this).parent(".ui-wrapper").find(".decor").clone().show("slow"));
    });
 
 
