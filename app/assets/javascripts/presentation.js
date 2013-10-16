@@ -424,14 +424,17 @@ var draggableAndSortable = function() {
   
    $(document).on('mousedown', '.step-wrapper img', function() {      
         $(this).resizable();
-        $(".ui-wrapper").draggable();     
+        $(".ui-wrapper").draggable();  
+        $(this).append('<i class="icon-sort-up icon"></i>');
+        $(".icon-sort-up").css('z-index', 100);
    });
 
 
-  $('.editor').on('blur', function(event) {   
-        $(this).find($('.icon')).remove(); 
-       return false;
-   });
+
+  // $('.editor').on('blur', function(event) {   
+  //       $(this).find($('.icon')).remove(); 
+  //      return false;
+  //  });
 
   $(document).on('mouseover', '.editor', function(event) { 
      $(".editor").popline();
@@ -449,6 +452,7 @@ var draggableAndSortable = function() {
         storeData(); 
     return false;
    });
+
      
 };
 
