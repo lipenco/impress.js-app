@@ -1,5 +1,6 @@
-
-
+if ( parent.$("#data-store").data()["imageNum"] == undefined ) {
+   parent.$("#data-store").data()["imageNum"] = 0;
+}
 
 
 $(document).on('click', '.add-picture', function() { 
