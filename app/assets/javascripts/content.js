@@ -91,6 +91,8 @@ $(document).on('click', '.add-edit', function() {
 
 });
 
+
+
 $(document).on('click', '.editor-elements.h1', function() {
    $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h1>Title</h1></div>'); 
    $(".editor").popline(); 
@@ -116,6 +118,27 @@ $(document).on('click', '.editor-elements.p', function() {
    $(".editor").popline(); 
 }); 
 
+
+
+
+$(document).on('click', '.add-wallpaper', function(event){ 
+   $(".images").hide();
+    if ( ! $(this).hasClass("active")) {
+        $(this).parent().after("<div class='images'></div>");
+        $(".images").load("/images_background.html", null,
+        function (responseText, status, response) {}); 
+        $(this).addClass("active");
+        $('.add-icon').removeClass("active");
+        $('.add-deco').removeClass("active");
+        $('.add-edit').removeClass("active"); 
+        $('.add-background').removeClass("active"); 
+    } else {
+      $(".images").hide("slow");
+      $(this).removeClass("active");
+    } 
+    return false;
+});
+
 $(document).on('click', '.add-background', function(event){ 
    $(".images").hide();
     if ( ! $(this).hasClass("active")) {
@@ -126,6 +149,8 @@ $(document).on('click', '.add-background', function(event){
         $('.add-icon').removeClass("active");
         $('.add-deco').removeClass("active");
         $('.add-edit').removeClass("active"); 
+        $('.add-wallpaper').removeClass("active"); 
+        
     } else {
       $(".images").hide("slow");
       $(this).removeClass("active");
@@ -144,7 +169,8 @@ $(document).on('click', '.add-icon', function(event){
         $(this).addClass("active");
         $('.add-background').removeClass("active");
         $('.add-deco').removeClass("active");
-        $('.add-edit').removeClass("active"); 
+        $('.add-edit').removeClass("active");
+        $('.add-wallpaper').removeClass("active"); 
     } else {
       $(".images").hide("slow");
       $(this).removeClass("active");
@@ -156,6 +182,7 @@ $(document).on('click', '.add-deco', function(event){
     $(".images").hide();
     $('.add-background').removeClass("active");
     $('.add-icon').removeClass("active");
+
     if ( ! $(this).hasClass("active")) {
         $(this).parent().after("<div class='images'></div>");
         $(".images").load("/deco.html", null,
@@ -163,6 +190,7 @@ $(document).on('click', '.add-deco', function(event){
         $(this).addClass("active");
         $('.add-background').removeClass("active");
         $('.add-icon').removeClass("active");
+        $('.add-wallpaper').removeClass("active");
     } else {
       $(".images").hide("slow");
       $(this).removeClass("active");
@@ -194,6 +222,12 @@ $(document).on('click', '.images img', function(){
       $(this).parent().prev('.step').find(".step-wrapper").prepend(imageField); 
       document.getElementById('link'+imageCounter).src = src;  
    }
+   if ($('.add-wallpaper').hasClass("active")) {
+    var src = $(this).data('src');
+    $('body').css("background" , "url("+src+")");
+    parent.$("#data-store").data()["wallpaper"] = src;
+  } 
+    
 });
 
 

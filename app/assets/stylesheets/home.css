@@ -161,6 +161,23 @@ ul.modes {
   left:11%;
 }
 
+.add-wallpaper {
+  margin-left: 23px;
+   margin-top: 8px;
+  font-size: 1.5em;
+  color: rgba(63,70,82, 0.9);
+  text-shadow: 1px 1px 0 #ffffff;
+  -webkit-transition: color 0.3s linear;
+-moz-transition: color 0.3s linear;
+transition: color 0.3s linear;
+}
+
+.add-wallpaper:hover {
+    color: #389646;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .add-picture{
   width: 30px;
   height: 20px;

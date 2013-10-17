@@ -16,8 +16,11 @@
 
 
 </head>
-
-<body class="impress-supported">
+ <% if @wallpaper.nil? %>
+      <body class="impress-supported">
+ <% else  %>
+    <body class="impress-supported" style="background-image: url(<%= @wallpaper.html_safe %>)" >
+ <% end %>
 
   <div id="impress">
     <% @num_slides.times do |n| %> 
