@@ -274,7 +274,7 @@ var deleteWrapper = function () {
      });
     y.$('.ui-wrapper').children().unwrap();
     y.$('.ui-resizable-handle').remove();
-    y.$('.icon-sort-up').remove();
+    y.$('.icon-on-img').remove();
 }
 
 

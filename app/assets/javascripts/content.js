@@ -1,16 +1,18 @@
-var imageCounter;
-var contentObject = parent.$("#data-store").data();
-    if (! jQuery.isEmptyObject(contentObject)) {
-     imageCounter = contentObject["imageNum"];
-      } else {
-      imageCounter =  0;
-      }
+var imageCounter = 0;
+parent.$("#data-store").data()["imageNum"] = imageCounter;
+// var contentObject = parent.$("#data-store").data();
+//     if (! jQuery.isEmptyObject(contentObject)) {
+//      imageCounter = contentObject["imageNum"];
+//       } else {
+//       imageCounter =  0;
+//       }
  
 
 
 
 $(document).on('click', '.add-picture', function() { 
-    imageCounter++;
+    parent.$("#data-store").data()["imageNum"]+=1;
+    var imageCounter = parent.$("#data-store").data()["imageNum"];
     var imageField = $('<img id="link'+imageCounter+'" class="decor" style="position: absolute" >');
     $(this).parent().find(".step-wrapper").prepend(imageField);   
     var inputField = $('<input class="photo-input" style="visibility: collapse; width: 0px;" type="file">');
@@ -19,7 +21,7 @@ $(document).on('click', '.add-picture', function() {
 
 
     // imageCounter = parent.$("#data-store").data("imageNum");
-    return imageCounter;
+
 });
  
 $(document).on('change', '.photo-input', function() {
@@ -52,7 +54,7 @@ function upload(file) {
         var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
         xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
         xhr.onload = function () {
-            imageCounter;
+            var imageCounter = parent.$("#data-store").data()["imageNum"];
             var response1 = JSON.parse(xhr.responseText);
             var response = JSON.parse(xhr.responseText).data.link;
             console.log(response);
@@ -60,7 +62,7 @@ function upload(file) {
            document.getElementById('link'+imageCounter).src  = response;
            }
             
-            parent.$("#data-store").data()["imageNum"] = imageCounter;
+         
 
         }
         // Ok, I don't handle the errors. An exercice for the reader.
@@ -180,12 +182,12 @@ $(document).on('click', '.add-deco', function(event){
 
 $(document).on('click', '.images img', function(){ 
   if ($('.add-icon').hasClass("active")) {
-     imageCounter ++;
+     parent.$("#data-store").data()["imageNum"]+=1;
+     var imageCounter = parent.$("#data-store").data()["imageNum"];
       var src = $(this).data('src');
       var imageField = $('<img id="link'+imageCounter+'"style="position: absolute" >');
       $(this).parent().prev('.step').find(".step-wrapper").prepend(imageField); 
       document.getElementById('link'+imageCounter).src = src;
-      parent.$("#data-store").data()["imageNum"] = imageCounter;
       
    }
   if ($('.add-background').hasClass("active")) {
@@ -193,12 +195,12 @@ $(document).on('click', '.images img', function(){
     $(this).parent().prev('.step').css("background" , "url("+src+")");
   } 
   if ($('.add-deco').hasClass("active")) {
-     imageCounter ++;
+     parent.$("#data-store").data()["imageNum"]+=1;
+     var imageCounter = parent.$("#data-store").data()["imageNum"];
       var src = $(this).data('src');
       var imageField = $('<img id="link'+imageCounter+'" class="decor" style="position: absolute, top:0">');
       $(this).parent().prev('.step').find(".step-wrapper").prepend(imageField); 
-      document.getElementById('link'+imageCounter).src = src;
-      parent.$("#data-store").data()["imageNum"] = imageCounter;   
+      document.getElementById('link'+imageCounter).src = src;  
    }
 });
 
@@ -213,7 +215,7 @@ var draggableAndSortable = function() {
            }   
         $(this).resizable();
         $(".ui-wrapper").draggable().append('<img class="icon-layer-up icon-on-img" src="/assets/icon_layer_up.png"><img class="icon-layer-down icon-on-img" src="/assets/icon_layer_down.png"><img class="icon-trash icon-on-img" src="/assets/icon_trash.png"><img class="icon-copy-el icon-on-img" src="/assets/icon_copy.png">');  
-        $(".icon-on-img").css('z-index', 1);
+        $(".icon-on-img").css('z-index', 2);
    });
 
   $(document).on('mouseover', '.editor', function(event) { 
@@ -237,21 +239,37 @@ var draggableAndSortable = function() {
   
 };
 
-$(document).on('click', '.icon-layer-up', function(event) {  
-  console.log($(this).before().find('.decor'));
-  $(this).prev('.ui-wrapper').find('.decor').css( "position", "absolute");
- return false;
+
+$(document).on('click', '.icon-layer-up', function() { 
+  var currentIndex = $(this).parent(".ui-wrapper").css("z-index"); 
+  if ( currentIndex == "auto" ) {
+    currentIndex = 0;
+  }
+  var num = parseInt(currentIndex)+ 1;
+   $(this).parent(".ui-wrapper").css("z-index", num );
+});
+
+
+$(document).on('click', '.icon-layer-down', function() {  
+  var currentIndex = $(this).parent(".ui-wrapper").css("z-index"); 
+  if ( currentIndex == "auto" ) {
+    currentIndex = 0;
+  }
+  var num = parseInt(currentIndex)-1 ;
+   $(this).parent(".ui-wrapper").css("z-index", num );
 });
 
 
  $(document).on('click', '.icon-trash', function() { 
       $(this).parent(".ui-wrapper").find("img").hide("slow"); 
       $(this).parent(".ui-wrapper").remove();
+      parent.$("#data-store").data()["imageNum"]-=1;
 
    });
 
   $(document).on('click', '.icon-copy-el', function() { 
     $(this).parent(".ui-wrapper").after($(this).parent(".ui-wrapper").find(".decor").clone().show("slow"));
+    parent.$("#data-store").data()["imageNum"]+=1;
    });
 
 
