@@ -1,4 +1,7 @@
 
+
+
+
 $(document).on('click', '.add-picture', function() { 
     parent.$("#data-store").data()["imageNum"]+=1;
     var imageCounter = parent.$("#data-store").data()["imageNum"];
@@ -8,6 +11,8 @@ $(document).on('click', '.add-picture', function() {
     $(this).parent().find(".step-wrapper").before(inputField); 
     inputField.click();
 
+
+    // imageCounter = parent.$("#data-store").data("imageNum");
 
 });
  
