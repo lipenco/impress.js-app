@@ -210,11 +210,11 @@ var draggableAndSortable = function() {
    $( "#sortable" ).sortable({ handle: ".sort-slides", axis: "y" });
   
    $(document).on('mousedown', '.step-wrapper img', function() {   
-         if ($(event.target).hasClass("icon-on-img")) {
+         if ($(event.target).hasClass("icon-on-img") || $(event.target).hasClass("icon-on-edit")) {
             return false;
            }   
         $(this).resizable();
-        $(".ui-wrapper").draggable().append('<img class="icon-layer-up icon-on-img" src="/assets/icon_layer_up.png"><img class="icon-layer-down icon-on-img" src="/assets/icon_layer_down.png"><img class="icon-trash icon-on-img" src="/assets/icon_trash.png"><img class="icon-copy-el icon-on-img" src="/assets/icon_copy.png">');  
+        $(".ui-wrapper").draggable().append('<img class="icon-layer-up icon-on-img" src="/assets/icon_layer_up.png"><img class="icon-layer-down icon-on-img" src="/assets/icon_layer_down.png"><img class="icon-trash1 icon-on-img" src="/assets/icon_trash.png"><img class="icon-copy-el icon-on-img" src="/assets/icon_copy.png">');  
         $(".icon-on-img").css('z-index', 2);
    });
 
@@ -222,22 +222,27 @@ var draggableAndSortable = function() {
      $(".editor").popline();
     });
 
-  $(document).on('click', '.editor', function(event) {      
-        if ($(event.target).hasClass("icon-move")) {
-            return false;
-           }
-        if ($(".icon-move",this).length==0) {
-             $(this).append("<i class='icon-move icon'></i>");
-         }
-        $(this).resizable().draggable({ handle: ".icon-move" }); 
-        $(this).css('position', 'absolute');
-        storeData(); 
-    return false;
-   });
-
  
-  
+
+
 };
+
+// $(document).on('click', '.icon-layer-up .icon-on-edit', function() { 
+//   var currentIndex = $(this).parent(".ui-wrapper").css("z-index"); 
+//   if ( currentIndex == "auto" ) {
+//     currentIndex = 0;
+//   }
+//   var num = parseInt(currentIndex)+ 1;
+//    $(this).parent(".ui-wrapper").css("z-index", num );
+// });
+
+ $(document).on('click', '.editor', function() {      
+    if ($(event.target).hasClass("icon-on-edit")) {
+            return false;
+           }   
+        $(this).resizable().draggable({ handle: ".icon-move" }).append('<img class="icon-layer-up2 icon-on-edit" src="/assets/icon_layer_up.png"><img class="icon-layer-down2 icon-on-edit" src="/assets/icon_layer_down.png"><img class="icon-trash2 icon-on-edit" src="/assets/icon_trash.png"><i class="icon-move icon-on-edit"></i>');  
+        $(".icon-on-edit").css('z-index', 2);
+   });
 
 
 $(document).on('click', '.icon-layer-up', function() { 
@@ -249,6 +254,14 @@ $(document).on('click', '.icon-layer-up', function() {
    $(this).parent(".ui-wrapper").css("z-index", num );
 });
 
+$(document).on('click', '.icon-layer-up2', function() { 
+  var currentIndex = $(this).parent(".editor").css("z-index"); 
+  if ( currentIndex == "auto" ) {
+    currentIndex = 0;
+  }
+  var num = parseInt(currentIndex)+ 1;
+   $(this).parent(".editor").css("z-index", num );
+});
 
 $(document).on('click', '.icon-layer-down', function() {  
   var currentIndex = $(this).parent(".ui-wrapper").css("z-index"); 
@@ -259,18 +272,33 @@ $(document).on('click', '.icon-layer-down', function() {
    $(this).parent(".ui-wrapper").css("z-index", num );
 });
 
+$(document).on('click', '.icon-layer-down2', function() {  
+  var currentIndex = $(this).parent(".editor").css("z-index"); 
+  if ( currentIndex == "auto" ) {
+    currentIndex = 0;
+  }
+  var num = parseInt(currentIndex)-1 ;
+   $(this).parent(".editor").css("z-index", num );
+});
 
- $(document).on('click', '.icon-trash', function() { 
+ $(document).on('click', '.icon-trash1', function() { 
       $(this).parent(".ui-wrapper").find("img").hide("slow"); 
       $(this).parent(".ui-wrapper").remove();
       parent.$("#data-store").data()["imageNum"]-=1;
 
    });
 
+
   $(document).on('click', '.icon-copy-el', function() { 
     $(this).parent(".ui-wrapper").after($(this).parent(".ui-wrapper").find(".decor").clone().show("slow"));
     parent.$("#data-store").data()["imageNum"]+=1;
    });
+
+
+ $(document).on('click', '.icon-trash2', function() { 
+     $(this).parent(".editor").hide("slow"); 
+ });
+
 
 
 

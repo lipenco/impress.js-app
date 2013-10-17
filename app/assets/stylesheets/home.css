@@ -376,7 +376,7 @@ nav ul li:active {
  }
 
 
-.icon-layer-up{
+.icon-layer-up, .icon-layer-up2{
     width:15px;
     height:15px;
     position:absolute;
@@ -386,7 +386,7 @@ nav ul li:active {
     z-index: -1;
 }
 
-.icon-layer-down {
+.icon-layer-down, .icon-layer-down2 {
     width:15px;
     height:15px;
     position:absolute;
@@ -398,7 +398,7 @@ nav ul li:active {
 }
 
 
-.icon-trash {
+.icon-trash1, .icon-trash2 {
    width:15px;
     height:15px;
     position:absolute;
@@ -410,7 +410,7 @@ nav ul li:active {
     z-index: -1;  
 }
 
-.icon-copy-el {
+.icon-copy-el, .icon-copy-el2 {
    width:15px;
     height:15px;
     position:absolute;
@@ -420,6 +420,19 @@ nav ul li:active {
     background: #389646;
     padding: 10px;
     z-index: -1;  
+}
+
+.icon-move {
+   font-size: 0.5em;
+    height:15px;
+    width:15px;
+    position:absolute;
+    top: 0;
+    left: 102%;
+    color: #fff;
+    background: #389646;
+    padding: 10px;
+    z-index: -1;
 }
 
 
