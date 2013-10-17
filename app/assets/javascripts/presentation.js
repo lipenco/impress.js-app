@@ -353,7 +353,6 @@ var storeData = function () {
     for (var i = 0; i < stepWrapper.length; i++) {
         // var pictures_number = imageCounter || 0;
         parent.$("#data-store").data("content[" + i + "]", stepWrapper[i].innerHTML);
-        // parent.$("#data-store").data("imageNum", pictures_number);
     }
     var steps = document.querySelectorAll('.step');
     for (var i = 0; i < steps.length; i++) {

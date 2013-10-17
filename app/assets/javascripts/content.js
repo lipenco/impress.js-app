@@ -1,14 +1,3 @@
-var imageCounter = 0;
-parent.$("#data-store").data()["imageNum"] = imageCounter;
-// var contentObject = parent.$("#data-store").data();
-//     if (! jQuery.isEmptyObject(contentObject)) {
-//      imageCounter = contentObject["imageNum"];
-//       } else {
-//       imageCounter =  0;
-//       }
- 
-
-
 
 $(document).on('click', '.add-picture', function() { 
     parent.$("#data-store").data()["imageNum"]+=1;
@@ -19,8 +8,6 @@ $(document).on('click', '.add-picture', function() {
     $(this).parent().find(".step-wrapper").before(inputField); 
     inputField.click();
 
-
-    // imageCounter = parent.$("#data-store").data("imageNum");
 
 });
  
