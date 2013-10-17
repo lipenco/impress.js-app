@@ -29,13 +29,15 @@
   .slide { 
     z-index: 1; 
     padding-top: 5px; }
-
-
-
   </style>
-</head>
 
-<body>
+</head>
+ <% if @wallpaper.nil? %>
+      <body>
+ <% else  %>
+    <body style="background-image: url(<%= @wallpaper.html_safe %>)" >
+ <% end %>
+
 <nav>
   <ul class="slides-representation">
    <% @num_slides.times do |n| %>  
@@ -49,15 +51,20 @@
 
   <div class="container-fluid" id="sortable">
       <% @num_slides.times do |n| %>  
-        <div class="step slide">
+        <% if @background.nil? %>
+            <div class="step <%= @shape_class %>" id="<%=n%>-slide">
+        <% else  %>
+           <div class="step <%= @shape_class %>" style="background-image: <%= @background[n.to_s].html_safe %>" id="<%=n%>-slide">
+        <% end %>
          
         <div class="step-wrapper">
-                      
-          <% if @content.nil? || @content[n.to_s].nil? %>
-                
-          <% else %> 
-                <%= @content[n.to_s].html_safe %>
-          <% end %>
+                    
+         <%=
+            if @content.nil? || @content[n.to_s].nil?
+            else
+                @content[n.to_s].html_safe
+            end
+          %>
     
         </div>
          <div class="sort-slides"><i class="icon-sort icon-22"></i></div>
