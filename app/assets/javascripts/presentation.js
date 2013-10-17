@@ -1,5 +1,3 @@
-
-
 $(document).ready(function () {
     eventsListeners();
     updatePreview();  
@@ -275,6 +273,7 @@ var deleteWrapper = function () {
     y.$('.ui-wrapper').children().unwrap();
     y.$('.ui-resizable-handle').remove();
     y.$('.icon-on-img').remove();
+    y.$('.icon-on-edit').remove();
 }
 
 

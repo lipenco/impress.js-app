@@ -227,14 +227,7 @@ var draggableAndSortable = function() {
 
 };
 
-// $(document).on('click', '.icon-layer-up .icon-on-edit', function() { 
-//   var currentIndex = $(this).parent(".ui-wrapper").css("z-index"); 
-//   if ( currentIndex == "auto" ) {
-//     currentIndex = 0;
-//   }
-//   var num = parseInt(currentIndex)+ 1;
-//    $(this).parent(".ui-wrapper").css("z-index", num );
-// });
+
 
  $(document).on('click', '.editor', function() {      
     if ($(event.target).hasClass("icon-on-edit")) {

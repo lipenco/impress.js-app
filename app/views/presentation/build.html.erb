@@ -20,8 +20,17 @@
 <body class="impress-supported">
 
   <div id="impress">
-    <% @num_slides.times do |n| %>   
-      <div class="step <%= @shape_class %> " id="<%=n%>-slide">
+    <% @num_slides.times do |n| %> 
+    
+    <% if @background.nil? %>
+       <div class="step <%= @shape_class %>" id="<%=n%>-slide">
+     <% else  %>
+      <div class="step <%= @shape_class %>" style="background-image: <%= @background[n.to_s].html_safe %>" id="<%=n%>-slide">
+    <% end %>
+  
+       
+    
+     
         <% if n < 8 %>
           <%=
             if @content.nil? || @content[n.to_s].nil?
