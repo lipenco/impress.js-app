@@ -15,6 +15,8 @@ ImpressJsApp::Application.routes.draw do
   match 'icons'  => 'presentation#icons'
   match 'deco'  => 'presentation#deco'
   match 'editor'  => 'presentation#editor'
+  match 'fonts'  => 'presentation#fonts'
+
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

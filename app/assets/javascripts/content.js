@@ -92,27 +92,27 @@ $(document).on('click', '.add-edit', function() {
 
 
 $(document).on('click', '.editor-elements.h1', function() {
-   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h1>Title</h1></div>'); 
+   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h1 class="text">Title</h1></div>'); 
    $(".editor").popline(); 
 }); 
 
 $(document).on('click', '.editor-elements.h2', function() {
-   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h2>Heading</h2></div>'); 
+   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h2 class="text">Heading</h2></div>'); 
    $(".editor").popline(); 
 }); 
 
 $(document).on('click', '.editor-elements.h3', function() {
-   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h3>Heading</h3></div>'); 
+   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h3 class="text">Heading</h3></div>'); 
    $(".editor").popline(); 
 }); 
 
 $(document).on('click', '.editor-elements.h4', function() {
-   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h4>Heading</h4></div>'); 
+   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h4 class="text">Heading</h4></div>'); 
    $(".editor").popline(); 
 });
 
 $(document).on('click', '.editor-elements.p', function() {
-   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><p>Paragraph</p></div>'); 
+   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><p class="text">Paragraph</p></div>'); 
    $(".editor").popline(); 
 }); 
 
@@ -229,7 +229,7 @@ $(document).on('click', '.images-absolute img', function(){
     var src = $(this).data('src');
     $('body').css("background" , "url("+src+")");
     parent.$("#data-store").data()["wallpaper"] = src;
-  } 
+  }  
 });
 
 var draggableAndSortable = function() {
@@ -256,11 +256,14 @@ var draggableAndSortable = function() {
 
 
 
- $(document).on('click', '.editor', function() {      
+ $(document).on('click', '.editor', function(event) {      
     if ($(event.target).hasClass("icon-on-edit")) {
             return false;
            }   
-        $(this).resizable().draggable({ handle: ".icon-move" }).append('<img class="icon-layer-up2 icon-on-edit" src="/assets/icon_layer_up.png"><img class="icon-layer-down2 icon-on-edit" src="/assets/icon_layer_down.png"><img class="icon-trash2 icon-on-edit" src="/assets/icon_trash.png"><i class="icon-move icon-on-edit"></i>');  
+    if ($(event.target).hasClass("no-edit")) {
+        return false;
+       }  
+        $(this).resizable().draggable({ handle: ".icon-move" }).append('<img class="icon-layer-up2 icon-on-edit" src="/assets/icon_layer_up.png"><img class="icon-layer-down2 icon-on-edit" src="/assets/icon_layer_down.png"><img class="icon-trash2 icon-on-edit" src="/assets/icon_trash.png"><i class="icon-move icon-on-edit"></i><i class="icon-font font2 icon-on-edit"></i>');  
         $(".icon-on-edit").css('z-index', 2);
    });
 
@@ -319,6 +322,24 @@ $(document).on('click', '.icon-layer-down2', function() {
      $(this).parent(".editor").hide("slow"); 
  });
 
+$(document).on('click', '.font2', function() { 
+    if ( !$(this).hasClass("active") ) {
+        $(this).addClass("active");
+       $(this).parent().append("<div class='fonts-container no-edit'></div>");
+        $(".fonts-container").load("/fonts.html", null,
+        function (responseText, status, response) {});
+      } else {
+        $('.fonts-container').hide("slow");
+        $(this).removeClass("active");
+      } 
+ });
+
+$(document).on('click', '.fonts-container ul li', function(){ 
+  var $el = $(this);
+  var fontName = $el.data('fontname');
+  $(this).closest(".editor").find('.text').css('font-family', fontName);
+
+});
 
 
 
