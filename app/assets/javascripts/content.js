@@ -122,8 +122,8 @@ $(document).on('click', '.editor-elements.p', function() {
 $(document).on('click', '.add-wallpaper', function(event){ 
    $(".images").hide();
     if ( ! $(this).hasClass("active")) {
-        $(this).parent().after("<div class='images'></div>");
-        $(".images").load("/images_background.html", null,
+        $('.container-fluid').before("<div class='images-absolute'></div>");
+        $(".images-absolute").load("/images_background.html", null,
         function (responseText, status, response) {}); 
         $(this).addClass("active");
         $('.add-icon').removeClass("active");
@@ -131,7 +131,7 @@ $(document).on('click', '.add-wallpaper', function(event){
         $('.add-edit').removeClass("active"); 
         $('.add-background').removeClass("active"); 
     } else {
-      $(".images").hide("slow");
+      $(".images-absolute").hide("slow");
       $(this).removeClass("active");
     } 
     return false;
@@ -220,14 +220,17 @@ $(document).on('click', '.images img', function(){
       $(this).parent().prev('.step').find(".step-wrapper").prepend(imageField); 
       document.getElementById('link'+imageCounter).src = src;  
    }
+  
+    
+});
+
+$(document).on('click', '.images-absolute img', function(){ 
    if ($('.add-wallpaper').hasClass("active")) {
     var src = $(this).data('src');
     $('body').css("background" , "url("+src+")");
     parent.$("#data-store").data()["wallpaper"] = src;
   } 
-    
 });
-
 
 var draggableAndSortable = function() {
 

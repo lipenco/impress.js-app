@@ -383,6 +383,23 @@ nav ul li:active {
 
 }
 
+.images-absolute {
+  background-color: #323232;
+  text-align: center;
+  padding: 1em 2em;
+  position: fixed;
+  margin: 25px 25%;
+  z-index: 100;
+  height: 60%;
+  width: 500px;
+    border-bottom: 2px solid #444444;
+  border-left: 2px solid #444444;
+  border-right: 2px solid #444444; 
+  overflow-y: scroll;
+   overflow-x: hidden;
+}
+
+
 .images img {
     margin: 2px;
     cursor: pointer;
@@ -390,6 +407,12 @@ nav ul li:active {
     *display:inline;/* For IE7*/
     *zoom:1;/* For IE7*/
     vertical-align:top;
+ }
+
+ .images-absolute img {
+    margin: 2px;
+    cursor: pointer;
+    display:inline-block;
  }
 
 
@@ -451,6 +474,21 @@ nav ul li:active {
     padding: 10px;
     z-index: -1;
 }
+
+
+.font2 {
+   font-size: 0.5em;
+    width:15px;
+    height:15px;
+    position:absolute;
+    top:90px;
+    left: 0;
+    color: #fff;
+    background: #389646;
+    padding: 10px;
+    z-index: -1;
+}
+
 
 
 
