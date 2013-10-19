@@ -92,27 +92,27 @@ $(document).on('click', '.add-edit', function() {
 
 
 $(document).on('click', '.editor-elements.h1', function() {
-   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h1 class="text">Title</h1></div>'); 
+   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h1 class="text2">Title</h1></div>'); 
    $(".editor").popline(); 
 }); 
 
 $(document).on('click', '.editor-elements.h2', function() {
-   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h2 class="text">Heading</h2></div>'); 
+   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h2 class="text2">Heading</h2></div>'); 
    $(".editor").popline(); 
 }); 
 
 $(document).on('click', '.editor-elements.h3', function() {
-   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h3 class="text">Heading</h3></div>'); 
+   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h3 class="text2">Heading</h3></div>'); 
    $(".editor").popline(); 
 }); 
 
 $(document).on('click', '.editor-elements.h4', function() {
-   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h4 class="text">Heading</h4></div>'); 
+   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h4 class="text2">Heading</h4></div>'); 
    $(".editor").popline(); 
 });
 
 $(document).on('click', '.editor-elements.p', function() {
-   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><p class="text">Paragraph</p></div>'); 
+   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><p class="text2">Paragraph</p></div>'); 
    $(".editor").popline(); 
 }); 
 
@@ -337,8 +337,23 @@ $(document).on('click', '.font2', function() {
 $(document).on('click', '.fonts-container ul li', function(){ 
   var $el = $(this);
   var fontName = $el.data('fontname');
-  $(this).closest(".editor").find('.text').css('font-family', fontName);
+  $(this).closest(".editor").find('.text2').css('font-family', fontName);
+  $(".text2").each(function(i){
+    parent.$("#data-store").data()["text[" + i + "]"] = $(this).css('font-family');
+    
+    WebFontConfig = {
+    google: { families: [ parent.$("#data-store").data()["text[" + i + "]"] ]
+      }
+    }
 
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  });
 });
 
 
