@@ -280,6 +280,7 @@ var deleteWrapper = function () {
     y.$('.ui-resizable-handle').remove();
     y.$('.icon-on-img').remove();
     y.$('.icon-on-edit').remove();
+    y.$('.no-edit').remove();
 }
 
 

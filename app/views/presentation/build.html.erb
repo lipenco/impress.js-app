@@ -14,6 +14,19 @@
   <% end %>
   <% if @text.nil? %>
       <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Droid+Sans|Lato:400,900' rel='stylesheet' type='text/css'>
+      <link href='http://code.jquery.com/jquery-1.10.2.min.js'>  
+     <script>  
+       WebFontConfig = {
+          google: { families:  parent.$("#data-store").data()["text"] }
+        }
+         var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+    </script>
   <% else  %>
       <script>
         WebFontConfig = {

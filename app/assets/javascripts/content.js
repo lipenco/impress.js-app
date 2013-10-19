@@ -237,9 +237,13 @@ var draggableAndSortable = function() {
    $( "#sortable" ).sortable({ handle: ".sort-slides", axis: "y" });
   
    $(document).on('mousedown', '.step-wrapper img', function() {   
-         if ($(event.target).hasClass("icon-on-img") || $(event.target).hasClass("icon-on-edit")) {
+         if ($(event.target).hasClass("icon-on-img")) {
             return false;
-           }   
+           }  
+        if ($(event.target).hasClass("icon-on-edit")) {
+            return false;
+           }  
+
         $(this).resizable();
         $(".ui-wrapper").draggable().append('<img class="icon-layer-up icon-on-img" src="/assets/icon_layer_up.png"><img class="icon-layer-down icon-on-img" src="/assets/icon_layer_down.png"><img class="icon-trash1 icon-on-img" src="/assets/icon_trash.png"><img class="icon-copy-el icon-on-img" src="/assets/icon_copy.png">');  
         $(".icon-on-img").css('z-index', 2);
