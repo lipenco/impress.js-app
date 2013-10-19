@@ -1,6 +1,5 @@
 <head>
   <title>ImpressTitle</title>
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Droid+Sans|Lato:400,900' rel='stylesheet' type='text/css'>
   <% if @substeps == "true" %>
     <%= stylesheet_link_tag "substeps.css", :media => "all" %>
   <% end %>
@@ -13,6 +12,23 @@
      <%= stylesheet_link_tag "progressbar.css", :media => "all" %>
 
   <% end %>
+  <% if @text.nil? %>
+      <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Droid+Sans|Lato:400,900' rel='stylesheet' type='text/css'>
+  <% else  %>
+      <script>
+        WebFontConfig = {
+          google: { families: [ <%= @text.split(',').uniq.join(',').gsub(/[^,]+/, "'\\0'").html_safe %>] }
+
+        }
+         var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      </script>
+   <% end %>
 
 
 </head>

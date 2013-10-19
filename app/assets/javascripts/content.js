@@ -334,28 +334,31 @@ $(document).on('click', '.font2', function() {
       } 
  });
 
-$(document).on('click', '.fonts-container ul li', function(){ 
-  var $el = $(this);
-  var fontName = $el.data('fontname');
-  $(this).closest(".editor").find('.text2').css('font-family', fontName);
-  $(".text2").each(function(i){
-    parent.$("#data-store").data()["text[" + i + "]"] = $(this).css('font-family');
-    
-    WebFontConfig = {
-    google: { families: [ parent.$("#data-store").data()["text[" + i + "]"] ]
+if ( jQuery.isEmptyObject(parent.$("#data-store").data())) {
+parent.$("#data-store").data("text", []);
+} 
+  $(document).on('click', '.fonts-container ul li', function(){  
+    var $el = $(this);
+    var fontName = $el.data('fontname');
+    $(this).closest(".editor").find('.text2').css('font-family', fontName);
+      parent.$("#data-store").data()["text"].push($el.data('fontname'));
+      WebFontConfig = {
+      google: { families: parent.$("#data-store").data('text')  
       }
     }
+      fontLoad();   
+  });
 
-    var wf = document.createElement('script');
+var fontLoad = function() {
+  var wf = document.createElement('script');
     wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
         '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
     wf.type = 'text/javascript';
     wf.async = 'true';
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wf, s);
-  });
-});
 
+}
 
 
 

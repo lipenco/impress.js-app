@@ -30,6 +30,7 @@ class PresentationController < ApplicationController
     @content = params[:content]
     @background = params[:background] 
     @wallpaper = params[:wallpaper] 
+    @text = params[:text] 
   end
 
   def home

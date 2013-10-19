@@ -6,15 +6,14 @@ $(document).ready(function () {
     downloadZip();
     animateNumberOfSlides();
     d(); 
-
-});
+}); 
 
 var updatePreview = function () {
     setTimeout(function () {
         postData();
     }, 1000);
     f();
-
+    downloadZip();
     var num_slides = getNumberFromShowNum();
     var layout = getLayout();
     var shape = getShape();
