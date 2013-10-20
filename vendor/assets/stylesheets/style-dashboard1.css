@@ -53,7 +53,7 @@
 #mainHeader nav div.socialIcons {
     /* XXX FIXME manually positioning to vertically center-align */
     position: relative;
-    top: -8px;  /* XXX FIXME hardcoded for now; depends on font-size */
+    top: 6px;  /* XXX FIXME hardcoded for now; depends on font-size */
     padding-left: 20px;
     padding-right: 60px;
 }
@@ -272,12 +272,12 @@ html.js #videoPopup {
         right: 15px;
         margin: 0;
     }
-    #mainHeader nav div.socialIcons {
+ /*   #mainHeader nav div.socialIcons {
         position: absolute;
         top: 215px;
         right: 10px;
         margin: 0;
-    }
+    }*/
     #toolsVideo {
         width: 640px;
         height: 360px;

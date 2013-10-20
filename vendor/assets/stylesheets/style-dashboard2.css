@@ -421,7 +421,8 @@ a.isLocation:active {
     width: 30px;
     height: 30px;
     margin-left: 5px;
-    background-position: top;
+    margin-top: 10px;
+/*    background-position: top;*/
     color: transparent;
     overflow: hidden;
     text-indent: -9999em;

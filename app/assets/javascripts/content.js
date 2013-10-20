@@ -338,6 +338,10 @@ $(document).on('click', '.font2', function() {
       } 
  });
 
+
+
+
+
 if ( jQuery.isEmptyObject(parent.$("#data-store").data())) {
 parent.$("#data-store").data("text", []);
 } 
