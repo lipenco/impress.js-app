@@ -18,6 +18,8 @@ ImpressJsApp::Application.routes.draw do
   match 'fonts'  => 'presentation#fonts'
   match 'fontssize'  => 'presentation#fontssize'
 
+  resources :users
+
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

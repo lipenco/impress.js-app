@@ -25,6 +25,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'jquery-rails'
 gem 'rubyzip', '~> 1.0.0'
 
