@@ -281,15 +281,20 @@ $(document).on('click', '.icon-layer-down2', function() {
 
 $(document).on('click', '.font2', function() { 
   $('.fonts-size-container').hide();
-    if ( !$(this).hasClass("active") ) {
-        $(this).addClass("active");
-       $(this).parent().append("<div class='fonts-container no-edit'></div>");
-        $(".fonts-container").load("/fonts.html", null,
-        function (responseText, status, response) {});
-      } else {
-        $('.fonts-container').hide("slow");
-        $(this).removeClass("active");
-      } 
+  if ( !$(this).hasClass("active") ) {
+      $(this).addClass("active");
+         if ( !$(".fonts-container").hasClass("active") ) {
+            $(this).parent().append("<div class='fonts-container no-edit'></div>");
+            $(".fonts-container").load("/fonts.html", null,
+            function (responseText, status, response) {});
+            $(".fonts-container").addClass("active");
+        } else {
+          $('.fonts-container').css("display" , "block");
+        }
+    } else {
+       $('.fonts-container').hide("slow");
+       $(this).removeClass("active");
+    } 
  });
 
 
