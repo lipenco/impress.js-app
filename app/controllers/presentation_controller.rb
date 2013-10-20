@@ -48,6 +48,9 @@ class PresentationController < ApplicationController
   def fonts
   end
 
+  def fontssize
+  end
+
   def deco
   end
 

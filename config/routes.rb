@@ -16,6 +16,7 @@ ImpressJsApp::Application.routes.draw do
   match 'deco'  => 'presentation#deco'
   match 'editor'  => 'presentation#editor'
   match 'fonts'  => 'presentation#fonts'
+  match 'fontssize'  => 'presentation#fontssize'
 
 
   # Sample of named route:

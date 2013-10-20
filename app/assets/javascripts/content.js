@@ -66,56 +66,9 @@ function upload(file) {
 
 
 $(document).on('click', '.add-edit', function() {
-   $(".images").hide();
-    if ( ! $(this).hasClass("active")) {
-        $(this).parent().after("<div class='images'></div>");
-        $(".images").load("/editor.html", '.editor-elements',
-        function (responseText, status, response) {}); 
-        $(this).addClass("active");
-        $('.add-icon').removeClass("active");
-        $('.add-deco').removeClass("active");
-        $('.add-background').removeClass("active");   
-    } else {
-      $(".images").hide("slow");
-      $(this).removeClass("active");
-    } 
-    return false;
-
-
-
-    // var editField = $('<div class="editor" contenteditable="true"><p>New text</p></div>');
-    // $(this).parent().find(".step-wrapper").prepend(editField);   
-    //  $(".editor").popline(); 
-
-});
-
-
-
-$(document).on('click', '.editor-elements.h1', function() {
-   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h1 class="text2">Title</h1></div>'); 
-   $(".editor").popline(); 
-}); 
-
-$(document).on('click', '.editor-elements.h2', function() {
-   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h2 class="text2">Heading</h2></div>'); 
-   $(".editor").popline(); 
-}); 
-
-$(document).on('click', '.editor-elements.h3', function() {
-   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h3 class="text2">Heading</h3></div>'); 
-   $(".editor").popline(); 
-}); 
-
-$(document).on('click', '.editor-elements.h4', function() {
-   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h4 class="text2">Heading</h4></div>'); 
+   $(this).parent().find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><h2  class="text2">Title</h2></div>'); 
    $(".editor").popline(); 
 });
-
-$(document).on('click', '.editor-elements.p', function() {
-   $(this).parent().prev('.step').find(".step-wrapper").prepend('<div class="editor" contenteditable="true"><p class="text2">Paragraph</p></div>'); 
-   $(".editor").popline(); 
-}); 
-
 
 
 
@@ -267,7 +220,7 @@ var draggableAndSortable = function() {
     if ($(event.target).hasClass("no-edit")) {
         return false;
        }  
-        $(this).resizable().draggable({ handle: ".icon-move" }).append('<img class="icon-layer-up2 icon-on-edit" src="/assets/icon_layer_up.png"><img class="icon-layer-down2 icon-on-edit" src="/assets/icon_layer_down.png"><img class="icon-trash2 icon-on-edit" src="/assets/icon_trash.png"><i class="icon-move icon-on-edit"></i><i class="icon-font font2 icon-on-edit"></i>');  
+        $(this).resizable().draggable({ handle: ".icon-move" }).append('<img class="icon-layer-up2 icon-on-edit" src="/assets/icon_layer_up.png"><img class="icon-layer-down2 icon-on-edit" src="/assets/icon_layer_down.png"><img class="icon-trash2 icon-on-edit" src="/assets/icon_trash.png"><i class="icon-move icon-on-edit"></i><i class="icon-font font2 icon-on-edit"></i><img class="icon-font-size icon-on-edit" src="/assets/font_size2.png">');  
         $(".icon-on-edit").css('z-index', 2);
    });
 
@@ -327,6 +280,7 @@ $(document).on('click', '.icon-layer-down2', function() {
  });
 
 $(document).on('click', '.font2', function() { 
+  $('.fonts-size-container').hide();
     if ( !$(this).hasClass("active") ) {
         $(this).addClass("active");
        $(this).parent().append("<div class='fonts-container no-edit'></div>");
@@ -339,6 +293,32 @@ $(document).on('click', '.font2', function() {
  });
 
 
+$(document).on('click', '.icon-font-size', function() { 
+   $('.fonts-container').hide();
+   if ( !$(this).hasClass("active") ) {
+      $(this).addClass("active");
+         if ( !$(".fonts-size-container").hasClass("active") ) {
+            $(this).parent().append("<div class='fonts-size-container no-edit'></div>");
+            $(".fonts-size-container").load("/fontssize.html", null,
+            function (responseText, status, response) {});
+            $(".fonts-size-container").addClass("active");
+        } else {
+          $('.fonts-size-container').css("display" , "block");
+        }
+    } else {
+       $('.fonts-size-container').hide("slow");
+       $(this).removeClass("active");
+    } 
+  
+ });
+
+$(document).on('click', '.fonts-size-container ul li', function(){  
+    var $el = $(this);
+    $el.siblings().removeClass('activefont').find('.icon-check').remove();
+    $el.addClass('activefont').append('<i class="icon-check"></i>');
+    var fontSize = $el.data('fontsize');
+    $(this).closest(".editor").find('.text2').css('font-size', fontSize);
+});
 
 
 
