@@ -13,7 +13,7 @@ $(document).ready(function () {
 var updatePreview = function () {
     setTimeout(function () {
         postData();
-    }, 1000);
+    }, 4);
     f();
     var num_slides = getNumberFromShowNum();
     var layout = getLayout();
@@ -131,7 +131,7 @@ var postData = function () {
     if (contentObject["wallpaper"] !== undefined) {
          iframeContent.document.querySelector('body').style.backgroundImage = "url(" + contentObject["wallpaper"]+ ")" ;
     }
-    if (! jQuery.isEmptyObject(contentObject)) {
+    if ((contentObject["content[0]"] || contentObject["bacground[0]"]) !== undefined) {
       for (var i = 0; i < slides.length; i++) {
           slides[i].innerHTML = contentObject["content[" + i + "]"];
           slides[i].style.backgroundImage = contentObject["background[" + i + "]"];

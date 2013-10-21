@@ -1,7 +1,7 @@
 
 
 $(document).on('click', '.add-picture', function() { 
-    parent.$("#data-store").data()["imageNum"]+=1;
+    parent.$("#data-store").data()["imageNum"] += 1;
     var imageCounter = parent.$("#data-store").data()["imageNum"];
     var imageField = $('<img id="link'+imageCounter+'" class="decor" style="position: absolute" >');
     $(this).parent().find(".step-wrapper").prepend(imageField);   
@@ -153,7 +153,7 @@ $(document).on('click', '.add-deco', function(event){
 
 $(document).on('click', '.images img', function(){ 
   if ($('.add-icon').hasClass("active")) {
-     parent.$("#data-store").data()["imageNum"]+=1;
+     parent.$("#data-store").data()["imageNum"] +=1;
      var imageCounter = parent.$("#data-store").data()["imageNum"];
       var src = $(this).data('src');
       var imageField = $('<img id="link'+imageCounter+'"style="position: absolute" >');
@@ -166,7 +166,7 @@ $(document).on('click', '.images img', function(){
     $(this).parent().prev('.step').css("background" , "url("+src+")");
   } 
   if ($('.add-deco').hasClass("active")) {
-     parent.$("#data-store").data()["imageNum"]+=1;
+     parent.$("#data-store").data()["imageNum"] +=1;
      var imageCounter = parent.$("#data-store").data()["imageNum"];
       var src = $(this).data('src');
       var imageField = $('<img id="link'+imageCounter+'" class="decor" style="position: absolute, top:0">');
