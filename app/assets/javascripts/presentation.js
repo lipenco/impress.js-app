@@ -44,7 +44,11 @@ var updatePreview = function () {
         e();
         g();
         h();
-    });  
+    });
+
+    var data = presentationData();
+    $.post('/presentation', data) 
+
 };
 
 
@@ -367,10 +371,7 @@ var storeData = function () {
     }
 }
 
-  
-var downloadZip = function () {
-    var button = document.getElementById('download');
-    button.addEventListener('click', function () { 
+var presentationData = function(){
     var data = {
         "num_slides" : getNumberFromShowNum(),
         "layout" : getLayout(),
@@ -384,7 +385,14 @@ var downloadZip = function () {
     for ( var key in dataObject ) {
         data[key] = dataObject[key]
     }
-    post_to_url('/download', data, 'post');
+    return data;
+}
+  
+var downloadZip = function () {
+    var button = document.getElementById('download');
+    button.addEventListener('click', function () { 
+        var data = presentationData();
+        post_to_url('/download', data, 'post');
     }, false)
 }
 
@@ -424,6 +432,27 @@ var storeContentFromContentMode = function () {
 }
 
 
+$(document).on('click', '#login', function(){ 
+      $(window).resize(centerLoginForm);
+      centerLoginForm();
+      var $form = $("#login");
+      $form.show("slow" );
+ });
+
+
+var centerLoginForm =  function () {
+  $("#login").css('left', $(window).width()/2 - $("#login").width()/2);
+}
+
+
+
+$(document).on('click', '#go-to-sign-up', function(){ 
+      $(window).resize(centerLoginForm);
+      centerLoginForm();
+      $("#login").hide();
+      // var $form = $("#sign-up");
+      // $form.show("slow" );
+ });
 
 
 

@@ -19,6 +19,7 @@ ImpressJsApp::Application.routes.draw do
   match 'fontssize'  => 'presentation#fontssize'
 
   resources :users
+  resources :sessions
 
 
   # Sample of named route:

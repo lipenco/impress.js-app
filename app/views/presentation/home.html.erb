@@ -3,12 +3,13 @@
    <%= stylesheet_link_tag  "application", :media => "all" %>
    <%= javascript_include_tag "application" %>
    <%= csrf_meta_tags %> 
-
 </head>
 <body>
+
+   <%= render "sessions/login" %>
+
    <div id="data-store"></div>
-   <div class="header">
-      <div class="navbar navbar-fixed-top">
+      <div class="navbar">
          <div class="navbar-inner">
             <div class="container">
                <a class="brand" href="/index.html">Impress Lab</a> 
@@ -22,11 +23,17 @@
                   <li class="">
                      <a href="./customize.html">About</a>
                   </li>
+                  <li class="offset5">
+                  <% unless logged_in? %>  
+                        <a id="login">Log In</a>
+                  <% else %>
+                     <%= link_to "log out", session_path(session), method: "delete" %>
+                  <% end %>
+                  </li>
                </ul>
-            </div>
-         </div>
+               
+            </div>           
       </div>
-   </div>
    <div class="container-fluid">
       <div class="row-fluid">
          <div class="span2 ">
@@ -115,7 +122,7 @@
          </div>
 
          <div class="span10">
-            <iframe  id="preview" />
+            <iframe  id="preview" src="/presentation" />
          </div>
        
       </div>
