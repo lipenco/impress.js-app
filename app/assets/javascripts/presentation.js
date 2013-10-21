@@ -40,7 +40,9 @@ var updatePreview = function () {
         
     });
     $("#content-mode").click(function () {
+      setTimeout(function () {
         post_to_iframe('/content', data, 'post');
+        }, 400);
         e();
         g();
         h();
