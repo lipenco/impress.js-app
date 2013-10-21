@@ -13,7 +13,7 @@ $(document).ready(function () {
 var updatePreview = function () {
     setTimeout(function () {
         postData();
-    }, 4);
+    }, 1000);
     f();
     var num_slides = getNumberFromShowNum();
     var layout = getLayout();
@@ -33,7 +33,9 @@ var updatePreview = function () {
     var data = presentationData();
 
     $("#style-mode").click(function () {
+      setTimeout(function () {
         post_to_iframe('/presentation', data, 'post');
+       }, 1500);
         f();
         d();
         deleteWrapper();   
@@ -42,7 +44,7 @@ var updatePreview = function () {
     $("#content-mode").click(function () {
       setTimeout(function () {
         post_to_iframe('/content', data, 'post');
-        }, 400);
+      }, 1500);
         e();
         g();
         h();
