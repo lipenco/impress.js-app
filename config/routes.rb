@@ -18,6 +18,8 @@ ImpressJsApp::Application.routes.draw do
   match 'fonts'  => 'presentation#fonts'
   match 'fontssize'  => 'presentation#fontssize'
 
+  match 'save_presentation' => 'presentation#save'
+
   resources :users
   resources :sessions
 

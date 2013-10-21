@@ -4,7 +4,7 @@ class PresentationController < ApplicationController
   layout "application", except: [:build]
 
   def build
-    @num_slides = 0
+    @num_slides = 8
     @num_slides = params[:num_slides].to_i if params[:num_slides].to_i > 0
     @layout = "vertical"
     @layout = params[:layout] if ["vertical", "linear", "circlev1", "circlev2", "circlev3", "circlev4", "chain", "lineargrid", "snakegrid", "verticalgrid", "deep"].include?(params[:layout])
@@ -31,6 +31,12 @@ class PresentationController < ApplicationController
     @background = params[:background] 
     @wallpaper = params[:wallpaper] 
     @text = params[:text] 
+  end
+
+  def save
+    if logged_in?
+      Presentation.create(user: session[:user_id], data: params.to_yaml)
+    end
   end
 
   def home

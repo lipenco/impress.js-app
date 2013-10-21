@@ -6,6 +6,8 @@ $(document).ready(function () {
     downloadZip();
     animateNumberOfSlides();
     d(); 
+     var data = presentationData(); 
+     post_to_iframe('/presentation', data, 'post'); 
 }); 
 
 var updatePreview = function () {
@@ -13,7 +15,6 @@ var updatePreview = function () {
         postData();
     }, 1000);
     f();
-    downloadZip();
     var num_slides = getNumberFromShowNum();
     var layout = getLayout();
     var shape = getShape();
@@ -28,28 +29,48 @@ var updatePreview = function () {
         "&theme=" + theme +
         "&substeps=" + substeps +
         "&progress_bar=" + progress_bar;
+    
+    var data = presentationData();
 
-    if (document.getElementById("preview") !== null) {
-        document.getElementById("preview").src = "presentation" + source;
-    }
     $("#style-mode").click(function () {
-        document.getElementById("preview").src = "presentation" + source;
+        post_to_iframe('/presentation', data, 'post');
         f();
         d();
         deleteWrapper();   
         
     });
     $("#content-mode").click(function () {
-        document.getElementById("preview").src = "content" + source;
+        post_to_iframe('/content', data, 'post');
         e();
         g();
         h();
     });
-
     var data = presentationData();
-    $.post('/presentation', data) 
-
+    post_to_iframe('/presentation', data, 'post');  
 };
+
+ var post_to_iframe = function(path, params, method) {
+        method = method || "post"; 
+        var form = document.createElement("form");
+        form.setAttribute("method", method);
+        form.setAttribute("action", path);
+
+        for(var key in params) {
+            if(params.hasOwnProperty(key)) {
+                var hiddenField = document.createElement("input");
+                hiddenField.setAttribute("type", "hidden");
+                hiddenField.setAttribute("name", key);
+                hiddenField.setAttribute("value", params[key]);
+
+                form.appendChild(hiddenField);
+             }
+        }
+    var x = document.getElementById("preview");
+    var y = (x.contentWindow || x.contentDocument);
+    var body = y.document.querySelector("body");
+    body.appendChild(form);
+        form.submit();
+}
 
 
 
