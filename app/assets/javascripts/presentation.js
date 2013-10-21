@@ -11,9 +11,7 @@ $(document).ready(function () {
 }); 
 
 var updatePreview = function () {
-    setTimeout(function () {
-        postData();
-    }, 1000);
+    var data = presentationData();
     f();
     var num_slides = getNumberFromShowNum();
     var layout = getLayout();
@@ -33,23 +31,18 @@ var updatePreview = function () {
     var data = presentationData();
 
     $("#style-mode").click(function () {
-      setTimeout(function () {
-        post_to_iframe('/presentation', data, 'post');
-       }, 1500);
+        document.getElementById("preview").src = '/presentation';
         f();
         d();
         deleteWrapper();   
         
     });
     $("#content-mode").click(function () {
-      setTimeout(function () {
         post_to_iframe('/content', data, 'post');
-      }, 1500);
         e();
         g();
         h();
     });
-    var data = presentationData();
     post_to_iframe('/presentation', data, 'post');  
 };
 
