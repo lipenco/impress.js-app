@@ -280,42 +280,45 @@ $(document).on('click', '.icon-layer-down2', function() {
  });
 
 $(document).on('click', '.font2', function() { 
-  $('.fonts-size-container').hide();
-  if ( !$(this).hasClass("active") ) {
-      $(this).addClass("active");
-         if ( !$(".fonts-container").hasClass("active") ) {
-            $(this).parent().append("<div class='fonts-container no-edit'></div>");
-            $(".fonts-container").load("/fonts.html", null,
+   $('.fonts-size-container').hide(); 
+     var $this_container = $(this).parent().find(".fonts-container"); 
+    if ( !$(this).hasClass("active") ) {
+        $(this).addClass("active"); 
+        if ( !$this_container.hasClass("active")) {
+            $(this).parent().append("<div class='fonts-container'></div>");    
+            $(this).parent().find(".fonts-container").load("/fonts.html", null,
             function (responseText, status, response) {});
-            $(".fonts-container").addClass("active");
+            $this_container.addClass("active");
         } else {
-          $('.fonts-container').css("display" , "block");
+            $this_container.css("display" , "block");
         }
     } else {
-       $('.fonts-container').hide("slow");
-       $(this).removeClass("active");
-    } 
- });
+        $this_container.hide("slow");
+        $(this).removeClass("active");
+    }   
+});
 
 
 $(document).on('click', '.icon-font-size', function() { 
    $('.fonts-container').hide();
+   var $this_container = $(this).parent().find(".fonts-size-container");
    if ( !$(this).hasClass("active") ) {
-      $(this).addClass("active");
-         if ( !$(".fonts-size-container").hasClass("active") ) {
-            $(this).parent().append("<div class='fonts-size-container no-edit'></div>");
-            $(".fonts-size-container").load("/fontssize.html", null,
+        $(this).addClass("active"); 
+        if ( !$this_container.hasClass("active")) {
+            $(this).parent().append("<div class='fonts-size-container'></div>");    
+            $(this).parent().find(".fonts-size-container").load("/fontssize.html", null,
             function (responseText, status, response) {});
-            $(".fonts-size-container").addClass("active");
+            $this_container.addClass("active");
         } else {
-          $('.fonts-size-container').css("display" , "block");
+            $this_container.css("display" , "block");
         }
     } else {
-       $('.fonts-size-container').hide("slow");
-       $(this).removeClass("active");
-    } 
-  
- });
+        $this_container.hide("slow");
+        $(this).removeClass("active");
+    }   
+}); 
+
+
 
 $(document).on('click', '.fonts-size-container ul li', function(){  
     var $el = $(this);
