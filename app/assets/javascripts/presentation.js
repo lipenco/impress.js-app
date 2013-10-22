@@ -6,28 +6,10 @@ $(document).ready(function () {
     downloadZip();
     animateNumberOfSlides();
     d(); 
-     var data = presentationData(); 
-     post_to_iframe('/presentation', data, 'post'); 
 }); 
 
 var updatePreview = function () {
-    var data = presentationData();
-    f();
-    var num_slides = getNumberFromShowNum();
-    var layout = getLayout();
-    var shape = getShape();
-    var automated = getAuto();
-    var theme = getTheme();
-    var substeps = getSubsteps();
-    var progress_bar = getProgressBar();
-    var source = "?layout=" + layout +
-        "&num_slides=" + num_slides +
-        "&shape=" + shape +
-        "&automated=" + automated +
-        "&theme=" + theme +
-        "&substeps=" + substeps +
-        "&progress_bar=" + progress_bar;
-    
+    f(); 
     var data = presentationData();
 
     $("#style-mode").click(function () {
@@ -116,7 +98,7 @@ var setContent = function () {
     style_mode.addEventListener('click', function () {
         setTimeout(function () {
             postData();  
-        }, 1000);
+        }, 10);
     }, false);
 }
 

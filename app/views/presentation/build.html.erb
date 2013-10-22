@@ -59,7 +59,7 @@
     <% if @background.nil? %>
        <div class="step <%= @shape_class %>" id="<%=n%>-slide">
      <% else  %>
-      <div class="step <%= @shape_class %>" style="background-image: <%= @background[n.to_s].html_safe %>" id="<%=n%>-slide">
+      <div class="step <%= @shape_class %>" style="background-image: <%= @background[n.to_s] %>" id="<%=n%>-slide">
     <% end %>
   
        
