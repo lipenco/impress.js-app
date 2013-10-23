@@ -298,6 +298,17 @@ var eventsListeners = function () {
         }, false);
     };
 
+    var $form = $("#login");
+    $(document).on('click', '#login-btn', function () { 
+        // $(window).resize(centerLoginForm);
+        // centerLoginForm();   
+        $form.show("slow");
+        $('#loginUsername').focus();
+    }).on('focusout', function (){
+      $form.hide("slow");
+    });
+
+
     document.addEventListener("keydown", function (event) {
         if (event.keyCode === 9 || (event.keyCode >= 32 && event.keyCode <= 34) || (event.keyCode >= 37 && event.keyCode <= 40)) {
             setFocusOnIframe();
@@ -432,12 +443,9 @@ var storeContentFromContentMode = function () {
 }
 
 
-$(document).on('click', '#login', function(){ 
-      $(window).resize(centerLoginForm);
-      centerLoginForm();
-      var $form = $("#login");
-      $form.show("slow" );
- });
+
+
+
 
 
 var centerLoginForm =  function () {
@@ -453,6 +461,8 @@ $(document).on('click', '#go-to-sign-up', function(){
       // var $form = $("#sign-up");
       // $form.show("slow" );
  });
+
+
 
 
 

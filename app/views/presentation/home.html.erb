@@ -25,7 +25,7 @@
                   </li>
                   <li class="offset5">
                   <% unless logged_in? %>  
-                        <a id="login">Log In</a>
+                        <a id="login-btn">Log In</a>
                   <% else %>
                      <%= link_to "log out", session_path(session), method: "delete" %>
                   <% end %>
