@@ -19,9 +19,10 @@ class PresentationController < ApplicationController
     render action: :new
   end
   
-  # def destroy
-  #   current_presentation.destroy
-  # end
+  def destroy
+    current_presentation.destroy
+    redirect_to home_path(p)
+  end
 
   def show
     render action: :new

@@ -24,6 +24,7 @@ ImpressJsApp::Application.routes.draw do
   resources :sessions
 
   post '/presentation/new', to: 'presentation#new'
+
   resources :presentation
 
   # Sample of named route:

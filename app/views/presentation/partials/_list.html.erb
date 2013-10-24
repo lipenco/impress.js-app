@@ -7,7 +7,8 @@
     <% @presentations.each do |p| %> 
      <a >  <%= p.id %>
       <a href="<%= presentation_path(p) %>" target="_blank" class="action"> Show </a> 
-      <a class="action"> Remove </a>  
+      <%= link_to "Delete", p, method: :delete %>
+    <!--   <a class="action"> Remove </a>   -->
       <a class="action"> Edit </a>  
     </a>
 
