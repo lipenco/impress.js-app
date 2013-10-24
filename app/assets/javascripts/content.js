@@ -98,7 +98,16 @@ $(document).on('click', '.add-wallpaper', function(event){
       $(this).removeClass("active");
     } 
     return false;
+}).on('click', function (e){
+      event.target = $(".step");
+      $(".images-absolute").hide("slow");
+     $('.add-wallpaper').removeClass("active");
 });
+
+
+$(".slide").on('click', function (){
+     $(".images-absolute").hide("slow");
+  });
 
 $(document).on('click', '.add-background', function(event){ 
    $(".images").hide();
