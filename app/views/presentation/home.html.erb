@@ -3,13 +3,19 @@
    <%= stylesheet_link_tag  "application", :media => "all" %>
    <%= javascript_include_tag "application" %>
    <%= csrf_meta_tags %> 
+  
 </head>
 <body>
 
    <%= render "sessions/login" %>
-   <%= render "presentation/partials/list" %>
+
+   <% if logged_in? %> 
+     <%= render "presentation/partials/list" %>
+   <% end %>  
+<div class="page-wrap">
 
    <div id="data-store"></div>
+   
       <div class="navbar">
          <div class="navbar-inner">
             <div class="container">
@@ -24,16 +30,30 @@
                   <li class="">
                      <a href="./customize.html">About</a>
                   </li>
-                  <li class="">
-                     <a id="presentations-list-btn">My presentations</a>
-                  </li>
-                  <li class="offset5">
+                <% if logged_in? %> 
+                   <li class="open-menu">  <a href="#pres-listing">
+                           My Presentations
+                         </a>
+                  <li id="close-menu"> <a href="#">
+                          My Presentations 
+                          </a>
+                  </li> 
+                <% end %>
+
+     <!--        <li class="open-menu"> ☰</li> -->   
+               
                   <% unless logged_in? %>  
-                        <a id="login-btn">Log In</a>
+                      <li class="open-login-menu"><a href="#login-nav">
+                           Log In</a>
+                        </li>
+                      <li id="close-login-menu"><a href="#">
+                           close</a>
+                        </li>
+                      <!--   <a id="login-btn">Log In</a> -->
                   <% else %>
-                     <%= link_to "log out", session_path(session), method: "delete" %>
+                    <li> <%= link_to "log out", session_path(session), method: "delete" %></li>
                   <% end %>
-                  </li>
+                  
 
                </ul>
                
@@ -134,7 +154,8 @@
          </div>
        
       </div>
-
+       </div>
    </div>
- 
+      </div>
+   </div>
 </body>

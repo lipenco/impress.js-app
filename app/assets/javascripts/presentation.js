@@ -405,13 +405,7 @@ var savePresentation = function () {
     }, false)
 }
 
-// var showPresentation = function () {
-//     var button = document.querySelectorAll('show-persentation');
-//     button.addEventListener('click', function () { 
-//         var data = presentationData();
-//         post_to_iframe('/presentation', data, 'post');
-//     }, false)
-// }
+
   
 var downloadZip = function () {
     var button = document.getElementById('download');
@@ -457,26 +451,26 @@ var storeContentFromContentMode = function () {
 }
 
 
-  $(document).on('click', '#login-btn', function () { 
-        var $form = $("#login");
-        $(window).resize(centerLoginForm);
-        centerLoginForm();   
-        $form.show("slow");
-        $form.focus();
-    });
+  // $(document).on('click', '#login-btn', function () { 
+  //       var $form = $("#login");
+  //       $(window).resize(centerLoginForm);
+  //       centerLoginForm();   
+  //       $form.show("slow");
+  //       $form.focus();
+  //   });
 
-$(document).on('click', '#presentations-list-btn', function () { 
-    var $div = $("#presentation-list");
-    $(window).resize(centerLoginForm);
-    centerLoginForm();   
-    $div.show("slow");
-});
+// $(document).on('click', '#presentations-list-btn', function () { 
+//     var $div = $("#presentation-list");
+//     $(window).resize(centerLoginForm);
+//     centerLoginForm();   
+//     $div.show("slow");
+// });
 
 
- $(document).on('click', '.fa-times', function () { 
-     var $form = $("#login");
-     $form.hide("slow");
- });
+ // $(document).on('click', '.fa-times', function () { 
+ //     var $form = $("#login");
+ //     $form.hide("slow");
+ // });
 
 
 var centerLoginForm =  function () {

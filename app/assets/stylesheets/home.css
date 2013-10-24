@@ -364,13 +364,9 @@ nav ul li:active {
 .fa-times {
   position: absolute;
   top:10px;
-  right: 20px;
+  right: 15px;
   color: #000;
-  font-size: 2em;
-  width: 20px;
-  height: 20px;
-  background: url('/assets/Delete.png');
-  z-index: 999999;
+  font-size: 1.5em;
 }
 
 
@@ -546,12 +542,11 @@ nav ul li:active {
 
 form#login {
   position: absolute;
-  display: none;
   top: 0;
   text-align: center;
-  width: 19em;
-  margin-top: 3em;
-  border-radius: 8px;
+  width: 74%;
+  height: 100%;
+  border-radius: 0;
   padding: 2.5em;
   background-color: #fff;
   background-color: rgba(255,255,255,1);
@@ -564,25 +559,7 @@ form#login {
   z-index: 10000;
 }
 
-#presentation-list {
-  position: absolute;
-  display: none;
-  top: 0;
-  text-align: center;
-  width: 29em;
-  margin-top: 3em;
-  border-radius: 8px;
-  padding: 2.5em;
-  background-color: #fff;
-  background-color: rgba(255,255,255,1);
-  text-align: center;
-  box-shadow: 0 0 24px rgba(0,0,0,0.333);
-  -webkit-transition: opacity 0.8s ease-in-out, -webkit-transform 0.8s ease-in-out;
-  -moz-transition: opacity 0.8s ease-in-out, -moz-transform 0.8s ease-in-out;
-  -ms-transition: opacity 0.8s ease-in-out, -ms-transform 0.8s ease-in-out;
-  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
-  z-index: 10000;
-}
+
 
 form#login h2 {
     margin: -1em 0 0.4em 0;
@@ -719,6 +696,72 @@ color: #7f7f7f;
 }
 
 
+.page-wrap {
+  float: right;
+  width: 100%;
+  transition: width 0.3s ease;
+}
+
+.main-nav, #login-nav {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background: #3B3B3B;
+  overflow-y: auto;
+  border-radius: 0;
+  transition: width 0.3s ease;
+}
+.main-nav a {
+  display: inline-block;
+  background: linear-gradient(#3e3e3e, #383838);
+  border-top: 1px solid #484848;
+  border-bottom: 1px solid #2E2E2E;
+  color: white;
+  padding: 10px;
+  width: 40px;
+}
+
+.main-nav a .actions {
+  display: inline-block;
+  width: 25%;
+  padding: 10px;
+  border-radius: 0;
+  opacity: 0.8;
+  background: linear-gradient(#3e3e3e, #383838);
+  border-top: 1px solid #484848;
+  border-bottom: 1px solid #2E2E2E;
+}
+
+.main-nav  #close-listing {
+  display: block;
+  width: 80%;
+  text-align: right;
+}
+
+
+
+.main-nav a:hover, .main-nav a:focus {
+  background: linear-gradient(#484848, #383838);
+}
+
+#close-menu, #close-login-menu {
+  display: none;
+}
+
+#pres-listing:target, #login-nav:target {
+  width: 20%;
+}
+
+#pres-listing:target + .page-wrap, #login-nav:target + .page-wrap {
+  width: 80%;
+}
+#pres-listing:target + .page-wrap .open-menu, #login-nav:target + .page-wrap .open-login-menu {
+  display: none;
+}
+#pres-listing:target + .page-wrap #close-menu, #login-nav:target + .page-wrap #close-login-menu {
+  display: block;
+}
 
 
 

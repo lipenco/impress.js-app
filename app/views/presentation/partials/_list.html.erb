@@ -1,12 +1,17 @@
   
-  <div id="presentation-list">
-    <ul>
+
+  <nav class="main-nav" id="pres-listing">
+
+     <a href="#" id="close-listing"> ☰ </a>
+ 
     <% @presentations.each do |p| %> 
-     <li>  <%= p.id %>
-      <div class="btn show-persentation"><a href="<%= presentation_path(p) %>" target="_blank"> Show </a></div> 
-      <div class="btn"> Remove </div> 
-      <div class="btn"> Edit </div> 
-    </li>
+     <a >  <%= p.id %>
+      <a href="<%= presentation_path(p) %>" target="_blank" class="action"> Show </a> 
+      <a class="action"> Remove </a>  
+      <a class="action"> Edit </a>  
+    </a>
+
     <% end %>
-   </ul>
-  </div>
+
+
+</nav>

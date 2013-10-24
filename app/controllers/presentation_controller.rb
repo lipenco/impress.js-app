@@ -19,8 +19,9 @@ class PresentationController < ApplicationController
     render action: :new
   end
   
-  def destroy
-  end
+  # def destroy
+  #   current_presentation.destroy
+  # end
 
   def show
     render action: :new
@@ -35,7 +36,9 @@ class PresentationController < ApplicationController
   end
 
   def home
-    @presentations = current_user.presentations
+    if logged_in?
+      @presentations = current_user.presentations
+    end
   end
 
   def dashboard
