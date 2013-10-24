@@ -357,6 +357,18 @@ nav ul li:active {
 
 }
 
+.fa-times {
+  position: absolute;
+  top:10px;
+  right: 20px;
+  color: #000;
+  font-size: 2em;
+  width: 20px;
+  height: 20px;
+  background: url('/assets/Delete.png');
+  z-index: 999999;
+}
+
 
 .images {
  /* position: absolute;

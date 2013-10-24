@@ -298,15 +298,8 @@ var eventsListeners = function () {
         }, false);
     };
 
-    var $form = $("#login");
-    $(document).on('click', '#login-btn', function () { 
-        // $(window).resize(centerLoginForm);
-        // centerLoginForm();   
-        $form.show("slow");
-        $('#loginUsername').focus();
-    }).on('focusout', function (){
-      $form.hide("slow");
-    });
+    
+
 
 
     document.addEventListener("keydown", function (event) {
@@ -443,9 +436,19 @@ var storeContentFromContentMode = function () {
 }
 
 
+  $(document).on('click', '#login-btn', function () { 
+        var $form = $("#login");
+        $(window).resize(centerLoginForm);
+        centerLoginForm();   
+        $form.show("slow");
+        $form.focus();
+    });
 
 
-
+ $(document).on('click', '.fa-times', function () { 
+     var $form = $("#login");
+     $form.hide("slow");
+ });
 
 
 var centerLoginForm =  function () {
