@@ -1,0 +1,12 @@
+  
+  <div id="presentation-list">
+    <ul>
+    <% @presentations.each do |p| %> 
+     <li>  <%= p.id %>
+      <div class="btn show-persentation"><a href="<%= presentation_path(p) %>" target="_blank"> Show </a></div> 
+      <div class="btn"> Remove </div> 
+      <div class="btn"> Edit </div> 
+    </li>
+    <% end %>
+   </ul>
+  </div>

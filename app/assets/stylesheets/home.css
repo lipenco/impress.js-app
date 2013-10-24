@@ -249,6 +249,10 @@ transition: color 0.3s linear;
   font-size: 25px;
 }
 
+.download {
+  margin-top: 5px;
+}
+
 .download:after {
      content: "\f0ed";
      font-family:'FontAwesome';
@@ -546,6 +550,26 @@ form#login {
   top: 0;
   text-align: center;
   width: 19em;
+  margin-top: 3em;
+  border-radius: 8px;
+  padding: 2.5em;
+  background-color: #fff;
+  background-color: rgba(255,255,255,1);
+  text-align: center;
+  box-shadow: 0 0 24px rgba(0,0,0,0.333);
+  -webkit-transition: opacity 0.8s ease-in-out, -webkit-transform 0.8s ease-in-out;
+  -moz-transition: opacity 0.8s ease-in-out, -moz-transform 0.8s ease-in-out;
+  -ms-transition: opacity 0.8s ease-in-out, -ms-transform 0.8s ease-in-out;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  z-index: 10000;
+}
+
+#presentation-list {
+  position: absolute;
+  display: none;
+  top: 0;
+  text-align: center;
+  width: 29em;
   margin-top: 3em;
   border-radius: 8px;
   padding: 2.5em;

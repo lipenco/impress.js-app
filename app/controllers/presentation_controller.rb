@@ -2,44 +2,40 @@ require 'zip'
 
 class PresentationController < ApplicationController
   layout "application", except: [:build]
+  before_filter :load_presentation_from_params, only: %w(new download content)
+  before_filter :load_presentation_from_database, only: %w(show edit)
 
-  def build
-    @num_slides = 8
-    @num_slides = params[:num_slides].to_i if params[:num_slides].to_i > 0
-    @layout = "vertical"
-    @layout = params[:layout] if ["vertical", "linear", "circlev1", "circlev2", "circlev3", "circlev4", "chain", "lineargrid", "snakegrid", "verticalgrid", "deep"].include?(params[:layout])
-
-    if params[:shape] == "rectangle"
-      @shape_class = "slide"
-    elsif params[:shape] == "circle"
-      @shape_class = "slide-circle"
-    else 
-      @shape_class = ""
-    end
-
-    @automated = "false"
-    @automated = params[:automated] if ["false", "true"].include?(params[:automated])
-    @theme = "basic"
-    @theme = params[:theme] if ["basic", "textured"].include?(params[:theme])
-    @substeps = "false"
-    @substeps = params[:substeps] if ["false", "true"].include?(params[:substeps])
-    @progress_bar = "no-pbar"
-    @progress_bar = params[:progress_bar] if ["no-pbar", "pbar1"].include?(params[:progress_bar])
-
-    @example_slides = %w{title ollist ullist paragraph substeps blockquote align colors}
-    @content = params[:content]
-    @background = params[:background] 
-    @wallpaper = params[:wallpaper] 
-    @text = params[:text] 
+  def new
   end
 
-  def save
+  def create
     if logged_in?
-      Presentation.create(user: session[:user_id], data: params.to_yaml)
+      presentation = current_user.presentations.create data: params.to_yaml
+      redirect_to edit_presentation_path(presentation)
     end
+  end
+
+  def edit
+    render action: :new
+  end
+  
+  def destroy
+  end
+
+  def show
+    render action: :new
+  end
+
+  def list
+    @presentations = current_user.presentations
+  end
+
+  def update
+    current_presentation.update_attributes(data: params.to_yaml)
   end
 
   def home
+    @presentations = current_user.presentations
   end
 
   def dashboard
@@ -67,12 +63,10 @@ class PresentationController < ApplicationController
   end
 
   def content
-    build
   end
 
   def download
-    build
-    data = render_to_string :build
+    data = render_to_string :new
     data.gsub!('<script src="/', '<script src="./')
     data.gsub!('<link href="/', '<link href="./')
 
@@ -136,5 +130,51 @@ class PresentationController < ApplicationController
     binary_zip = zip.sysread
 
     send_data(binary_zip, {filename: "impress-customized.zip"})
+  end
+
+  private
+  def load_presentation_from_params
+    @num_slides = 8
+    @num_slides = params[:num_slides].to_i if params[:num_slides].to_i > 0
+    @layout = "vertical"
+    @layout = params[:layout] if ["vertical", "linear", "circlev1", "circlev2", "circlev3", "circlev4", "chain", "lineargrid", "snakegrid", "verticalgrid", "deep"].include?(params[:layout])
+
+    if params[:shape] == "rectangle"
+      @shape_class = "slide"
+    elsif params[:shape] == "circle"
+      @shape_class = "slide-circle"
+    else 
+      @shape_class = ""
+    end
+
+    @automated = "false"
+    @automated = params[:automated] if ["false", "true"].include?(params[:automated])
+    @theme = "basic"
+    @theme = params[:theme] if ["basic", "textured"].include?(params[:theme])
+    @substeps = "false"
+    @substeps = params[:substeps] if ["false", "true"].include?(params[:substeps])
+    @progress_bar = "no-pbar"
+    @progress_bar = params[:progress_bar] if ["no-pbar", "pbar1"].include?(params[:progress_bar])
+
+    @example_slides = %w{title ollist ullist paragraph substeps blockquote align colors}
+    @content = params[:content]
+    @background = params[:background] 
+    @wallpaper = params[:wallpaper] 
+    @text = params[:text] 
+  end
+
+  def load_presentation_from_database
+    @num_slides = presentation_data[:num_slides].to_i
+    @layout =  presentation_data[:layout]
+    @shape_class = presentation_data[:shape_class]
+    @automated =  presentation_data[:automated]
+    @theme =  presentation_data[:theme]
+    @substeps =  presentation_data[:substeps]
+    @progress_bar =  presentation_data[:progress_bar]
+    @example_slides =  presentation_data[:example_slides] || %w{title ollist ullist paragraph substeps blockquote align colors}
+    @content =  presentation_data[:content]
+    @background =  presentation_data[:background]
+    @wallpaper =  presentation_data[:wallpaper]
+    @text =  presentation_data[:text]
   end
 end

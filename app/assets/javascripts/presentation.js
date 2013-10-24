@@ -4,6 +4,7 @@ $(document).ready(function () {
     setContent();
     getContentBackToEditor();
     downloadZip();
+    savePresentation();
     animateNumberOfSlides();
     d(); 
 }); 
@@ -13,19 +14,20 @@ var updatePreview = function () {
     var data = presentationData();
 
     $("#style-mode").click(function () {
-        document.getElementById("preview").src = '/presentation';
+        document.getElementById("preview").src = '/presentation/new';
         f();
         d();
         deleteWrapper();   
         
     });
     $("#content-mode").click(function () {
+        // document.getElementById("preview").src = '/content';
         post_to_iframe('/content', data, 'post');
         e();
         g();
         h();
     });
-    post_to_iframe('/presentation', data, 'post');  
+    post_to_iframe('/presentation/new', data, 'post');  
 };
 
  var post_to_iframe = function(path, params, method) {
@@ -44,6 +46,9 @@ var updatePreview = function () {
                 form.appendChild(hiddenField);
              }
         }
+        var athenticationToken = $(document).find('input[name=authenticity_token]');
+        athenticationToken.clone().appendTo(form);
+
     var x = document.getElementById("preview");
     var y = (x.contentWindow || x.contentDocument);
     var body = y.document.querySelector("body");
@@ -391,6 +396,22 @@ var presentationData = function(){
     }
     return data;
 }
+
+var savePresentation = function () {
+    var button = document.getElementById('save-presentation');
+    button.addEventListener('click', function () { 
+        var data = presentationData();
+        post_to_iframe('/presentation', data, 'post');
+    }, false)
+}
+
+// var showPresentation = function () {
+//     var button = document.querySelectorAll('show-persentation');
+//     button.addEventListener('click', function () { 
+//         var data = presentationData();
+//         post_to_iframe('/presentation', data, 'post');
+//     }, false)
+// }
   
 var downloadZip = function () {
     var button = document.getElementById('download');
@@ -443,6 +464,13 @@ var storeContentFromContentMode = function () {
         $form.show("slow");
         $form.focus();
     });
+
+$(document).on('click', '#presentations-list-btn', function () { 
+    var $div = $("#presentation-list");
+    $(window).resize(centerLoginForm);
+    centerLoginForm();   
+    $div.show("slow");
+});
 
 
  $(document).on('click', '.fa-times', function () { 

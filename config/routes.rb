@@ -6,7 +6,7 @@ ImpressJsApp::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
-  match 'presentation' => 'presentation#build'
+  # match 'presentation' => 'presentation#new'
   match 'download' => 'presentation#download'
   match 'components' => 'presentation#components'
   match 'content' => 'presentation#content'
@@ -18,11 +18,13 @@ ImpressJsApp::Application.routes.draw do
   match 'fonts'  => 'presentation#fonts'
   match 'fontssize'  => 'presentation#fontssize'
 
-  match 'save_presentation' => 'presentation#save'
+  # match 'save_presentation' => 'presentation#save'
 
   resources :users
   resources :sessions
 
+  post '/presentation/new', to: 'presentation#new'
+  resources :presentation
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
