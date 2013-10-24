@@ -37,6 +37,7 @@ line-height: 1.4;
   position: fixed;
   width: 82%;
   height: 94%;
+  margin-left: 190px;
   -webkit-transition: border linear 0.2s,box-shadow linear 0.2s;
 -moz-transition: border linear 0.2s,box-shadow linear 0.2s;
 -ms-transition: border linear 0.2s,box-shadow linear 0.2s;
@@ -92,7 +93,8 @@ font-weight: 600;
 }
 
 .mode {
-  border: 2px solid #389646;
+
+ border: 1px solid #389646;
   width: 100%;
   margin: 0 auto;
   height: 39px;
@@ -103,11 +105,11 @@ font-weight: 600;
   font-weight: 600;
   color: #000;
 
-  -webkit-transition: all 1.5s ease;
--moz-transition: all 1.5s ease;
--o-transition: all 1.5s ease;
--ms-transition: all 1.5s ease;
-transition: all 1.5s ease;
+  -webkit-transition: all 1s ease;
+-moz-transition: all 1s ease;
+-o-transition: all 1s ease;
+-ms-transition: all 1s ease;
+transition: all 1s ease;
 }
 
 ul.modes {
@@ -543,11 +545,12 @@ nav ul li:active {
 form#login {
   position: absolute;
   top: 0;
+  left: 0;
   text-align: center;
-  width: 74%;
-  height: 100%;
+  width: 75%;
+/*  height: 100%;*/
   border-radius: 0;
-  padding: 2.5em;
+  padding: 2em;
   background-color: #fff;
   background-color: rgba(255,255,255,1);
   text-align: center;
@@ -557,13 +560,14 @@ form#login {
   -ms-transition: opacity 0.8s ease-in-out, -ms-transform 0.8s ease-in-out;
   transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
   z-index: 10000;
+  margin-left: 5px;
 }
 
 
 
 form#login h2 {
     margin: -1em 0 0.4em 0;
-    font-weight: 200;
+    font-weight: 100;
     display: block;
     font-size: 2em;
     -webkit-margin-before: 0.67em;
@@ -579,7 +583,7 @@ button.facebookLogin:before {
   position: absolute;
   left: 0;
   top: 0;
-  width: 40px;
+  width: 20%;
   height: 40px;
   border-right: 1px solid rgba(0,0,0,0.25);
   background-image: url('https://di8vc3anm8wl1.cloudfront.net/static/images/facebook_button_icon.d8f746f.png');
@@ -592,11 +596,10 @@ button.facebookLogin:before {
 button {
 position: relative;
 height: 43px;
-width: 15em;
+width: 100%;
 outline: none;
 margin: 0;
 border: 0 none transparent;
-border-radius: 5px;
 padding: 0 1em 0 1em;
 background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0.25)));
 background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.25));
@@ -763,5 +766,13 @@ color: #7f7f7f;
   display: block;
 }
 
+.row-fluid .span2 {
+   width: 200px;
+   position: fixed;
+   padding: 0;
+   height: 100%;
+   overflow-y: scroll;
+   margin: 0;
+}
 
 

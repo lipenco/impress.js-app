@@ -451,32 +451,6 @@ var storeContentFromContentMode = function () {
 }
 
 
-  // $(document).on('click', '#login-btn', function () { 
-  //       var $form = $("#login");
-  //       $(window).resize(centerLoginForm);
-  //       centerLoginForm();   
-  //       $form.show("slow");
-  //       $form.focus();
-  //   });
-
-// $(document).on('click', '#presentations-list-btn', function () { 
-//     var $div = $("#presentation-list");
-//     $(window).resize(centerLoginForm);
-//     centerLoginForm();   
-//     $div.show("slow");
-// });
-
-
- // $(document).on('click', '.fa-times', function () { 
- //     var $form = $("#login");
- //     $form.hide("slow");
- // });
-
-
-var centerLoginForm =  function () {
-  $("#login").css('left', $(window).width()/2 - $("#login").width()/2);
-}
-
 
 
 $(document).on('click', '#go-to-sign-up', function(){ 
