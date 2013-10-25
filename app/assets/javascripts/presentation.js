@@ -19,15 +19,24 @@ var updatePreview = function () {
        post_to_iframe('/presentation/new', data, 'post');
     } else {
        var data = presentationData();
-       post_to_iframe('/presentation/'+presId+'/edit', data, 'get'); 
+       post_to_iframe('/presentation/'+presId+'/edit', data, 'post'); 
     } 
     f(); 
 };
 
 
 $(document).on('click', '#style-mode', function(){ 
+       // var data = presentationData();
+       //  document.getElementById("preview").src = '/presentation/new';
+    var x = document.getElementById("preview");
+    var presId = $(x.contentDocument).find('#id-data').data('presentationid');
+    if (presId == "") {
+        var data = presentationData();
+       post_to_iframe('/presentation/new', data, 'post');
+    } else {
        var data = presentationData();
-        document.getElementById("preview").src = '/presentation/new';
+       post_to_iframe('/presentation/'+presId+'/edit', data, 'post'); 
+    } 
         f();
         d();
         deleteWrapper();  
@@ -455,11 +464,9 @@ var savePresentation = function () {
         var x = document.getElementById("preview");
         current_path = $(document).find('iframe')[0].contentDocument.location.pathname
         var presId = $(x.contentDocument).find('#id-data').data('presentationid');
-        console.log(presId);
         if (presId == "" ) {
             path = "/presentation";
         } else {
-            console.log(presId);
             path = "/presentation/"+presId+"/edit"
         }
         var data = presentationData();

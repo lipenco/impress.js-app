@@ -166,7 +166,6 @@ class PresentationController < ApplicationController
     @background = params[:background] 
     @wallpaper = params[:wallpaper] 
     @text = params[:text] 
-    # @datastore = params[:datastore]
   end
 
   def load_presentation_from_database
@@ -183,6 +182,5 @@ class PresentationController < ApplicationController
     @background =  presentation_data[:background]
     @wallpaper =  presentation_data[:wallpaper]
     @text =  presentation_data[:text]
-    # @datastore = params[:datastore]
   end
 end

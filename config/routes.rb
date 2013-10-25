@@ -24,6 +24,7 @@ ImpressJsApp::Application.routes.draw do
   resources :sessions
 
   post '/presentation/new', to: 'presentation#new'
+  post '/presentation/:id/edit', to: 'presentation#edit'
 
   resources :presentation do
     post '/content', to: 'presentation#content'
