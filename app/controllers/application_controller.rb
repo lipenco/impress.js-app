@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_presentation
-    @current_presentation ||= Presentation.find(params[:id])
+    @current_presentation ||= Presentation.find_by_id(params[:id])
   end
   helper_method :current_presentation
 

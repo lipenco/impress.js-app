@@ -25,7 +25,7 @@
       document.execCommand('defaultParagraphSeparator', false, 'p');
       $(".editor").popline();
       $("body").data("mode", "edit");
-       parent.$("#data-store").data("imageNum", 0 )
+       parent.$("#data-store").data("imageNum", 0 );
     });
 
   WebFontConfig = {
@@ -41,6 +41,7 @@
   </style>
 
 </head>
+<div id="id-data" data-presentationId='<%= @id %>'></div>
  <% if @wallpaper.nil? %>
       <body>
  <% else  %>
@@ -56,15 +57,14 @@
    <div class="add-wallpaper"><i class="icon-desktop"></i></div>
 </nav>
 
-
-
   <div class="container-fluid" id="sortable">
       <% @num_slides.times do |n| %>  
-        <% if @background.nil? %>
-            <div class="step <%= @shape_class %>" id="<%=n%>-slide">
-        <% else  %>
-           <div class="step <%= @shape_class %>" style="background-image: <%= @background[n.to_s].html_safe %>" id="<%=n%>-slide">
-        <% end %>
+
+     <% if @background.nil? %>
+       <div class="step <%= @shape_class %>" id="<%=n%>-slide">
+     <% else  %>
+      <div class="step <%= @shape_class %>" style="background-image: <%= @background[n.to_s] %>" id="<%=n%>-slide">
+    <% end %>
          
         <div class="step-wrapper">
                     

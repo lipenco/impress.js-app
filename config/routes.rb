@@ -25,7 +25,11 @@ ImpressJsApp::Application.routes.draw do
 
   post '/presentation/new', to: 'presentation#new'
 
-  resources :presentation
+  resources :presentation do
+    post '/content', to: 'presentation#content'
+  end
+
+
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

@@ -6,13 +6,13 @@
  
     <% @presentations.each do |p| %> 
      <a >  <%= p.id %>
-      <a href="<%= presentation_path(p) %>" target="_blank" class="action"> Show </a> 
-      <%= link_to "Delete", p, method: :delete %>
-    <!--   <a class="action"> Remove </a>   -->
-      <a class="action"> Edit </a>  
+     <a href="<%= presentation_path(p) %>" target="_blank" class="action"> Show </a> 
+     <%= link_to "Delete", p, method: :delete %>
+     <%= link_to "Edit", edit_presentation_path(p), {target: "preview" } %>
     </a>
 
     <% end %>
+    <%= link_to "New", method: :new %>
 
 
 </nav>

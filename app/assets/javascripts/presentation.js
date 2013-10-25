@@ -7,28 +7,68 @@ $(document).ready(function () {
     savePresentation();
     animateNumberOfSlides();
     d(); 
+    var data = presentationData();
+    post_to_iframe('/presentation/new', data, 'post');  
 }); 
 
 var updatePreview = function () {
+    var x = document.getElementById("preview");
+    var presId = $(x.contentDocument).find('#id-data').data('presentationid');
+    if (presId == "") {
+        var data = presentationData();
+       post_to_iframe('/presentation/new', data, 'post');
+    } else {
+       var data = presentationData();
+       post_to_iframe('/presentation/'+presId+'/edit', data, 'get'); 
+    } 
     f(); 
-    var data = presentationData();
+};
 
-    $("#style-mode").click(function () {
+
+$(document).on('click', '#style-mode', function(){ 
+       var data = presentationData();
         document.getElementById("preview").src = '/presentation/new';
         f();
         d();
-        deleteWrapper();   
-        
-    });
-    $("#content-mode").click(function () {
-        // document.getElementById("preview").src = '/content';
-        post_to_iframe('/content', data, 'post');
+        deleteWrapper();  
+});
+    
+
+
+$(document).on('click', '#content-mode', function(){ 
+    var x = document.getElementById("preview");
+    var presId = $(x.contentDocument).find('#id-data').data('presentationid');
+    if (presId == "") {
+        var data = presentationData();
+        console.log("emptyid");
+       post_to_iframe('/content', data, 'post');
+    } else {
+       postExisitngDataEdit();
+       var data = presentationData();
+       post_to_iframe('/presentation/'+presId+'/content', data, 'post'); 
+    } 
         e();
         g();
         h();
-    });
-    post_to_iframe('/presentation/new', data, 'post');  
-};
+});
+
+// $("#content-mode").click(function () { 
+//     console.log("click")   
+//          // post_to_iframe('/content', data, 'post');
+//          document.getElementById("preview").src = '/content';
+//         // var x = document.getElementById("preview");
+//         // var presId = $(x.contentDocument).find('#id-data').data('presentationid');
+//         // if (presId == "") {
+//         //     console.log("emptyid");
+//         //    post_to_iframe('/content', data, 'post');
+//         // } else {
+//         //    post_to_iframe('/presentation/'+presId+'/content', data, 'post'); 
+//         // } 
+//         e();
+//         g();
+//         h();
+// });
+
 
  var post_to_iframe = function(path, params, method) {
         method = method || "post"; 
@@ -152,6 +192,17 @@ var postDataEdit = function () {
     if (contentObject["wallpaper"] !== undefined) {
     y.$('body').css("background" , "url(" + contentObject["wallpaper"]+ ")" );
     }
+}
+
+var postExisitngDataEdit = function () {
+    var x = document.getElementById("preview");
+    var y = (x.contentWindow || x.contentDocument);
+    // var stepWrapper = y.document.querySelectorAll(".step-wrapper");
+    var steps = y.document.querySelectorAll(".step");
+       for (var i = 0; i < steps.length; i++) {
+         $("#data-store").data("background[" + i + "]", steps[i].style.backgroundImage);
+         $("#data-store").data("content[" + i + "]", steps[i].innerHTML) ;
+       }
 }
 
 
@@ -388,7 +439,8 @@ var presentationData = function(){
         "automated" : getAuto(),
         "theme" : getTheme(),
         "substeps" : getSubsteps(),
-        "progress_bar" : getProgressBar()
+        "progress_bar" : getProgressBar(),
+        "datastore" : JSON.stringify($("#data-store").data()),
     };    
     var dataObject = $("#data-store").data();
     for ( var key in dataObject ) {
@@ -400,8 +452,18 @@ var presentationData = function(){
 var savePresentation = function () {
     var button = document.getElementById('save-presentation');
     button.addEventListener('click', function () { 
+        var x = document.getElementById("preview");
+        current_path = $(document).find('iframe')[0].contentDocument.location.pathname
+        var presId = $(x.contentDocument).find('#id-data').data('presentationid');
+        console.log(presId);
+        if (presId == "" ) {
+            path = "/presentation";
+        } else {
+            console.log(presId);
+            path = "/presentation/"+presId+"/edit"
+        }
         var data = presentationData();
-        post_to_iframe('/presentation', data, 'post');
+        post_to_iframe(path, data, 'post');   
     }, false)
 }
 

@@ -21,7 +21,7 @@ class PresentationController < ApplicationController
   
   def destroy
     current_presentation.destroy
-    redirect_to home_path(p)
+    redirect_to home_path(p, anchor: 'pres-listing')
   end
 
   def show
@@ -138,6 +138,7 @@ class PresentationController < ApplicationController
 
   private
   def load_presentation_from_params
+    @id = params[:id]
     @num_slides = 8
     @num_slides = params[:num_slides].to_i if params[:num_slides].to_i > 0
     @layout = "vertical"
@@ -165,9 +166,11 @@ class PresentationController < ApplicationController
     @background = params[:background] 
     @wallpaper = params[:wallpaper] 
     @text = params[:text] 
+    # @datastore = params[:datastore]
   end
 
   def load_presentation_from_database
+    @id = current_presentation.id
     @num_slides = presentation_data[:num_slides].to_i
     @layout =  presentation_data[:layout]
     @shape_class = presentation_data[:shape_class]
@@ -180,5 +183,6 @@ class PresentationController < ApplicationController
     @background =  presentation_data[:background]
     @wallpaper =  presentation_data[:wallpaper]
     @text =  presentation_data[:text]
+    # @datastore = params[:datastore]
   end
 end

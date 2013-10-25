@@ -13,8 +13,17 @@
      <%= render "presentation/partials/list" %>
    <% end %>  
 <div class="page-wrap">
-
    <div id="data-store"></div>
+   <script type="text/javascript">
+      // var settingDataStore = function() {
+      //    var x = document.getElementById("preview");
+      //    var presId = $(x.contentDocument).find('#id-data').data('presentationid');
+      //    if ( $.isEmptyObject($("#data-store").data()) && (presId !== "") )  {
+      //       console.log("true");
+      //       $('#data-store').data("data","<%= @datastore %>")
+      //    }
+      // }
+   </script>
    
       <div class="navbar">
          <div class="navbar-inner">
@@ -70,7 +79,7 @@
          </div>
             <div class="separator"></div>
             <ul class="modes">
-               <li><a id="style-mode" class="btn-p mode appear" href="#">style mode</a></li>
+               <li><a id="style-mode" class="btn-p mode appear" href="#">style mode</a></li> 
                <li><a id="content-mode" class="mode disappear toggle-buttons">content mode</a></li>
                 <div class="separator"></div>
             </ul>
@@ -150,7 +159,7 @@
          </div>
 
          <div class="span10">
-            <iframe  id="preview" src="/presentation/new" />
+            <iframe name="preview" id="preview" />
          </div>
        
       </div>
