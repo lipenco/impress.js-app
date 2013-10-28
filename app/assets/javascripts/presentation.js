@@ -14,7 +14,7 @@ $(document).ready(function () {
 var updatePreview = function () {
     var x = document.getElementById("preview");
     var presId = $(x.contentDocument).find('#id-data').data('presentationid');
-    if (presId == "") {
+    if (presId ==  "") {
         var data = presentationData();
        post_to_iframe('/presentation/new', data, 'post');
     } else { 
@@ -39,8 +39,8 @@ $(document).on('click', '#style-mode', function(){
        // var data = presentationData();
        //  document.getElementById("preview").src = '/presentation/new';
     var x = document.getElementById("preview");
-    var presId = $(x.contentDocument).find('#id-data').data('presentationid');
-    if (presId == "") {
+    var presId = $(x.contentDocument).find('#id-data').data('presentationid') || $(document).find('iframe')[0].contentDocument.location.pathname.split("/")[2];
+    if (presId == null) {
         var data = presentationData();
        post_to_iframe('/presentation/new', data, 'post');
     } else {
@@ -56,8 +56,8 @@ $(document).on('click', '#style-mode', function(){
 
 $(document).on('click', '#content-mode', function(){ 
     var x = document.getElementById("preview");
-    var presId = $(x.contentDocument).find('#id-data').data('presentationid');
-    if (presId == "") {
+    var presId = $(document).find('iframe')[0].contentDocument.location.pathname.split("/")[2];
+    if (presId == null) {
         var data = presentationData();
         console.log("emptyid");
        post_to_iframe('/content', data, 'post');
