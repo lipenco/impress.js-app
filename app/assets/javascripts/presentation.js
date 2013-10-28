@@ -1,6 +1,6 @@
 $(document).ready(function () {
     eventsListeners();
-    updatePreview();  
+    // updatePreview();  
     setContent();
     getContentBackToEditor();
     downloadZip();
@@ -17,9 +17,19 @@ var updatePreview = function () {
     if (presId == "") {
         var data = presentationData();
        post_to_iframe('/presentation/new', data, 'post');
-    } else {
+    } else { 
+       postExisitngDataEdit();
        var data = presentationData();
-       post_to_iframe('/presentation/'+presId+'/edit', data, 'post'); 
+       // post_to_iframe('/presentation/'+presId+'/edit', data, 'post'); 
+       $.ajax({
+            url: "/presentation/"+presId,
+            type: 'PUT',
+            data: data,
+            success: function(result) {
+              path = "/presentation/"+presId+"/edit"
+              post_to_iframe(path, data, 'post');  
+            }
+        });
     } 
     f(); 
 };

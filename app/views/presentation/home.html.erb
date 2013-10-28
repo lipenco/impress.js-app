@@ -6,14 +6,18 @@
   
 </head>
 <body>
-
+    <% unless @id.nil? %>
+      <div id="id-data" data-presentationId='<%= @id %>'></div>
+   <% end %>  
    <%= render "sessions/login" %>
 
    <% if logged_in? %> 
+
      <%= render "presentation/partials/list" %>
    <% end %>  
 <div class="page-wrap">
    <div id="data-store"></div>
+ <!--   <div id="id-data" data-presentationId='<%= @id %>'></div> -->
    <script type="text/javascript">
       // var settingDataStore = function() {
       //    var x = document.getElementById("preview");

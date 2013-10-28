@@ -2,7 +2,7 @@ require 'zip'
 
 class PresentationController < ApplicationController
   layout "application", except: [:build]
-  before_filter :load_presentation_from_params, only: %w(new download content)
+  before_filter :load_presentation_from_params, only: %w(content download new update)
   before_filter :load_presentation_from_database, only: %w(show edit)
 
   def new
@@ -34,6 +34,7 @@ class PresentationController < ApplicationController
 
   def update
     current_presentation.update_attributes(data: params.to_yaml)
+    render action: :new
   end
 
   def home

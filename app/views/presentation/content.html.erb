@@ -41,12 +41,14 @@
   </style>
 
 </head>
-<div id="id-data" data-presentationId='<%= @id %>'></div>
+ 
  <% if @wallpaper.nil? %>
       <body>
  <% else  %>
     <body style="background-image: url(<%= @wallpaper.html_safe %>)" >
  <% end %>
+
+<!--  <div id="id-data" data-presentationId='<%= @id %>'></div> -->
 
 <nav>
   <ul class="slides-representation">
