@@ -39,8 +39,8 @@ $(document).on('click', '#style-mode', function(){
        // var data = presentationData();
        //  document.getElementById("preview").src = '/presentation/new';
     var x = document.getElementById("preview");
-    var presId = $(x.contentDocument).find('#id-data').data('presentationid') || $(document).find('iframe')[0].contentDocument.location.pathname.split("/")[2];
-    if (presId == null) {
+    var presId =  $(document).find('iframe')[0].contentDocument.location.pathname.split("/")[2];
+    if (presId == null || isNaN(presId)) {
         var data = presentationData();
        post_to_iframe('/presentation/new', data, 'post');
     } else {
