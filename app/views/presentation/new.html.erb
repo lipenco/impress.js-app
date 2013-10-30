@@ -13,10 +13,10 @@
      <%= stylesheet_link_tag "progressbar.css", :media => "all" %>
 
   <% end %>
- 
+  
   <% if @text.nil? %>
       <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Droid+Sans|Lato:400,900' rel='stylesheet' type='text/css'>
-      <link href='http://code.jquery.com/jquery-1.10.2.min.js'>  
+    <!--   <link href='http://code.jquery.com/jquery-1.10.2.min.js'>   -->
   <% else  %>
       <script>
         WebFontConfig = {
@@ -34,6 +34,7 @@
    <% end %>
 
 
+<%= javascript_include_tag "http://code.jquery.com/jquery-1.10.2.min.js" %>
 </head>
  <% if @wallpaper.nil? %>
       <body class="impress-supported">
@@ -95,6 +96,26 @@
   <% end %>
 
 
+<% if @id %>
+  <script>
+     var fillUpData = function() {
+       if ( $.isEmptyObject(parent.$("#data-store").data())) {
+         console.log("empty")
+         parent.$("#data-store").data("wallpaper", "<%= @wallpaper %>" );
+         parent.$("#data-store").data("text", "<%= @text%>" );
+         parent.$("#data-store").data("imageNum", "<%= @imageNum %>" );
+        <% @num_slides.times do |n| %> 
+         parent.$("#data-store").data("background[<%=n%>]", "<%= @background[n.to_s] %>" );
+        <% end %>
+          } else {
+        console.log("notempty");
+        }
+      }
+       fillUpData();
+  </script>
+<% end %>
+
+
 
   <%= javascript_include_tag "impress" %>
   <%= javascript_include_tag "impress-layouts" %>
@@ -128,6 +149,7 @@
     <% if @progress_bar == "pbar1" %>
          progressBar();
     <% end %>
+  
         impress().init();
   </script>
 

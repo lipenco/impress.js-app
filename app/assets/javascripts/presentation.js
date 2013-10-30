@@ -42,14 +42,22 @@ $(document).on('click', '#style-mode', function(){
     var presId =  $(document).find('iframe')[0].contentDocument.location.pathname.split("/")[2];
     if (presId == null || isNaN(presId)) {
         var data = presentationData();
-       post_to_iframe('/presentation/new', data, 'post');
+        post_to_iframe('/presentation/new', data, 'post');
     } else {
        var data = presentationData();
-       post_to_iframe('/presentation/'+presId+'/edit', data, 'post'); 
-    } 
-        f();
-        d();
-        deleteWrapper();  
+       $.ajax({
+            url: "/presentation/"+presId,
+            type: 'PUT',
+            data: data,
+            success: function(result) {
+              path = "/presentation/"+presId+"/edit"
+              post_to_iframe(path, data, 'post');  
+            }
+        });
+      } 
+    f();
+    d();
+    deleteWrapper();  
 });
     
 
@@ -57,12 +65,12 @@ $(document).on('click', '#style-mode', function(){
 $(document).on('click', '#content-mode', function(){ 
     var x = document.getElementById("preview");
     var presId = $(document).find('iframe')[0].contentDocument.location.pathname.split("/")[2];
-    if (presId == null) {
+    if (presId == null || isNaN(presId) ) {
         var data = presentationData();
         console.log("emptyid");
        post_to_iframe('/content', data, 'post');
     } else {
-       postExisitngDataEdit();
+       // postExisitngDataEdit();
        var data = presentationData();
        post_to_iframe('/presentation/'+presId+'/content', data, 'post'); 
     } 
@@ -359,6 +367,7 @@ var deleteWrapper = function () {
     y.$('.ui-resizable-handle').remove();
     y.$('.icon-on-img').remove();
     y.$('.icon-on-edit').remove();
+    y.$('img.icon-on-edit').remove();
     y.$('.no-edit').remove();
 }
 
@@ -472,7 +481,7 @@ var savePresentation = function () {
     var button = document.getElementById('save-presentation');
     button.addEventListener('click', function () { 
         var x = document.getElementById("preview");
-        current_path = $(document).find('iframe')[0].contentDocument.location.pathname
+        // current_path = $(document).find('iframe')[0].contentDocument.location.pathname
         var presId = $(x.contentDocument).find('#id-data').data('presentationid');
         if (presId == "" ) {
             path = "/presentation";
