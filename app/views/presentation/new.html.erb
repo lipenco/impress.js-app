@@ -105,7 +105,9 @@
          parent.$("#data-store").data("text", "<%= @text%>" );
          parent.$("#data-store").data("imageNum", "<%= @imageNum %>" );
         <% @num_slides.times do |n| %> 
-         parent.$("#data-store").data("background[<%=n%>]", "<%= @background[n.to_s] %>" );
+         parent.$("#data-store").data("background[<%=n%>]","<%= @background[n.to_s] %>" );
+         parent.$("#data-store").data("content[<%=n%>]", "<%= @content[n.to_s].squish %>");
+
         <% end %>
           } else {
         console.log("notempty");

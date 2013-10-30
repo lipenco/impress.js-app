@@ -12,6 +12,7 @@ $(document).ready(function () {
 }); 
 
 var updatePreview = function () {
+    deleteWrapper();
     var x = document.getElementById("preview");
     var presId = $(x.contentDocument).find('#id-data').data('presentationid');
     if (presId ==  "") {
@@ -70,8 +71,7 @@ $(document).on('click', '#content-mode', function(){
         console.log("emptyid");
        post_to_iframe('/content', data, 'post');
     } else {
-       postExisitngDataEdit();
-       deleteWrapper();
+       // postExisitngDataEdit();
        var data = presentationData();
        post_to_iframe('/presentation/'+presId+'/content', data, 'post'); 
     } 
@@ -79,24 +79,6 @@ $(document).on('click', '#content-mode', function(){
         g();
         h();
 });
-
-// $("#content-mode").click(function () { 
-//     console.log("click")   
-//          // post_to_iframe('/content', data, 'post');
-//          document.getElementById("preview").src = '/content';
-//         // var x = document.getElementById("preview");
-//         // var presId = $(x.contentDocument).find('#id-data').data('presentationid');
-//         // if (presId == "") {
-//         //     console.log("emptyid");
-//         //    post_to_iframe('/content', data, 'post');
-//         // } else {
-//         //    post_to_iframe('/presentation/'+presId+'/content', data, 'post'); 
-//         // } 
-//         e();
-//         g();
-//         h();
-// });
-
 
  var post_to_iframe = function(path, params, method) {
         method = method || "post"; 
@@ -197,7 +179,7 @@ var getContentBackToEditor = function () {
     content_mode.addEventListener('click', function () {
         setTimeout(function () {
             postDataEdit();
-        }, 1000);
+        }, 500);
     }, false);
 }
 
@@ -208,7 +190,7 @@ var postDataEdit = function () {
     var contentObject = $("#data-store").data();
     if (contentObject["content[0]"] !== undefined) {
        for (var i = 0; i < stepWrapper.length; i++) {
-          stepWrapper[i].innerHTML = contentObject["content[" + i + "]"];
+          stepWrapper[i].innerHTML = $('<div />').html(contentObject["content[" + i + "]"]).text();
        }
     }
     var steps = y.document.querySelectorAll(".step");
@@ -225,7 +207,6 @@ var postDataEdit = function () {
 var postExisitngDataEdit = function () {
     var x = document.getElementById("preview");
     var y = (x.contentWindow || x.contentDocument);
-    // var stepWrapper = y.document.querySelectorAll(".step-wrapper");
     var steps = y.document.querySelectorAll(".step");
        for (var i = 0; i < steps.length; i++) {
          $("#data-store").data("content[" + i + "]", steps[i].innerHTML) ;
