@@ -28,6 +28,7 @@ ImpressJsApp::Application.routes.draw do
 
   resources :presentation do
     post '/content', to: 'presentation#content'
+    post '/:id/content', to: 'presentation#content'
   end
 
 

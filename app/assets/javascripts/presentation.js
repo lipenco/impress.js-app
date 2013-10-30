@@ -1,8 +1,7 @@
 $(document).ready(function () {
     eventsListeners();
-    // updatePreview();  
     setContent();
-    getContentBackToEditor();
+    // getContentBackToEditor();
     downloadZip();
     savePresentation();
     animateNumberOfSlides();
@@ -12,16 +11,13 @@ $(document).ready(function () {
 }); 
 
 var updatePreview = function () {
-    deleteWrapper();
     var x = document.getElementById("preview");
     var presId = $(x.contentDocument).find('#id-data').data('presentationid');
     if (presId ==  "") {
         var data = presentationData();
        post_to_iframe('/presentation/new', data, 'post');
     } else { 
-       postExisitngDataEdit();
        var data = presentationData();
-       // post_to_iframe('/presentation/'+presId+'/edit', data, 'post'); 
        $.ajax({
             url: "/presentation/"+presId,
             type: 'PUT',
@@ -37,8 +33,6 @@ var updatePreview = function () {
 
 
 $(document).on('click', '#style-mode', function(){ 
-       // var data = presentationData();
-       //  document.getElementById("preview").src = '/presentation/new';
     var x = document.getElementById("preview");
     var presId =  $(document).find('iframe')[0].contentDocument.location.pathname.split("/")[2];
     if (presId == null || isNaN(presId)) {
@@ -51,14 +45,17 @@ $(document).on('click', '#style-mode', function(){
             type: 'PUT',
             data: data,
             success: function(result) {
-              path = "/presentation/"+presId+"/edit"
+              path = "/presentation/"+presId+"/edit";
               post_to_iframe(path, data, 'post');  
             }
         });
       } 
     f();
     d();
-    deleteWrapper();  
+    // setTimeout(function () {
+    //         deleteWrapper();
+    //         console.log("detele");
+    // }, 1000);
 });
     
 
@@ -71,7 +68,6 @@ $(document).on('click', '#content-mode', function(){
         console.log("emptyid");
        post_to_iframe('/content', data, 'post');
     } else {
-       // postExisitngDataEdit();
        var data = presentationData();
        post_to_iframe('/presentation/'+presId+'/content', data, 'post'); 
     } 
@@ -79,6 +75,20 @@ $(document).on('click', '#content-mode', function(){
         g();
         h();
 });
+
+var deleteWrapper = function () {
+    var x = document.getElementById("preview");
+    var y = (x.contentWindow || x.contentDocument);
+    y.$(".ui-wrapper").each(function(){
+    $(this).find('img').attr('style',$(this).attr('style'));
+     });
+    y.$('.ui-wrapper').children().unwrap();
+    y.$('.ui-resizable-handle').remove();
+    y.$('.icon-on-img').remove();
+    y.$('.icon-on-edit').remove();
+    y.$('img.icon-on-edit').remove();
+    y.$('.no-edit').remove();
+}
 
  var post_to_iframe = function(path, params, method) {
         method = method || "post"; 
@@ -174,44 +184,37 @@ var postData = function () {
     }
 }
 
-var getContentBackToEditor = function () {
-    var content_mode = document.getElementById("content-mode");
-    content_mode.addEventListener('click', function () {
-        setTimeout(function () {
-            postDataEdit();
-        }, 500);
-    }, false);
-}
+// var getContentBackToEditor = function () {
+//     var content_mode = document.getElementById("content-mode");
+//     content_mode.addEventListener('click', function () {
+//         setTimeout(function () {
+//             // postDataEdit();
+//         }, 2500);
+//     }, false);
+// }
 
-var postDataEdit = function () {
-    var x = document.getElementById("preview");
-    var y = (x.contentWindow || x.contentDocument);
-    var stepWrapper = y.document.querySelectorAll(".step-wrapper");
-    var contentObject = $("#data-store").data();
-    if (contentObject["content[0]"] !== undefined) {
-       for (var i = 0; i < stepWrapper.length; i++) {
-          stepWrapper[i].innerHTML = $('<div />').html(contentObject["content[" + i + "]"]).text();
-       }
-    }
-    var steps = y.document.querySelectorAll(".step");
-    if (contentObject["background[0]"] !== undefined) {
-       for (var i = 0; i < steps.length; i++) {
-          steps[i].style.backgroundImage = contentObject["background[" + i + "]"];
-       }
-    }
-    if (contentObject["wallpaper"] !== undefined) {
-    y.$('body').css("background" , "url(" + contentObject["wallpaper"]+ ")" );
-    }
-}
+// var postDataEdit = function () {
+//     var x = document.getElementById("preview");
+//     var y = (x.contentWindow || x.contentDocument);
+//     var stepWrapper = y.document.querySelectorAll(".step-wrapper");
+//     var contentObject = $("#data-store").data();
+//     if (contentObject["content[0]"] !== undefined) {
+//        for (var i = 0; i < stepWrapper.length; i++) {
+//           stepWrapper[i].innerHTML = $('<div />').html(contentObject["content[" + i + "]"]).text();
+//        }
+//     }
+//     var steps = y.document.querySelectorAll(".step");
+//     if (contentObject["background[0]"] !== undefined) {
+//        for (var i = 0; i < steps.length; i++) {
+//           steps[i].style.backgroundImage = contentObject["background[" + i + "]"];
+//        }
+//     }
+//     if (contentObject["wallpaper"] !== undefined) {
+//     y.$('body').css("background" , "url(" + contentObject["wallpaper"]+ ")" );
+//     }
+// }
 
-var postExisitngDataEdit = function () {
-    var x = document.getElementById("preview");
-    var y = (x.contentWindow || x.contentDocument);
-    var steps = y.document.querySelectorAll(".step");
-       for (var i = 0; i < steps.length; i++) {
-         $("#data-store").data("content[" + i + "]", steps[i].innerHTML) ;
-       }
-}
+
 
 
 var getLayout = function () {
@@ -237,16 +240,6 @@ var getNumberFromShowNum = function () {
     return num_sildes;
 }
 
-//  var currentNumberOfSlides = function () {
-//     var current_slides;
-//     var x = document.getElementById("preview");
-//     var y = (x.contentWindow || x.contentDocument);
-//     var currentSteps = y.document.querySelectorAll('.step');
-//         for (var i = 0; i < currentSteps.length; i++) {
-//         current_slides = currentSteps.length;
-//         }
-//     return current_slides;
-// }
 
 var getShape = function () {
     var shape = "rectangle";
@@ -338,19 +331,7 @@ var animateNumberOfSlides = function () {
     });
 }
 
-var deleteWrapper = function () {
-    var x = document.getElementById("preview");
-    var y = (x.contentWindow || x.contentDocument);
-    y.$(".ui-wrapper").each(function(){
-    $(this).find('img').attr('style',$(this).attr('style'));
-     });
-    y.$('.ui-wrapper').children().unwrap();
-    y.$('.ui-resizable-handle').remove();
-    y.$('.icon-on-img').remove();
-    y.$('.icon-on-edit').remove();
-    y.$('img.icon-on-edit').remove();
-    y.$('.no-edit').remove();
-}
+
 
 
 var eventsListeners = function () {
