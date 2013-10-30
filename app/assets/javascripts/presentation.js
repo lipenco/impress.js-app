@@ -70,7 +70,8 @@ $(document).on('click', '#content-mode', function(){
         console.log("emptyid");
        post_to_iframe('/content', data, 'post');
     } else {
-       // postExisitngDataEdit();
+       postExisitngDataEdit();
+       deleteWrapper();
        var data = presentationData();
        post_to_iframe('/presentation/'+presId+'/content', data, 'post'); 
     } 
@@ -227,7 +228,6 @@ var postExisitngDataEdit = function () {
     // var stepWrapper = y.document.querySelectorAll(".step-wrapper");
     var steps = y.document.querySelectorAll(".step");
        for (var i = 0; i < steps.length; i++) {
-         $("#data-store").data("background[" + i + "]", steps[i].style.backgroundImage);
          $("#data-store").data("content[" + i + "]", steps[i].innerHTML) ;
        }
 }
@@ -468,7 +468,6 @@ var presentationData = function(){
         "theme" : getTheme(),
         "substeps" : getSubsteps(),
         "progress_bar" : getProgressBar(),
-        "datastore" : JSON.stringify($("#data-store").data()),
     };    
     var dataObject = $("#data-store").data();
     for ( var key in dataObject ) {
