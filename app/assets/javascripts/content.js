@@ -71,15 +71,15 @@ $(document).on('click', '.add-edit', function() {
 });
 
 
-$(document).on('dblclick', '.slide', function(e) {
-  var editor = $('<div class="editor" contenteditable="true" style="position:absolute"><h2  class="text2">Title</h2></div>').css({
-        'left' : e.pageX,
-        'top'  : e.pageY
-    });
-   $(this).find(".step-wrapper").prepend(editor);
-   $(".editor").popline(); 
-   return false;
-});
+// $(document).on('dblclick', '.slide', function(e) {
+//   var editor = $('<div class="editor" contenteditable="true" style="position:absolute"><h2  class="text2">Title</h2></div>').css({
+//         'left' : e.pageX,
+//         'top'  : e.pageY
+//     });
+//    $(this).find(".step-wrapper").prepend(editor);
+//    $(".editor").popline(); 
+//    return false;
+// });
 
 
 $(document).on('click', '.add-wallpaper', function(event){ 
