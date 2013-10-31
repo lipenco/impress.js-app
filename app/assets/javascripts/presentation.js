@@ -155,12 +155,14 @@ function hintAnimation() {
 
 var setContent = function () {
     var style_mode = document.getElementById("style-mode");
-    style_mode.addEventListener('click', function () {
-        deleteWrapper();
-        setTimeout(function () {
-            postData();  
-        }, 100);
-    }, false);
+    if (style_mode !== null) {
+        style_mode.addEventListener('click', function () {
+            deleteWrapper();
+            setTimeout(function () {
+                postData();  
+            }, 100);
+        }, false);
+    }
 }
 
 var postData = function () {
@@ -405,28 +407,32 @@ var presentationData = function(){
 
 var savePresentation = function () {
     var button = document.getElementById('save-presentation');
-    button.addEventListener('click', function () { 
-        var x = document.getElementById("preview");
-        // current_path = $(document).find('iframe')[0].contentDocument.location.pathname
-        var presId = $(x.contentDocument).find('#id-data').data('presentationid');
-        if (presId == "" ) {
-            path = "/presentation";
-        } else {
-            path = "/presentation/"+presId+"/edit"
-        }
-        var data = presentationData();
-        post_to_iframe(path, data, 'post');   
-    }, false)
+    if (button !== null) { 
+        button.addEventListener('click', function () { 
+            var x = document.getElementById("preview");
+            // current_path = $(document).find('iframe')[0].contentDocument.location.pathname
+            var presId = $(x.contentDocument).find('#id-data').data('presentationid');
+            if (presId == "" ) {
+                path = "/presentation";
+            } else {
+                path = "/presentation/"+presId+"/edit"
+            }
+            var data = presentationData();
+            post_to_iframe(path, data, 'post');   
+        }, false);
+    }
 }
 
 
   
 var downloadZip = function () {
     var button = document.getElementById('download');
-    button.addEventListener('click', function () { 
-        var data = presentationData();
-        post_to_url('/download', data, 'post');
-    }, false)
+    if (button !== null) {
+        button.addEventListener('click', function () { 
+            var data = presentationData();
+            post_to_url('/download', data, 'post');
+        }, false)
+    }
 }
 
 var post_to_url = function(path, params, method) {
