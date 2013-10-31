@@ -2,30 +2,9 @@
     height: 100%;
     width: 100%;
 }
-#main {
-    background: center center no-repeat url('/assets/images/home-bg.jpg');
-    background-size: cover;     /* note that IE8- doesn't support this */
-    min-width: 890px;
-}
 
-/*--- Header ---*/
-#mainHeader {
-    height: 25%;
-          /* =175px at 700px window height; minimum we want */
-}
-#mainHeader .logo {
-    background: url("/assets/images/app-icon.png") no-repeat;
-    width: 135px;
-    height: 135px;
-    float: left;
-    margin-top: 20px;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 192dpi) {
-    #mainHeader .logo {
-        background-image: url("/assets/images/icons/paper@2x.png");
-        background-size: 135px 135px;
-    }
-}
+
+
 
 #mainHeader nav {
     float: right;
@@ -34,7 +13,7 @@
     background: #389646;
     border-radius: 20px;
     font-weight: lighter;
-    padding: 15px 10px 20px 5px ;
+    padding: 8px 10px 20px 5px ;
     text-align: center;
     color: #b3b3b3;
     color: rgba(255, 255, 255, 0.5);
@@ -46,12 +25,12 @@
     text-rendering: optimizeLegibility;
 
 }
+
 #mainHeader nav div {
     display: inline-block;
     margin-left: 25px;
 }
 #mainHeader nav div.socialIcons {
-    /* XXX FIXME manually positioning to vertically center-align */
     position: relative;
     top: 6px;  /* XXX FIXME hardcoded for now; depends on font-size */
     padding-left: 20px;
@@ -95,11 +74,9 @@ a:visited.learnMore {
 
 /*--- Main Content ---*/
 #homeText {
-
-    font-size: 65px;
-    line-height: 0.95;
+    font-size: 45px;
+    line-height: 50px;
     padding: 40px 60px 55px 40px;
-
     margin-left: 100px;
     position: absolute;
     bottom: -20px;
@@ -114,12 +91,14 @@ a:visited.learnMore {
     -ms-text-rendering: optimizeLegibility;
     -o-text-rendering: optimizeLegibility;
     text-rendering: optimizeLegibility;
+     opacity: 0.9;
 }
 
 .title-word {
     display: inline-block;
     margin-bottom: 5px;
     text-align: left;
+    font-size: 1em;
 }
 
 #homeSubText {
