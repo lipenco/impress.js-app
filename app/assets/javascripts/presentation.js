@@ -330,7 +330,7 @@ var eventsListeners = function () {
      });
 
     $(document).on('click', '.new-slide', function(event){
-      var newSlideDiv = $('<div class="step slide"><div class="step-wrapper"><div  class="editor" contenteditable="true"><h2>New Slide</h2></div></div><div class="sort-slides"><i class="icon-sort icon-22"></i></div><div class="copy-slide"><i class="icon-copy icon-22"></i></div><div class="new-slide"><i class="icon-plus icon-22"></i></div><div class="delete-slide"><i class="icon-minus icon-22"></i></div><div class="add-picture"><i class="icon-picture icon-22"></i></div><div class="add-deco"><i class="icon-paper-clip  icon-22"></i></div><div class="add-edit"><i class="icon-font icon-22"></i></div><div class="add-background"><i class="icon-edit-sign icon-22"></i></div><div class="add-icon"><i class="icon-flag icon-22"></i></div></div>');
+      var newSlideDiv = $('<div class="step slide"><div class="step-wrapper"></div><div class="sort-slides"><i class="icon-sort icon-22"></i></div><div class="copy-slide"><i class="icon-copy icon-22"></i></div><div class="new-slide"><i class="icon-plus icon-22"></i></div><div class="delete-slide"><i class="icon-minus icon-22"></i></div><div class="add-picture"><i class="icon-picture icon-22"></i></div><div class="add-deco"><i class="icon-paper-clip  icon-22"></i></div><div class="add-edit"><i class="icon-font icon-22"></i></div><div class="add-background"><i class="icon-edit-sign icon-22"></i></div><div class="add-icon"><i class="icon-flag icon-22"></i></div></div>');
        $(this).parent().after(newSlideDiv);    
        addNumberToShowNum(); 
        storeContentFromContentMode();
