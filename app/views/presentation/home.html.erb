@@ -12,23 +12,10 @@
    <%= render "sessions/login" %>
 
    <% if logged_in? %> 
-
      <%= render "presentation/partials/list" %>
    <% end %>  
 <div class="page-wrap">
-   <div id="data-store"></div>
- <!--   <div id="id-data" data-presentationId='<%= @id %>'></div> -->
-   <script type="text/javascript">
-      // var settingDataStore = function() {
-      //    var x = document.getElementById("preview");
-      //    var presId = $(x.contentDocument).find('#id-data').data('presentationid');
-      //    if ( $.isEmptyObject($("#data-store").data()) && (presId !== "") )  {
-      //       console.log("true");
-      //       $('#data-store').data("data","<%= @datastore %>")
-      //    }
-      // }
-   </script>
-   
+   <div id="data-store"></div>   
       <div class="navbar">
          <div class="navbar-inner">
             <div class="container">

@@ -1,15 +1,15 @@
  <nav  id="login-nav">
 
-
+ 
       <%= form_tag sessions_path, id: "login" do %>
-          <a href="#" class="fa-times"> ☰ </a>
+         <a href="#" class="fa-times"> ☰ </a>
          <h2>Log In</h2> 
-         <p>ImpressLab is still in <strong>closed beta</strong>.</p> 
+         <p>ImpressLab is still in closed beta.</p> 
          <fieldset class="error">  </fieldset> 
          <fieldset class="message">  </fieldset> 
       <fieldset> 
-         <p> <button type="button" id="facebookLoginButton" class="facebookLogin">Log in with Facebook</button> </p> 
-         <p class="or">or</p> 
+        <!--  <p> <button type="button" id="facebookLoginButton" class="facebookLogin">Log in with Facebook</button> </p> 
+         <p class="or">or</p>  -->
          <input id="loginUsername" name="email" type="text" placeholder="Username or email"> 
          <input id="loginPassword" name="password" type="password" placeholder="Password"> 
          <input type="submit" value="Log in " class="green-button">
@@ -17,7 +17,10 @@
          <fieldset class="forgotLink"><a id="forgot" href="#">Help, I forgot my login details →</a> 
          </fieldset> 
          <p class="or">New Here?</p> 
-         <a href="/users/new"><div id="go-to-sign-up" class="green-button">Sign Up</div></a>
+         <div id="go-to-sign-up" class="green-button">Sign Up</div>
       <% end %>
+
+      <%= render "users/signup" %>
+
 
 </nav>

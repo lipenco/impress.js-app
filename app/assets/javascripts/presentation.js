@@ -465,15 +465,19 @@ var storeContentFromContentMode = function () {
 }
 
 
-
-
 $(document).on('click', '#go-to-sign-up', function(){ 
-      $(window).resize(centerLoginForm);
-      centerLoginForm();
       $("#login").hide();
-      // var $form = $("#sign-up");
-      // $form.show("slow" );
+      var $form = $("#signupcontainer");
+      $form.show("slow" );
  });
+
+$(document).on('click', '#go-to-log-in', function(){ 
+       $("#signupcontainer").hide();
+      var $form = $("#login");
+      $form.show("slow");
+
+});
+
 
 
 

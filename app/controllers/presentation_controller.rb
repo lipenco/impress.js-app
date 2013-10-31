@@ -41,6 +41,7 @@ class PresentationController < ApplicationController
     if logged_in?
       @presentations = current_user.presentations
     end
+    @user = User.new
   end
 
   def dashboard
