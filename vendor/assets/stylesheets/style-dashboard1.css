@@ -74,9 +74,8 @@ a:visited.learnMore {
 
 /*--- Main Content ---*/
 #homeText {
-    font-size: 3em;
-    padding: 1em 1.5em;
-    margin-left: 3em;
+    padding: 0.5em 1em;
+    margin-left: 5%;
     position: absolute;
     bottom: -20px;
     background: #389646;
@@ -97,11 +96,10 @@ a:visited.learnMore {
     display: inline-block;
     margin-bottom: 5px;
     text-align: left;
-    font-size: 1em;
+    font-size: 0.6em;
 }
 
 #homeSubText {
-    font-size: 18px;
     margin-bottom: 1em;
     color: #389646;     /* explicitly needed in case this is a link */
 }
