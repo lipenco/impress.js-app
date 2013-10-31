@@ -34,10 +34,12 @@
        parent.$("#data-store").data("imageNum", 0 );
     });
 
-  WebFontConfig = {
-    google: { families: parent.$("#data-store").data('text')  
-    }
-  }
+    if (parent.$("#data-store").data('text') == undefined) {
+          WebFontConfig = {
+            google: { families: parent.$("#data-store").data('text')  
+            }
+          }
+      }
   fontLoad();  
  </script> 
   <style>

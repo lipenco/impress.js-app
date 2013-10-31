@@ -283,19 +283,19 @@ var setFocusOnIframe = function () {
 
 
 var animateNumberOfSlides = function () {
-    var $showNum = $("#showNum");
-    $showNum.numberAnimate();
-    var counter = getNumberFromShowNum();
-    $("#addslide").click(function () {
-        counter++;
-        $("#showNum").val(counter);
-        $showNum.numberAnimate('set', $("#showNum").val());
-    });
-    $("#decrement_slide").click(function () {
-        counter--;
-        $("#showNum").val(counter);
-        $showNum.numberAnimate('set', $("#showNum").val());
-    });
+    // var $showNum = $("#showNum");
+    // $showNum.numberAnimate();
+    // var counter = getNumberFromShowNum();
+    // $("#addslide").click(function () {
+    //     counter++;
+    //     $("#showNum").val(counter);
+    //     $showNum.numberAnimate('set', $("#showNum").val());
+    // });
+    // $("#decrement_slide").click(function () {
+    //     counter--;
+    //     $("#showNum").val(counter);
+    //     $showNum.numberAnimate('set', $("#showNum").val());
+    // });
 }
 
 
