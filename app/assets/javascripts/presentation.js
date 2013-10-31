@@ -1,7 +1,6 @@
 $(document).ready(function () {
     eventsListeners();
     setContent();
-    // getContentBackToEditor();
     downloadZip();
     savePresentation();
     animateNumberOfSlides();
@@ -52,10 +51,6 @@ $(document).on('click', '#style-mode', function(){
       } 
     f();
     d();
-    // setTimeout(function () {
-    //         deleteWrapper();
-    //         console.log("detele");
-    // }, 1000);
 });
     
 
@@ -73,7 +68,7 @@ $(document).on('click', '#content-mode', function(){
     } 
         e();
         g();
-        h();
+        hintAnimation();
 });
 
 var deleteWrapper = function () {
@@ -150,7 +145,7 @@ function f() {
     });
 }
 
-function h() {
+function hintAnimation() {
     $('.arrows').addClass('fadeOutRightBig');
     $('.arrows').removeClass('fadeInRightBig');
 }
@@ -161,9 +156,10 @@ function h() {
 var setContent = function () {
     var style_mode = document.getElementById("style-mode");
     style_mode.addEventListener('click', function () {
+        deleteWrapper();
         setTimeout(function () {
             postData();  
-        }, 10);
+        }, 100);
     }, false);
 }
 
@@ -183,37 +179,6 @@ var postData = function () {
 
     }
 }
-
-// var getContentBackToEditor = function () {
-//     var content_mode = document.getElementById("content-mode");
-//     content_mode.addEventListener('click', function () {
-//         setTimeout(function () {
-//             // postDataEdit();
-//         }, 2500);
-//     }, false);
-// }
-
-// var postDataEdit = function () {
-//     var x = document.getElementById("preview");
-//     var y = (x.contentWindow || x.contentDocument);
-//     var stepWrapper = y.document.querySelectorAll(".step-wrapper");
-//     var contentObject = $("#data-store").data();
-//     if (contentObject["content[0]"] !== undefined) {
-//        for (var i = 0; i < stepWrapper.length; i++) {
-//           stepWrapper[i].innerHTML = $('<div />').html(contentObject["content[" + i + "]"]).text();
-//        }
-//     }
-//     var steps = y.document.querySelectorAll(".step");
-//     if (contentObject["background[0]"] !== undefined) {
-//        for (var i = 0; i < steps.length; i++) {
-//           steps[i].style.backgroundImage = contentObject["background[" + i + "]"];
-//        }
-//     }
-//     if (contentObject["wallpaper"] !== undefined) {
-//     y.$('body').css("background" , "url(" + contentObject["wallpaper"]+ ")" );
-//     }
-// }
-
 
 
 
@@ -309,7 +274,7 @@ var getProgressBar = function () {
 var setFocusOnIframe = function () {
     var iframe = $("#preview")[0];
     iframe.contentWindow.focus();
-    h();
+    hintAnimation();
 }
 
 

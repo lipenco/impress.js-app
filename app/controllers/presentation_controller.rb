@@ -180,7 +180,6 @@ class PresentationController < ApplicationController
     else 
       @shape_class = ""
     end
-    # @shape_class = presentation_data[:shape]
     @automated =  presentation_data[:automated]
     @theme =  presentation_data[:theme]
     @substeps =  presentation_data[:substeps]
