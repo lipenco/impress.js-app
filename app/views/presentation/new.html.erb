@@ -8,6 +8,8 @@
       <%= stylesheet_link_tag "impress-theme2.css", :media => "all" %>
   <% elsif @theme == "basic" %>
      <%= stylesheet_link_tag "impress-theme1.css", :media => "all" %>
+  <% elsif @theme == "blank" %>
+     <%= stylesheet_link_tag "impress-theme3.css", :media => "all" %>
   <% end %>
   <% if @progress_bar == "pbar1" %>
      <%= stylesheet_link_tag "progressbar.css", :media => "all" %>
