@@ -152,7 +152,6 @@ class PresentationController < ApplicationController
     else 
       @shape_class = ""
     end
-
     @automated = "false"
     @automated = params[:automated] if ["false", "true"].include?(params[:automated])
     @theme = "basic"
@@ -174,7 +173,14 @@ class PresentationController < ApplicationController
     @id = current_presentation.id
     @num_slides = presentation_data[:num_slides].to_i
     @layout =  presentation_data[:layout]
-    @shape_class = presentation_data[:shape_class]
+    if presentation_data[:shape] == "rectangle"
+      @shape_class = "slide"
+    elsif presentation_data[:shape] == "circle"
+      @shape_class = "slide-circle"
+    else 
+      @shape_class = ""
+    end
+    # @shape_class = presentation_data[:shape]
     @automated =  presentation_data[:automated]
     @theme =  presentation_data[:theme]
     @substeps =  presentation_data[:substeps]
