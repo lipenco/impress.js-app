@@ -350,7 +350,7 @@ $(document).on('click', '.fonts-size-container ul li', function(){
 
 
 if ( jQuery.isEmptyObject(parent.$("#data-store").data())) {
-parent.$("#data-store").data("text", []);
+parent.$("#data-store").data("text", ["Lato"]);
 } 
   $(document).on('click', '.fonts-container ul li', function(){  
     var $el = $(this);

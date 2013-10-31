@@ -34,7 +34,7 @@
        parent.$("#data-store").data("imageNum", 0 );
     });
 
-    if (parent.$("#data-store").data('text') == undefined) {
+    if (parent.$("#data-store").data('text') !== undefined) {
           WebFontConfig = {
             google: { families: parent.$("#data-store").data('text')  
             }
