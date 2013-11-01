@@ -31,7 +31,7 @@
       document.execCommand('defaultParagraphSeparator', false, 'p');
       $(".editor").popline();
       $("body").data("mode", "edit");
-       parent.$("#data-store").data("imageNum", 0 );
+       parent.$("#data-store").data("imageNum", $( "img" ).length );
     });
 
     if (parent.$("#data-store").data('text') !== undefined) {
