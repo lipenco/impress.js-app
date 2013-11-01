@@ -1,8 +1,9 @@
 #loading {
   background: rgba(0, 50, 250, 0);
   position: relative;
-  margin: 5em auto 0 auto;
-  width: 3em; height: 3em;
+  margin: 20% 65%;
+  width: 5em; 
+  height: 5em;
   -webkit-animation-name: rotate;
      -moz-animation-name: rotate;
       -ms-animation-name: rotate;

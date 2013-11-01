@@ -70,6 +70,7 @@ $(document).on('click', '#content-mode', function(){
         e();
         g();
         hintAnimation();
+    $("#loading").css('display', 'block');
 });
 
 var deleteWrapper = function () {

@@ -59,6 +59,12 @@
     <body style="background-image: url(<%= @wallpaper.html_safe %>)" >
  <% end %>
 <!--   <div id="loading"></div> -->
+  <script type="text/javascript">
+   $(document).load(function() {
+      parent.$("#loading").remove();
+    }).show();
+
+   </script>
 
 
 <nav>
