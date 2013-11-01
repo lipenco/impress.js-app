@@ -1,8 +1,3 @@
-$(window).load(function() {
-       $(".loading").fadeOut("slow");
-});
-
-
 $(document).ready(function () {
     eventsListeners();
     setContent();
@@ -13,6 +8,13 @@ $(document).ready(function () {
     var data = presentationData();
     post_to_iframe('/presentation/new', data, 'post');  
 }); 
+
+var hideLoading = function()  { 
+    var x = document.getElementById("preview");
+    var loading = $(x.contentDocument).find('#loading');
+    loading.hide("slow");
+} 
+
 
 var updatePreview = function () {
     var x = document.getElementById("preview");

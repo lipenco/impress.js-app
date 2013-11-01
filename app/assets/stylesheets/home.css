@@ -4,7 +4,7 @@ DEMO 4
 =====================================================================
 */
 
-.loading {
+#loading {
   background: rgba(0, 50, 250, 0);
   position: relative;
   margin: 5em auto 0 auto;
@@ -15,9 +15,9 @@ DEMO 4
           animation-name: rotate;
 }
 
-.loading,
-.loading:before,
-.loading:after {
+#loading,
+#loading:before,
+#loading:after {
   border-radius: 100%;
   -webkit-animation-duration: 3s;
      -moz-animation-duration: 3s;
@@ -33,15 +33,15 @@ DEMO 4
           animation-timing-function: ease-in;
 }
 
-.loading:before,
-.loading:after {
+#loading:before,
+#loading:after {
   content: "";
   position: absolute;
   top: 0; left: 0;
   width: inherit; height: inherit;
 }
 
-.loading:before {
+#loading:before {
   background: rgba(200, 250, 100, 0);
   -webkit-animation-name: ring;
      -moz-animation-name: ring;
@@ -49,7 +49,7 @@ DEMO 4
           animation-name: ring;
 }
 
-.loading:after {
+#loading:after {
   background: rgba(250, 0, 200, 0);
   -webkit-animation-name: ring2;
      -moz-animation-name: ring2;
