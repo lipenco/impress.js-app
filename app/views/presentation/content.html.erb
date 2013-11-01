@@ -27,6 +27,9 @@
 
 
  <script type="text/javascript">
+   $(window).load(function() {
+       $(".loading").fadeOut("slow");
+    })
     $(function(){
       document.execCommand('defaultParagraphSeparator', false, 'p');
       $(".editor").popline();
@@ -55,6 +58,8 @@
  <% else  %>
     <body style="background-image: url(<%= @wallpaper.html_safe %>)" >
  <% end %>
+
+  <div class="loading"></div>
 
 <!--  <div id="id-data" data-presentationId='<%= @id %>'></div> -->
 

@@ -142,9 +142,16 @@
             <!-- / mainmenu -->
             <div class="separator disappear"></div>
             <!--  <div class="separator"></div> -->
+          <% if logged_in? %>
             <a id="save-presentation" class="green-button disappear">
             Save
             </a>
+          <% else %>
+             <a class="green-button disappear" href="/home#login-nav">
+                Log in to Save
+            </a>
+          <% end %>
+
             <a id="download" class="green-button download disappear">
             Take Your Code
             </a>
