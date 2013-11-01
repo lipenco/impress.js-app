@@ -9,12 +9,6 @@ $(document).ready(function () {
     post_to_iframe('/presentation/new', data, 'post');  
 }); 
 
-var hideLoading = function()  { 
-    var x = document.getElementById("preview");
-    var loading = $(x.contentDocument).find('#loading');
-    loading.hide("slow");
-} 
-
 
 var updatePreview = function () {
     var x = document.getElementById("preview");

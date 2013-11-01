@@ -3,9 +3,6 @@
     width: 100%;
 }
 
-
-
-
 #mainHeader nav {
     float: right;
     margin-right: -20px;
@@ -68,7 +65,6 @@ a:visited.learnMore {
     -ms-text-rendering: optimizeLegibility;
     -o-text-rendering: optimizeLegibility;
     text-rendering: optimizeLegibility;
-;
 }
 /*--- End Header ---*/
 
