@@ -31,9 +31,10 @@ a:active {
     text-decoration: none;
 }
 #main {
-    height:  100%;
+    height: 100%;
     width: 100%;
 }
+
 p {
     font-size: 12px;
 }
@@ -78,76 +79,8 @@ li {
 ::selection {
     background: #F6861E; color: #fff; text-shadow: none;
 }
-/*--- End Elements ---*/
 
-/* --- Navs --- */
-#nav {
-    height: 100px;
-    position: relative;
-}
-.darkNav {
-    font-family: 'Lato' 'Avenir Next LT W01 Demi';
-    font-size: 12px;
-}
-.darkNav li {
-    margin-right: 20px;
-}
-.darkNav li:last-child {
-    margin-right: 0;
-}
-.darkNav a,
-.darkNav a:visited {
-    color: #389646;
-}
-.darkNav a:hover,
-.darkNav a:active {
-    color: #c94a00;
-}
-.lightNav {
-    font-family: 'Lato' 'Avenir Next LT W01 Demi';
-    font-size: 14px;
-}
-.lightNav li {
-    float: left;
-    margin-right: 25px;
-}
-.lightNav li:last-child {
-    margin-right: 0;
-}
-.lightNav li.animateArrowParent {
-    margin-top: -5px;
-}
-.lightNav a:visited,
-.lightNav a {
-    color: #211f1f;
-}
-.lightNav a:hover,
-.lightNav a:active {
-    color: #c94a00;
-}
-.lightNav li.animateArrowParent a,
-.lightNav li.animateArrowParent a:visited,
-.lightNav li.animateArrowParent a:hover,
-.lightNav li.animateArrowParent a:active {
-    color: #c94a00;
-}
-.lightNav li.socialIcons {
-    margin-top: -11px;  /* XXX FIXME hardcoded; depends on font-size */
-}
-.inverted a:visited,
-.inverted a {
-    color: #389646;
-}
-.inverted a:hover,
-.inverted a:active {
-    color: #c94a00;
-}
-.inverted li.animateArrowParent a,
-.inverted li.animateArrowParent a:visited,
-.inverted li.animateArrowParent a:hover,
-.inverted li.animateArrowParent a:active {
-    color: #c94a00;
-}
+
 #footerInfo a:visited,
 #footerInfo a {
     color: #665C5C;
@@ -158,9 +91,7 @@ li {
     color: #665C5C;
 }
 
-/* --- End Navs ---*/
 
-/* --- Arrow Animations --- */
 
 .no-touch .animateArrow {
     -webkit-transition: -webkit-transform 0.2s ease-in;
@@ -223,197 +154,6 @@ li {
 .toUpper {
     text-transform: uppercase;
 }
-.clear_fix {
-    overflow: hidden;
-    display: inline-block; /* Necessary to trigger "hasLayout" in IE */
-    display: block; /* Sets element back to block */
-}
-.noSelect {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-.twentyOne {
-    font-size: 21px;
-}
-a.isLocation,
-a.isLocation:visited,
-a.isLocation:hover,
-a.isLocation:active {
-    text-decoration: underline;
-}
-.heart {
-    display: inline-block;
-    width: 24px;
-    height: 20px;
-    font-size: 0;
-    background: url("/assets/heart.svg") no-repeat 50% 50%;
-    background-size: 24px 20px;
-    vertical-align: 19px;
-}
-.no-touch.svg .heart:hover {
-    background-size: 22px 18px;
-}
-.no-svg .heart {
-    background-image: url("/assets/heart.png");
-}
-
-.title-subheading {
-    font-size: 21px;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-.title-subheading a, .title-subheading a:visited {
-    color: #389646;
-}
-
-.title-subheading:hover .white-arrow-btn {
-    background-color: #211f1f;
-}
-
-.white-arrow-btn {
-    margin-left: 8px;
-    background: #ca4a1e url('/assets/images/white-arrow-full-right.png') no-repeat 13px 9px;
-    -moz-border-radius: 10em;
-    -webkit-border-radius: 10em;
-    border-radius: 10em;
-    cursor: pointer;
-    display: inline-block;
-    height: 35px;
-    width: 35px;
-    vertical-align: -8px;
-}
-
-
-#toolsVideoShield {
-    display: none;
-    position: fixed;
-    background: rgba(0, 0, 0, 0.7);
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 99999;
-}
-#toolsVideo {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 800px;
-    height: 450px;
-    margin-left: -400px;
-    margin-top:  -225px;
-}
-#toolsVideo iframe {
-    position: relative;
-    z-index: 1;
-}
-#videoPopupClose {
-    background: #f2b21c url("/assets/images/icons/close-white.svg") no-repeat 50%;
-    height: 44px;
-    width: 44px;
-    position: absolute;
-    right: -44px;
-    top: 0;
-    z-index: 2;
-}
-.no-touch #videoPopupClose:hover {
-    background-color: #d8981a;
-}
-
-.no-svg #videoPopupClose {
-    background: url("/assets/images/icons/video-close-white.png") no-repeat 50%;
-}
-.no-svg.no-touch #videoPopupClose:hover {
-    background-position: 100% 0;
-}
-
-/* --- End Misc ---*/
-
-/* --- Logos ---*/
-.logoAquaman {
-    position: absolute;
-    width: 76px;
-    height: 75px;
-    background: url("../assets/images/logo-aquaman.png") no-repeat;
-}
-.logoBatman {
-    position: absolute;
-    left: 0;
-    top: 20px;
-    width: 64px;
-    height: 64px;
-    background: url("../assets/images/logos/53-dark.svg") no-repeat 50% 50%;
-    background-size: 64px 64px;
-}
-.no-svg .logoBatman {
-    background-image: url("/assets/images/logos/53-64x64-dark.png");
-}
-
-.logoCatwoman {
-    position: absolute;
-    left: 0;
-    top: 85px;
-    width: 82px;
-    height: 82px;
-    background: url("../assets/images/logos/53-light.svg") no-repeat 50% 50%;
-    background-size: 82px 82px;
-}
-.no-svg .logoCatwoman {
-    background-image: url("/assets/images/logos/53-82x82-light.png");
-}
-
-.logoDeadpool {
-    width: 82px;
-    height: 81px;
-    background: url("../assets/images/logo-deadpool.png") no-repeat;
-}
-.logoElectro {
-    position: absolute;
-    left: 0;
-    top: 20px;
-    width: 64px;
-    height: 63px;
-    background: url("../assets/images/logo-electro.png") no-repeat;
-}
-.logoFlash {
-    width: 445px;
-    height: 426px;
-    background: url("../assets/images/logo-flash.jpg") no-repeat 45px center;
-    float: left;
-}
-.paperLogoAntman {
-    width: 231px;
-    height: 49px;
-    background-image: url("../assets/images/paper-logo-antman.png");
-}
-.paperLogoBeast {
-    width: 225px;
-    height: 53px;
-    background-image: url("../assets/images/paper-logo-beast.png");
-}
-.paperLogoCyclops {
-    width: 158px;
-    height: 37px;
-    background-image: url("../assets/images/paper-logo-cyclops.png");
-}
-.appStore {
-    color: transparent;     /* hide the text */
-    text-indent: -9999em;    /* ditto, to ensure */
-    overflow: hidden;
-    cursor: pointer;
-    background-image: url("../assets/images/app-store-badge.png");
-    width: 135px;
-    height: 40px;
-    margin: 15px;   /* required margin from Apple: >1/4 of height */
-}
-.appStore:hover {
-    background-position: right;
-}
-
-/* on retina devices, show the app store badge image at 2x for readability: */
 
 
 .socialIcons a {
@@ -422,36 +162,12 @@ a.isLocation:active {
     height: 30px;
     margin-left: 5px;
     margin-top: 10px;
-/*    background-position: top;*/
     color: transparent;
     overflow: hidden;
     text-indent: -9999em;
 }
-.socialIcons a:first-child {
-    margin-left: 0;
-}
-.socialIcons a:hover {
-    background-position: bottom;
-}
-.socialIcons a.facebook {
-    background-image: url('/assets/icon-facebook.png');
-}
-.socialIcons a.twitter {
-    background-image: url('/assets/images/icon-twitter.png');
-}
-.inverted .socialIcons a.facebook {
-    background-image: url('/assets/images/icon-facebook-inverted.png');
-}
-.inverted .socialIcons a.twitter {
-    background-image: url('/assets/images/icon-twitter-inverted.png');
-}
-/*--- End Logos ---*/
 
-#navLinks {
-    position: absolute;
-    top: 33px;
-    right: 0;
-}
+
 .arrow-light {
     position: relative;
     display: inline-block;
@@ -462,247 +178,26 @@ a.isLocation:active {
     background: url("../assets/arrow-light.svg") no-repeat;
     background-size: 9px 15px;
 }
-.no-svg .arrow-light {
-    background-image: url("/assets/images/arrow-light.png");
-}
-.redArrow {
-    position: relative;
-    display: inline-block;
-    margin-right: 10px;
-    top: 3px;
-    width: 9px;
-    height: 15px;
-}
-.svg .redArrow {
-    background: url("/assets/images/icons/arrow-orange.svg") no-repeat center;
-    background-size: 9px 15px;
-}
-.no-svg .redArrow {
-    background: url("/assets/images/icons/arrow-orange.png") no-repeat center;
-}
-.blackArrow {
-    position: relative;
-    display: inline-block;
-    top: 3px;
-    width: 9px;
-    height: 15px;
-    background-image: url("../assets/images/black-arrow.png");
-}
-.section {
-    min-height: 723px;
-}
-.sized {
-    overflow: visible;
-    position: relative;
-    height: 100%;
-    width: 890px;
-    margin: 0 auto;
-}
-.sectionHead {
-    position: relative;
-    height: 63px;
-    width: 890px;
-    margin: 0 auto;
-    border-bottom: 2px solid #95928e;
-}
-.sectionLeft {
-    float: left;
-    width: 50%;
-    height: 100%;
-}
-.sectionRight {
-    float: left;
-    width: 50%;
-    height: 100%;
-}
 
-/*--- Video Play ---*/
 
-#videoPopup {
-    /* position/top/left declared in page-specific stylesheets */
-    width: 188px;
-    height: 128px;
-    cursor: pointer;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    /* experimental: give it a nice pulsating shadow. XXX webkit only for now. */
-    -webkit-animation: shadow-pulse 3s ease-in-out;
-    -webkit-animation-iteration-count: infinite;
-}
-.svg #videoPopup {
-    background: rgba(0,0,0,0.25) url("/assets/images/icons/video-play.svg") no-repeat 50% 50%;
-    background-size: 188px 128px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
-
-    -webkit-transition: background-color 0.2s ease-out;
-    -moz-transition: background-color  0.2s ease-out;
-    -o-transition: background-color  0.2s ease-out;
-    -ms-transition: background-color  0.2s ease-out;
-    transition: background-color  0.2s ease-out;
-}
-.no-svg.no-touch #videoPopup:hover,
-.no-svg.no-touch #videoPopup:active,
-.no-svg #videoPopup.active {
-    background: url("/assets/images/icons/video-play.png") no-repeat right;
-}
-.svg.touch #videoPopup,
-.svg.no-touch #videoPopup:hover,
-.svg.no-touch #videoPopup:active,
-.svg #videoPopup.active {
-    background-color: rgba(0,0,0,0.5);
-}
-/* helper animation to pulse shadow: */
-@-webkit-keyframes shadow-pulse {
-    0% { box-shadow: 0 0 1em black; }
-    50% { box-shadow: 0 0 2em black; }
-    100% {box-shadow: 0 0 1em black; }
-}
-/*--- End Video Play ---*/
-
-/* --- Carousel ---*/
-.buttons {
-    margin-left: 166px;
-    height: 23px;
-    clear: both;
-}
-.carouselButton {
-    cursor: pointer;
-    float: left;
-    width: 23px;
-    height: 23px;
-    background: url("/assets/images/carousel-button-sprite.png") no-repeat 5px 50%;
-}
-.no-touch .carouselButton {
-    -webkit-transition: opacity 0.3s ease-out;
-    -moz-transition: opacity 0.3s ease-out;
-    -o-transition: opacity 0.3s ease-out;
-    -ms-transition: opacity 0.3s ease-out;
-    transition: opacity 0.3s ease-out;
-}
-.carouselButtonActive,
-.no-touch .carouselButton:hover {
-    background: url("/assets/images/carousel-button-sprite.png") no-repeat -21px 50%;
-}
-
-.svg .carouselButton,
-.svg .carouselButtonActive,
-.no-touch.svg .carouselButton:hover {
-    background: url("/assets/images/carousel-button.svg") no-repeat 50% 50%;
-    background-size: 14px 14px;
-    opacity: 0.27;
-}
-.svg .carouselButtonActive,
-.no-touch.svg .carouselButton:hover {
-    opacity: 1;
-}
-/*--- End Carousel ---*/
-
-/*--- Dark Pages ---*/
-.darkBody a,
-.darkBody a:visited {
-    color: #389646;
-    text-decoration: underline;
-}
-.darkBody a:hover,
-.darkBody a:active {
-    color:  #389646;
-    text-decoration: none;
-}
-.darkFooter {
-    width: 100%;
-    height: 375px;
-    background-color: #211F1F;
-    color: #389646;
-}
-.upperFooter {
-    margin-bottom: 20px;
-    border-bottom: 2px solid #F2EDE3;
-    height: 50%;
-}
-.lowerFooter {
-    height: 50%;
-}
-.paperLogo {
-    width: 175px;
-    height: 41px;
-    background-image: url("../assets/images/paper-logo.png");
-}
-.darkNav {
-    /*
-    XXX IMPORTANT: this nav *cannot* be absolutely positioned to get it to
-    vertically align with the baseline of the 53 logo. this is because then it
-    gets removed from the flow, and we can't deterministically know how big to
-    make its container in that case. so we keep it in the flow, and hardcode
-    the vertical position instead via margin-top. lesser of two evils...
-
-    entire footer = 375px
-    upper footer = 50% of that = 187.5px
-    upper footer has 20px margin-bottom spacing, so similar top = 167.5px
-    this nav has 19px height (12px font size and 1.231 line-height) = 148.5px
-    */
-    margin-top: 148px;
-}
-/*--- End Dark Pages ---*/
-
-/*--- Footers ---*/
-/* XXX ASEEMK: fix overflowing nav; hope this doesn't break something else? */
-.upperFooter .sectionLeft {
-    width: auto;
-}
-.upperFooter .sectionRight {
-    float: right;
-    width: auto;
-}
-/* XXX ASEEMK: manually justify lower footer with upper one; hardcode yuck! */
-.lowerFooter .sectionLeft {
-    width: auto;
-}
-.lowerFooter .sectionRight {
-    float: right;
-    width: 517px;   /* XXX to match upperFooter .sectionRight width above */
-}
-/* END XXX ASEEMK */
-.footerNav ul {
-    width: 465px;
-}
-.footerNav li {
-    font-family: 'Lato' 'Avenir Next LT W01 Demi';
-    margin-right: 17px;
-}
-.footerNav li:last-child {
-    margin-right: 0;
-}
-.footerNav li:hover,
-.footerNav li:active {
-    color: #fffcf5;
-}
 #footerInfo {
     color: #000;
-    width: 100%;
-    float: right;
+    margin-right: 50px;
 }
+
 #footerInfo p {
     width: 100%;
     font-size: 11px;
     margin: 0;
     text-align: justify;
 }
-#footerInfo p span.links {
-    /* XXX This is hardcoded! Adds enough spacing so that the total justified
-    text of #footerInfo p has decently legible kerning/letter-spacing. */
-    margin-left: 3em;
-}
+
 #footerInfo p:after {
   content: "";
   display: inline-block;
   width: 100%;
 }
-.footer-fix {
-    min-width: 890px;
-}
+
 
 .cover {
     position: absolute;
@@ -790,4 +285,160 @@ a.isLocation:active {
     width: 20%;
 
 }
-/* --- End Footer ---*/
+
+#container {
+    height: 100%;
+    width: 100%;
+}
+
+#mainHeader nav {
+    float: right;
+    margin-right: -20px;
+    margin-top: 45px;
+    background: #389646;
+    border-radius: 20px;
+    font-weight: lighter;
+    padding: 8px 10px 20px 5px ;
+    text-align: center;
+    color: #b3b3b3;
+    color: rgba(255, 255, 255, 0.5);
+    text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+    -webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    -ms-text-rendering: optimizeLegibility;
+    -o-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+
+}
+
+#mainHeader nav div {
+    display: inline-block;
+    margin-left: 25px;
+}
+#mainHeader nav div.socialIcons {
+    position: relative;
+    top: 6px;  /* XXX FIXME hardcoded for now; depends on font-size */
+    padding-left: 20px;
+    padding-right: 60px;
+}
+.svg .socialIcons a {
+    opacity: 0.27;
+
+    -webkit-transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+    -o-transition: opacity 0.3s ease-out;
+    -ms-transition: opacity 0.3s ease-out;
+    transition: opacity 0.3s ease-out;
+}
+.touch .socialIcons a,
+.no-touch.svg .socialIcons a:hover {
+    opacity: 1;
+}
+.svg a.facebook {
+    background: url("../assets/facebook-dark.svg");
+    background-size: 30px 30px;
+}
+.svg a.twitter {
+    background: url("../assets/twitter-dark.svg");
+    background-size: 30px 30px;
+}
+a.learnMore,
+a:visited.learnMore {
+    font-size: 40px;
+    color: #b3b3b3;
+    color: rgba(255, 255, 255, 0.5);
+    text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+    -webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    -ms-text-rendering: optimizeLegibility;
+    -o-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+}
+/*--- End Header ---*/
+
+/*--- Main Content ---*/
+#homeText {
+    padding: 0.5em 1em;
+    margin-left: 5%;
+    position: absolute;
+    bottom: -20px;
+    background: #389646;
+    border-radius: 20px;
+    font-weight: lighter;
+    color: #b3b3b3;
+    color: rgba(255, 255, 255, 0.5);
+    text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+    -webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    -ms-text-rendering: optimizeLegibility;
+    -o-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+     opacity: 0.9;
+    display: inline-block;
+    text-align: left;
+}
+
+#homeText h1 {
+    font-size: 0.7em;
+    line-height: 1.2em;
+}
+
+
+
+
+/* hide the video button initially if JS enabled; we'll position it better */
+html.js #videoPopup {
+    opacity: 0.01;  /* don't display none; image won't load etc. */
+}
+
+
+#footer {
+    color: #fffcf5;
+    position: relative;
+    height: 155px;
+    width: 100%;
+    background:  #dfdbdb;
+    outline: 1px solid black;
+}
+/* XXX ASEEMK: fix overflowing nav; hope this doesn't break something else? */
+#footer .sectionLeft {
+    width: auto;
+}
+#footer .sectionRight {
+    float: right;
+    width: auto;
+}
+
+
+.lightNav {
+    margin-top: 50px;
+    margin-right: 50px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #211f1f;
+}
+.lightNav li {
+    float: none;    /* reset style for top light nav */
+    margin-right: 13px;
+}
+.lightNav li:last-child {
+    margin-right: 0;
+}
+.lightNav li:last-child a,
+.lightNav li:last-child a:visited,
+.lightNav li:last-child a:hover,
+.lightNav li:last-child a:active {
+    color: #211F1F; /* reset style for top light nav's "Get Paper" link */
+}
+
+
+#mainHeader {
+    height: 28%;
+}
+
+#homeText {
+    font-size: 60px;
+    width: 240px;
+}
+
+
+
