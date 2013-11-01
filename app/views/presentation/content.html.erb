@@ -27,12 +27,6 @@
 
 
  <script type="text/javascript">
- function preloader(){
-    document.querySelector(".loading").style.display = "none";
-    document.querySelector(".container-fluid").style.display = "block";
-   }
-window.onload = preloader;
-
     $(function(){
       document.execCommand('defaultParagraphSeparator', false, 'p');
       $(".editor").popline();
@@ -58,14 +52,15 @@ window.onload = preloader;
   </style>
 
 </head>
- 
+   <div class="loading"></div>
+
  <% if @wallpaper.nil? %>
       <body>
  <% else  %>
     <body style="background-image: url(<%= @wallpaper.html_safe %>)" >
  <% end %>
 
-  <div class="loading"></div>
+
 
 <!--  <div id="id-data" data-presentationId='<%= @id %>'></div> -->
 
@@ -133,6 +128,12 @@ window.onload = preloader;
   storeContentFromContentMode();
   draggableAndSortable();
   parent.$("#style-mode").on("click", storeData);
+
+function preloader(){
+    document.querySelector(".loading").style.display = "none";
+    document.querySelector("body").style.display = "block";
+   }
+window.onload = preloader;
 
  </script>
 
