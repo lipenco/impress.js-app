@@ -52,7 +52,6 @@
   </style>
 
 </head>
-   <div class="loading"></div>
 
  <% if @wallpaper.nil? %>
       <body>
@@ -128,12 +127,6 @@
   storeContentFromContentMode();
   draggableAndSortable();
   parent.$("#style-mode").on("click", storeData);
-
-function preloader(){
-    document.querySelector(".loading").style.display = "none";
-    document.querySelector("body").style.display = "block";
-   }
-window.onload = preloader;
 
  </script>
 

@@ -1,6 +1,6 @@
-// $(window).load(function() {
-//        $(".loading").fadeOut("slow");
-// });
+$(window).load(function() {
+       $(".loading").fadeOut("slow");
+});
 
 
 $(document).ready(function () {
