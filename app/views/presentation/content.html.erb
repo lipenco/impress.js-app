@@ -27,9 +27,12 @@
 
 
  <script type="text/javascript">
-   $(window).load(function() {
-       $(".loading").fadeOut("slow");
-    })
+ function preloader(){
+    document.querySelector(".loading").style.display = "none";
+    document.querySelector(".container-fluid").style.display = "block";
+   }
+window.onload = preloader;
+
     $(function(){
       document.execCommand('defaultParagraphSeparator', false, 'p');
       $(".editor").popline();
@@ -43,7 +46,10 @@
             }
           }
       }
-  fontLoad();  
+  fontLoad(); 
+
+  
+
  </script> 
   <style>
   .slide { 

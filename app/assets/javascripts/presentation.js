@@ -1,3 +1,8 @@
+// $(window).load(function() {
+//        $(".loading").fadeOut("slow");
+// });
+
+
 $(document).ready(function () {
     eventsListeners();
     setContent();
