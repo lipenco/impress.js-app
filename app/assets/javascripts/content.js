@@ -349,7 +349,7 @@ $(document).on('click', '.fonts-size-container ul li', function(){
 
 
 
-if ( parent.$("#data-store").data()["text"] == undefined ) {
+if (parent.$("#data-store").data("text") == undefined ) {
 parent.$("#data-store").data("text", ["Lato"]);
 } 
   $(document).on('click', '.fonts-container ul li', function(){  
