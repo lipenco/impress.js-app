@@ -10,7 +10,7 @@ class PresentationController < ApplicationController
 
   def create
     if logged_in?
-      presentation = current_user.presentations.create data: params.to_yaml
+      presentation = current_user.presentations.create data: params.to_yaml, name: params[:name]
       redirect_to edit_presentation_path(presentation)
     end
   end
@@ -171,6 +171,7 @@ class PresentationController < ApplicationController
     @wallpaper = params[:wallpaper] 
     @text = params[:text]
     @imageNum = params[:imageNum]
+    @name = params[:name]
   end
 
   def load_presentation_from_database
@@ -194,5 +195,6 @@ class PresentationController < ApplicationController
     @wallpaper =  presentation_data[:wallpaper]
     @text =  presentation_data[:text]
     @imageNum = presentation_data[:imageNum]
+    @name = presentation_data[:name]
   end
 end

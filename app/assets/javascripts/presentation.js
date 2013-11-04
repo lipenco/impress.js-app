@@ -265,13 +265,22 @@ var getSubsteps = function () {
 var getProgressBar = function () {
     var progress_bar = "no-pbar";
     var progressgroup = document.getElementById("progress");
-    if (progressgroup != null) {
+    if (progressgroup !== null) {
         var progresscurrent = progressgroup.querySelector(".current");
     }
-    if (progresscurrent != null) {
+    if (progresscurrent !== null) {
         progress_bar = progresscurrent.id;
     }
     return progress_bar;
+}
+
+var getName = function () {
+    var name = "untitled presentation";
+    nameInput = document.getElementById("presentation-name").value;
+    if ( nameInput !== "" ) {
+        name = nameInput;
+    }
+    return name;   
 }
 
 
@@ -399,6 +408,7 @@ var presentationData = function(){
         "theme" : getTheme(),
         "substeps" : getSubsteps(),
         "progress_bar" : getProgressBar(),
+        "name" : getName(),
     };    
     var dataObject = $("#data-store").data();
     for ( var key in dataObject ) {

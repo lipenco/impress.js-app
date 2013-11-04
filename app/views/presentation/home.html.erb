@@ -144,6 +144,11 @@
             <div class="separator disappear"></div>
             <!--  <div class="separator"></div> -->
           <% if logged_in? %>
+           <% if @name == "" %>
+              <input id="presentation-name" class="disappear" placeholder="<%= @name %>">
+               <% else %>
+              <input id="presentation-name" class="disappear" placeholder="Add Name">
+           <% end %>
             <a id="save-presentation" class="green-button disappear">
             Save
             </a>
