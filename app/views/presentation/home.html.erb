@@ -66,6 +66,15 @@
       <div class="row-fluid">
          <div class="span2">
          </br>
+         <% if logged_in? %>
+           <% if @name == "" %>
+              <input id="presentation-name" class="disappear" placeholder="<%= @name %>">
+               <% else %>
+              <input id="presentation-name" type="text" placeholder="Add Name">
+            <% end %>
+         <% end %>
+    
+
           <div class="disappear">
             <i class="icon-minus icon-2 btn-p" id="decrement_slide"></i>
             <div id="showNum">8</div>
@@ -143,18 +152,12 @@
             <!-- / mainmenu -->
             <div class="separator disappear"></div>
             <!--  <div class="separator"></div> -->
+          
           <% if logged_in? %>
-           <% if @name == "" %>
-              <input id="presentation-name" class="disappear" placeholder="<%= @name %>">
-               <% else %>
-              <input id="presentation-name" class="disappear" placeholder="Add Name">
-
-           <% end %>
             <a id="save-presentation" class="green-button disappear">
             Save
             </a>
           <% else %>
-             <input id="presentation-name" class="disappear" placeholder="Add Name">
              <a class="green-button disappear" href="/home#login-nav">
                 Log in to Save
             </a>

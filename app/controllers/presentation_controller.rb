@@ -33,7 +33,7 @@ class PresentationController < ApplicationController
   end
 
   def update
-    current_presentation.update_attributes(data: params.to_yaml)
+    current_presentation.update_attributes(data: params.to_yaml, name: params[:name])
     render action: :new
   end
 

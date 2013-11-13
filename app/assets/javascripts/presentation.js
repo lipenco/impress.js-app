@@ -426,11 +426,22 @@ var savePresentation = function () {
             var presId = $(x.contentDocument).find('#id-data').data('presentationid');
             if (presId == "" ) {
                 path = "/presentation";
+                var data = presentationData();
+                post_to_iframe(path, data, 'post');  
             } else {
-                path = "/presentation/"+presId+"/edit"
+                // path = "/presentation/"+presId+"/edit"     
+               var data = presentationData();
+               $.ajax({
+                    url: "/presentation/"+presId,
+                    type: 'PUT',
+                    data: data,
+                    success: function(result) {
+                      path = "/presentation/"+presId+"/edit"
+                      post_to_iframe(path, data, 'post');  
+                    }
+                });   
             }
-            var data = presentationData();
-            post_to_iframe(path, data, 'post');   
+             
         }, false);
     }
 }
