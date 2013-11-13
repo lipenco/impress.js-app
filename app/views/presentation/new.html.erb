@@ -106,7 +106,7 @@
        if ( $.isEmptyObject(parent.$("#data-store").data())) {
          console.log("empty")
          parent.$("#data-store").data("wallpaper", "<%= @wallpaper %>" );
-       <% if @text.nil? %>
+       <% unless @text.nil? %>
          parent.$("#data-store").data("text", [ <%= @text.split(',').uniq.join(',').gsub(/[^,]+/, "'\\0'").html_safe %>] );
        <% end %>
          parent.$("#data-store").data("imageNum", "<%= @imageNum %>" );
