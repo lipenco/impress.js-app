@@ -148,11 +148,13 @@
               <input id="presentation-name" class="disappear" placeholder="<%= @name %>">
                <% else %>
               <input id="presentation-name" class="disappear" placeholder="Add Name">
+
            <% end %>
             <a id="save-presentation" class="green-button disappear">
             Save
             </a>
           <% else %>
+             <input id="presentation-name" class="disappear" placeholder="Add Name">
              <a class="green-button disappear" href="/home#login-nav">
                 Log in to Save
             </a>

@@ -350,28 +350,32 @@ $(document).on('click', '.fonts-size-container ul li', function(){
 
 
 if (parent.$("#data-store").data("text") == undefined ) {
-parent.$("#data-store").data("text", ["Lato"]);
-} 
-  $(document).on('click', '.fonts-container ul li', function(){  
+    parent.$("#data-store").data("text", ['Lato']);
+    } 
+$(document).on('click', '.fonts-container ul li', function(){  
     var $el = $(this);
     var fontName = $el.data('fontname');
     $(this).closest(".editor").find('.text2').css('font-family', fontName);
-      parent.$("#data-store").data()["text"].push($el.data('fontname'));
-      WebFontConfig = {
-      google: { families: parent.$("#data-store").data('text')  
-      }
-    }
-      fontLoad();   
-  });
+     parent.$("#data-store").data("text").push($el.data('fontname'));
+    WebFontConfig = {
+        google: { families: parent.$("#data-store").data("text")
+      }  
+    };
+    fontLoad();
+});
+
+
 
 var fontLoad = function() {
-  var wf = document.createElement('script');
+   var wf = document.createElement('script');
+    wf.id = 'font-script';
     wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        '://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js';
     wf.type = 'text/javascript';
     wf.async = 'true';
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wf, s);
+  
 
 }
 

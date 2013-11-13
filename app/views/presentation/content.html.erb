@@ -23,6 +23,7 @@
 <%= javascript_include_tag "/assets/scripts/img.js" %>
 <%= javascript_include_tag "jquery-ui.js" %> 
 <%= javascript_include_tag "json.js" %> 
+
   <!--  jqDnR Recommended -->
 
 
@@ -33,18 +34,18 @@
       $("body").data("mode", "edit");
        parent.$("#data-store").data("imageNum", $( "img" ).length );
     });
+// if (parent.$("#data-store").data('text') !== undefined) {
+  var WebFontConfig = {
+    google: { families: parent.$("#data-store").data('text')  
+    }
+  }
 
-    if (parent.$("#data-store").data('text') !== undefined) {
-          WebFontConfig = {
-            google: { families: parent.$("#data-store").data('text')  
-            }
-          }
-      }
   fontLoad(); 
-
-  
-
  </script> 
+
+ 
+
+
   <style>
   .slide { 
     z-index: 1; 
