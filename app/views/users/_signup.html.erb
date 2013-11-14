@@ -1,5 +1,6 @@
 
 <div id="signupcontainer">
+
     <%= form_for @user do |f| %>
        <% if @user.errors.any? %>
         <div class="error_messages">
@@ -11,6 +12,7 @@
           </ul>
         </div>
       <% end %>
+        <a href="#" class="fa-times"> ☰ </a>
           
          <h2>Sign Up</h2> 
          <p>Welcome to ImpressLab. We are still in closed beta that means everything is for free.</p> 
