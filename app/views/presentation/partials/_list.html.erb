@@ -5,7 +5,7 @@
      <a href="#" id="close-listing"> ☰ </a>
  
     <% @presentations.each do |p| %> 
-     <a >  <%= p.name %>   </a>
+     <a class="name">  <%= p.name %>   </a>
      <a href="<%= presentation_path(p) %>" target="_blank" class="action"> Show </a> 
      <%= link_to "Delete", p, method: :delete %>
      <%= link_to "Edit", edit_presentation_path(p), {target: "preview" } %>

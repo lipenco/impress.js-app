@@ -297,6 +297,15 @@ border-radius: 100%;
   padding: 5px 10px;
  }
 
+.navbar-inner {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  margin-top: 0px;
+  z-index: 9999;
+  height: 55px;
+ }
+
 
 
 
@@ -341,12 +350,9 @@ line-height: 1.4;
   position: fixed;
   width: 85%;
   height: 91%;
+  margin-top: 55px;
   margin-left: 200px;
-  -webkit-transition: border linear 0.2s,box-shadow linear 0.2s;
--moz-transition: border linear 0.2s,box-shadow linear 0.2s;
--ms-transition: border linear 0.2s,box-shadow linear 0.2s;
--o-transition: border linear 0.2s,box-shadow linear 0.2s;
-transition: border linear 0.2s,box-shadow linear 0.2s;
+
 }
 
 #preview:focus {
@@ -1019,6 +1025,7 @@ color: #7f7f7f;
 .page-wrap {
   float: right;
   width: 100%;
+  height: 100%;
   transition: width 0.3s ease;
 }
 
@@ -1034,15 +1041,18 @@ color: #7f7f7f;
 }
 .main-nav a {
   display: inline-block;
-  background: linear-gradient(#3e3e3e, #383838);
-  border-top: 1px solid #484848;
-  border-bottom: 1px solid #2E2E2E;
   color: white;
   padding: 10px;
-  width: 40px;
+  width: 20px;
 }
 
-.main-nav a .actions {
+.main-nav a.name {
+  display: inline-block;
+  color: white;
+  padding: 10px;
+  width:100px;
+}
+/*.main-nav a .actions {
   display: inline-block;
   width: 25%;
   padding: 10px;
@@ -1051,7 +1061,7 @@ color: #7f7f7f;
   background: linear-gradient(#3e3e3e, #383838);
   border-top: 1px solid #484848;
   border-bottom: 1px solid #2E2E2E;
-}
+}*/
 
 .main-nav  #close-listing {
   display: block;
@@ -1062,7 +1072,7 @@ color: #7f7f7f;
 
 
 .main-nav a:hover, .main-nav a:focus {
-  background: linear-gradient(#484848, #383838);
+  background: #383838;
 }
 
 #close-menu, #close-login-menu {
@@ -1071,6 +1081,8 @@ color: #7f7f7f;
 
 #pres-listing:target, #login-nav:target {
   width: 20%;
+  position: fixed;
+  top:0;
 }
 
 #pres-listing:target + .page-wrap, #login-nav:target + .page-wrap {
@@ -1085,11 +1097,11 @@ color: #7f7f7f;
 
 .row-fluid .span2 {
    width: 200px;
-   position: fixed;
+   position: absolute;
    padding: 0;
    height: 100%;
-   overflow-y: scroll;
    margin: 0;
+   margin-top: 55px;
 }
 
 #signupcontainer {

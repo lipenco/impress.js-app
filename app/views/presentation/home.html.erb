@@ -42,8 +42,6 @@
                           </a>
                   </li> 
                 <% end %>
-
-     <!--        <li class="open-menu"> ☰</li> -->   
                
                   <% unless logged_in? %>  
                       <li class="open-login-menu"><a href="#login-nav">
@@ -56,16 +54,23 @@
                   <% else %>
                     <li> <%= link_to "log out", session_path(session), method: "delete" %></li>
                   <% end %>
-                  
-
                </ul>
-               
+
             </div>           
       </div>
    <div class="container-fluid">
       <div class="row-fluid">
          <div class="span2">
          </br>
+          <% if logged_in? %>
+           <% if @name == "" %>
+              <input id="presentation-name" class="disappear" type="text" placeholder="<%= @name %>">
+               <% else %>
+              <input id="presentation-name" type="text" class="disappear" placeholder="Add Name">
+           <% end %>  
+          <% else %>
+             <input id="presentation-name" class="disappear" type="text" placeholder="Add Name">
+          <% end %>
           <div class="disappear">
             <i class="icon-minus icon-2 btn-p" id="decrement_slide"></i>
             <div id="showNum">8</div>
@@ -144,17 +149,10 @@
             <div class="separator disappear"></div>
             <!--  <div class="separator"></div> -->
           <% if logged_in? %>
-           <% if @name == "" %>
-              <input id="presentation-name" class="disappear" type="text" placeholder="<%= @name %>">
-               <% else %>
-              <input id="presentation-name" type="text" class="disappear" placeholder="Add Name">
-
-           <% end %>
             <a id="save-presentation" class="green-button disappear">
             Save
             </a>
           <% else %>
-             <input id="presentation-name" class="disappear" type="text" placeholder="Add Name">
              <a class="green-button disappear" href="/home#login-nav">
                 Log in to Save
             </a>
@@ -175,8 +173,7 @@
       </div>
        </div>
    </div>
-      </div>
-   </div>
+</div>
 
     <script type="text/javascript">
    $('#preview').load(function() {
