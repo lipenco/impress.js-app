@@ -310,6 +310,8 @@ $(document).on('click', '.font2', function() {
             $this_container.addClass("active");
         } else {
             $this_container.css("display" , "block");
+            $this_container.load("/fonts.html", null,
+            function (responseText, status, response) {});
         }
     } else {
         $this_container.hide("slow");

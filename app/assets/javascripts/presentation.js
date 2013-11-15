@@ -85,6 +85,7 @@ var deleteWrapper = function () {
     y.$('.icon-on-edit').remove();
     y.$('img.icon-on-edit').remove();
     y.$('.no-edit').remove();
+    y.$('.fonts-container').remove();
 }
 
  var post_to_iframe = function(path, params, method) {

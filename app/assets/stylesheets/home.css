@@ -1081,7 +1081,7 @@ color: #7f7f7f;
   display: inline-block;
   color: white;
   padding: 10px;
-  width:110px;
+  width:140px;
 }
 /*.main-nav a .actions {
   display: inline-block;
@@ -1160,6 +1160,10 @@ color: #7f7f7f;
   box-shadow: none;
   font-size: 1.2em;
   margin-bottom: 1em;
+}
+
+#fonts-list li img {
+  width: 80px;
 }
 
 

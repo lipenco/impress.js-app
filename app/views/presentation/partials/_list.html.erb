@@ -7,14 +7,10 @@
     <% @presentations.each do |p| %> 
 
     <div class="row-name">
-     <a class="name">  <%= p.name %>   </a>
-     <a href="<%= presentation_path(p) %>" target="_blank" class="action"> Show </a> 
+     <%= link_to  p.name, edit_presentation_path(p), {target: "preview", :class=> "name" } %>
+     <%= link_to raw('<i class="icon-laptop "></i>'), presentation_path(p), {target: "_blank", :class => '' }  %>
      <%= link_to raw('<i class="icon-remove"></i>'), p, confirm: 'Are you sure?', method: :delete, :class => 'remove' %>
-     
 
-   <!--   <a class="trash"><%= link_to "", p,  method: :delete %></a> -->
- 
-     <%= link_to "Edit", edit_presentation_path(p), {target: "preview" } %>
     </div>
 
     <% end %>
