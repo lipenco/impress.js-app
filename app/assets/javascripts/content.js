@@ -3,7 +3,7 @@
 $(document).on('click', '.add-picture', function() { 
     parent.$("#data-store").data()["imageNum"] += 1;
     var imageCounter = parent.$("#data-store").data()["imageNum"];
-    var imageField = $('<img id="link'+imageCounter+'" class="decor" style="position: absolute" >');
+    var imageField = $('<img id="link'+imageCounter+'" class="decor" style="position: relative" >');
     $(this).parent().find(".step-wrapper").prepend(imageField);   
     var inputField = $('<input class="photo-input" style="visibility: collapse; width: 0px;" type="file">');
     $(this).parent().find(".step-wrapper").before(inputField); 
@@ -241,6 +241,10 @@ var draggableAndSortable = function() {
        }  
         $(this).resizable().draggable({ handle: ".icon-move" }).append('<img class="icon-layer-up2 icon-on-edit" src="/assets/icon_layer_up.png"><img class="icon-layer-down2 icon-on-edit" src="/assets/icon_layer_down.png"><img class="icon-trash2 icon-on-edit" src="/assets/icon_trash.png"><i class="icon-move icon-on-edit"></i><i class="icon-font font2 icon-on-edit"></i><img class="icon-font-size icon-on-edit" src="/assets/font_size2.png">');  
         $(".icon-on-edit").css('z-index', 2);
+        $(this).css( {
+          "position": "absolute",
+          "width" : "600px"
+        });
    });
 
 
