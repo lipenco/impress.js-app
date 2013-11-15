@@ -6,7 +6,8 @@ $(document).ready(function () {
     animateNumberOfSlides();
     d(); 
     var data = presentationData();
-    post_to_iframe('/presentation/new', data, 'post');  
+    post_to_iframe('/presentation/new', data, 'post'); 
+   
 }); 
 
 

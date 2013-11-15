@@ -1,12 +1,14 @@
-
+if ( parent.$("#data-store").data("imageNum") == undefined ) {
+      parent.$("#data-store").data("imageNum", 1);
+  } 
 
 $(document).on('click', '.add-picture', function() { 
-    parent.$("#data-store").data()["imageNum"] += 1;
-    var imageCounter = parent.$("#data-store").data()["imageNum"];
+    var imageCounter = parseInt(parent.$("#data-store").data("imageNum")) +1;
     var imageField = $('<img id="link'+imageCounter+'" class="decor" style="position: relative" >');
     $(this).parent().find(".step-wrapper").prepend(imageField);   
     var inputField = $('<input class="photo-input" style="visibility: collapse; width: 0px;" type="file">');
     $(this).parent().find(".step-wrapper").before(inputField); 
+    parent.$("#data-store").data("imageNum",imageCounter);
     inputField.click();
 
 
@@ -44,16 +46,16 @@ function upload(file) {
         var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
         xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
         xhr.onload = function () {
-            var imageCounter = parent.$("#data-store").data()["imageNum"];
+            var imageCounter = parseInt(parent.$("#data-store").data("imageNum"))+1;
             var response1 = JSON.parse(xhr.responseText);
             var response = JSON.parse(xhr.responseText).data.link;
             console.log(response);
+
          if (document.getElementById('link'+imageCounter) ) {
            document.getElementById('link'+imageCounter).src  = response;
            }
+        parent.$("#data-store").data("imageNum", imageCounter);
             
-         
-
         }
         // Ok, I don't handle the errors. An exercice for the reader.
         xhr.setRequestHeader('Authorization', 'Client-ID 24ef784af7d62de');
@@ -171,26 +173,26 @@ $(document).on('click', '.add-deco', function(event){
 
 
 $(document).on('click', '.images img', function(){ 
-  if ($('.add-icon').hasClass("active")) {
-     parent.$("#data-store").data()["imageNum"] +=1;
-     var imageCounter = parent.$("#data-store").data()["imageNum"];
+  if ($('.add-icon').hasClass("active")) {   
+     var imageCounter = parseInt(parent.$("#data-store").data("imageNum")) + 1;
       var src = $(this).data('src');
       var imageField = $('<img id="link'+imageCounter+'"style="position: absolute" >');
       $(this).parent().prev('.step').find(".step-wrapper").prepend(imageField); 
       document.getElementById('link'+imageCounter).src = src;
-      
+      parent.$("#data-store").data("imageNum", imageCounter);    
    }
+
   if ($('.add-background').hasClass("active")) {
     var src = $(this).data('src');
     $(this).parent().prev('.step').css("background" , "url("+src+")");
   } 
   if ($('.add-deco').hasClass("active")) {
-     parent.$("#data-store").data()["imageNum"] +=1;
-     var imageCounter = parent.$("#data-store").data()["imageNum"];
+     var imageCounter =parseInt(parent.$("#data-store").data("imageNum")) +1;
       var src = $(this).data('src');
       var imageField = $('<img id="link'+imageCounter+'" class="decor" style="position: absolute, top:0">');
       $(this).parent().prev('.step').find(".step-wrapper").prepend(imageField); 
-      document.getElementById('link'+imageCounter).src = src;  
+      document.getElementById('link'+imageCounter).src = src; 
+      parent.$("#data-store").data("imageNum", imageCounter);
    }
   
     
@@ -287,14 +289,16 @@ $(document).on('click', '.icon-layer-down2', function() {
  $(document).on('click', '.icon-trash1', function() { 
       $(this).parent(".ui-wrapper").find("img").hide("slow"); 
       $(this).parent(".ui-wrapper").remove();
-      parent.$("#data-store").data()["imageNum"]-=1;
+      var imageCounter = parseInt(parent.$("#data-store").data("imageNum"))-1;
+      parent.$("#data-store").data("imageNum", imageCounter);
 
    });
 
 
   $(document).on('click', '.icon-copy-el', function() { 
     $(this).parent(".ui-wrapper").after($(this).parent(".ui-wrapper").find(".ui-resizable").clone().show("slow"));
-    parent.$("#data-store").data()["imageNum"]+=1;
+    var imageCounter = parseInt(parent.$("#data-store").data("imageNum"))-1;
+    parent.$("#data-store").data("imageNum", imageCounter);
    });
 
 

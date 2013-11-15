@@ -1,7 +1,6 @@
 <head>
   <title>ImpressJsApp</title>
 
-
   <%= csrf_meta_tags %>
   <% if @theme == "textured" %>
      <%= stylesheet_link_tag "impress-theme3.css", :media => "all" %>
@@ -14,19 +13,24 @@
 <%= stylesheet_link_tag "/assets/default.css" %>
 <%= stylesheet_link_tag  "font-awesome.min.css" %>
 <%= stylesheet_link_tag  "home.css" %>
+
 <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" %>
 <%= javascript_include_tag "/assets/scripts/jquery.min.js" %>
+<%= javascript_include_tag "jquery-ui.js" %> 
+<%= javascript_include_tag "json.js" %> 
+ <%= javascript_include_tag "presentation.js" %>
+<%= javascript_include_tag "content.js" %>
 <%= javascript_include_tag "/assets/scripts/jquery.popline.js" %> 
 <%= javascript_include_tag "/assets/scripts/plugins/jquery.popline.link.js" %> 
 <%= javascript_include_tag "/assets/scripts/plugins/jquery.popline.list.js" %> 
 <%= javascript_include_tag "/assets/scripts/plugins/jquery.popline.justify.js"%> 
 <%= javascript_include_tag "/assets/scripts/plugins/jquery.popline.decoration.js"%>
-<%= javascript_include_tag "/assets/scripts/colors.js" %>
 <%= javascript_include_tag "/assets/scripts/img.js" %>
-<%= javascript_include_tag "jquery-ui.js" %> 
-<%= javascript_include_tag "json.js" %> 
- <%= javascript_include_tag "presentation.js" %>
-<%= javascript_include_tag "content.js" %>
+<%= javascript_include_tag "/assets/scripts/colors.js" %>
+
+
+
+
 
   <!--  jqDnR Recommended -->
 
