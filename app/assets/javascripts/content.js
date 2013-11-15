@@ -289,7 +289,7 @@ $(document).on('click', '.icon-layer-down2', function() {
 
 
   $(document).on('click', '.icon-copy-el', function() { 
-    $(this).parent(".ui-wrapper").after($(this).parent(".ui-wrapper").find(".decor").clone().show("slow"));
+    $(this).parent(".ui-wrapper").after($(this).parent(".ui-wrapper").find(".ui-resizable").clone().show("slow"));
     parent.$("#data-store").data()["imageNum"]+=1;
    });
 
