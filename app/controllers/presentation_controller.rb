@@ -172,6 +172,7 @@ class PresentationController < ApplicationController
     @text = params[:text]
     @imageNum = params[:imageNum]
     @name = params[:name]
+    @shape = params[:shape]
   end
 
   def load_presentation_from_database
@@ -196,5 +197,6 @@ class PresentationController < ApplicationController
     @text =  presentation_data[:text]
     @imageNum = presentation_data[:imageNum]
     @name = presentation_data[:name]
+    @shape = presentation_data[:shape]
   end
 end

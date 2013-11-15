@@ -159,6 +159,23 @@
   
         impress().init();
   </script>
+  <script>
+  parent.$('#shape li a').removeClass("current");
+  parent.$("#<%= @shape %>").addClass("current");
+  console.log("<%= @shape %>");
+  parent.$('#layout li a').removeClass("current");
+  parent.$("#<%= @layout %>").addClass("current");
+  parent.$('#theme li a').removeClass("current");
+  parent.$("#<%= @theme %>").addClass("current");
+  parent.$('#progress li a').removeClass("current");
+  parent.$("#<%= @progress_bar %>").addClass("current");
+  parent.$('#progress li a').removeClass("current");
+  parent.$("#<%= @progress_bar %>").addClass("current");
+  if ("<%= @automated %>" == "true" ) {
+    parent.$('#autobuttons li a').removeClass("current");
+    parent.$("#auto").addClass("current");
+  }
+  </script>
 
   <script> var api = impress();</script>
    
