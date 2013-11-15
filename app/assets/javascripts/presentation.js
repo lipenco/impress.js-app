@@ -297,16 +297,15 @@ var setFocusOnIframe = function () {
 var animateNumberOfSlides = function () {
     var $showNum = $("#showNum");
     $showNum.numberAnimate();
-    var counter = getNumberFromShowNum();
     $("#addslide").click(function () {
-        counter++;
-        $("#showNum").val(counter);
-        $showNum.numberAnimate('set', $("#showNum").val());
+        var counter = parseInt(getNumberFromShowNum()) + 1 ;
+        $("#showNum").val(counter );
+        $showNum.numberAnimate('set', counter );
     });
     $("#decrement_slide").click(function () {
-        counter--;
+        var counter = parseInt(getNumberFromShowNum()) - 1 ;
         $("#showNum").val(counter);
-        $showNum.numberAnimate('set', $("#showNum").val());
+        $showNum.numberAnimate('set', counter);
     });
 }
 
@@ -365,10 +364,12 @@ var eventsListeners = function () {
 
 
     var counter = parent.document.getElementById("showNum").value || 9;
+
     var addNumberToShowNum = function () {
         counter++;
      parent.$("#showNum").val(counter);
      parent.$("#showNum").numberAnimate('set', parent.$("#showNum").val());
+     parent.$("#showNum").data("numberanimate-value", counter );
      var slideReps = document.querySelectorAll('.slide-rep');
             if (slideReps.length < counter) {
                 newDiv = '<li class="slide-rep" data-loc="slide'+counter+'">'+counter+'</li>'
