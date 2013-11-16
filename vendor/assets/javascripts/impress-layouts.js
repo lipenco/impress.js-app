@@ -1,3 +1,116 @@
+function layoutRandom() {
+  var elements = document.querySelectorAll(".step");
+   if (elements[0]) {
+    elements[0].dataset.x = "-100";
+    elements[0].dataset.y = "2800";
+    elements[0].dataset.rotate = "270";
+    elements[0].dataset.delay = "3";
+   }
+   if (elements[1]) {
+    elements[1].dataset.x = "400";
+    elements[1].dataset.y = "-800";
+    elements[1].dataset.rotate = "320";
+    elements[1].dataset.delay = "4";
+   }
+   if (elements[2]) {
+    elements[2].dataset.x = "-100";
+    elements[2].dataset.y = "-1600";
+    elements[2].dataset.rotate = "270";
+    elements[2].dataset.delay = "17";
+   }
+   if (elements[3]) {
+    elements[3].dataset.x = "-800";
+    elements[3].dataset.y = "-800";
+    elements[3].dataset.rotate = "90";
+    elements[3].dataset.delay = "0.5";
+   }
+   if (elements[4]) {
+    elements[4].dataset.x = "600";
+    elements[4].dataset.y = "600";
+    elements[4].dataset.rotate = "1000";
+    elements[4].dataset.delay = "0.5";
+   }
+   if (elements[5]) {
+    elements[5].dataset.x = "2400";
+    elements[5].dataset.y = "600";
+    elements[5].dataset.delay = "0.5";
+   }
+   if (elements[6]) {
+    elements[6].dataset.x = "4200";
+    elements[6].dataset.y = "600";
+    elements[6].dataset.z = "1000";
+    elements[6].dataset.delay = "0.5";
+   }
+   if (elements[7]) {
+    elements[7].dataset.x = "6000";
+    elements[7].dataset.y = "600";
+    elements[7].dataset.delay = "0.5";
+    }
+   if (elements[8]) {
+    elements[8].dataset.x = "7800";
+    elements[8].dataset.y = "1000";
+    elements[8].dataset.rotate = "90";
+    elements[8].dataset.delay = "0.5";
+    }
+   if (elements[9]) {
+    elements[9].dataset.x = "7800";
+    elements[9].dataset.y = "2000";
+    elements[9].dataset.rotate = "90";
+    elements[9].dataset.delay = "5.5";
+    }
+    if (elements[10]) {
+        elements[10].dataset.x = "6400";
+        elements[10].dataset.y = "4000";
+        elements[10].dataset.rotate = "90";
+        elements[10].dataset.delay = "0.5";
+    }
+    if (elements[11]) {
+        elements[11].dataset.x = "5400";
+        elements[11].dataset.y = "3600";
+        elements[11].dataset.rotate = "135";
+        elements[11].dataset.delay = "3";
+    }
+    if (elements[12]) {
+        elements[12].dataset.x = "4800";
+        elements[12].dataset.y = "2200";
+        elements[12].dataset.rotate = "180";
+        elements[12].dataset.delay = "3";
+    }
+    if (elements[13]) {
+        elements[13].dataset.x = "2000";
+        elements[13].dataset.y = "1500";
+        elements[13].dataset.z = "-500";
+        elements[13].dataset.delay = "12";
+    }
+    if (elements[14]) {
+        elements[14].dataset.x = "-500";
+        elements[14].dataset.y = "1800";
+        elements[14].dataset.rotate = "0";
+        elements[14].dataset.delay = "0.5";
+    }
+    // if (elements[15]) {
+    //     elements[15].dataset.x = "-7440";
+    //     elements[15].dataset.y = "440";
+    //     elements[15].dataset.rotate = "90";
+    //     elements[15].dataset.rotateY = "90";
+    //     elements[15].dataset.scale = "20";
+    // }
+    // if (elements[16]) {
+    //     elements[16].dataset.x = "7340";
+    //     elements[16].dataset.y = "3740";
+    //     elements[16].dataset.rotate = "90";
+    //     elements[16].dataset.scale = "8";
+    // }
+    // if (elements[17]) {
+    //     elements[17].dataset.x = "7640";
+    //     elements[17].dataset.y = "1740";
+    //     elements[17].dataset.scale = "0.1";
+    // }
+
+}
+
+
+
 function layoutCircleV1(options) {
     var radius;
     if (options != undefined) {

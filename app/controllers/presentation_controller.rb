@@ -21,7 +21,7 @@ class PresentationController < ApplicationController
   
   def destroy
     current_presentation.destroy
-    redirect_to home_path(p, anchor: 'pres-listing')
+    redirect_to build_path(p, anchor: 'pres-listing')
   end
 
   def show
@@ -147,7 +147,7 @@ class PresentationController < ApplicationController
     @num_slides = 8
     @num_slides = params[:num_slides].to_i if params[:num_slides].to_i > 0
     @layout = "vertical"
-    @layout = params[:layout] if ["vertical", "linear", "circlev1", "circlev2", "circlev3", "circlev4", "chain", "lineargrid", "snakegrid", "verticalgrid", "deep"].include?(params[:layout])
+    @layout = params[:layout] if ["vertical", "random", "linear", "circlev1", "circlev2", "circlev3", "circlev4", "chain", "lineargrid", "snakegrid", "verticalgrid", "deep"].include?(params[:layout])
 
     if params[:shape] == "rectangle"
       @shape_class = "slide"

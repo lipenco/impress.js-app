@@ -66,7 +66,11 @@
             end
           %>
         <% else %>
-          <h2> Slide <%= n +1 %> </h2>
+            <% if @content.nil? || @content[n.to_s].nil?  %>
+               <h2> Slide <%= n +1 %> </h2>
+            <% else %>
+               <%=  @content[n.to_s].html_safe %>
+            <% end %>
         <% end %>
       </div>
     <% end %>
@@ -105,14 +109,18 @@
        parent.$("#presentation-name").val("<%= @name %>");
        if ( $.isEmptyObject(parent.$("#data-store").data())) {
          console.log("empty")
+      <% unless @wallpaper.nil? %>
          parent.$("#data-store").data("wallpaper", "<%= @wallpaper %>" );
+      <% end %>
        <% unless @text.nil? %>
          parent.$("#data-store").data("text", [ <%= @text.split(',').uniq.join(',').gsub(/[^,]+/, "'\\0'").html_safe %>] );
        <% end %>
          parent.$("#data-store").data("imageNum", "<%= @imageNum %>" );
+      <% unless @background.nil? %>
         <% @num_slides.times do |n| %> 
          parent.$("#data-store").data("background[<%=n%>]","<%= @background[n.to_s] %>" );
          parent.$("#data-store").data('content[<%=n%>]' ,  <%= @content[n.to_s].to_json.html_safe %> );
+      <% end %>
         <% end %>
           } else {
         console.log("notempty");
@@ -131,6 +139,8 @@
      <% case @layout
         when "vertical" %>
          layoutVertical();
+     <% when "random" %>
+         layoutRandom();
      <% when "linear" %>
          layoutLinear();
      <% when "circlev1" %>
@@ -159,6 +169,8 @@
   
         impress().init();
   </script>
+
+<% if @id %>
   <script>
     parent.$('#shape li a').removeClass("current");
     parent.$("#<%= @shape %>").addClass("current");
@@ -180,6 +192,7 @@
       parent.$("#substeps").addClass("current");
     }
   </script>
+<% end %>
 
   <script> var api = impress();</script>
    

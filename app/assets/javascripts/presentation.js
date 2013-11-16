@@ -33,24 +33,27 @@ var updatePreview = function () {
 };
 
 
-$(document).on('click', '#style-mode', function(){ 
-    var x = document.getElementById("preview");
-    var presId =  $(document).find('iframe')[0].contentDocument.location.pathname.split("/")[2];
-    if (presId == null || isNaN(presId)) {
-        var data = presentationData();
-        post_to_iframe('/presentation/new', data, 'post');
-    } else {
-       var data = presentationData();
-       $.ajax({
-            url: "/presentation/"+presId,
-            type: 'PUT',
-            data: data,
-            success: function(result) {
-              path = "/presentation/"+presId+"/edit";
-              post_to_iframe(path, data, 'post');  
-            }
-        });
-      } 
+$(document).on('click', '#style-mode', function(){
+    storeData();
+    setTimeout(function () {
+        var x = document.getElementById("preview");
+        var presId =  $(document).find('iframe')[0].contentDocument.location.pathname.split("/")[2];
+        if (presId == null || isNaN(presId)) {  
+            var data = presentationData();     
+            post_to_iframe('/presentation/new', data, 'post');
+        } else {
+           var data = presentationData();   
+           $.ajax({
+                url: "/presentation/"+presId,
+                type: 'PUT',
+                data: data,
+                success: function(result) {
+                  path = "/presentation/"+presId+"/edit";
+                  post_to_iframe(path, data, 'post');  
+                }
+            });
+          } 
+    }, 500);
     f();
     d();
 });
@@ -181,7 +184,9 @@ var postData = function () {
     if ((contentObject["content[0]"] || contentObject["bacground[0]"]) !== undefined) {
       for (var i = 0; i < slides.length; i++) {
           slides[i].innerHTML = contentObject["content[" + i + "]"];
-          slides[i].style.backgroundImage = contentObject["background[" + i + "]"];
+          if (contentObject["background[" + i + "]"] !== "") {
+            slides[i].style.backgroundImage = contentObject["background[" + i + "]"];
+          }
       }
 
     }
@@ -368,7 +373,7 @@ var eventsListeners = function () {
 
 
 
-    var counter = parent.document.getElementById("showNum").value || 9;
+    var counter = parent.document.getElementById("showNum").value || 8;
 
     var addNumberToShowNum = function () {
         counter++;
