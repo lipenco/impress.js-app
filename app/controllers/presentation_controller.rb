@@ -37,7 +37,7 @@ class PresentationController < ApplicationController
     render action: :new
   end
 
-  def home
+  def build
     if logged_in?
       @presentations = current_user.presentations
     end

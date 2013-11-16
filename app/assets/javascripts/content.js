@@ -109,7 +109,7 @@ $(document).on('click', '.add-wallpaper', function(event){
 
 $(".slide").on('click', function (){
      $(".images-absolute").hide("slow");
-  });
+});
 
 $(document).on('click', '.add-background', function(event){ 
    $(".images").hide();
@@ -373,6 +373,17 @@ $(document).on('click', '.fonts-container ul li', function(){
     };
     fontLoad();
 });
+
+$(document).on('focusout', '.ui-resizable', function () {
+  console.log("klik");
+     $('.ui-resizable-handle').remove();
+     $('.icon-on-img').remove();
+     $('.icon-on-edit').remove();
+     $('img.icon-on-edit').remove();
+     $('.no-edit').remove();
+     $('.fonts-container').remove();
+     $('fonts-size-container').remove();
+   });
 
 
 

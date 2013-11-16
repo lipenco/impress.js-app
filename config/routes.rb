@@ -10,7 +10,7 @@ ImpressJsApp::Application.routes.draw do
   match 'download' => 'presentation#download'
   match 'components' => 'presentation#components'
   match 'content' => 'presentation#content'
-  match 'home'  => 'presentation#home'
+  match 'build'  => 'presentation#build'
   match 'images_background'  => 'presentation#images_background'
   match 'icons'  => 'presentation#icons'
   match 'deco'  => 'presentation#deco'
