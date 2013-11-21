@@ -216,7 +216,7 @@ li {
   border-radius: 50%;
   cursor: pointer;
   position: absolute;
-  width: 21em; height: 21em;
+  width: 20em; height: 20em;
   margin-top: 90px;
   margin-left: 41.5%;
   overflow: hidden;
@@ -230,8 +230,9 @@ li {
   color: rgba(189, 185, 199,0);
   font-family: 'Lato', sans-serif;
   font-weight: 900;
-  font-size: 3.6em;
-  padding-top: 2em;
+  font-size: 4em;
+  padding-top: 1.6em;
+  letter-spacing: 5px;
  /* line-height: 6.2em;*/
   text-align: center;
 /*  text-transform: uppercase;*/
