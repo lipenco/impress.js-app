@@ -13,7 +13,12 @@
          <input id="loginPassword" name="password" type="password" placeholder="Password"> 
          <input type="submit" value="Log in " class="green-button">
       </fieldset> 
-     
+      <fieldset class="forgotLink">
+         <%= link_to "Forgotten password?", new_password_reset_path, :id => "forgot" %>
+         </fieldset> 
+       <fieldset class="forgotLink">
+          <p class="orr"> <%= check_box_tag :remember_me, 1, params[:remember_me] %>Remember me</p> 
+        </fieldset> 
          <p class="or">New Here?</p> 
          <div id="go-to-sign-up" class="green-button">Sign Up</div>
       <% end %>
