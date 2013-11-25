@@ -219,7 +219,7 @@ var getNumberFromShowNum = function () {
 
 
 var getShape = function () {
-    var shape = "rectangle";
+    var shape = "blank";
     var shapegroup = document.getElementById("shape");
     if (shapegroup != null) {
         var shapecurrent = shapegroup.querySelector(".current");

@@ -50,6 +50,9 @@ class PresentationController < ApplicationController
   def images_background
   end
 
+  def wallpaper
+  end
+
   def icons
   end
 
@@ -149,9 +152,7 @@ class PresentationController < ApplicationController
     @layout = "vertical"
     @layout = params[:layout] if ["vertical", "random", "linear", "circlev1", "circlev2", "circlev3", "circlev4", "chain", "lineargrid", "snakegrid", "verticalgrid", "deep"].include?(params[:layout])
 
-    if params[:shape] == "rectangle"
-      @shape_class = "slide"
-    elsif params[:shape] == "circle"
+    if params[:shape] == "circle"
       @shape_class = "slide-circle"
     else 
       @shape_class = ""

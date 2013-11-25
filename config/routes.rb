@@ -14,6 +14,7 @@ ImpressJsApp::Application.routes.draw do
   match 'content' => 'presentation#content'
   match 'build'  => 'presentation#build'
   match 'images_background'  => 'presentation#images_background'
+  match 'wallpaper' => 'presentation#wallpaper'
   match 'icons'  => 'presentation#icons'
   match 'deco'  => 'presentation#deco'
   match 'editor'  => 'presentation#editor'

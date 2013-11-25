@@ -549,9 +549,9 @@ transition: color 0.3s linear;
 .icon-move {
   color: #389646;
   position: absolute;
-  bottom: 5px;
+ /* bottom: 5px;*/
   left: -50px;
- font-size: 25px;
+  font-size: 20px;
 }
 
 .icon-trash {
@@ -780,9 +780,7 @@ nav ul li:active {
 }
 
 .icon-move {
-   font-size: 0.5em;
-    height:15px;
-    width:15px;
+   font-size: 0.4em;
     position:absolute;
     top: 0;
     left: 102%;
@@ -794,9 +792,8 @@ nav ul li:active {
 
 
 .font2 {
-   font-size: 0.5em;
+    font-size: 0.35em;
     width:15px;
-    height:15px;
     position:absolute;
     top:90px;
     left: 0;

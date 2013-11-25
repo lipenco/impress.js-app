@@ -201,7 +201,12 @@ $(document).on('click', '.images img', function(){
 $(document).on('click', '.images-absolute img', function(){ 
    if ($('.add-wallpaper').hasClass("active")) {
     var src = $(this).data('src');
-    $('body').css("background" , "url("+src+")");
+    $('body').css({
+      "background" : "url("+src+")",
+      "background-position": "center top",
+      "background-size": "100%",
+      "background-attachment":"fixed"
+      });
     parent.$("#data-store").data()["wallpaper"] = src;
   }  
 });
