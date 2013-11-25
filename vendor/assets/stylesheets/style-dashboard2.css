@@ -503,14 +503,14 @@ margin: 0 auto;
 width: 192px;
 height: 112px;
 border-radius: 2px;
-background: #fff;
-box-shadow: 0 1px 2px rgba(0,0,0,0.18);
+/*background: #fff;*/
+/*box-shadow: 0 1px 2px rgba(0,0,0,0.18);*/
 background-repeat: no-repeat;
-background-position: 50% 50%;
-background-size: 176px 96px;
-background-image: url('https://readymag.com/img/homepage/tour-overview-poster.jpg');
+background-position: 5% 50%;
+background-size: 170px 170px;
+background-image: url('../assets/poster2.png');
 cursor: pointer;
--webkit-tap-highlight-color: transparent;
+/*-webkit-tap-highlight-color: transparent;*/
 }
 
 .overview .text-block .demo-block .anno {
@@ -531,6 +531,7 @@ font-size: 27px;
 color: #64543e;
 margin: 41px auto 0;
 text-align: center;
+
 }
 
 .overview .top-border {
@@ -541,17 +542,17 @@ top: -2px;
 left: 0;
 background-repeat: repeat-x;
 background-size: 6px 2px;
-background-image: url('https://readymag.com/img/homepage/underline-grey.png');
+background-image: url('../assets/grey.png');
 }
 
 .overview .macbook {
 position: relative;
-margin: 18px auto 0;
+margin: 58px auto 0;
 width: 900px;
 height: 518px;
 background-repeat: no-repeat;
 background-size: 900px 518px;
-background-image: url('https://readymag.com/img/homepage/tour-overview-macbook.jpg');
+background-image: url('../assets/macbook.jpg');
 }
 
 .overview .macbook .gallery {
@@ -580,7 +581,15 @@ width: 100%;
 margin-top: -1px;
 height: 1px;
 line-height: 1px;
-background: rgba(32,28,28,0.1);
+/*background: rgba(32,28,28,0.1);*/
+background: #389646;
+}
+
+.overview .browsers {
+width: 405px;
+height: 29px;
+margin: 96px auto 0;
+
 }
 
 
