@@ -62,6 +62,11 @@
       <div class="row-fluid">
          <div class="span2">
          </br>
+          <ul class="modes">
+               <li><a id="style-mode" class=" mode appear" href="#">Change Style</a></li> 
+               <li><a id="content-mode" class="mode disappear toggle-buttons">Change Content</a></li>
+                <div class="separator"></div>
+            </ul>
           <% if logged_in? %>
            <% if @name == "" %>
               <input id="presentation-name" class="disappear" type="text" placeholder="<%= @name %>">
@@ -71,17 +76,14 @@
           <% else %>
              <input id="presentation-name" class="disappear" type="text" placeholder="Add Name">
           <% end %>
+         <!--  <div class="separator"></div> -->
           <div class="disappear">
             <i class="icon-minus icon-2 btn-p" id="decrement_slide"></i>
             <div id="showNum">8</div>
             <i class="icon-plus icon-2 btn-p" id="addslide"></i>
          </div>
-            <div class="separator"></div>
-            <ul class="modes">
-               <li><a id="style-mode" class=" mode appear" href="#">style mode</a></li> 
-               <li><a id="content-mode" class="mode disappear toggle-buttons">content mode</a></li>
-                <div class="separator"></div>
-            </ul>
+            
+           
            <ul class="accordion">
                <li class="disappear">
                   <a  href="#">Slides Shape</a>

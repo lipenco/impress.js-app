@@ -1,13 +1,15 @@
 <head>
     <title>ImpressLab</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Droid+Sans|Lato:400,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato|Antic' rel='stylesheet' type='text/css'>
+
  
   <%= stylesheet_link_tag "def.css", :media => "all" %>
 
   <%= stylesheet_link_tag "style-dashboard2.css"  %>
   <%= javascript_include_tag "modernizer.js" %>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <%= javascript_include_tag "jquery.lettering.js" %>
 
 
 </head>
@@ -16,8 +18,20 @@
     <div id="main">
         <img class="cover" src="/assets/cover.jpg">
         <div class="circle">
-            <h1>I M P<br/> R E Z<br/>.<span>C O</span></h1>
+                        <div class='cross'>
+              <div class='logo-container'>
+                <ul>
+                <li class='characters portrait' id='l-q'>IMPREZ</li> 
+                  <li class='characters portrait' id='r-q'>CO</li> 
+                 <!--  <li class='characters landscape' id='t-q'>IMPREZ</li>
+                  <li class='characters landscape' id='b-q'>CO</li> -->
+                </ul>
+              </div>
+            </div>
+            <!-- <h1>I M P<br/> R E Z<br/>.<span>C O</span></h1> -->
+
         </div>
+        <p id="curved" class="pcircle"><span>impressive web presentation tool</span></p>
         <div id="mainHeader" class="clear_fix">
             <nav>
                 <div class="animateArrowParent">
@@ -37,23 +51,56 @@
             </a>         
         </div>
    </div>
+   <div class="overview">
+                        <div class="top-border"></div>
+
+                        <div class="caption">Web Art For Presentations</div>
+                        <div class="text-block clearfix">
+                            <div class="text">Imprez.co uses latest web technologies enabling you to create the most elegant, powerful, easy-to-use presentations.
+                            Impress your audience with creative design and new approach to presentation.</div>
+                            <div class="demo-block">
+                                <div class="poster">
+                                    <div class="play"></div>
+                                </div>
+                                <div class="anno">Watch the quick demo</div>
+                            </div>
+                        </div>
+
+
+                        <div class="macbook">
+                            <div class="gallery">
+                              <iframe class="landingpageframe" width="100%" height="100%" src="http://lipen.co/google-tax-evasion-presentation"></iframe>
+                            </div>
+                        </div>
+
+                        <div class="underline"></div>
+
+                        <div class="browsers"></div>
+
+                        <div class="quote">Imprez.co runs in your browser and requires no coding skills at all. Simply click, drag, drop, scroll, slide and have fun.</div>
+                    </div>
     <div id="footer">
         <div class="sectionRight">
             <ul class="toUpper lightNav">
-                <li><a href="">ImpressLab.</a></li>
-                <li><a href="">made with impress.js.</a></li>
-                <li><a href="">news.</a></li>
-                <li><a href="./about">about.</a></li>
-                <li><a href="">developers.</a></li>
-                <li><a href="./contact">contact.</a></li>
+                <li><a href="">Imprez.co</a></li>
+                <li><a href="">made by Lipen.co</a></li>
+                <li><a href="">with impress.js</a></li>
+               <!--  <li><a href="">news</a></li> -->
+                <li><a href="./about">about</a></li>
+                <!-- <li><a href="">developers.</a></li> -->
+                <li><a href="./contact">contact</a></li>
             </ul>
             <div id="footerInfo">
                 <p>
-                    2013 &copy; Lipen.co. Made in Berlin, Chojnice, Sant Petersburg, London and Tokyo on Rails Girls Summer of Code.
+                   Made in Berlin, Chojnice, Sant Petersburg, London and Tokyo on Rails Girls Summer of Code.
                 </p>
             </div>
         </div>
      </div>
   </div>
+  <script type="text/javascript">
+
+$('#curved').elipText({radius: 160, dir:-1});
+  </script>
 </body>
 </html>
