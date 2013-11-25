@@ -686,16 +686,15 @@ nav ul li:active {
 .images {
  /* position: absolute;
   top: 0;*/
-  background-color: #323232;
+  background-color: #389646;
+  margin-left: 12%;
+  margin-right: 12%;
   text-align: center;
-  padding: 1em 2em;
-  border-bottom: 2px solid #444444;
-  border-left: 2px solid #444444;
-  border-right: 2px solid #444444; 
-  height: 100px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space:nowrap
+  padding: 1em;
+  border-bottom: 2px solid #389646;
+  height: 250px;
+  overflow-y: scroll;
+/*  white-space:nowrap;*/
 
 }
 

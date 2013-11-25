@@ -453,8 +453,9 @@ var savePresentation = function () {
                     }
                 });   
             }
-             
+           $('#save-presentation').hide("slow");  
         }, false);
+
     }
 }
 
