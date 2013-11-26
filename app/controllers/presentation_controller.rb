@@ -152,7 +152,7 @@ class PresentationController < ApplicationController
     @automated = params[:automated] if ["false", "true"].include?(params[:automated])
     @theme = "basic"
     @theme = params[:theme] if ["basic", "blank"].include?(params[:theme])
-    @substeps = "false"
+    @substeps = "true"
     @substeps = params[:substeps] if ["false", "true"].include?(params[:substeps])
     @progress_bar = "no-pbar"
     @progress_bar = params[:progress_bar] if ["no-pbar", "pbar1"].include?(params[:progress_bar])

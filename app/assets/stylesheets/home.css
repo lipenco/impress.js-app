@@ -527,6 +527,15 @@ transition: color 0.3s linear;
   left:6%;
 }
 
+.add-substep {
+  width: 30px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: 2%;
+  left:10%;
+}
+
 .sort-slides {
    width: 30px;
   height: 20px;

@@ -257,14 +257,14 @@ var getTheme = function () {
 }
 
 var getSubsteps = function () {
-    var substeps = "false";
+    var substeps = "true";
     var substepsgroup = document.getElementById("substepsbutton");
     if (substepsgroup != null) {
         var substepscurrent = substepsgroup.querySelector(".current");
     }
     if (substepscurrent != null) {
-        if (substepscurrent.id == "substeps") {
-            substeps = "true";
+        if (substepscurrent.id == "nosubsteps") {
+            substeps = "false";
         }
     }
     return substeps;

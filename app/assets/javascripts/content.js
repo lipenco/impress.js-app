@@ -72,6 +72,11 @@ $(document).on('click', '.add-edit', function() {
    $(".editor").popline(); 
 });
 
+$(document).on('click', '.add-substep', function() {
+   $(this).parent().find(".step-wrapper").append('<div class="editor" contenteditable="true"><h2 class="text2 substep fadeIn">Title</h2></div>'); 
+   $(".editor").popline(); 
+});
+
 
 // $(document).on('dblclick', '.slide', function(e) {
 //   var editor = $('<div class="editor" contenteditable="true" style="position:absolute"><h2  class="text2">Title</h2></div>').css({
