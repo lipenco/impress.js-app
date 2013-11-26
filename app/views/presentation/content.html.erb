@@ -1,10 +1,8 @@
 <head>
   <title>ImpressJsApp</title>
 
-  <%= csrf_meta_tags %>
-  <% if @theme == "textured" %>
-     <%= stylesheet_link_tag "impress-theme3.css", :media => "all" %>
-  <% elsif @theme == "basic" %>
+  <%= csrf_meta_tags %>   
+  <% if @theme == "basic" %>
      <%= stylesheet_link_tag "impress-theme1.css", :media => "all" %>
   <% elsif @theme == "blank" %>
      <%= stylesheet_link_tag "impress-theme3.css", :media => "all" %>

@@ -88,29 +88,26 @@ h6 {
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: 600;
-    padding: 0.5em 0;
+  /*  padding: 0.5em 0;*/
     
 }
 
-h1 .example {
-    padding: 1.5em 0;
-}
 
 h2 {
-    font-size: 1.5em;
-    padding: 0.8em 0;
+    font-size: 1.1em;
+   /* padding: 0.8em 0;*/
 }
 
 h3 {
-    font-size: 1.1em;
-    padding:  0.5em 0;
+    font-size: 1em;
+   /* padding:  0.5em 0;*/
 }
 
 h4 {
     font-size: 0.9em;
-    padding: 0.3em 0;
+   /* padding: 0.3em 0;*/
 }
 
 p, li{
@@ -195,17 +192,16 @@ blockquote {
     line-height: 1.9em;
     position: relative;
     color: #383838;
-    margin-top: 15%;
 }
 
 blockquote:before {
     font-family: 'Source Sans Pro';
     display: block;
     content: "\201C";
-    font-size: 4em;
+    font-size: 2em;
     position: absolute;
     left: 2%;
-    top: 15%;
+    top: 5%;
     color: #7a7a7a;
 }
 
@@ -254,32 +250,20 @@ blockquote cite:before {
 .impress-enabled .step.active { opacity: 1 }
 
 
-.slide, .slide-circle {
-    display: block;
-    width: 900px;
-    height: 700px;
-    padding: 40px 60px;
+.slide-circle {
     background-color: white;
     border: 1px solid rgba(0, 0, 0, .3);
-    border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
-    color: rgb(102, 102, 102);
-    text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
-    font-family: 'Open Sans', Arial, sans-serif;
-    font-size: 30px;
-    line-height: 36px;
-    letter-spacing: -1px;
-    z-index: 10000;
 }
 
 .slide-circle {
     border-radius: 50%;
-    height: 700px;
-    width: 700px;
-    padding: 100px;
+    height: 750px;
+    width: 750px;
+    padding: 0;
 }
 
-.slide q, .slide-circle q {
+/*.slide q, .slide-circle q {
     display: block;
     font-size: 50px;
     line-height: 72px;
@@ -330,7 +314,7 @@ blockquote cite:before {
 
 .slide .lead, .slide-circle .lead {
     font-size: 1.2em;
-}
+}*/
 
 .lead{
     margin-bottom: 1em;
@@ -338,7 +322,7 @@ blockquote cite:before {
     font-weight: lighter;
 }
 
-.slide table .slide-circle table{
+/*.slide table .slide-circle table{
     font-size: 0.8em;
 }
 
@@ -407,7 +391,7 @@ blockquote cite:before {
     -ms-transition:     opacity 1s 5s,     -ms-transform 0.5s 4.5s;
     -o-transition:      opacity 1s 5s,      -o-transform 0.5s 4.5s;
     transition:         opacity 1s 5s,         transform 0.5s 4.5s;
-}
+}*/
 
 .impress-enabled          { pointer-events: none }
 .impress-enabled #impress { pointer-events: auto }

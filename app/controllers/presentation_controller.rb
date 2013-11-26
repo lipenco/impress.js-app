@@ -97,15 +97,6 @@ class PresentationController < ApplicationController
       if params[:theme] == "basic"
         out.put_next_entry("assets/impress-theme1.css")
         out.write File.read css_path.join("impress-theme1.css")
-      elsif params[:theme] == "textured"
-        out.put_next_entry("assets/impress-theme2.css")
-        out.write File.read css_path.join("impress-theme2.css")
-        out.put_next_entry("assets/bg1.png")
-        out.write File.read img_path.join("bg1.png")
-        out.put_next_entry("assets/bg2.png")
-        out.write File.read img_path.join("bg2.png")
-        out.put_next_entry("assets/bg3.jpg")
-        out.write File.read img_path.join("bg3.jpg")
       elsif params[:theme] == "blank"
         out.put_next_entry("assets/impress-theme3.css")
         out.write File.read css_path.join("impress-theme3.css")
@@ -160,7 +151,7 @@ class PresentationController < ApplicationController
     @automated = "false"
     @automated = params[:automated] if ["false", "true"].include?(params[:automated])
     @theme = "basic"
-    @theme = params[:theme] if ["basic", "textured", "blank"].include?(params[:theme])
+    @theme = params[:theme] if ["basic", "blank"].include?(params[:theme])
     @substeps = "false"
     @substeps = params[:substeps] if ["false", "true"].include?(params[:substeps])
     @progress_bar = "no-pbar"
