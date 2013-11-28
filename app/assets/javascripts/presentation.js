@@ -11,6 +11,8 @@ $(document).ready(function () {
 }); 
 
 
+
+
 var updatePreview = function () {
     var x = document.getElementById("preview");
     var presId = $(x.contentDocument).find('#id-data').data('presentationid');

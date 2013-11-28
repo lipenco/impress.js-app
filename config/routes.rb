@@ -26,6 +26,7 @@ ImpressJsApp::Application.routes.draw do
   resources :users
   resources :sessions
   resources :password_resets
+  
 
   post '/presentation/new', to: 'presentation#new'
   post '/presentation/:id/edit', to: 'presentation#edit'

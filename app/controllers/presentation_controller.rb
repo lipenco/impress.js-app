@@ -2,10 +2,14 @@ require 'zip'
 
 class PresentationController < ApplicationController
   layout "application", except: [:build]
-  before_filter :load_presentation_from_params, only: %w(content download new update)
+  before_filter :load_presentation_from_params, only: %w(content download update new)
   before_filter :load_presentation_from_database, only: %w(show edit)
 
   def new
+  end
+
+  def new_prez
+    load_presentation_from_params
   end
 
   def create
