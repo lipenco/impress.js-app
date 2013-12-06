@@ -216,14 +216,29 @@ li {
   border-radius: 50%;
   cursor: pointer;
   position: absolute;
-  width: 20em; height: 20em;
-  margin-top: 90px;
-  margin-left: 41.5%;
-  overflow: hidden;
+  position:absolute;  
+    top:50%;  
+    left:50%;  
+    margin:-200px 0 0 -125px;  
+    width:250px;  
+    height:250px;  
+      overflow: hidden;
   -webkit-transform: translateZ(0);
      -moz-transform: translateZ(0);
     -ms-transform: translateZ(0);
       transform: translateZ(0);
+}
+
+.pcircle {
+    font-size: 20px;
+   width: 0;
+   position: absolute;
+  margin-top: 350px;
+  margin-left: 50%;
+  text-align: center;
+  color: #64543e;
+  opacity: 0.8;
+
 }
 
 .circle h1 {
@@ -247,16 +262,7 @@ li {
       transition: color 0.8s ease-in-out;
 }
 
-.pcircle {
-    font-size: 1.8em;
-    position: absolute;
-   margin-top: 350px;
-  margin-left: 52%;
-  text-align: center;
-  color: #64543e;
-  opacity: 0.8;
 
-}
 
 
 
